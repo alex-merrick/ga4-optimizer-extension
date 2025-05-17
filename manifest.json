@@ -1,0 +1,82 @@
+{
+  "manifest_version": 3,
+  "name": "GA4 Optimizer",
+  "version": "3.1.2",
+  "description": "Adds features like automatic calculations, auto-unsample, click-to-copy, sticky headers, and GA4 debugging toggle to Google Analytics 4",
+  "permissions": [
+    "storage",
+    "tabs",
+    "clipboardWrite",
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "https://analytics.google.com/analytics/web/*",
+    "<all_urls>"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ga4-debug-ruleset",
+        "enabled": false,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://analytics.google.com/analytics/web/*"],
+      "js": [
+        "content_main.js",
+        "feature_percentages.js",
+        "feature_autodetailed.js",
+        "feature_conversion_rate.js",
+        "feature_copy_cell.js",
+        "feature_sticky_header.js",
+        "feature_highlight_sampling.js",
+        "feature_segment_comparison.js",
+        "feature_panel_toggle.js",
+        "feature_sticky_calculator.js" 
+      ],
+      "css": ["content_styles.css"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "documentation.html",
+        "documentation_modal.js",
+        "onboarding.html",
+        "icons/icon48.png",
+        "mp4/pin.mp4",
+        "mp4/click_to_copy.mp4",
+        "mp4/sticky_header.mp4",
+        "mp4/highlight_sampling.mp4",
+        "mp4/percentage_column_total.mp4",
+        "mp4/auto_detail.mp4",
+        "mp4/all_users_segment_compare.mp4",
+        "mp4/ab_test_compare.mp4",
+        "mp4/collapsible_panels.mp4",
+        "mp4/sticky_calculator.mp4"
+       ],
+      "matches": [ "<all_urls>" ] 
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

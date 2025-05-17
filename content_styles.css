@@ -1,0 +1,466 @@
+/* --- Base Tooltip Style --- */
+.ga4-optimizer-tooltip-base {
+  position: fixed;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: 'Inter', Roboto, sans-serif;
+  line-height: 1.4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10010;
+  max-width: 280px;
+  white-space: normal;
+  text-align: left;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* --- Styling for Combined Tooltip --- */
+#ga4-optimizer-combined-tooltip {}
+.tooltip-line-wrapper {
+    padding: 4px 8px;
+    margin-bottom: 1px;
+}
+.tooltip-line-wrapper:last-child { margin-bottom: 0; }
+.perc-line-wrapper { background-color: rgba(66, 133, 244, 0.85); }
+.cr-line-wrapper { background-color: rgba(52, 168, 83, 0.85); }
+.segcomp-count-line-wrapper { background-color: rgba(251, 188, 5, 0.85); color: #202124; }
+.segcomp-cr-line-wrapper { background-color: rgba(234, 67, 53, 0.85); }
+.tooltip-line { display: block; }
+.segcomp-count-line { font-weight: 500; }
+.segcomp-cr-line { font-weight: 500; }
+
+/* --- Styling for Copy Cell Feedback Tooltip --- */
+#ga4-optimizer-copy-tooltip {
+  position: absolute;
+  background-color: #333333;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-family: 'Inter', Roboto, sans-serif;
+  z-index: 10003; /* Ensure it's above copy target */
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  white-space: normal;
+  max-width: 200px;
+  text-align: center;
+  transition: opacity 0.15s ease-in-out;
+}
+#ga4-optimizer-copy-tooltip.visible { visibility: visible; opacity: 1; }
+
+/* Styling for the added percentages tspan */
+.ga4-percentage-tspan { fill: #5f6368; font-size: 0.8em; }
+
+/* --- Highlight Sampling Icon Styles --- */
+
+/* Keyframe for pulse WITH shadow (Explorations) */
+@keyframes ga4-optimizer-pulse-with-shadow {
+  0% { transform: scale(1.15); box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.7); }
+  70% { transform: scale(1.25); box-shadow: 0 0 5px 10px rgba(255, 152, 0, 0); }
+  100% { transform: scale(1.15); box-shadow: 0 0 0 0 rgba(255, 152, 0, 0); }
+}
+
+/* Keyframe for pulse WITHOUT shadow (Standard Reports - scale only) */
+@keyframes ga4-optimizer-pulse-without-shadow {
+  0% { transform: scale(1.12); }
+  50% { transform: scale(1.22); }
+  100% { transform: scale(1.12); }
+}
+
+/* Ensures the icon container itself is visible if GA4 hides it */
+.ga4-optimizer-highlight-sampling {
+  opacity: 1 !important;
+}
+
+/* Base styles for the mat-icon when its container has .ga4-optimizer-highlight-sampling.
+   Applies to both Standard Reports and Explorations. */
+.ga4-optimizer-highlight-sampling mat-icon.status-icon {
+  opacity: 1 !important;
+  display: inline-block !important;
+  position: relative !important;
+  color: #E65100 !important; /* Prominent orange color for all highlights */
+  transform: scale(1.10); /* Base scale if no specific pulse animation is active */
+  transition: color 0.2s, transform 0.15s ease-out; /* Smooth transition for base properties */
+}
+
+/* Applies the pulse WITH SHADOW animation (Explorations) */
+.ga4-optimizer-sampling-pulse-exploration mat-icon.status-icon {
+  animation: ga4-optimizer-pulse-with-shadow 1.5s infinite ease-out !important;
+  border-radius: 50% !important; /* THIS LINE RESTORES THE CIRCULAR SHADOW */
+  /* Animation's transform will override the base 'transform: scale(1.10)' */
+}
+
+/* Applies the pulse WITHOUT SHADOW animation (Standard Reports) */
+.ga4-optimizer-sampling-pulse-standard mat-icon.status-icon {
+  animation: ga4-optimizer-pulse-without-shadow 1.5s infinite ease-out !important;
+  /* Animation's transform will override the base 'transform: scale(1.10)' */
+  /* No border-radius here intentionally, as we don't want the shadow defined by it */
+}
+
+
+/* Style for 'All Users' Header Cells */
+g.header-value.ga4-optimizer-all-users-header text { font-weight: bold !important; }
+
+/* --- SVG Text Selection Styling --- */
+.aplos-chart-container svg text::selection, .aplos-chart-container svg tspan::selection {
+  background-color: rgba(77, 151, 255, 0.4) !important; color: #000000 !important; fill: #000000 !important;
+}
+.aplos-chart-container svg text::-moz-selection, .aplos-chart-container svg tspan::-moz-selection {
+  background-color: rgba(77, 151, 255, 0.4) !important; color: #000000 !important; fill: #000000 !important;
+}
+
+/* --- Native Tooltip Adjustment --- */
+#ga-shared-tooltip-popup.ga4-optimizer-native-tooltip-adjusted {
+    transform: translateY(-80px) !important;
+    z-index: 10011 !important;
+}
+
+/* --- Exploration Panel Toggle --- */
+ga-analysis-view {
+    position: relative !important;
+}
+
+/* Hiding the panels when our extension collapses them */
+ga-analysis-view.ga4o-panels-collapsed ga-data-panel,
+ga-analysis-view.ga4o-panels-collapsed ga-settings-panel {
+    width: 0 !important;
+    min-width: 0 !important;
+    flex-basis: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: opacity 0.2s ease, width 0.2s ease, visibility 0s linear 0.2s, padding 0.2s ease, margin 0.2s ease;
+}
+
+/* Analysis area adjustment when panels are collapsed by our extension */
+ga-analysis-view.ga4o-panels-collapsed .analysis-area {
+     margin-left: 22px !important;
+     transition: margin-left 0.3s ease-in-out;
+}
+
+/* Analysis area default state (when panels are expanded) */
+ga-analysis-view:not(.ga4o-panels-collapsed) .analysis-area {
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* Toggle Button Styling */
+#ga4o-panel-toggle-button {
+    position: fixed;
+    top: 120px;
+    height: 60px;
+    width: 18px;
+    background-color: #8a229b; /* Panel Toggle Purple */
+    border: 1px solid #8A229B;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 0px 5px rgba(0,0,0,0.2);
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* Initially transparent */
+    transition: left 0.3s ease-in-out, top 0.3s ease-in-out, transform 0.3s ease-in-out, background-color 0.2s ease, opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+}
+#ga4o-panel-toggle-button:hover {
+    background-color: #C73ED9; /* Lighter purple for hover */
+    opacity: 1;
+}
+#ga4o-panel-toggle-button.ga4o-toggle-expanded-position {
+    border-left: 1px solid #8A229B;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+#ga4o-panel-toggle-button .ga4o-toggle-icon {
+    font-size: 16px;
+    color: #FFFFFF;
+    line-height: 1;
+    font-weight: bold;
+}
+#ga4o-panel-toggle-button.ga4o-toggle-collapsed {
+    border-left: none;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/* Panel Toggle Custom Tooltip */
+#ga4o-panel-toggle-tooltip {
+  position: fixed;
+  background-color: #f0f0f0;
+  color: #333333;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: 'Inter', Roboto, sans-serif;
+  z-index: 10015;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: opacity 0.15s ease-in-out, visibility 0s linear 0.15s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  border: 1px solid #cccccc;
+}
+
+/* --- STICKY CALCULATOR STYLES --- */
+#ga4o-sticky-calculator-widget {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 9990;
+    display: block; 
+}
+
+#ga4o-sticky-calc-toggle {
+    background-color: #eceff1; 
+    color: #8a229b; 
+    border: 1px solid #ced4da; 
+    border-radius: 22px; 
+    width: 64px; 
+    height: 44px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15), 0 1px 3px rgba(0,0,0,0.1);
+    cursor: grab; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 0; 
+}
+
+#ga4o-sticky-calc-toggle:hover {
+    background-color: #e0e5e8; 
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2), 0 1px 4px rgba(0,0,0,0.12);
+}
+
+#ga4o-sticky-calc-toggle.active {
+     background-color: #d5d9db;
+}
+
+#ga4o-sticky-calc-toggle svg {
+    width: 24px; /* Icon size increased */
+    height: 24px; /* Icon size increased */
+    fill: #AC2BC2; 
+    pointer-events: none;
+    transition: transform 0.3s ease-in-out; 
+}
+#ga4o-sticky-calc-toggle.active svg {
+    transform: rotate(45deg); 
+}
+
+#ga4o-sticky-calc-panel {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: calc(100% + 8px); 
+    right: 50%; 
+    transform: translateX(50%); 
+    width: 280px;
+    background-color: #eceff1;
+    color: #212529;
+    border: 1px solid #bcc3c9;
+    border-radius: 6px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.175), 0 1px 3px rgba(0,0,0,0.08);
+    padding: 0;
+    font-family: 'Inter', Roboto, sans-serif;
+    font-size: 13px;
+    transition: opacity 0.2s ease;
+    opacity: 1;
+}
+#ga4o-sticky-calc-panel.ga4o-dragging {
+    user-select: none;
+}
+
+.ga4o-calc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    background-color: #dee2e6;
+    border-bottom: 1px solid #ced4da;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #212529;
+    cursor: grab;
+}
+
+.ga4o-calc-header span {
+    font-weight: 600;
+    font-size: 14px;
+}
+#ga4o-calc-close-panel {
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: #495057;
+    cursor: pointer;
+    padding: 0 4px;
+    line-height: 1;
+}
+#ga4o-calc-close-panel:hover {
+    color: #000000;
+}
+
+.ga4o-calc-section {
+    padding: 10px 12px;
+    border-bottom: 1px solid #dee2e6;
+}
+.ga4o-calc-section:last-of-type {
+    border-bottom: none;
+}
+.ga4o-calc-section label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 6px;
+    font-size: 12px;
+    color: #495057;
+}
+.ga4o-calc-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.ga4o-calc-row input[type="number"] {
+    width: 70px;
+    padding: 6px 8px;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    color: #212529;
+    border-radius: 4px;
+    font-size: 13px;
+    -moz-appearance: textfield;
+}
+.ga4o-calc-row input[type="number"]::-webkit-outer-spin-button,
+.ga4o-calc-row input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.ga4o-calc-row input[type="number"]::placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+.ga4o-calc-row input[type="number"]:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+.ga4o-calc-row .ga4o-calc-result {
+    font-weight: 500;
+    margin-left: auto;
+    white-space: nowrap;
+    color: #212529;
+}
+.ga4o-calc-comparison-results div {
+    margin-bottom: 4px;
+    font-size: 13px;
+    color: #212529;
+}
+.ga4o-calc-comparison-results div:last-child {
+    margin-bottom: 0;
+}
+.ga4o-calc-comparison-results strong {
+    font-weight: 600;
+    color: #007bff;
+}
+.ga4o-calc-actions {
+    padding: 10px 12px;
+    text-align: right;
+}
+#ga4o-calc-clear {
+    padding: 6px 12px;
+    font-size: 12px;
+    background-color: #dee2e6;
+    border: 1px solid #ced4da;
+    color: #212529;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#ga4o-calc-clear:hover {
+    background-color: #ced4da;
+}
+
+/* Dark mode adjustments for Sticky Calculator Panel */
+@media (prefers-color-scheme: dark) {
+    #ga4o-sticky-calc-toggle {
+        background-color: #FFFFFF; 
+        color: #C73ED9; 
+        border-color: #495057;
+    }
+    #ga4o-sticky-calc-toggle:hover {
+        background-color: #000000;
+    }
+    #ga4o-sticky-calc-toggle.active {
+        background-color: #FFFFFF;
+    }
+    #ga4o-sticky-calc-toggle svg {
+        fill: #C73ED9; 
+    }
+
+    #ga4o-sticky-calc-panel {
+        background-color: #2a2e32;
+        border-color: #40454a;
+        color: #e9ecef;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.3), 0 1px 3px rgba(0,0,0,0.2);
+        border-radius: 6px;
+    }
+    .ga4o-calc-header {
+        background-color: #343a40;
+        border-bottom-color: #23272b;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        color: #f8f9fa;
+    }
+    #ga4o-calc-close-panel {
+        color: #adb5bd;
+    }
+    #ga4o-calc-close-panel:hover {
+        color: #f8f9fa;
+    }
+    .ga4o-calc-section {
+        border-bottom-color: #343a40;
+    }
+    .ga4o-calc-section label {
+        color: #adb5bd;
+    }
+    .ga4o-calc-row input[type="number"] {
+        background-color: #212529;
+        border-color: #495057;
+        color: #e9ecef;
+    }
+     .ga4o-calc-row input[type="number"]::placeholder {
+        color: #6c757d;
+    }
+    .ga4o-calc-row input[type="number"]:focus {
+        border-color: #4dabf7;
+        box-shadow: 0 0 0 0.2rem rgba(77,171,247,.25);
+    }
+    .ga4o-calc-row .ga4o-calc-result {
+        color: #e9ecef;
+    }
+    .ga4o-calc-comparison-results div {
+        color: #e9ecef;
+    }
+    .ga4o-calc-comparison-results strong {
+        color: #4dabf7;
+    }
+    #ga4o-calc-clear {
+        background-color: #343a40;
+        border-color: #495057;
+        color: #f8f9fa;
+    }
+    #ga4o-calc-clear:hover {
+        background-color: #3e444a;
+    }
+}

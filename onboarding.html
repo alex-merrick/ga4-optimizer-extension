@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to GA4 Optimizer!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* --- ELEGANT NEUTRAL & PURPLE BRAND PALETTE --- */
+            --brand-accent-purple: #8A229B;
+            --brand-accent-purple-darker: #6A1B7A;
+            --brand-accent-purple-lighter-hover: #AC2BC2;
+            --brand-text-on-accent: #FFFFFF;
+
+            --header-bg: #ECEFF1; /* Light Blue Grey - neutral and clean */
+            --header-text: #37474F; /* Dark Blue Grey text for header */
+
+            --text-body-onboarding: #374151; /* Match Tailwind's text-gray-700 */
+            --text-subtle-onboarding: #6B7280; /* Match Tailwind's text-gray-500 */
+            --text-heading-onboarding: #1f2937; /* Match Tailwind's text-gray-800 */
+
+            --bg-page-onboarding: #f3f4f6;    /* Match Tailwind's bg-gray-100 */
+            --bg-container-onboarding: #ffffff;
+
+            --border-color-onboarding: #e5e7eb; /* Match Tailwind's border-gray-200 */
+
+            --button-bg-onboarding: var(--brand-accent-purple);
+            --button-text-onboarding: var(--brand-text-on-accent);
+            --button-bg-hover-onboarding: var(--brand-accent-purple-darker);
+        }
+
+        /* --- Base Styles --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-page-onboarding);
+            margin: 0;
+            padding: 1rem;
+            color: var(--text-body-onboarding);
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+        *, *::before, *::after {
+             box-sizing: inherit;
+        }
+
+        /* --- Container --- */
+        .container {
+            background-color: var(--bg-container-onboarding);
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            max-width: 60rem;
+            width: 100%;
+            margin: 2rem auto;
+            padding: 2rem 3rem;
+            position: relative;
+        }
+        @media (max-width: 768px) {
+             .container {
+                 padding: 1.5rem;
+                 margin: 1rem auto;
+             }
+        }
+
+
+        /* --- Header --- */
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color-onboarding);
+            padding-bottom: 1.5rem; /* Increased padding */
+            background-color: var(--header-bg); /* Neutral header */
+            margin-left: -3rem; /* Extend to container edges */
+            margin-right: -3rem;
+            margin-top: -2rem;
+            padding-left: 3rem; /* Re-apply padding */
+            padding-right: 3rem;
+            padding-top: 1.5rem;
+            border-top-left-radius: 0.5rem; /* Match container */
+            border-top-right-radius: 0.5rem;
+        }
+        .header img {
+            height: 2.5rem; /* 40px */
+            width: 2.5rem;  /* 40px */
+            margin-right: 1rem;
+        }
+        .header h1 {
+            font-size: 1.875rem; /* Tailwind text-3xl */
+            line-height: 2.25rem;
+            font-weight: 700;
+            color: var(--header-text); /* Dark text on neutral header */
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+             .header h1 { font-size: 1.5rem; line-height: 2rem; }
+             .header {
+                margin-left: -1.5rem; margin-right: -1.5rem;
+                padding-left: 1.5rem; padding-right: 1.5rem;
+             }
+        }
+
+        /* --- Main Content Area --- */
+        .main-content {
+             display: grid;
+             align-items: center;
+             gap: 3rem;
+        }
+        @media (min-width: 768px) {
+             .main-content {
+                 grid-template-columns: repeat(2, minmax(0, 1fr));
+                 gap: 2rem;
+             }
+        }
+
+
+        /* --- Instructions --- */
+        .instructions h2 {
+            font-size: 1.25rem; /* Tailwind text-xl */
+            line-height: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--brand-accent-purple); /* Purple for subheading */
+        }
+        .instructions p {
+            margin-bottom: 1rem;
+            color: var(--text-subtle-onboarding);
+        }
+        .instructions ol {
+            list-style-type: decimal;
+            list-style-position: inside;
+            margin-bottom: 1.5rem;
+            padding-left: 0;
+            color: var(--text-subtle-onboarding);
+        }
+         .instructions li {
+             margin-bottom: 0.5rem;
+         }
+        .instructions strong { /* Emphasized text within paragraphs */
+            font-weight: 600;
+            color: var(--brand-accent-purple-darker); /* Darker purple for strong */
+        }
+        .instructions .docs-button {
+            display: inline-block;
+            background-color: var(--button-bg-onboarding); /* Purple button */
+            color: var(--button-text-onboarding);
+            font-weight: 600;
+            padding: 0.6rem 1.25rem; /* Slightly adjusted padding */
+            border-radius: 0.375rem;
+            text-decoration: none;
+            transition: background-color 0.2s ease-in-out;
+            margin-top: 1rem;
+        }
+        .instructions .docs-button:hover {
+            background-color: var(--button-bg-hover-onboarding);
+        }
+
+        /* --- Video Section (Now part of grid) --- */
+        .visual-placeholder {
+            border-radius: 0.375rem; /* Rounded corners for the container */
+            overflow: hidden; /* This is crucial for clipping the scaled video */
+            border: 1px solid var(--border-color-onboarding);
+            background-color: var(--bg-page-onboarding); /* Fallback background */
+            height: 400px; /* Define the desired height of the video area */
+            width: 100%;   /* Make it responsive to its grid cell */
+            position: relative; /* Good practice for containers */
+        }
+        .visual-placeholder video {
+             width: 100%;  /* Fill the width of .visual-placeholder */
+             height: 100%; /* Fill the height of .visual-placeholder */
+             object-fit: cover; /* Scale video to maintain aspect ratio while filling the container. Parts of video may be clipped. */
+             display: block;
+             /* background-color: #000000; /* Removed: Not needed if object-fit:cover works well */
+             transform: scale(1.1); /* Increased scale to zoom in slightly more, pushing black bars out of view. Adjust if needed. */
+             /* border-radius: 0.375rem; /* Removed: Parent .visual-placeholder handles rounded corners via overflow:hidden */
+        }
+        @media (max-width: 500px) {
+            .visual-placeholder {
+                 display: none;
+            }
+             .main-content {
+                 grid-template-columns: 1fr;
+             }
+        }
+
+
+        /* --- Footer --- */
+        .footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color-onboarding);
+            text-align: left;
+            color: var(--text-subtle-onboarding);
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="icons/icon48.png" alt="GA4 Optimizer Logo">
+            <h1>Welcome to GA4 Optimizer!</h1>
+        </header>
+
+        <main class="main-content">
+            <div class="instructions">
+                <h2>Get started by pinning the extension!</h2>
+                <p>Get started by pinning the extension! GA4 Optimizer adds powerful features like <strong>Click-to-Copy</strong> and insightful <strong>Row Percentages</strong> to make your GA4 analysis smoother. Follow these simple steps to pin it to your Chrome toolbar:</p>
+                <ol>
+                    <li>Click the <strong>Puzzle Piece icon</strong> (🧩) in your Chrome toolbar (usually top-right).</li>
+                    <li>Find "GA4 Optimizer" in the list of extensions.</li>
+                    <li>Click the <strong>Pin icon</strong> (📌) next to it.</li>
+                </ol>
+                <p>That's it! The GA4 Optimizer icon will now always be visible for quick access to settings.</p>
+                <a href="documentation.html" target="_blank" class="docs-button">
+                    View Full Documentation
+                </a>
+            </div>
+
+            <div class="visual-placeholder">
+                <video autoplay loop muted playsinline aria-label="Video showing how to pin the GA4 Optimizer extension">
+                    <source src="mp4/pin.mp4" type="video/mp4">
+                    Your browser does not support the video tag. Please see instructions on the left.
+                </video>
+            </div>
+        </main>
+
+        <footer class="footer">
+            Thanks for installing GA4 Optimizer! Feel Free to close this window now.
+        </footer>
+    </div>
+</body>
+</html>

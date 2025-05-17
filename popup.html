@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GA4 Optimizer Settings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* --- NEW ELEGANT NEUTRAL & PURPLE BRAND PALETTE --- */
+            --brand-accent-purple: #8A229B; /* Main interactive accent */
+            --brand-accent-purple-darker: #6A1B7A; /* For hovers or deeper shades */
+            --brand-accent-purple-lighter-hover: #AC2BC2; /* For link hovers */
+            --brand-text-on-accent: #FFFFFF;
+
+            --header-bg-light: #ECEFF1; /* Light, sophisticated grey for header */
+            --header-text-light: #37474F;  /* Dark blue-grey text for header */
+
+            --text-dark: #212529;
+            --text-medium: #495057;
+            --text-light: #6c757d;
+
+            --bg-light: #FFFFFF;
+            --bg-off-white: #f8f9fa; /* Slightly off-white for subtle distinctions */
+
+            --border-color-light: #dee2e6;
+            --border-color-medium: #ced4da;
+
+            /* --- UI Element Colors --- */
+            --popup-bg-color: var(--bg-light);
+            --popup-text-color: var(--text-dark);
+            --popup-header-bg-color: var(--header-bg-light);
+            --popup-header-text-color: var(--header-text-light);
+            --popup-label-text-color: var(--text-medium);
+
+            --popup-tooltip-icon-bg-color: var(--header-bg-light); /* Match header for icon bg */
+            --popup-tooltip-icon-text-color: var(--text-light);
+            --popup-tooltip-content-bg-color: #333;
+            --popup-tooltip-content-text-color: #fff;
+            --popup-tooltip-arrow-color: #333;
+
+            --popup-switch-bg-off-color: #ccc;
+            --popup-switch-bg-on-color: var(--brand-accent-purple); /* Toggle 'on' uses PURPLE */
+            --popup-switch-knob-color: white;
+            --popup-focus-ring-color: var(--brand-accent-purple-darker);
+
+            --popup-button-bg-color: var(--bg-light);
+            --popup-button-text-color: var(--brand-accent-purple); /* Purple text for button */
+            --popup-button-border-color: var(--border-color-medium);
+            --popup-button-hover-bg-color: var(--bg-off-white);
+            --popup-button-hover-border-color: var(--border-color-light);
+            --popup-button-active-bg-color: var(--header-bg-light); /* Match header for active */
+
+            --popup-button-disabled-bg-color: var(--header-bg-light);
+            --popup-button-disabled-text-color: var(--text-light);
+            --popup-button-disabled-border-color: var(--border-color-light);
+
+            --popup-category-header-color: var(--brand-accent-purple); /* Category headers are Purple */
+            --popup-category-header-border-color: var(--border-color-light);
+            --popup-category-docs-link-color: var(--brand-accent-purple);
+            --popup-category-docs-link-hover-color: var(--brand-accent-purple-lighter-hover);
+
+            --popup-footer-banner-bg-color: var(--header-bg-light); /* Match header */
+            --popup-footer-banner-text-color: var(--text-light);
+            --popup-footer-banner-link-color: var(--brand-accent-purple);
+            --popup-footer-banner-link-hover-color: var(--brand-accent-purple-lighter-hover);
+
+            --master-toggle-icon-off-stroke: #757575;
+            --master-toggle-icon-on-stroke: var(--brand-accent-purple); /* Master toggle on is PURPLE */
+            --master-toggle-hover-bg-color: rgba(0,0,0,0.05);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                /* --- Dark Mode Adaptations --- */
+                 --brand-accent-purple-dm: #C73ED9; /* Lighter Purple for dark */
+                 --brand-accent-purple-darker-dm: #AC2BC2;
+                 --brand-accent-purple-lighter-hover-dm: #E0B0FF;
+
+                 --header-bg-dark: #37474F; /* Dark Blue-Grey for header */
+                 --header-text-dark: #ECEFF1; /* Light text for dark header */
+
+
+                --text-dark-dm: #e9ecef;
+                --text-medium-dm: #adb5bd;
+                --text-light-dm: #868e96;
+
+                --bg-dark-deep: #212529; /* Main popup dark bg */
+                --bg-dark-medium: #2c3034; /* Slightly lighter for elements */
+
+
+                --border-color-dark: #495057;
+
+                /* --- UI Element Colors - Dark Mode --- */
+                --popup-bg-color: var(--bg-dark-deep);
+                --popup-text-color: var(--text-dark-dm);
+                --popup-header-bg-color: var(--header-bg-dark);
+                --popup-header-text-color: var(--header-text-dark);
+                --popup-label-text-color: var(--text-medium-dm);
+
+                --popup-tooltip-icon-bg-color: var(--bg-dark-medium);
+                --popup-tooltip-icon-text-color: var(--text-dark-dm);
+
+                --popup-switch-bg-off-color: #495057; /* Darker off state */
+                --popup-switch-bg-on-color: var(--brand-accent-purple-dm); /* Lighter Purple 'on' for dark */
+                --popup-switch-knob-color: var(--bg-dark-deep);
+                --popup-focus-ring-color: var(--brand-accent-purple-darker-dm);
+
+                --popup-button-bg-color: var(--bg-dark-medium);
+                --popup-button-text-color: var(--brand-accent-purple-dm);
+                --popup-button-border-color: var(--border-color-dark);
+                --popup-button-hover-bg-color: #37474F; /* Header dark bg for hover */
+                --popup-button-hover-border-color: var(--text-light-dm);
+                --popup-button-active-bg-color: #37474F;
+
+                --popup-button-disabled-bg-color: var(--bg-dark-medium);
+                --popup-button-disabled-text-color: var(--text-light-dm);
+                --popup-button-disabled-border-color: var(--border-color-dark);
+
+                --popup-category-header-color: var(--brand-accent-purple-dm);
+                --popup-category-header-border-color: var(--border-color-dark);
+                --popup-category-docs-link-color: var(--brand-accent-purple-dm);
+                --popup-category-docs-link-hover-color: var(--brand-accent-purple-lighter-hover-dm);
+
+                --popup-footer-banner-bg-color: var(--header-bg-dark); /* Match header */
+                --popup-footer-banner-text-color: var(--text-medium-dm);
+                --popup-footer-banner-link-color: var(--brand-accent-purple-dm);
+                --popup-footer-banner-link-hover-color: var(--brand-accent-purple-lighter-hover-dm);
+
+                --master-toggle-icon-off-stroke: #9e9e9e;
+                --master-toggle-icon-on-stroke: var(--brand-accent-purple-dm); /* Purple for master toggle on dark */
+                --master-toggle-hover-bg-color: rgba(255,255,255,0.08);
+            }
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            width: 280px;
+            background-color: var(--popup-bg-color);
+            color: var(--popup-text-color);
+            margin: 0;
+            font-size: 13px;
+            overflow: hidden;
+        }
+        .popup-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--popup-header-bg-color);
+            padding: 8px 12px;
+            margin-bottom: 8px;
+        }
+        .popup-header-main {
+            display: flex;
+            align-items: center;
+        }
+        .popup-logo { width: 28px; height: 28px; margin-right: 8px; }
+        h1 {
+            font-size: 15px;
+            font-weight: 600;
+            margin: 0;
+            color: var(--popup-header-text-color);
+        }
+        #masterToggle {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            transition: background-color 0.2s;
+        }
+        #masterToggle svg {
+            width: 16px;
+            height: 16px;
+            transition: stroke 0.3s, opacity 0.3s;
+        }
+        #masterToggle.master-on svg {
+            stroke: var(--master-toggle-icon-on-stroke);
+            opacity: 1;
+        }
+        #masterToggle.master-off svg {
+            stroke: var(--master-toggle-icon-off-stroke);
+            opacity: 0.6;
+        }
+        #masterToggle:hover {
+            background-color: var(--master-toggle-hover-bg-color);
+        }
+        #masterToggle:focus-visible {
+            outline: 2px solid var(--popup-focus-ring-color);
+            outline-offset: 1px;
+        }
+
+        .content-wrapper {
+             padding: 0 14px 8px 14px; /* Reverted top padding to 0 */
+             padding-bottom: 35px; 
+             max-height: 450px;
+             overflow-y: auto;
+        }
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0px; 
+            margin-bottom: 10px;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2px 0; 
+            visibility: hidden; 
+            min-height: 28px; 
+        }
+        .feature-label-group {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            flex-shrink: 1; 
+            margin-right: 6px; 
+        }
+        .label-text {
+            color: var(--popup-label-text-color);
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer; 
+            line-height: 1.2;
+        }
+        .tooltip-icon {
+            display: inline-block; 
+            width: 14px;
+            height: 14px;
+            line-height: 14px; 
+            text-align: center;
+            border-radius: 50%;
+            background-color: var(--popup-tooltip-icon-bg-color);
+            color: var(--popup-tooltip-icon-text-color);
+            font-size: 10px;
+            font-weight: bold;
+            cursor: help;
+            position: relative; 
+            user-select: none;
+            flex-shrink: 0; 
+        }
+        .tooltip-icon::before { 
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 130%; 
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--popup-tooltip-content-bg-color);
+            color: var(--popup-tooltip-content-text-color);
+            padding: 6px 9px; 
+            border-radius: 4px; 
+            font-size: 11px; 
+            font-weight: normal;
+            white-space: normal; 
+            width: max-content; 
+            max-width: 190px;   /* MODIFIED: Reduced from 240px */
+            text-align: left;
+            z-index: 20; 
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out, visibility 0s linear 0.2s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .tooltip-icon::after { 
+            content: '';
+            position: absolute;
+            bottom: 130%; 
+            margin-bottom: -5px; 
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 5px; 
+            border-style: solid;
+            border-color: var(--popup-tooltip-arrow-color) transparent transparent transparent;
+            z-index: 20; 
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out, visibility 0s linear 0.2s;
+        }
+        .tooltip-icon:hover::before, .tooltip-icon:hover::after {
+            visibility: visible;
+            opacity: 1;
+            transition-delay: 0.1s; 
+        }
+
+        /* --- MODIFICATION FOR THE FIRST TOOLTIP --- */
+        .feature-list .feature-item:first-child .tooltip-icon::before,
+        .category-header + .feature-list .feature-item:first-child .tooltip-icon::before { /* Target first item after any category header too */
+            bottom: auto;   /* Remove default bottom positioning */
+            top: 115%;      /* Position below the icon (100% + small gap) */
+        }
+        .feature-list .feature-item:first-child .tooltip-icon::after,
+        .category-header + .feature-list .feature-item:first-child .tooltip-icon::after {
+            bottom: auto;   /* Remove default bottom positioning */
+            top: 115%;      /* Position below the icon */
+            margin-bottom: 0; /* Clear original margin-bottom for upward arrow */
+            margin-top: -5px; /* Adjust to connect with the bubble, pointing upwards */
+            border-color: transparent transparent var(--popup-tooltip-arrow-color) transparent; /* Point arrow upwards */
+            border-width: 0 5px 5px 5px; /* Make arrow point up: transparent L/R, colored B */
+        }
+        /* --- END MODIFICATION --- */
+
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 22px;
+            flex-shrink: 0;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--popup-switch-bg-off-color);
+            transition: .4s;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 3px;
+            bottom: 3px;
+            background-color: var(--popup-switch-knob-color);
+            transition: .4s;
+        }
+        input:checked + .slider {
+            background-color: var(--popup-switch-bg-on-color);
+        }
+        input:focus + .slider {
+            box-shadow: 0 0 1px var(--popup-focus-ring-color); 
+        }
+        input:checked + .slider:before {
+            transform: translateX(18px);
+        }
+        .slider.round { border-radius: 22px; }
+        .slider.round:before { border-radius: 50%; }
+
+        .reload-button {
+            display: block;
+            width: 100%;
+            padding: 7px 10px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--popup-button-text-color);
+            background-color: var(--popup-button-bg-color);
+            border: 1px solid var(--popup-button-border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .reload-button:hover:not(:disabled) {
+            background-color: var(--popup-button-hover-bg-color);
+            border-color: var(--popup-button-hover-border-color);
+            color: var(--brand-accent-purple-lighter-hover);
+        }
+        .reload-button:active:not(:disabled) {
+            background-color: var(--popup-button-active-bg-color);
+        }
+        .reload-button:disabled {
+            background-color: var(--popup-button-disabled-bg-color);
+            color: var(--popup-button-disabled-text-color);
+            border-color: var(--popup-button-disabled-border-color);
+            cursor: not-allowed;
+        }
+        .reload-button.reload-button-inactive-context {
+            color: var(--popup-button-disabled-text-color);
+            border-color: var(--popup-button-disabled-border-color);
+        }
+        .reload-button.reload-button-inactive-context:hover:not(:disabled) {
+            background-color: var(--popup-button-hover-bg-color);
+            border-color: #c6c6c6; 
+        }
+        @media (prefers-color-scheme: dark) {
+            .reload-button.reload-button-inactive-context:hover:not(:disabled) {
+                border-color: #70757a; 
+            }
+             .reload-button:hover:not(:disabled) {
+                color: var(--brand-accent-purple-lighter-hover-dm);
+            }
+        }
+
+
+        .category-header {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--popup-category-header-color);
+            text-transform: uppercase;
+            margin-top: 12px; 
+            margin-bottom: 2px;
+            padding-bottom: 3px;
+            border-bottom: 1px solid var(--popup-category-header-border-color);
+        }
+        .content-wrapper > .category-header:first-of-type {
+             margin-top: 0; 
+        }
+        .category-header .lowercase {
+            text-transform: none;
+            font-weight: normal;
+        }
+        .category-header .lowercase .docs-link {
+            font-size: inherit;
+            font-weight: inherit;
+            color: var(--popup-category-docs-link-color);
+            text-decoration: underline;
+            text-transform: none;
+            margin: 0;
+            padding: 0;
+        }
+        .category-header .lowercase .docs-link:hover {
+            color: var(--popup-category-docs-link-hover-color);
+        }
+
+        .footer-banner {
+            background-color: var(--popup-footer-banner-bg-color);
+            color: var(--popup-footer-banner-text-color);
+            border-top: 1px solid var(--popup-category-header-border-color);
+            padding: 6px 14px;
+            text-align: center;
+            font-size: 10px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 5; 
+        }
+        .footer-banner a {
+            color: var(--popup-footer-banner-link-color);
+            text-decoration: underline;
+        }
+        .footer-banner a:hover {
+            color: var(--popup-footer-banner-link-hover-color);
+        }
+
+        .feature-sub-message {
+            font-size: 10px;
+            color: var(--brand-accent-purple); 
+            background-color: var(--bg-off-white);
+            padding: 4px 8px;
+            border-radius: 3px;
+            margin: 4px 0 6px 0;
+            text-align: center;
+            border: 1px solid var(--border-color-light);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            display: none; 
+        }
+         @media (prefers-color-scheme: dark) {
+            .feature-sub-message {
+                background-color: var(--bg-dark-medium);
+                color: var(--brand-accent-purple-dm);
+                border-color: var(--border-color-dark);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="popup-header">
+        <div class="popup-header-main">
+            <img src="icons/icon48.png" alt="GA4 Optimizer Logo" class="popup-logo">
+            <h1>GA4 Optimizer</h1>
+        </div>
+        <button id="masterToggle" title="Toggle All Features">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 aria-hidden="true" focusable="false">
+              <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+              <line x1="12" y1="2" x2="12" y2="12"></line>
+            </svg>
+        </button>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="category-header">BASIC</div>
+        <div class="feature-list">
+            <div class="feature-item" id="toggleCopyCellControl">
+                <div class="feature-label-group">
+                    <label for="enableCopyCellToggle" class="label-text">Click to Copy Cell</label>
+                    <span class="tooltip-icon" data-tooltip="EVERYWHERE:Single-click: Copy clicked line. EXPORATIONS: Double-click- Copy full cell, Triple-click- Copy hover tooltip data.">?</span>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="enableCopyCellToggle" data-storage-key="copyCellEnabled" data-default-state="true">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="feature-item" id="toggleStickyHeaderControl">
+                <div class="feature-label-group">
+                    <label for="enableStickyHeaderToggle" class="label-text">Sticky Report Header</label>
+                    <span class="tooltip-icon" data-tooltip="Keeps the header row visible when scrolling down Standard Reports.">?</span>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="enableStickyHeaderToggle" data-storage-key="stickyHeaderEnabled" data-default-state="true">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="feature-item" id="toggleHighlightSamplingControl">
+                <div class="feature-label-group">
+                    <label for="enableHighlightSamplingToggle" class="label-text">Highlight Sampling Icon</label>
+                    <span class="tooltip-icon" data-tooltip="Highlights the sampling icon (⚠️) when your report data is incomplete or sampled.">?</span>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="enableHighlightSamplingToggle" data-storage-key="highlightSamplingEnabled" data-default-state="true">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="feature-item" id="togglePercentagesControl">
+                <div class="feature-label-group">
+                    <label for="enablePercentagesToggle" class="label-text">Percentage of Column Total</label>
+                    <span class="tooltip-icon" data-tooltip="Shows each row's percentage of the column Total in Exploration tables. Appears on hover if it doesn't fit.">?</span>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="enablePercentagesToggle" data-storage-key="percentagesEnabled" data-default-state="true">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="feature-item" id="togglePanelToggleControl">
+                 <div class="feature-label-group">
+                     <label for="enablePanelToggleToggle" class="label-text">Collapsible Panels</label>
+                     <span class="tooltip-icon" data-tooltip="Adds a toggle button to collapse/expand the Variables and Settings panels in Explorations for more analysis space.">?</span>
+                 </div>
+                 <label class="switch">
+                     <input type="checkbox" id="enablePanelToggleToggle" data-storage-key="panelToggleEnabled" data-default-state="true">
+                     <span class="slider round"></span>
+                 </label>
+            </div>
+            <div class="feature-item" id="toggleStickyCalculatorControl">
+                <div class="feature-label-group">
+                    <label for="enableStickyCalculatorToggle" class="label-text">Sticky CR Calculator</label>
+                    <span class="tooltip-icon" data-tooltip="Adds a quick CR calculator widget to the bottom-right of GA4 pages for fast calculations and comparisons.">?</span>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="enableStickyCalculatorToggle" data-storage-key="stickyCalculatorEnabled" data-default-state="true">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="category-header">
+            ADVANCED <span class="lowercase">(see <a href="documentation.html" target="_blank" class="docs-link">documentation</a>)</span>
+        </div>
+        <div class="feature-list">
+            <div class="feature-item" id="toggleAutoDetailedControl">
+                <div class="feature-label-group">
+                    <label for="enableAutoDetailedToggle" class="label-text">Auto Detailed Results (Beta)</label>
+                    <span class="tooltip-icon" data-tooltip="Automatically tries to load Explorations with 'More Detailed results' (less sampling) for better accuracy.">?</span>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="enableAutoDetailedToggle" data-storage-key="autoDetailedEnabled" data-default-state="false">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="feature-item" id="toggleConversionRateControl">
+                <div class="feature-label-group">
+                    <label for="enableConversionRateToggle" class="label-text">Percentage of All Users</label>
+                    <span class="tooltip-icon" data-tooltip="On hover, shows conversion rate of your segments against 'All Users' segment in Explorations. REQUIRES 'All Users' segment inside table and other segments that will be compared to it.">?</span>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="enableConversionRateToggle" data-storage-key="conversionRateEnabled" data-default-state="true">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="feature-item" id="toggleSegmentComparisonControl">
+                <div class="feature-label-group">
+                    <label for="enableSegmentComparisonToggle" class="label-text">Segment Variant Compare</label>
+                    <span class="tooltip-icon" data-tooltip="On hover over a variant segment (starting with 'VAR-'), shows % difference vs. the control segment (starting with 'VAR-Control') for both the raw metric count and the conversion rate (% of column total). Requires specific segment naming (case-sensitive). Enabled by default. See docs.">?</span>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="enableSegmentComparisonToggle" data-storage-key="segmentComparisonEnabled" data-default-state="true">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="feature-item" id="toggleGa4DebuggingControl">
+                <div class="feature-label-group">
+                    <label for="enableGa4DebuggingToggle" class="label-text">Enable GA4 Debugging</label>
+                    <span class="tooltip-icon" data-tooltip="Enables GA4 DebugView by modifying the Google Analytics script request (gtag/js) to include debug parameters, similar to the official GA Debugger extension. Note: This also enables GTM debug logs in the console. Requires page reload after toggling.">?</span>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="enableGa4DebuggingToggle" data-storage-key="ga4DebuggingEnabled" data-default-state="false">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div id="ga4DebugReloadMessage" class="feature-sub-message"></div>
+        </div>
+
+        <button id="reloadButton" class="reload-button">Reload Active GA4 Tab</button>
+    </div>
+
+    <div class="footer-banner">
+        For questions or feedback, feel free to email us at
+        <a href="mailto:optimizerga@gmail.com">optimizerga@gmail.com</a>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
