@@ -14,12 +14,12 @@ This extension is free and developed by an individual for the data community.
 * Sticky Report Headers
 * Highlight Sampling Icons
 * Percentage of Column Total in Explorations
-* Auto Detailed Results (Beta)![alt text](image.png)
+* Auto Detailed Results (Beta)
 * And more! (See documentation.html for full details)
 
 ## Privacy Policy
 
-Your privacy is important. GA4 Optimizer does not collect any personal data. For full details, please see the [Privacy Policy](PRIVACY_POLICY.md).
+Your privacy is important. GA4 Optimizer does not collect any personal data. For full details, please see the [Privacy Policy](privacy_policy.md).
 
 ## Contact
 
