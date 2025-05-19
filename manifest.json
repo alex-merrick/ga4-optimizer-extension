@@ -1,27 +1,16 @@
 {
   "manifest_version": 3,
   "name": "GA4 Optimizer",
-  "version": "3.1.2",
-  "description": "Adds features like automatic calculations, auto-unsample, click-to-copy, sticky headers, and GA4 debugging toggle to Google Analytics 4",
+  "version": "3.2.0",
+  "description": "Enhance Google Analytics 4™ with hover insights, click-to-copy, sticky headers, auto-unsample, and conversion calculator",
   "permissions": [
     "storage",
-    "tabs",
-    "clipboardWrite",
-    "declarativeNetRequest"
+    "activeTab",
+    "clipboardWrite"
   ],
   "host_permissions": [
-    "https://analytics.google.com/analytics/web/*",
-    "<all_urls>"
+    "https://analytics.google.com/analytics/web/*"
   ],
-  "declarative_net_request": {
-    "rule_resources": [
-      {
-        "id": "ga4-debug-ruleset",
-        "enabled": false,
-        "path": "rules.json"
-      }
-    ]
-  },
   "content_scripts": [
     {
       "matches": ["https://analytics.google.com/analytics/web/*"],
@@ -35,7 +24,7 @@
         "feature_highlight_sampling.js",
         "feature_segment_comparison.js",
         "feature_panel_toggle.js",
-        "feature_sticky_calculator.js" 
+        "feature_sticky_calculator.js"
       ],
       "css": ["content_styles.css"],
       "run_at": "document_idle",
@@ -59,7 +48,7 @@
     {
       "resources": [
         "documentation.html",
-        "documentation_modal.js",
+        "documentation.js",
         "onboarding.html",
         "icons/icon48.png",
         "mp4/pin.mp4",
@@ -73,10 +62,7 @@
         "mp4/collapsible_panels.mp4",
         "mp4/sticky_calculator.mp4"
        ],
-      "matches": [ "<all_urls>" ] 
+      "matches": [ "https://analytics.google.com/*" ]
     }
-  ],
-  "background": {
-    "service_worker": "background.js"
-  }
+  ]
 }

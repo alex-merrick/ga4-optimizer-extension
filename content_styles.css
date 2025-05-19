@@ -1,4 +1,4 @@
-/* --- Base Tooltip Style --- */
+/* --- Base Tooltip Style (for your combined tooltip) --- */
 .ga4-optimizer-tooltip-base {
   position: fixed;
   border-radius: 4px;
@@ -9,7 +9,7 @@
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
-  z-index: 10010;
+  z-index: 10011 !important; /* INCREASED: Make this the highest */
   max-width: 280px;
   white-space: normal;
   text-align: left;
@@ -18,7 +18,7 @@
 }
 
 /* --- Styling for Combined Tooltip --- */
-#ga4-optimizer-combined-tooltip {}
+#ga4-optimizer-combined-tooltip {} /* This ID inherits from .ga4-optimizer-tooltip-base */
 .tooltip-line-wrapper {
     padding: 4px 8px;
     margin-bottom: 1px;
@@ -56,7 +56,6 @@
 .ga4-percentage-tspan { fill: #5f6368; font-size: 0.8em; }
 
 /* --- Highlight Sampling Icon Styles --- */
-
 /* Keyframe for pulse WITH shadow (Explorations) */
 @keyframes ga4-optimizer-pulse-with-shadow {
   0% { transform: scale(1.15); box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.7); }
@@ -115,8 +114,8 @@ g.header-value.ga4-optimizer-all-users-header text { font-weight: bold !importan
 
 /* --- Native Tooltip Adjustment --- */
 #ga-shared-tooltip-popup.ga4-optimizer-native-tooltip-adjusted {
-    transform: translateY(-80px) !important;
-    z-index: 10011 !important;
+    transform: translateY(-80px) !important; /* Keep the transform to move it */
+    z-index: 10009 !important; /* DECREASED: Make this LOWER than your combined tooltip */
 }
 
 /* --- Exploration Panel Toggle --- */
@@ -205,7 +204,7 @@ ga-analysis-view:not(.ga4o-panels-collapsed) .analysis-area {
   border-radius: 4px;
   font-size: 12px;
   font-family: 'Inter', Roboto, sans-serif;
-  z-index: 10015;
+  z-index: 10015; /* Higher than combined tooltip to ensure visibility */
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
@@ -394,18 +393,18 @@ ga-analysis-view:not(.ga4o-panels-collapsed) .analysis-area {
 /* Dark mode adjustments for Sticky Calculator Panel */
 @media (prefers-color-scheme: dark) {
     #ga4o-sticky-calc-toggle {
-        background-color: #FFFFFF; 
+        background-color: #000000; 
         color: #C73ED9; 
         border-color: #495057;
     }
     #ga4o-sticky-calc-toggle:hover {
-        background-color: #000000;
+        background-color: #d3d3d3;
     }
     #ga4o-sticky-calc-toggle.active {
-        background-color: #FFFFFF;
+        background-color: #d3d3d3 
     }
     #ga4o-sticky-calc-toggle svg {
-        fill: #C73ED9; 
+        fill: #FFFFFF; 
     }
 
     #ga4o-sticky-calc-panel {
@@ -413,13 +412,13 @@ ga-analysis-view:not(.ga4o-panels-collapsed) .analysis-area {
         border-color: #40454a;
         color: #e9ecef;
         box-shadow: 0 6px 12px rgba(0,0,0,0.3), 0 1px 3px rgba(0,0,0,0.2);
-        border-radius: 6px;
+        border-radius: 6px; /* This was missing, adding for consistency */
     }
     .ga4o-calc-header {
         background-color: #343a40;
         border-bottom-color: #23272b;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
+        /* border-top-left-radius: 5px; already handled by panel's border-radius if header is first child */
+        /* border-top-right-radius: 5px; */
         color: #f8f9fa;
     }
     #ga4o-calc-close-panel {

@@ -288,9 +288,11 @@
 
     window.ga4Optimizer.conversionRate.runCalculation = function() {
         if (!initializedLogShown) {
-            console.log("GA4 Optimizer: Conversion Rate Feature ACTIVATED (v7.4).");
-            initializedLogShown = true;
-        }
+    if (window.ga4Optimizer?.debugModeEnabled) {
+        console.log("GA4 Optimizer: Conversion Rate Feature ACTIVATED (v7.4).");
+    }
+    initializedLogShown = true;
+}
         if (!tableContainerElement || !document.body.contains(tableContainerElement)) {
             tableContainerElement = document.querySelector(TABLE_CONTAINER_SELECTOR);
             if (!tableContainerElement) {

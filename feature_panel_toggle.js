@@ -40,7 +40,9 @@
     const DEFAULT_BUTTON_OPACITY = 0.85;
     const INITIAL_APPLY_STATE_DELAY = 150; // Reduced delay
 
+if (window.ga4Optimizer?.debugModeEnabled) {
     console.log("GA4 Optimizer: Panel Toggle Feature script loaded (v1.9.0).");
+}
 
     window.ga4Optimizer = window.ga4Optimizer || {};
     window.ga4Optimizer.panelToggle = {};

@@ -1,19 +1,46 @@
 /**
  * popup.js - Logic for the GA4 Optimizer Extension popup.
- * VERSION: 3.2.5 - Master toggle sends a notification message to content script
- *                  for displaying a temporary confirmation on the main page.
+ * VERSION: 3.3.0 - Removed GA4 Debugging feature.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     const featuresData = [];
-    const toggleSpecificDataStore = {};
+    let topNotificationTimeoutId = null;
+    const popupHeaderElement = document.getElementById('popupHeader');
 
-    function getToggleData(storageKey) {
-        if (!toggleSpecificDataStore[storageKey]) {
-            toggleSpecificDataStore[storageKey] = {};
+
+    function showTopNotification(message, isDebugMessage = false, duration = 4000) {
+        const notificationBanner = document.getElementById('topNotificationBanner');
+        if (!notificationBanner || !popupHeaderElement) return;
+
+        if (topNotificationTimeoutId) {
+            clearTimeout(topNotificationTimeoutId);
         }
-        return toggleSpecificDataStore[storageKey];
+
+        notificationBanner.textContent = message;
+        if (isDebugMessage) { // This class might be redundant now but kept for structure
+            notificationBanner.classList.add('debug');
+        } else {
+            notificationBanner.classList.remove('debug');
+        }
+        
+        notificationBanner.classList.add('visible');
+        popupHeaderElement.classList.add('hidden-by-banner');
+
+
+        topNotificationTimeoutId = setTimeout(() => {
+            notificationBanner.classList.remove('visible');
+            popupHeaderElement.classList.remove('hidden-by-banner');
+            topNotificationTimeoutId = null;
+            
+            setTimeout(() => { 
+                if (notificationBanner && !notificationBanner.classList.contains('visible')) {
+                     notificationBanner.classList.remove('debug');
+                }
+            }, 300); 
+        }, duration);
     }
+
 
     function registerFeature(storageKey, toggleElementId, containerElementId, featureName, defaultState) {
         const toggleElement = document.getElementById(toggleElementId);
@@ -33,14 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Register all features
     registerFeature('percentagesEnabled', 'enablePercentagesToggle', 'togglePercentagesControl', 'Exploration Row %', true);
     registerFeature('autoDetailedEnabled', 'enableAutoDetailedToggle', 'toggleAutoDetailedControl', 'Unsample Report (Beta)', false);
     registerFeature('conversionRateEnabled', 'enableConversionRateToggle', 'toggleConversionRateControl', 'Hover Conversion Rate', true);
     registerFeature('copyCellEnabled', 'enableCopyCellToggle', 'toggleCopyCellControl', 'Click to Copy Cell', true);
     registerFeature('stickyHeaderEnabled', 'enableStickyHeaderToggle', 'toggleStickyHeaderControl', 'Sticky Report Header', true);
     registerFeature('highlightSamplingEnabled', 'enableHighlightSamplingToggle', 'toggleHighlightSamplingControl', 'Highlight Sampling', true);
-    registerFeature('ga4DebuggingEnabled', 'enableGa4DebuggingToggle', 'toggleGa4DebuggingControl', 'GA4 Debugging', false);
     registerFeature('segmentComparisonEnabled', 'enableSegmentComparisonToggle', 'toggleSegmentComparisonControl', 'Segment Variation Comparison', true);
     registerFeature('panelToggleEnabled', 'enablePanelToggleToggle', 'togglePanelToggleControl', 'Collapsible Panels', true);
     registerFeature('stickyCalculatorEnabled', 'enableStickyCalculatorToggle', 'toggleStickyCalculatorControl', 'Sticky CR Calculator', true);
@@ -127,9 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (feature.element.checked !== newValue) {
                         feature.element.checked = newValue;
                         masterToggleNeedsUpdate = true;
-                        if (feature.storageKey === 'ga4DebuggingEnabled') {
-                            handleGa4DebugMessageVisibility(newValue, feature.storageKey);
-                        }
                     }
                 }
             });
@@ -138,20 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-
-    function handleGa4DebugMessageVisibility(isEnabled, storageKey) {
-        const debugReloadMessageEl = document.getElementById('ga4DebugReloadMessage');
-        const toggleData = getToggleData(storageKey);
-        if (debugReloadMessageEl) {
-            if (toggleData.debugMessageTimeoutId) {
-                clearTimeout(toggleData.debugMessageTimeoutId);
-                toggleData.debugMessageTimeoutId = null;
-            }
-            if (!isEnabled) {
-                debugReloadMessageEl.style.display = 'none';
-            }
-        }
-    }
 
     function initializeToggle(feature) {
         return new Promise((resolve) => {
@@ -188,23 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         } else {
                             sendToggleStateToContentScript(storageKey, newState);
                             updateMasterToggleStateVisuals();
-                            if (storageKey === 'ga4DebuggingEnabled') {
-                                const debugReloadMessageEl = document.getElementById('ga4DebugReloadMessage');
-                                const toggleDataLocal = getToggleData(storageKey);
-                                if (debugReloadMessageEl) {
-                                    if (toggleDataLocal.debugMessageTimeoutId) clearTimeout(toggleDataLocal.debugMessageTimeoutId);
-                                    if (newState === true) {
-                                        debugReloadMessageEl.textContent = "Reload relevant website(s) to activate debugging.";
-                                        debugReloadMessageEl.style.display = 'block';
-                                        toggleDataLocal.debugMessageTimeoutId = setTimeout(() => {
-                                            if (debugReloadMessageEl) debugReloadMessageEl.style.display = 'none';
-                                            toggleDataLocal.debugMessageTimeoutId = null;
-                                        }, 5000);
-                                    } else {
-                                        debugReloadMessageEl.style.display = 'none';
-                                    }
-                                }
-                            }
+                            showTopNotification("Reload GA4 page for changes to take full effect.", false, 4000);
                         }
                     });
                 });
@@ -216,7 +208,8 @@ document.addEventListener('DOMContentLoaded', () => {
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
             if (tabs && tabs.length > 0 && tabs[0].id) {
                 const tabId = tabs[0].id;
-                if (storageKey === 'ga4DebuggingEnabled' || (tabs[0].url && tabs[0].url.includes("analytics.google.com"))) {
+                // Always send if it's an analytics.google.com tab
+                if (tabs[0].url && tabs[0].url.includes("analytics.google.com")) {
                     chrome.tabs.sendMessage(tabId,
                         { action: "updateFeatureState", featureKey: storageKey, enabled: state },
                         (response) => {
@@ -252,7 +245,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- START MODIFICATION: Send notification message ---
     function sendMasterToggleNotificationToContentScript(notificationType) {
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
             if (tabs && tabs.length > 0 && tabs[0].id) {
@@ -272,31 +264,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    // --- END MODIFICATION ---
 
     function initializeMasterToggle(masterToggleElement) {
         masterToggleElement.addEventListener('click', () => {
-            const wasAnyFeatureOn = featuresData.some(feature => feature.element && feature.element.checked); // State before toggle
+            const wasAnyFeatureOn = featuresData.some(feature => feature.element && feature.element.checked);
             const newStatesToSet = {};
             let changed = false;
 
-            if (wasAnyFeatureOn) { // Action: Turn OFF all currently enabled features
+            if (wasAnyFeatureOn) {
                 featuresData.forEach(feature => {
                     if (feature.element && feature.element.checked) {
                         newStatesToSet[feature.storageKey] = false;
                         changed = true;
                     }
                 });
-            } else { // Action: Turn ON recommended (defaultState=true) features
+            } else {
                  featuresData.forEach(feature => {
                     if (feature.defaultState) {
                         if (!feature.element || !feature.element.checked) {
                             newStatesToSet[feature.storageKey] = true;
                             changed = true;
                         }
-                    } else {
+                    } else { 
                         if (feature.element && feature.element.checked) {
-                             newStatesToSet[feature.storageKey] = false;
+                             newStatesToSet[feature.storageKey] = false; 
                              changed = true;
                         }
                     }
@@ -310,9 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else {
                         const contentScriptChanges = {};
                         Object.keys(newStatesToSet).forEach(key => {
-                            if (key !== 'ga4DebuggingEnabled') {
-                                contentScriptChanges[key] = newStatesToSet[key];
-                            }
+                            contentScriptChanges[key] = newStatesToSet[key];
                             const feature = featuresData.find(f => f.storageKey === key);
                             if (feature && feature.element && feature.element.checked !== newStatesToSet[key]) {
                                 feature.element.checked = newStatesToSet[key];
@@ -322,12 +311,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (Object.keys(contentScriptChanges).length > 0) {
                             sendMultipleToggleStatesToContentScript(contentScriptChanges);
                         }
+                        
                         updateMasterToggleStateVisuals();
-
-                        // --- START MODIFICATION: Determine and send notification type ---
                         const notificationType = wasAnyFeatureOn ? "allDisabled" : "recommendedEnabled";
                         sendMasterToggleNotificationToContentScript(notificationType);
-                        // --- END MODIFICATION ---
+                        showTopNotification("Reload GA4 page for changes to take full effect.", false, 4000);
                     }
                 });
             }

@@ -1,17 +1,19 @@
 /**
  * feature_percentages.js - Logic for the Exploration Row Percentage feature
  * Part of the GA4 Optimizer Extension
- * VERSION: 11.3 - Hide percentage on Totals row (row-index="0").
- * - getPercentageData returns null for totals row.
- * - processCellForInline skips adding tspan for totals row.
+ * VERSION: 11.7 - Returns "Scroll up..." message if totals not cached for current table.
+ * - Added totalsCacheIsValidForCurrentTable & tableContainerForWhichTotalsAreValid state.
+ * - findTotalsAndMetricsAndWidths updates this state.
+ * - getPercentageData returns specific message if totals need capture.
  */
 (function() { // Start of IIFE
 
-    // --- Feature Namespace ---
     window.ga4Optimizer = window.ga4Optimizer || {};
     window.ga4Optimizer.percentages = {};
 
-    // --- Configuration ---
+    const logPercDebug = (...args) => { if (window.ga4Optimizer?.debugModeEnabled) console.log("GA4 Optimizer (Percentages v11.7):", ...args); };
+    const warnPercDebug = (...args) => { if (window.ga4Optimizer?.debugModeEnabled) console.warn("GA4 Optimizer (Percentages v11.7):", ...args); };
+
     const TABLE_CONTAINER_SELECTOR = 'div.aplos-chart-container';
     const SCROLL_CONTAINER_SELECTOR = 'div.scroll-div';
     const DATA_CELL_GROUP_SELECTOR = 'div.cells-wrapper g.cell[row-index][column-index]';
@@ -25,328 +27,271 @@
     const SCROLL_DEBOUNCE_DELAY = 300;
     const MAX_DIGITS_FOR_INLINE = 6;
 
-    // --- Feature State ---
-    let tableContainerElement = null;
+    const TOTALS_NEED_CAPTURE_MESSAGE = "Scroll up to capture Column's Total";
+
+    let tableContainerElement = null; // The current table being processed by findTotals
     let scrollContainerElement = null;
-    let lastKnownTotals = {}; // Will persist unless explicitly reset
+    let lastKnownTotals = {};
     let isFindingTotals = false;
-    let initializedLogShown = false; // Keep this to show activation message once
+    // New state for cache validation, similar to segment_comparison
+    let totalsCacheIsValidForCurrentTable = false;
+    let tableContainerForWhichTotalsAreValid = null;
+    let initializedLogShown = false;
     let scrollListenerAttachedTo = null;
 
-    // --- Helper Functions ---
-    function parseCellValue(text) {
-      if (typeof text !== 'string') return NaN;
-      const cleanedText = text.replace(/[,%$€£¥]/g, '').trim();
-      if (cleanedText === '' || cleanedText === '-') return NaN;
-      const value = parseFloat(cleanedText);
-      return isNaN(value) ? NaN : value;
+    function parseCellValue(text) { /* ... (same as 11.6) ... */
+        if (typeof text !== 'string') return NaN; const cleanedText = text.replace(/[,%$€£¥]/g, '').trim();
+        if (cleanedText === '' || cleanedText === '-') return NaN; const value = parseFloat(cleanedText);
+        return isNaN(value) ? NaN : value;
+    }
+    function formatPercentage(value) { /* ... (same as 11.6) ... */
+        if (isNaN(value) || typeof value !== 'number' || !isFinite(value) || value < 0) return '';
+        return `(${(value * 100).toFixed(2)}%)`;
     }
 
-    function formatPercentage(value) { // For inline display
-      if (isNaN(value) || typeof value !== 'number' || !isFinite(value) || value < 0) return '';
-      return `(${(value * 100).toFixed(2)}%)`;
-    }
-
-    /**
-     * Calculates percentage for Tooltip. Uses persistent cache.
-     * Returns null for the Totals row (row-index="0").
-     */
     window.ga4Optimizer.percentages.getPercentageData = function(cellG) {
-        // Check global enabled state first for tooltip data
-        if (!window.ga4Optimizer.featureStates.percentagesEnabled) {
-             return null;
-        }
+        if (!window.ga4Optimizer.featureStates.percentagesEnabled) return null;
         if (!cellG) return null;
-
-        // *** ADD CHECK: Return null if it's the totals row ***
         const rowIndex = cellG.getAttribute('row-index');
-        if (rowIndex === "0") {
-            return null;
+        if (rowIndex === "0") return null; // No percentage for totals row itself
+
+        const currentCellTableContainer = cellG.closest(TABLE_CONTAINER_SELECTOR);
+
+        if (!totalsCacheIsValidForCurrentTable ||
+            currentCellTableContainer !== tableContainerForWhichTotalsAreValid ||
+            Object.keys(lastKnownTotals).length === 0) {
+            logPercDebug("getPercentageData: Totals cache not valid for current cell context or empty. Needs capture.");
+            return TOTALS_NEED_CAPTURE_MESSAGE; // Return specific message
         }
-        // *** END CHECK ***
 
         const cellTextElement = cellG.querySelector(CELL_VALUE_SELECTOR);
         const colIndexStr = cellG.getAttribute('column-index');
         const colIndex = parseInt(colIndexStr, 10);
-        // Use cached totals
-        if (!cellTextElement || isNaN(colIndex) || !lastKnownTotals || lastKnownTotals[colIndex] === undefined || lastKnownTotals[colIndex] === null || lastKnownTotals[colIndex] === 0) {
-            return null;
+
+        if (!cellTextElement || isNaN(colIndex) ||
+            lastKnownTotals[colIndex] === undefined || lastKnownTotals[colIndex] === null) {
+            // This implies the cache is valid for the table, but this specific column's total is missing/null
+            // which could happen if a column has no parsable total.
+            // Or, if it's a new column that wasn't there when totals were cached.
+            logPercDebug(`getPercentageData: Total for col ${colIndex} is missing/null in an otherwise valid cache. Suggesting recapture.`);
+            return TOTALS_NEED_CAPTURE_MESSAGE;
         }
+        if (lastKnownTotals[colIndex] === 0) { // Denominator is zero
+            return null; // Or a specific "Base is 0" message if desired
+        }
+
         const totalValue = lastKnownTotals[colIndex];
-        // Get original value even if tspan exists
         const cloneTextElement = cellTextElement.cloneNode(true);
         cloneTextElement.querySelector(`.${PERCENTAGE_TSPAN_CLASS}`)?.remove();
         const cellValue = parseCellValue(cloneTextElement.textContent);
 
-        if (isNaN(cellValue)) { return null; }
+        if (isNaN(cellValue)) return null;
         return cellValue / totalValue;
     };
 
-    // --- Debounce Function ---
-    function debounce(func, delay) {
-        let debounceTimer;
-        return function(...args) {
-            const context = this;
-            clearTimeout(debounceTimer);
-            debounceTimer = setTimeout(() => func.apply(context, args), delay);
-        }
+    function debounce(func, delay) { /* ... (same as 11.6) ... */
+        let debounceTimer; return function(...args) { const context = this; clearTimeout(debounceTimer); debounceTimer = setTimeout(() => func.apply(context, args), delay); }
     }
 
-    /** Removes ALL percentage tspans and resets state including totals cache. */
     window.ga4Optimizer.percentages.removeAndReset = function() {
+        logPercDebug("removeAndReset called.");
         window.ga4Optimizer.isModifyingDOM = true;
         try {
-            // Remove scroll listener if attached
             if (scrollListenerAttachedTo && window.ga4Optimizer.percentages._debouncedScrollHandler) {
                  scrollListenerAttachedTo.removeEventListener('scroll', window.ga4Optimizer.percentages._debouncedScrollHandler);
-                 scrollListenerAttachedTo = null; // Clear tracking
+                 scrollListenerAttachedTo = null;
             }
-            // Remove ALL tspans
-            const spans = document.querySelectorAll(`.${PERCENTAGE_TSPAN_CLASS}`);
-            spans.forEach(span => span.remove());
-
+            removeExistingPercentageElements();
             tableContainerElement = null; scrollContainerElement = null;
-            lastKnownTotals = {}; // ** Explicitly clear totals cache **
-            isFindingTotals = false; initializedLogShown = false;
-        } catch (error) { console.error("[Perc] Error during removeAndReset:", error); } // Keep error logs
+            lastKnownTotals = {};
+            isFindingTotals = false;
+            totalsCacheIsValidForCurrentTable = false; // Reset new state
+            tableContainerForWhichTotalsAreValid = null; // Reset new state
+            initializedLogShown = false;
+            logPercDebug("State fully reset by removeAndReset.");
+        } catch (error) { console.error("[Perc] Error during removeAndReset:", error); }
         finally { setTimeout(() => { window.ga4Optimizer.isModifyingDOM = false; }, 50); }
     };
 
-    /** Internal function to remove existing tspans before recalculating. */
-    function removeExistingPercentageElements() {
-         window.ga4Optimizer.isModifyingDOM = true;
-         try {
-            const spans = document.querySelectorAll(`.${PERCENTAGE_TSPAN_CLASS}`);
-            spans.forEach(span => span.remove());
-        } catch (error) { console.error("[Perc] Error removing existing percentage elements:", error); } // Keep error logs
-        finally { setTimeout(() => { window.ga4Optimizer.isModifyingDOM = false; }, 50); }
+    function removeExistingPercentageElements() { /* ... (same as 11.6) ... */
+        const spans = document.querySelectorAll(`.${PERCENTAGE_TSPAN_CLASS}`);
+        if (spans.length > 0) {
+            logPercDebug(`Removing ${spans.length} existing percentage tspans.`);
+            window.ga4Optimizer.isModifyingDOM = true;
+            try { spans.forEach(span => span.remove()); }
+            catch (error) { console.error("[Perc] Error removing existing percentage elements:", error); }
+            finally { setTimeout(() => { window.ga4Optimizer.isModifyingDOM = false; }, 50); }
+        }
     }
-
-    /**
-     * Processes a single data cell FOR INLINE TSPAN ONLY.
-     * Skips processing for the Totals row (row-index="0").
-     */
-    function processCellForInline(cellG, columnIndex, totalValue) {
-        // *** ADD CHECK: Skip totals row ***
+    function processCellForInline(cellG, columnIndex, totalValue) { /* ... (same as 11.6, no changes needed here specifically for this request) ... */
         const rowIndex = cellG.getAttribute('row-index');
         if (rowIndex === "0") {
-            // Ensure tspan is removed if it somehow exists on total row
             const existingTSpan = cellG.querySelector(`.${PERCENTAGE_TSPAN_CLASS}`);
-             if (existingTSpan) {
-                 window.ga4Optimizer.isModifyingDOM = true;
-                 try { existingTSpan.remove(); } catch(e) { /* ignore */ }
-                 finally { setTimeout(() => { window.ga4Optimizer.isModifyingDOM = false; }, 50); }
-             }
-            return; // Don't process totals row
+             if (existingTSpan) { window.ga4Optimizer.isModifyingDOM = true; try { existingTSpan.remove(); } catch(e) { /* ignore */ } finally { setTimeout(() => { window.ga4Optimizer.isModifyingDOM = false; }, 50); } }
+            return;
         }
-        // *** END CHECK ***
-
-
-        // Check global enabled state first
         if (!window.ga4Optimizer.featureStates.percentagesEnabled) {
-            // Ensure tspan is removed if feature was just disabled
             const existingTSpan = cellG.querySelector(`.${PERCENTAGE_TSPAN_CLASS}`);
-             if (existingTSpan) {
-                 window.ga4Optimizer.isModifyingDOM = true;
-                 try { existingTSpan.remove(); } catch(e) { /* ignore */ }
-                 finally { setTimeout(() => { window.ga4Optimizer.isModifyingDOM = false; }, 50); }
-             }
+             if (existingTSpan) { window.ga4Optimizer.isModifyingDOM = true; try { existingTSpan.remove(); } catch(e) { /* ignore */ } finally { setTimeout(() => { window.ga4Optimizer.isModifyingDOM = false; }, 50); } }
             return;
         }
-
-        const cellTextElement = cellG.querySelector(CELL_VALUE_SELECTOR);
-        if (!cellTextElement) {
-            return; // Exit gracefully if text element not found
-        }
-
+        const cellTextElement = cellG.querySelector(CELL_VALUE_SELECTOR); if (!cellTextElement) return;
         const existingTSpan = cellTextElement.querySelector(`.${PERCENTAGE_TSPAN_CLASS}`);
-
-        // Check if calculation is possible
         if (totalValue === undefined || totalValue === null || isNaN(totalValue) || totalValue === 0) {
-            if (existingTSpan) {
-                window.ga4Optimizer.isModifyingDOM = true;
-                try { existingTSpan.remove(); }
-                catch(e) { /* ignore errors during removal */ }
-                finally { setTimeout(() => { window.ga4Optimizer.isModifyingDOM = false; }, 50); }
-            }
+            if (existingTSpan) { window.ga4Optimizer.isModifyingDOM = true; try { existingTSpan.remove(); } catch(e) { /* ignore */ } finally { setTimeout(() => { window.ga4Optimizer.isModifyingDOM = false; }, 50); } }
             return;
         }
-
-        // Clone to get original value
-        const cloneTextElement = cellTextElement.cloneNode(true);
-        cloneTextElement.querySelector(`.${PERCENTAGE_TSPAN_CLASS}`)?.remove();
-        const originalText = cloneTextElement.textContent || '';
-        const originalValueString = originalText.replace(/,/g, '');
+        const cloneTextElement = cellTextElement.cloneNode(true); cloneTextElement.querySelector(`.${PERCENTAGE_TSPAN_CLASS}`)?.remove();
+        const originalText = cloneTextElement.textContent || ''; const originalValueString = originalText.replace(/,/g, '');
         const cellValue = parseCellValue(originalValueString);
-
         if (isNaN(cellValue)) {
-            if (existingTSpan) {
-                 window.ga4Optimizer.isModifyingDOM = true;
-                 try { existingTSpan.remove(); }
-                 catch(e) { /* ignore errors during removal */ }
-                 finally { setTimeout(() => { window.ga4Optimizer.isModifyingDOM = false; }, 50); }
-            }
+            if (existingTSpan) { window.ga4Optimizer.isModifyingDOM = true; try { existingTSpan.remove(); } catch(e) { /* ignore */ } finally { setTimeout(() => { window.ga4Optimizer.isModifyingDOM = false; }, 50); } }
             return;
         }
-
         const percentageStringInline = formatPercentage(cellValue / totalValue);
-
         if (percentageStringInline === '') {
-            if (existingTSpan) {
-                 window.ga4Optimizer.isModifyingDOM = true;
-                 try { existingTSpan.remove(); }
-                 catch(e) { /* ignore errors during removal */ }
-                 finally { setTimeout(() => { window.ga4Optimizer.isModifyingDOM = false; }, 50); }
-            }
+            if (existingTSpan) { window.ga4Optimizer.isModifyingDOM = true; try { existingTSpan.remove(); } catch(e) { /* ignore */ } finally { setTimeout(() => { window.ga4Optimizer.isModifyingDOM = false; }, 50); } }
             return;
         }
-
-        // --- Conditions met for potential display ---
         if (existingTSpan) {
-            // TSPAN EXISTS: Only update content if necessary. Skip length check.
-            if (existingTSpan.textContent !== percentageStringInline) {
-                 window.ga4Optimizer.isModifyingDOM = true;
-                 try { existingTSpan.textContent = percentageStringInline; }
-                 catch(e) { console.warn("[Perc] Error updating tspan textContent:", e); } // Warn on error
-                 finally { setTimeout(() => { window.ga4Optimizer.isModifyingDOM = false; }, 50); }
-            }
+            if (existingTSpan.textContent !== percentageStringInline) { window.ga4Optimizer.isModifyingDOM = true; try { existingTSpan.textContent = percentageStringInline; } catch(e) { warnPercDebug("Error updating tspan textContent:", e); } finally { setTimeout(() => { window.ga4Optimizer.isModifyingDOM = false; }, 50); } }
         } else {
-            // TSPAN DOES NOT EXIST: Check original value string length before adding.
             if (originalValueString.length <= MAX_DIGITS_FOR_INLINE) {
                 const percentageTSpan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
-                percentageTSpan.setAttribute('class', PERCENTAGE_TSPAN_CLASS);
-                percentageTSpan.setAttribute('dx', INLINE_DX);
-                percentageTSpan.textContent = percentageStringInline;
-                window.ga4Optimizer.isModifyingDOM = true;
-                try {
-                    if (document.body.contains(cellTextElement)) {
-                         cellTextElement.appendChild(percentageTSpan);
-                    }
-                } catch(e) { console.warn("[Perc] Error appending new tspan:", e); } // Warn on error
-                finally { setTimeout(() => { window.ga4Optimizer.isModifyingDOM = false; }, 50); }
+                percentageTSpan.setAttribute('class', PERCENTAGE_TSPAN_CLASS); percentageTSpan.setAttribute('dx', INLINE_DX);
+                percentageTSpan.textContent = percentageStringInline; window.ga4Optimizer.isModifyingDOM = true;
+                try { if (document.body.contains(cellTextElement)) { cellTextElement.appendChild(percentageTSpan); } }
+                catch(e) { warnPercDebug("Error appending new tspan:", e); } finally { setTimeout(() => { window.ga4Optimizer.isModifyingDOM = false; }, 50); }
             }
         }
     }
 
-
-    /** Finds column totals/widths. Updates cache ONLY on success. */
-    function findTotalsAndMetricsAndWidths(retryCount = 0) {
-        if (isFindingTotals && retryCount === 0) { return false; }
-        if (retryCount === 0) {
-            isFindingTotals = true;
-            tableContainerElement = document.querySelector(TABLE_CONTAINER_SELECTOR);
-            if (!tableContainerElement) {
-                isFindingTotals = false;
-                return false;
+    function attemptRetry(reason, callback, retryCount) { /* Similar to 11.6, but updates this feature's state */
+        if (retryCount < MAX_RETRIES) {
+            logPercDebug(`Retrying findTotals... (${retryCount + 1}/${MAX_RETRIES}). Reason: ${reason}`);
+            setTimeout(() => { findTotalsAndMetricsAndWidths(callback, retryCount + 1); }, RETRY_DELAY);
+        } else {
+            warnPercDebug(`findTotalsAndMetricsAndWidths: FAILED after ${MAX_RETRIES} retries. Reason: ${reason}.`);
+            isFindingTotals = false;
+            if (totalsCacheIsValidForCurrentTable) { // If we thought cache was good for *this* table
+                removeExistingPercentageElements(); // Clean up visuals
             }
+            lastKnownTotals = {};
+            totalsCacheIsValidForCurrentTable = false;
+            tableContainerForWhichTotalsAreValid = null;
+            if (callback) callback(false);
         }
-        let currentTotals = {}; let indices = []; let totalsParsedCount = 0;
-        let needsRetry = false; let retryReason = "";
+    }
+
+    function findTotalsAndMetricsAndWidths(callback, retryCount = 0) {
+        if (retryCount === 0) { isFindingTotals = true; }
+
+        const currentAttemptTableContainer = document.querySelector(TABLE_CONTAINER_SELECTOR);
+        if (!currentAttemptTableContainer) {
+            isFindingTotals = false;
+            if (totalsCacheIsValidForCurrentTable) removeExistingPercentageElements();
+            lastKnownTotals = {};
+            totalsCacheIsValidForCurrentTable = false;
+            tableContainerForWhichTotalsAreValid = null;
+            tableContainerElement = null; // Clear module-level too
+            logPercDebug("findTotals: No table container. Cleared totals and validation.");
+            if (callback) callback(false);
+            return;
+        }
+        tableContainerElement = currentAttemptTableContainer; // Update module-level context
+
+        if (tableContainerElement !== tableContainerForWhichTotalsAreValid) {
+            logPercDebug("findTotals: Table container context changed. Invalidating previous totals cache and validation state.");
+            lastKnownTotals = {}; // Clear if table context changes
+            totalsCacheIsValidForCurrentTable = false;
+            // tableContainerForWhichTotalsAreValid will be set upon successful parsing
+        }
+
         const totalRowCells = tableContainerElement.querySelectorAll(TOTAL_ROW_CELL_SELECTOR);
+        let currentTotals = {}; let indicesFound = []; let totalsParsedCount = 0;
 
         if (totalRowCells && totalRowCells.length > 0) {
-             totalRowCells.forEach(totalCellG => {
+            totalRowCells.forEach(totalCellG => { /* ... (parsing logic same as 11.6) ... */
                 const colIndexStr = totalCellG.getAttribute('column-index'); if (colIndexStr === null) return;
                 const colIndex = parseInt(colIndexStr, 10); if (isNaN(colIndex)) return;
-                const totalValueElement = totalCellG.querySelector(TOTAL_VALUE_TEXT_SELECTOR);
+                indicesFound.push(colIndex); const totalValueElement = totalCellG.querySelector(TOTAL_VALUE_TEXT_SELECTOR);
                 const totalValue = totalValueElement ? parseCellValue(totalValueElement.textContent) : NaN;
-                if (!isNaN(totalValue)) { currentTotals[colIndex] = totalValue; indices.push(colIndex); totalsParsedCount++; }
-                 else { currentTotals[colIndex] = null; indices.push(colIndex); }
+                if (!isNaN(totalValue)) { currentTotals[colIndex] = totalValue; totalsParsedCount++; } else { currentTotals[colIndex] = null; }
             });
-            needsRetry = indices.length === 0; if(needsRetry) retryReason = "Failed to find/parse any total cells";
-        } else { needsRetry = true; retryReason = "Total row cells query returned empty"; }
 
-        if (needsRetry) {
-             if (retryCount < MAX_RETRIES) {
-                 setTimeout(() => { findTotalsAndMetricsAndWidths(retryCount + 1); }, RETRY_DELAY); return false;
-             } else {
-                 isFindingTotals = false;
-                 return false;
-             }
-        } else {
-            isFindingTotals = false;
-            const totalsChanged = JSON.stringify(lastKnownTotals) !== JSON.stringify(currentTotals);
-            if (totalsChanged) {
-                lastKnownTotals = currentTotals;
-                return true;
+            if (indicesFound.length > 0 && totalsParsedCount > 0) { // Successfully found and parsed
+                isFindingTotals = false;
+                const totalsChanged = JSON.stringify(lastKnownTotals) !== JSON.stringify(currentTotals);
+                if (totalsChanged || !totalsCacheIsValidForCurrentTable || tableContainerElement !== tableContainerForWhichTotalsAreValid) {
+                    lastKnownTotals = currentTotals;
+                    logPercDebug("Totals updated/established from DOM for current table:", tableContainerElement.outerHTML.substring(0,100) , JSON.parse(JSON.stringify(lastKnownTotals)));
+                    removeExistingPercentageElements();
+                } else { logPercDebug("Totals confirmed from DOM, same as cache for current table:", tableContainerElement.outerHTML.substring(0,100)); }
+                totalsCacheIsValidForCurrentTable = true;
+                tableContainerForWhichTotalsAreValid = tableContainerElement;
+                if (callback) callback(true);
+                return;
+            } else if (indicesFound.length > 0 && totalsParsedCount === 0) { // Found cells, but unparsable
+                if (totalsCacheIsValidForCurrentTable && tableContainerElement === tableContainerForWhichTotalsAreValid) {
+                    logPercDebug("findTotals: Total cells present but unparsable. Cache was valid for THIS table. Clearing and failing.");
+                    lastKnownTotals = {}; totalsCacheIsValidForCurrentTable = false; tableContainerForWhichTotalsAreValid = null;
+                    removeExistingPercentageElements(); isFindingTotals = false; if (callback) callback(false); return;
+                } else { attemptRetry("Total cells found, but no numeric values parsed. No valid prior cache for this table or context changed.", callback, retryCount); return; }
+            } else { attemptRetry("No specific column indices found in total row cells. Cache invalid or empty.", callback, retryCount); return; }
+        } else { // Total row query empty
+            if (totalsCacheIsValidForCurrentTable && tableContainerElement === tableContainerForWhichTotalsAreValid && Object.keys(lastKnownTotals).length > 0) {
+                logPercDebug("findTotals: Total row cells query empty, but trusting VALID cache for CURRENT table (likely scrolled).");
+                isFindingTotals = false; if (callback) callback(true); return;
             } else {
-                return false;
+                if (totalsCacheIsValidForCurrentTable && tableContainerElement !== tableContainerForWhichTotalsAreValid) {
+                    logPercDebug("findTotals: Total row query empty. Cache was for a DIFFERENT table. Invalidating and retrying.");
+                }
+                attemptRetry("Total row cells query empty. Cache invalid, empty, or for a different table.", callback, retryCount); return;
             }
         }
     }
 
-    /** Function called initially and by the debounced scroll listener. */
-    function handleScroll() {
-        // ** Add check: Exit if feature is disabled **
-        if (!window.ga4Optimizer.featureStates.percentagesEnabled) {
-            return;
+    function handleScroll() { /* ... (same as 11.6, uses this feature's validation state) ... */
+        if (isFindingTotals) { return; } if (!window.ga4Optimizer.featureStates.percentagesEnabled) { return; }
+        const currentContextTable = tableContainerElement; // Table for which totals are presumed valid
+        if (!currentContextTable || !document.body.contains(currentContextTable) ||
+            !totalsCacheIsValidForCurrentTable || currentContextTable !== tableContainerForWhichTotalsAreValid) {
+            if (document.querySelector(`.${PERCENTAGE_TSPAN_CLASS}`)) removeExistingPercentageElements(); return;
         }
-        if (!tableContainerElement) { return; }
-        if (Object.keys(lastKnownTotals).length === 0) { return; }
-        const renderedCells = tableContainerElement.querySelectorAll(DATA_CELL_GROUP_SELECTOR); // Process all rows including totals initially
+        if (Object.keys(lastKnownTotals).length === 0) { if (document.querySelector(`.${PERCENTAGE_TSPAN_CLASS}`)) removeExistingPercentageElements(); return; }
+        const renderedCells = currentContextTable.querySelectorAll(DATA_CELL_GROUP_SELECTOR);
         if(renderedCells){
             renderedCells.forEach(cellG => {
-                const colIndexStr = cellG.getAttribute('column-index');
-                const colIndex = parseInt(colIndexStr, 10);
-                const totalForColumn = lastKnownTotals[colIndex];
-                processCellForInline(cellG, colIndex, totalForColumn); // processCellForInline now handles skipping totals row
+                const colIndexStr = cellG.getAttribute('column-index'); const colIndex = parseInt(colIndexStr, 10);
+                const totalForColumn = lastKnownTotals[colIndex]; processCellForInline(cellG, colIndex, totalForColumn);
             });
         }
     }
 
-    // Create debounced scroll handler
     window.ga4Optimizer.percentages._debouncedScrollHandler = debounce(handleScroll, SCROLL_DEBOUNCE_DELAY);
 
-    /** Main activation function - Finds totals, attaches scroll listener, runs initial processing. */
-    window.ga4Optimizer.percentages.runCalculation = function() {
-        // ** Add check: Call removeAndReset and exit if feature is disabled **
-        if (!window.ga4Optimizer.featureStates.percentagesEnabled) {
-            this.removeAndReset(); // Use 'this' to call instance method
-            return;
-        }
-
-        if (!initializedLogShown) {
-            console.log("GA4 Optimizer: Percentage Feature ACTIVATED (v11.3 - Hide Total Row %)."); // Update version in message
-            initializedLogShown = true;
-        }
-        tableContainerElement = document.querySelector(TABLE_CONTAINER_SELECTOR);
-        if (!tableContainerElement) {
-             // Only reset if it was previously initialized (to avoid clearing totals unnecessarily)
-             if (initializedLogShown) {
-                 this.removeAndReset();
-             }
-             return;
-        }
-        const totalsWereUpdated = findTotalsAndMetricsAndWidths();
-        if (Object.keys(lastKnownTotals).length > 0) {
-            if (totalsWereUpdated) {
-                removeExistingPercentageElements();
+    window.ga4Optimizer.percentages.runCalculation = function() { /* ... (same as 11.6, calls this feature's findTotals) ... */
+        if (!window.ga4Optimizer.featureStates.percentagesEnabled) { this.removeAndReset(); return; }
+		if (!initializedLogShown) { if (window.ga4Optimizer?.debugModeEnabled) { console.log("GA4 Optimizer: Percentage Feature ACTIVATED (v11.7)."); } initializedLogShown = true; }
+        findTotalsAndMetricsAndWidths((totalsAreNowAvailable) => {
+            logPercDebug(`runCalculation callback: totalsAreNowAvailable = ${totalsAreNowAvailable}`);
+            const processedTableContainer = tableContainerElement;
+            if (!processedTableContainer || !document.body.contains(processedTableContainer)) {
+                logPercDebug("runCalculation callback: Table container for this callback context is gone. Aborting.");
+                if (scrollListenerAttachedTo && !document.body.contains(scrollListenerAttachedTo)) { try { scrollListenerAttachedTo.removeEventListener('scroll', window.ga4Optimizer.percentages._debouncedScrollHandler); } catch(e){} scrollListenerAttachedTo = null; scrollContainerElement = null;}
+                return;
             }
-            setTimeout(handleScroll, 0); // Immediate processing after totals check
-            const currentScrollContainer = tableContainerElement.querySelector(SCROLL_CONTAINER_SELECTOR);
-            if (currentScrollContainer) {
-                if (scrollListenerAttachedTo !== currentScrollContainer) {
-                     if (scrollListenerAttachedTo && window.ga4Optimizer.percentages._debouncedScrollHandler) {
-                         scrollListenerAttachedTo.removeEventListener('scroll', window.ga4Optimizer.percentages._debouncedScrollHandler);
-                     }
-                     scrollContainerElement = currentScrollContainer;
-                     scrollContainerElement.addEventListener('scroll', window.ga4Optimizer.percentages._debouncedScrollHandler);
-                     scrollListenerAttachedTo = scrollContainerElement;
-                 }
-            } else {
-                 if (scrollListenerAttachedTo && window.ga4Optimizer.percentages._debouncedScrollHandler) {
-                      scrollListenerAttachedTo.removeEventListener('scroll', window.ga4Optimizer.percentages._debouncedScrollHandler);
-                 }
-                 scrollContainerElement = null;
-                 scrollListenerAttachedTo = null;
+            if (totalsAreNowAvailable && totalsCacheIsValidForCurrentTable && processedTableContainer === tableContainerForWhichTotalsAreValid) {
+                setTimeout(handleScroll, 0); const currentScrollContainer = processedTableContainer.querySelector(SCROLL_CONTAINER_SELECTOR);
+                if (currentScrollContainer) {
+                    if (scrollListenerAttachedTo !== currentScrollContainer) { if (scrollListenerAttachedTo) { try {scrollListenerAttachedTo.removeEventListener('scroll', window.ga4Optimizer.percentages._debouncedScrollHandler);} catch(e){} } scrollContainerElement = currentScrollContainer; scrollContainerElement.addEventListener('scroll', window.ga4Optimizer.percentages._debouncedScrollHandler); scrollListenerAttachedTo = scrollContainerElement; logPercDebug("Scroll listener attached/updated for table:", processedTableContainer.outerHTML.substring(0,100)); }
+                } else {  if (scrollListenerAttachedTo) { try {scrollListenerAttachedTo.removeEventListener('scroll', window.ga4Optimizer.percentages._debouncedScrollHandler);} catch(e){} logPercDebug("Scroll listener removed (no scroll container).");} scrollContainerElement = null; scrollListenerAttachedTo = null; }
+            } else {  warnPercDebug("Totals not available or cache invalid for current table after findTotals. Ensuring cleanup. Processed Table:", processedTableContainer.outerHTML.substring(0,100) , "Valid Table:", tableContainerForWhichTotalsAreValid ? tableContainerForWhichTotalsAreValid.outerHTML.substring(0,100) : "null");
+                if (document.querySelector(`.${PERCENTAGE_TSPAN_CLASS}`)) removeExistingPercentageElements();
+                if (scrollListenerAttachedTo) { try {scrollListenerAttachedTo.removeEventListener('scroll', window.ga4Optimizer.percentages._debouncedScrollHandler);} catch(e){} logPercDebug("Scroll listener removed (totals unavailable or cache invalid).");}
+                scrollContainerElement = null; scrollListenerAttachedTo = null;
             }
-        } else {
-             // If findTotals failed to get totals, but the feature is enabled,
-             // still try to clean up any potentially old tspans.
-             if (!totalsWereUpdated && Object.keys(lastKnownTotals).length === 0){
-                 removeExistingPercentageElements(); // Clean up just in case
-             }
-        }
+        });
     };
 
 })(); // End of IIFE

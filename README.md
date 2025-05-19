@@ -1,6 +1,6 @@
 # GA4 Optimizer Chrome Extension
 
-GA4 Optimizer adds features like automatic calculations, auto-unsample, click-to-copy, sticky headers, and a GA4 debugging toggle to Google Analytics 4, helping analysts and power users speed up their insight gathering.
+GA4 Optimizer adds features like automatic calculations, auto-unsample, click-to-copy, and sticky headers to Google Analytics 4, helping analysts and power users speed up their insight gathering.
 
 This extension is free and developed by an individual for the data community.
 

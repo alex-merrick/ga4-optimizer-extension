@@ -1,3 +1,7 @@
+/**
+ * documentation.js
+ * VERSION: 1.5 - Fixed Video not opening
+ */
 document.addEventListener('DOMContentLoaded', () => {
     // --- Video Modal Logic ---
     const videoModal = document.getElementById('videoModal');
@@ -7,44 +11,113 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (previewVideoContainers.length > 0 && videoModal && modalVideoPlayer && closeModalButton) {
         previewVideoContainers.forEach(container => {
-            const previewVideoSourceTag = container.querySelector('video > source[src]');
-            if (!previewVideoSourceTag) {
-                console.warn("No video source tag found for container:", container);
-                return;
+            const previewVideo = container.querySelector('video');
+            const playIconOverlay = container.querySelector('.play-icon-overlay'); // Check this selector carefully
+
+            // Specific checks for missing elements
+            if (!previewVideo) {
+                console.warn("Documentation.js WARN: No <video> element found in container identified by data-video-name:", container.dataset.videoName || "Unknown", container);
             }
-            const videoSrc = previewVideoSourceTag.getAttribute('src');
+            if (!playIconOverlay) {
+                // This warning is likely if the previous logs showed "Preview video or its play icon overlay missing"
+                console.warn("Documentation.js WARN: No .play-icon-overlay element found in container identified by data-video-name:", container.dataset.videoName || "Unknown", container);
+            }
 
-            container.addEventListener('click', () => {
-                previewVideoContainers.forEach(cont => {
-                    const vid = cont.querySelector('video');
-                    if (vid) vid.pause();
+            const previewVideoSourceTag = previewVideo ? previewVideo.querySelector('source[src]') : null;
+            const videoSrc = previewVideoSourceTag ? previewVideoSourceTag.getAttribute('src') : null;
+
+            if (previewVideo) { // Only proceed with video logic if the video element itself exists
+                const manageIconVisibility = () => {
+                    if (playIconOverlay) { // Only manage icon if it also exists
+                        if (previewVideo.paused || previewVideo.ended) {
+                            playIconOverlay.style.display = 'block';
+                        } else {
+                            playIconOverlay.style.display = 'none';
+                        }
+                    }
+                };
+
+                previewVideo.addEventListener('play', manageIconVisibility);
+                previewVideo.addEventListener('pause', manageIconVisibility);
+                previewVideo.addEventListener('loadeddata', manageIconVisibility); // Update icon when video data is loaded
+
+                previewVideo.addEventListener('ended', () => {
+                    previewVideo.currentTime = 0; // Reset video to start for looping
+                    previewVideo.play().catch(e => {
+                        // console.warn("Documentation.js: Loop play failed, updating icon.", e);
+                        manageIconVisibility(); // Ensure icon is shown if play fails
+                    });
                 });
 
-                modalVideoPlayer.setAttribute('src', videoSrc);
-                videoModal.style.display = 'flex';
+                // Check initial state after a brief moment to allow autoplay to attempt
+                // The `autoplay` attribute on the video tag should handle the initial play attempt.
+                // This timeout ensures the icon reflects the state if autoplay succeeded or failed.
                 setTimeout(() => {
-                    videoModal.classList.add('active');
-                }, 10);
+                    manageIconVisibility();
+                    // If it's still paused, it means autoplay didn't work or isn't allowed initially.
+                    // The icon will be shown by manageIconVisibility.
+                    // User click will then open the modal.
+                }, 150);
 
-                modalVideoPlayer.load();
-                modalVideoPlayer.play().catch(error => {
-                    console.error("Error attempting to play modal video:", error);
+            } // End of if (previewVideo)
+
+            // Modal click listener - only attach if videoSrc is valid for the modal
+            if (videoSrc && previewVideo) { // Ensure previewVideo exists for pausing
+                container.addEventListener('click', () => {
+                    // Pause all preview videos when one is clicked to open the modal
+                    previewVideoContainers.forEach(cont => {
+                        const vid = cont.querySelector('video');
+                        if (vid) {
+                            vid.pause();
+                        }
+                    });
+
+                    modalVideoPlayer.setAttribute('src', videoSrc);
+                    videoModal.style.display = 'flex';
+                    setTimeout(() => {
+                        videoModal.classList.add('active');
+                    }, 10);
+
+                    modalVideoPlayer.load();
+                    modalVideoPlayer.play().catch(error => {
+                        console.error("Documentation.js: Error attempting to play modal video:", error);
+                    });
                 });
-            });
-        });
+            } else if (!videoSrc && previewVideo) { // Video tag exists, but no valid source for modal
+                 console.warn("Documentation.js WARN: videoSrc not found for modal for video in container:", container.dataset.videoName || "Unknown", ". Modal click disabled for this item.");
+            }
+
+        }); // End of forEach previewVideoContainers
 
         function closeModal() {
             videoModal.classList.remove('active');
-            modalVideoPlayer.pause();
+            if (modalVideoPlayer) {
+                modalVideoPlayer.pause();
+            }
             setTimeout(() => {
                 if (!videoModal.classList.contains('active')) {
                     videoModal.style.display = 'none';
-                    modalVideoPlayer.removeAttribute('src');
+                    if (modalVideoPlayer) {
+                        modalVideoPlayer.removeAttribute('src');
+                    }
+
+                    previewVideoContainers.forEach(container => {
+                        const video = container.querySelector('video');
+                        const playIcon = container.querySelector('.play-icon-overlay');
+                        if (video) { // Only attempt to play if video element exists
+                            video.play().catch(err => {
+                                if (playIcon) playIcon.style.display = 'block'; // Show icon if restart fails
+                            });
+                        } else if (playIcon){
+                            playIcon.style.display = 'block'; // If no video, but icon exists, show icon
+                        }
+                    });
                 }
             }, 300);
         }
 
-        closeModalButton.addEventListener('click', closeModal);
+        if(closeModalButton) closeModalButton.addEventListener('click', closeModal);
+        
         videoModal.addEventListener('click', (event) => {
             if (event.target === videoModal) {
                 closeModal();
@@ -56,8 +129,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     } else {
-        if (!videoModal) console.warn("Video modal element not found.");
-        if (previewVideoContainers.length === 0) console.warn("No preview video containers found.");
+        if (!videoModal) console.warn("Documentation.js: Video modal element not found.");
+        if (previewVideoContainers.length === 0) console.warn("Documentation.js: No preview video containers found.");
     }
 
     // --- Sticky Sidebar Scrollspy Logic ---
@@ -81,31 +154,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (sections.length > 0) {
-            const scrollOffset = 80; 
+            const scrollOffset = 80;
 
             function highlightActiveLink() {
                 let currentSectionId = null;
-                const viewportHeight = window.innerHeight;
-
                 for (let i = sections.length - 1; i >= 0; i--) {
                     const section = sections[i];
                     const rect = section.element.getBoundingClientRect();
-
-                    if (rect.top <= scrollOffset && rect.bottom >= scrollOffset) {
-                        currentSectionId = section.id;
-                        break;
-                    }
-                    if (i === sections.length - 1 && rect.top < scrollOffset && rect.bottom < scrollOffset) {
-                        currentSectionId = section.id;
-                        break;
-                    }
-                     if (i === 0 && rect.top > scrollOffset && rect.top < viewportHeight) {
+                    if (rect.top <= scrollOffset) {
                         currentSectionId = section.id;
                         break;
                     }
                 }
-                
-                if (!currentSectionId && sections.length > 0 && window.scrollY < sections[0].element.offsetTop) {
+                if (!currentSectionId && sections.length > 0) {
                     currentSectionId = sections[0].id;
                 }
 
@@ -119,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const sidebarRect = sidebar.getBoundingClientRect();
                         if (linkRect.top < sidebarRect.top || linkRect.bottom > sidebarRect.bottom) {
                             const parentUl = link.closest('ul');
-                            if (parentUl && parentUl.childElementCount > 3) { 
+                            if (parentUl && parentUl.childElementCount > 3) {
                                link.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                             }
                         }
@@ -132,10 +193,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 clearTimeout(scrollTimeout);
                 scrollTimeout = setTimeout(highlightActiveLink, 50);
             });
-            highlightActiveLink(); 
+            highlightActiveLink();
         }
     } else {
-        console.warn("Docs sidebar element not found.");
+        console.warn("Documentation.js: Docs sidebar element not found.");
     }
 
     // --- Accordion Logic for Troubleshooting ---
@@ -150,8 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (button && panel) {
                 button.addEventListener('click', () => {
                     const isCurrentlyActive = button.classList.contains('active');
-
-                    // Close all other items first
                     accordionItems.forEach(otherItem => {
                         const otherButton = otherItem.querySelector('.accordion-button');
                         const otherPanel = otherItem.querySelector('.accordion-panel');
@@ -162,51 +221,19 @@ document.addEventListener('DOMContentLoaded', () => {
                             otherPanel.style.maxHeight = null;
                         }
                     });
-
-                    // Then, toggle the clicked item
-                    // If it wasn't active, activate it. If it was (and we allow toggling it off), deactivate.
-                    // For "only one open" behavior, if it was already active, it means others were closed,
-                    // and we just opened it.
-                    // The current logic ensures only one is open. If you click an open one again, nothing happens
-                    // unless you want to allow it to close.
-                    // To allow toggling the *same* item off:
-                    // if (isCurrentlyActive) {
-                    //     button.classList.remove('active');
-                    //     button.setAttribute('aria-expanded', 'false');
-                    //     panel.classList.remove('active');
-                    //     panel.style.maxHeight = null;
-                    // } else {
-                    //     button.classList.add('active');
-                    //     button.setAttribute('aria-expanded', 'true');
-                    //     panel.classList.add('active');
-                    //     panel.style.maxHeight = panel.scrollHeight + "px";
-                    // }
                     
-                    // Simplified for "always one open if one is clicked, or open the new one":
-                    if (!isCurrentlyActive) { // Only act if opening a new one or the first one
+                    if (!isCurrentlyActive) {
                         button.classList.add('active');
                         button.setAttribute('aria-expanded', 'true');
                         panel.classList.add('active');
                         panel.style.maxHeight = panel.scrollHeight + "px";
                     }
-                    // If it was already active, the above loop closed others, and this one remains open.
-                    // If you want clicking an active one to close it (allowing none to be open):
-                    // else { // it was active, so toggle it off
-                    //    button.classList.remove('active');
-                    //    button.setAttribute('aria-expanded', 'false');
-                    //    panel.classList.remove('active');
-                    //    panel.style.maxHeight = null;
-                    // }
                 });
-
-                // Open the first item by default without causing scroll
                 if (index === 0) {
                     button.classList.add('active');
                     button.setAttribute('aria-expanded', 'true');
                     panel.classList.add('active');
-                    // Set max-height after a tiny delay for consistent scrollHeight calculation
-                    // This does not cause a scroll to the element.
-                    requestAnimationFrame(() => { // Use requestAnimationFrame for smoother render
+                    requestAnimationFrame(() => {
                         if (panel.classList.contains('active')) {
                            panel.style.maxHeight = panel.scrollHeight + "px";
                         }
@@ -217,6 +244,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     } else {
-        console.warn("Accordion container not found.");
+        console.warn("Documentation.js: Accordion container not found.");
     }
 });

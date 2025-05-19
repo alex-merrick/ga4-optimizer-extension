@@ -8,7 +8,9 @@
  *                 without shadow (scale only) for Standard Reports.
  */
 (function() { // Start of IIFE
+if (window.ga4Optimizer?.debugModeEnabled) {
     console.log("GA4 Optimizer: Highlight Sampling Feature script loaded (v1.9).");
+}
 
     // --- Feature Namespace ---
     window.ga4Optimizer = window.ga4Optimizer || {};

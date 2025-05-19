@@ -5,7 +5,9 @@
  *                 - Uses panel.offsetLeft/Top as base for viewport adjustments.
  */
 (function() { // Start of IIFE
+if (window.ga4Optimizer?.debugModeEnabled) {
     console.log("GA4 Optimizer: Sticky Calculator Feature script loaded (v1.7.7).");
+}
 
     window.ga4Optimizer = window.ga4Optimizer || {};
     window.ga4Optimizer.stickyCalculator = {

@@ -5,7 +5,9 @@
  * - Simplify runCalculation logic further regarding observer start.
  */
 (function() { // Start of IIFE
+if (window.ga4Optimizer?.debugModeEnabled) {
     console.log("GA4 Optimizer: Sticky Header Feature script loaded (v1.8.3).");
+}
 
     // --- Feature Namespace ---
     window.ga4Optimizer = window.ga4Optimizer || {};
