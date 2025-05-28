@@ -6,11 +6,13 @@ This extension is free and developed by an individual for the data community.
 
 ## Installation
 
-Chrome Store:
+_Chrome Store:_
 https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj
-Firefox:
+
+_Firefox:_
 https://addons.mozilla.org/en-US/firefox/addon/ga4-optimizer/
-Microsoft Edge:
+
+_Microsoft Edge:_
 https://microsoftedge.microsoft.com/addons/detail/ejokbgelaaegbgemjjhgppigoclanomh
 
 ## Features
