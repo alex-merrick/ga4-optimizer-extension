@@ -1,6 +1,6 @@
 /**
  * documentation.js
- * VERSION: 1.5 - Fixed Video not opening
+ * VERSION: 1.6 - Fixed Accordion not closing on minus click.
  */
 document.addEventListener('DOMContentLoaded', () => {
     // --- Video Modal Logic ---
@@ -12,23 +12,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (previewVideoContainers.length > 0 && videoModal && modalVideoPlayer && closeModalButton) {
         previewVideoContainers.forEach(container => {
             const previewVideo = container.querySelector('video');
-            const playIconOverlay = container.querySelector('.play-icon-overlay'); // Check this selector carefully
+            const playIconOverlay = container.querySelector('.play-icon-overlay'); 
 
-            // Specific checks for missing elements
             if (!previewVideo) {
                 console.warn("Documentation.js WARN: No <video> element found in container identified by data-video-name:", container.dataset.videoName || "Unknown", container);
             }
             if (!playIconOverlay) {
-                // This warning is likely if the previous logs showed "Preview video or its play icon overlay missing"
                 console.warn("Documentation.js WARN: No .play-icon-overlay element found in container identified by data-video-name:", container.dataset.videoName || "Unknown", container);
             }
 
             const previewVideoSourceTag = previewVideo ? previewVideo.querySelector('source[src]') : null;
             const videoSrc = previewVideoSourceTag ? previewVideoSourceTag.getAttribute('src') : null;
 
-            if (previewVideo) { // Only proceed with video logic if the video element itself exists
+            if (previewVideo) { 
                 const manageIconVisibility = () => {
-                    if (playIconOverlay) { // Only manage icon if it also exists
+                    if (playIconOverlay) { 
                         if (previewVideo.paused || previewVideo.ended) {
                             playIconOverlay.style.display = 'block';
                         } else {
@@ -39,32 +37,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 previewVideo.addEventListener('play', manageIconVisibility);
                 previewVideo.addEventListener('pause', manageIconVisibility);
-                previewVideo.addEventListener('loadeddata', manageIconVisibility); // Update icon when video data is loaded
+                previewVideo.addEventListener('loadeddata', manageIconVisibility); 
 
                 previewVideo.addEventListener('ended', () => {
-                    previewVideo.currentTime = 0; // Reset video to start for looping
+                    previewVideo.currentTime = 0; 
                     previewVideo.play().catch(e => {
-                        // console.warn("Documentation.js: Loop play failed, updating icon.", e);
-                        manageIconVisibility(); // Ensure icon is shown if play fails
+                        manageIconVisibility(); 
                     });
                 });
 
-                // Check initial state after a brief moment to allow autoplay to attempt
-                // The `autoplay` attribute on the video tag should handle the initial play attempt.
-                // This timeout ensures the icon reflects the state if autoplay succeeded or failed.
                 setTimeout(() => {
                     manageIconVisibility();
-                    // If it's still paused, it means autoplay didn't work or isn't allowed initially.
-                    // The icon will be shown by manageIconVisibility.
-                    // User click will then open the modal.
                 }, 150);
 
-            } // End of if (previewVideo)
+            } 
 
-            // Modal click listener - only attach if videoSrc is valid for the modal
-            if (videoSrc && previewVideo) { // Ensure previewVideo exists for pausing
+            if (videoSrc && previewVideo) { 
                 container.addEventListener('click', () => {
-                    // Pause all preview videos when one is clicked to open the modal
                     previewVideoContainers.forEach(cont => {
                         const vid = cont.querySelector('video');
                         if (vid) {
@@ -83,11 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         console.error("Documentation.js: Error attempting to play modal video:", error);
                     });
                 });
-            } else if (!videoSrc && previewVideo) { // Video tag exists, but no valid source for modal
+            } else if (!videoSrc && previewVideo) { 
                  console.warn("Documentation.js WARN: videoSrc not found for modal for video in container:", container.dataset.videoName || "Unknown", ". Modal click disabled for this item.");
             }
 
-        }); // End of forEach previewVideoContainers
+        }); 
 
         function closeModal() {
             videoModal.classList.remove('active');
@@ -104,12 +93,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     previewVideoContainers.forEach(container => {
                         const video = container.querySelector('video');
                         const playIcon = container.querySelector('.play-icon-overlay');
-                        if (video) { // Only attempt to play if video element exists
+                        if (video) { 
                             video.play().catch(err => {
-                                if (playIcon) playIcon.style.display = 'block'; // Show icon if restart fails
+                                if (playIcon) playIcon.style.display = 'block'; 
                             });
                         } else if (playIcon){
-                            playIcon.style.display = 'block'; // If no video, but icon exists, show icon
+                            playIcon.style.display = 'block'; 
                         }
                     });
                 }
@@ -211,10 +200,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (button && panel) {
                 button.addEventListener('click', () => {
                     const isCurrentlyActive = button.classList.contains('active');
+
+                    // First, close all accordion items
                     accordionItems.forEach(otherItem => {
                         const otherButton = otherItem.querySelector('.accordion-button');
                         const otherPanel = otherItem.querySelector('.accordion-panel');
-                        if (otherButton !== button && otherButton.classList.contains('active')) {
+                        if (otherButton.classList.contains('active')) {
                             otherButton.classList.remove('active');
                             otherButton.setAttribute('aria-expanded', 'false');
                             otherPanel.classList.remove('active');
@@ -222,24 +213,30 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     });
                     
+                    // If the clicked item was not active (i.e., it was closed), then open it.
                     if (!isCurrentlyActive) {
                         button.classList.add('active');
                         button.setAttribute('aria-expanded', 'true');
                         panel.classList.add('active');
                         panel.style.maxHeight = panel.scrollHeight + "px";
                     }
+                    // If it was active (isCurrentlyActive was true), the loop above already closed it.
                 });
+
+                // Logic to open the first accordion item by default
                 if (index === 0) {
                     button.classList.add('active');
                     button.setAttribute('aria-expanded', 'true');
                     panel.classList.add('active');
+                    // Use requestAnimationFrame to ensure panel.scrollHeight is calculated after styles are applied
                     requestAnimationFrame(() => {
+                        // Double check if it's still active, in case of race conditions (though unlikely here)
                         if (panel.classList.contains('active')) {
                            panel.style.maxHeight = panel.scrollHeight + "px";
                         }
                     });
                 } else {
-                     button.setAttribute('aria-expanded', 'false');
+                     button.setAttribute('aria-expanded', 'false'); // Ensure others are marked as collapsed
                 }
             }
         });

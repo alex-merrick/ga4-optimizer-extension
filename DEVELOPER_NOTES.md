@@ -54,4 +54,21 @@ Subsequently, all `console.log(...)` messages from the content scripts (if any a
 *   **Video Assets:** All `.mp4` files are included for the documentation and onboarding pages. They are locally hosted within the extension.
 
 ---
-*Last Updated: [Current Date]*
+## 7. Microsoft Edge Compatibility & Publishing
+
+*   **API Compatibility:** Microsoft Edge (Chromium-based) provides excellent compatibility with Chrome Extension APIs. The `chrome.*` namespace APIs used in this extension (e.g., `chrome.storage`, `chrome.runtime`, `chrome.tabs`) are generally supported directly in Edge. It is typically not necessary to convert them to the `browser.*` namespace unless broader cross-browser compatibility (like Firefox) is a primary goal *and* a polyfill isn't already in use.
+*   **Manifest:** The `manifest.json` (MV3) is compatible with Edge. Ensure that for publishing to the Microsoft Edge Add-ons store:
+    *   You remove any development `key` field from `manifest.json` before final packaging.
+    *   You adhere to Edge store policies regarding naming, description, icons, and promotional materials.
+*   **Content Scripts & DOM:** The extension's interaction with the Google Analytics 4 DOM should behave consistently between Chrome and Edge, as both use the Blink rendering engine. However, minor differences in browser UI or default styles, if interacted with, could theoretically surface, making testing crucial.
+*   **Permissions:** The permissions requested (`storage`, `activeTab`, `clipboardWrite`, `host_permissions` for `analytics.google.com`) are standard and work similarly in Edge. You will need to justify these for the Edge Add-ons store submission.
+*   **`onboarding.html` & `documentation.html`**: The instructions for pinning the extension (puzzle piece icon) are the same for both Chrome and Edge. No changes are needed for these pages regarding browser-specific instructions.
+*   **Testing:** **Thorough testing of all features in a current version of Microsoft Edge is the most critical step.** This includes:
+    *   Installation and onboarding.
+    *   Functionality of each toggle in the popup.
+    *   Correct operation of all injected features on Google Analytics 4 pages (both Standard Reports and Explorations).
+    *   Click-to-copy, tooltips, sticky headers, sampling highlights, calculations, panel toggling, etc.
+    *   Checking the browser console for any errors specific to Edge during operation.
+*   **Store Submission:** Review Microsoft's official documentation for publishing extensions to the Edge Add-ons store for the most up-to-date policies and procedures.
+---
+*Last Updated: 5/19/2025

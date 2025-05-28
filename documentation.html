@@ -80,7 +80,7 @@
             text-align: left;
             border-bottom: none;
             padding-bottom: 0;
-            margin-bottom: 0;
+            margin-bottom: 17px;
             color: #222222;
             font-weight: 600;
         }
@@ -488,6 +488,13 @@
                         <strong class="purple-strong">Applies to: Explorations & Standard Reports</strong><br>
                         Quickly copy values from table cells, headers, or dimension labels to your clipboard.
                     </p>
+                                        <div class="feature-video-container" data-video-name="click_to_copy">
+                        <video autoplay loop muted playsinline aria-label="Demonstration of the Click to Copy Cell feature">
+                            <source src="mp4/click_to_copy.mp4" type="video/mp4">
+                            Your browser does not support the video tag. This video demonstrates the Click to Copy Cell feature.
+                        </video>
+						<div class="play-icon-overlay">▶</div>
+                    </div>
                     <ul>
                         <li><strong>Single Click:</strong>
                             <ul>
@@ -501,7 +508,6 @@
                                 <li>Copies the <strong>entire</strong> text content of the clicked cell or label, automatically adding spaces where lines wrap.</li>
                                 <li>NOTE: This is not perfect. You will still have to remove spaces as you see fit. Due to the way Google shows the data this is the only way to copy the full cell.</li>
                                 <li>Feedback message shows <span class="copy-feedback-example">Copied! ⚠️Check for extra spaces</span>.</li>
-                                <li><em>Note:</em> Double-click is ignored on the first row, we're able to capture full cell value without this workaround(use Single-click there).</li>
                             </ul>
                         </li>
                         <li><strong>Triple Click (Exploration Data Cells Only):</strong>
@@ -511,15 +517,8 @@
                             </ul>
                         </li>
                     </ul>
-                    <div class="feature-video-container" data-video-name="click_to_copy">
-                        <video autoplay loop muted playsinline aria-label="Demonstration of the Click to Copy Cell feature">
-                            <source src="mp4/click_to_copy.mp4" type="video/mp4">
-                            Your browser does not support the video tag. This video demonstrates the Click to Copy Cell feature.
-                        </video>
-						<div class="play-icon-overlay">▶</div>
-                    </div>
                     <div class="note">
-                        <strong>Note:</strong> This feature needs permission to modify your clipboard (to paste the copied text). Copying complex multi-line text from Explorations might occasionally miss or add a space due to how Google Analytics 4™ structures the text; manual selection is always an option.
+                        <strong>Note:</strong> Copying complex multi-line text from Explorations might occasionally miss or add a space due to how Google Analytics 4™ structures the text; manual selection is always an option.
                     </div>
                 </section>
 
@@ -541,7 +540,7 @@
 						<div class="play-icon-overlay">▶</div>
                     </div>
                     <div class="warning-note">
-                        <strong>Known Incompatibility:</strong> This feature may not work correctly or may cause layout issues when the "Comparisons" feature (adding multiple date ranges or segments for side-by-side comparison) is active in Standard Reports. The complex table structure introduced by comparisons can interfere with how the sticky header is calculated and applied. It's recommended to disable this feature or use it with caution if Comparisons are enabled.
+                        <strong>Known Incompatibility:</strong> This feature may not work correctly or may cause layout issues when the "Comparisons" are added in Standard Reports. Use with caution if Comparisons are enabled.
                     </div>
                 </section>
 
@@ -573,8 +572,6 @@
                     <ul>
                         <li>The percentage value appears when you hover over a metric cell.</li>
                         <li>If the value is short enough, it may also appear inline in parentheses, like <code>1,234 (12.34%)</code>.</li>
-                        <li>This helps you quickly understand the relative importance of different dimension values (e.g., traffic sources, pages) for a given metric.</li>
-                        <li>Updates automatically as you scroll through tables.</li>
                     </ul>
                     <div class="feature-video-container" data-video-name="percentage_column_total">
                         <video autoplay loop muted playsinline aria-label="Demonstration of the Percentage of Column Total feature">
@@ -584,7 +581,7 @@
 						<div class="play-icon-overlay">▶</div>
                     </div>
                     <div class="note">
-                        <strong>Note:</strong> This calculation appears in the combined tooltip on hover (with a blue background). Due to how Google Analytics 4™ Exploration tables load data (virtualization), if the "Total" row is scrolled out of view, percentages might temporarily be unavailable or based on the last known total.
+                        <strong>Note:</strong> Due to how Google Analytics 4™ Exploration tables load data (virtualization), if the "Total" row is scrolled out of view, percentages might temporarily be unavailable or based on the last known total.
                     </div>
                 </section>
 
@@ -595,8 +592,7 @@
                         <br> Google Analytics 4™ Explorations often load initially with sampled data for large data sets. This feature automatically attempts to switch the report to use less (or no) sampling ("More detailed results" setting) for better accuracy when you load an Exploration report.
                     </p>
                     <ul>
-                        <li>When you open an Exploration, the extension checks the sampling status indicator.</li>
-                        <li>If it doesn't show "100% of available data", the extension automatically selects the "More detailed results" option for you.</li>
+                        <li>When you open an Exploration, the extension checks the sampling status indicator and if it doesn't show "100% of available data", the extension automatically selects the "More detailed results" option for you.</li>
                     </ul>
                     <div class="feature-video-container" data-video-name="auto_detail">
                         <video autoplay loop muted playsinline aria-label="Demonstration of the Auto Detailed Results feature">
@@ -617,11 +613,11 @@
                         This feature provides quick conversion rate insights directly within Exploration tables by comparing segments against All User segments.
                     </p>
                     <div class="requirement-note">
-                        <strong>Requirement:</strong> For this feature to work, the <strong class="purple-strong">'All Users' segment</strong> must be included as one of the segments in your Exploration table setup. The conversion rate is calculated relative to this segment and the segment that you hover over.
+                        <strong>Requirement:</strong> For this feature to work, the <strong class="purple-strong">'All Users' segment</strong> must be included as one of the segments so it can be compared to other sements in your Exploration table setup. The conversion rate is calculated relative to this segment and the segment that you hover over.
                     </div>
                     <ul>
                         <li>Hover your mouse cursor over any metric cell (except the 'All Users' column itself).</li>
-                        <li>A tooltip will appear showing the conversion rate calculated as: <code>(Value in Hovered Cell) / (Value in 'All Users' Cell for the Same Row)</code>.</li>
+                        <li>A tooltip will appear showing the conversion rate calculated as: <code>(Value in From Current Segment's Cell) / (Value in 'All Users' Cell for the Same Row)</code>.</li>
                         <li>This helps you quickly compare the performance of different segments (e.g., 'Mobile Traffic', 'Converters') or dimension values against the Overall User base for that specific row item.</li>
                     </ul>
                     <div class="feature-video-container" data-video-name="all_users_segment_compare">
@@ -632,8 +628,7 @@
 						<div class="play-icon-overlay">▶</div>
                     </div>
                     <div class="note">
-                        <strong>Note:</strong> This calculation appears in the combined tooltip on hover (with a green background).
-                        <br><strong>Visibility Requirement:</strong> Due to how Google Analytics 4™ Exploration tables load and display data (DOM virtualization), if the 'All Users' segment column (specifically the data cell for the hovered row and metric) is scrolled too far out of view, the extension may not be able to access its value. In such cases, the conversion rate might temporarily be unavailable or show 'N/A'. Ensure the 'All Users' column is reasonably visible for consistent calculations.
+                        <br><strong>Visibility Requirement:</strong> Due to how Google Analytics 4™ Exploration tables load and display data, if the 'All Users' segment column is scrolled too far out of view, the extension may not be able to access its value to comple the calculation. In such cases, the conversion rate might temporarily be unavailable or show 'N/A'. Ensure the 'All Users' column is reasonably visible for consistent calculations.
                     </div>
                 </section>
 
@@ -643,12 +638,19 @@
                         <strong class="purple-strong">Applies to: Explorations Only</strong><br>
                         Compares performance metrics between different test variations within the same group, relative to a designated control segment. Ideal for A/B/n testing analysis directly in Explorations. This feature is <strong>enabled by default</strong>.
                     </p>
+                                        <div class="feature-video-container" data-video-name="ab_test_compare">
+                        <video autoplay loop muted playsinline aria-label="Demonstration of the Segment Variation Comparison feature">
+                            <source src="mp4/ab_test_compare.mp4" type="video/mp4">
+                            Your browser does not support the video tag. This video demonstrates the Segment Variation Comparison feature.
+                        </video>
+						<div class="play-icon-overlay">▶</div>
+                    </div>
                     <div class="requirement-note">
                         <strong>Requirement: Strict Segment Naming Convention (Case-Sensitive)</strong><br>
                         This feature relies entirely on how you name your segments in the Exploration setup:
                         <ul>
                             <li>All segments in a comparison group <strong>must</strong> start with the prefix <code>VAR-</code> (all uppercase).</li>
-                            <li>The baseline/control segment <strong>must</strong> start exactly with <code>VAR-Control</code> (all uppercase, no hyphen or space after). Example: <code>VAR-Control Original Homepage</code>.</li>
+                            <li>The baseline/control segment <strong>must</strong> start exactly with <code>VAR-Control</code>. Example: <code>VAR-Control Original Homepage</code>.</li>
                             <li>All other segments starting with <code>VAR-</code> will be treated as variants. Examples: <code>VAR-Variant A - Blue Button</code>, <code>VAR-Test 2 - New Headline</code>.</li>
                         </ul>
                         Failure to follow this convention (including incorrect capitalization) will prevent the GA4 Optimizer from identifying and comparing segments correctly.
@@ -661,25 +663,17 @@
                                 <li>The percentage difference in the metric's <strong>conversion rate</strong> (calculated as % of Column Total) compared to the Control Segment's conversion rate. Calculation: <code>(Variant CR - Control CR) / Control CR * 100%</code>.</li>
                             </ol>
                         </li>
-                        <li>Example tooltip display (colors added for clarity):
+                        <li>Example tooltip display:
                             <div class="tooltip-example">
-                                <div class="perc-line">15.20% of Column Total</div>
                                 <div class="segcomp-count-line">-7.50% vs Control Count</div>
                                 <div class="segcomp-cr-line">+2.10% CR vs Control</div>
                             </div>
                         </li>
-                        <li>Hovering over a Control Segment cell will not show these comparison lines.</li>
+                        <li>Hovering over a Control Segment cell will not show these comparison calculations as that is the baseline.</li>
                     </ul>
-                    <div class="feature-video-container" data-video-name="ab_test_compare">
-                        <video autoplay loop muted playsinline aria-label="Demonstration of the Segment Variation Comparison feature">
-                            <source src="mp4/ab_test_compare.mp4" type="video/mp4">
-                            Your browser does not support the video tag. This video demonstrates the Segment Variation Comparison feature.
-                        </video>
-						<div class="play-icon-overlay">▶</div>
-                    </div>
                     <div class="note">
-                        <strong>Note:</strong> Ensure only one segment starting with <code>VAR-Control</code> exists for each unique combination of other dimensions in your table columns. The feature compares against the first matching control segment it finds. These calculations appear in the combined tooltip on hover (Count difference with a yellow background, CR difference with a red background).
-                        <br><strong>Visibility Requirement:</strong> Similar to other table-based features, if the 'VAR-Control' segment column (specifically the data cell for the hovered row and metric) is scrolled too far out of view, the extension may not be able to access its value for comparison.
+                        <strong>Note:</strong> Ensure only one segment starting with <code>VAR-Control</code> exists. The feature compares against the first matching control segment it finds.
+                        <br><strong>Visibility Requirement:</strong> If the 'VAR-Control' segment column is out of view, the extension may not be able to access its value for comparison and there fore would not be able to complete the comparision.
                     </div>
                 </section>
 
@@ -710,6 +704,13 @@
                         <strong class="purple-strong">Applies to: All Google Analytics 4™ Pages</strong><br>
                         Provides a quick-access conversion rate calculator widget on all Google Analytics 4™ pages.
                     </p>
+                                        <div class="feature-video-container" data-video-name="sticky_calculator">
+                        <video autoplay loop muted playsinline aria-label="Demonstration of the Sticky Conversion Calculator feature">
+                            <source src="mp4/sticky_calculator.mp4" type="video/mp4">
+                            Your browser does not support the video tag. This video demonstrates the Sticky Conversion Calculator feature.
+                        </video>
+						<div class="play-icon-overlay">▶</div>
+                    </div>
                     <ul>
                         <li>A calculator icon will appear in the bottom-right corner of your Google Analytics 4™ window.</li>
                         <li><strong>Click the icon</strong> to open the calculator panel.</li>
@@ -730,16 +731,6 @@
                         <li>The calculator panel's header (displaying "Quick CR Calculator") is <strong>draggable</strong>, allowing you to move the panel around the screen if it obstructs your view.</li>
                         <li>Click the "X" button in the panel's header or the main calculator icon again to close the panel.</li>
                     </ul>
-                    <div class="feature-video-container" data-video-name="sticky_calculator">
-                        <video autoplay loop muted playsinline aria-label="Demonstration of the Sticky Conversion Calculator feature">
-                            <source src="mp4/sticky_calculator.mp4" type="video/mp4">
-                            Your browser does not support the video tag. This video demonstrates the Sticky Conversion Calculator feature.
-                        </video>
-						<div class="play-icon-overlay">▶</div>
-                    </div>
-                    <div class="note">
-                        <strong>Note:</strong> This feature is designed for quick, on-the-fly calculations. The panel's position is remembered for the session after being dragged. Clicking "Clear All" does not reset the panel's position.
-                    </div>
                 </section>
 
                 <h2 id="troubleshooting-toc">Troubleshooting</h2>

@@ -16,10 +16,13 @@
 
             --text-dark: #212529;
             --text-medium: #495057;
-            --text-light: #6c757d;
+            --text-light: #6c757d; /* Used for OFF state icon */
 
             --bg-light: #FFFFFF;
             --bg-off-white: #f8f9fa; /* Slightly off-white for subtle distinctions */
+            /* MODIFIED: Add a slightly darker off-white for more distinct hover */
+            --bg-off-white-darker-hover: #e9ecef;
+
 
             --border-color-light: #dee2e6;
             --border-color-medium: #ced4da;
@@ -31,70 +34,72 @@
             --popup-header-text-color: var(--header-text-light);
             --popup-label-text-color: var(--text-medium);
 
-            --popup-tooltip-icon-bg-color: var(--header-bg-light); /* Match header for icon bg */
+            --popup-tooltip-icon-bg-color: var(--header-bg-light);
             --popup-tooltip-icon-text-color: var(--text-light);
             --popup-tooltip-content-bg-color: #333;
             --popup-tooltip-content-text-color: #fff;
             --popup-tooltip-arrow-color: #333;
 
             --popup-switch-bg-off-color: #ccc;
-            --popup-switch-bg-on-color: var(--brand-accent-purple); /* Toggle 'on' uses PURPLE */
+            --popup-switch-bg-on-color: var(--brand-accent-purple);
             --popup-switch-knob-color: white;
             --popup-focus-ring-color: var(--brand-accent-purple-darker);
 
             --popup-button-bg-color: var(--bg-light);
-            --popup-button-text-color: var(--brand-accent-purple); /* Purple text for button */
+            --popup-button-text-color: var(--brand-accent-purple);
             --popup-button-border-color: var(--border-color-medium);
-            --popup-button-hover-bg-color: var(--bg-off-white);
+            --popup-button-hover-bg-color: var(--bg-off-white-darker-hover); /* Use new darker hover */
             --popup-button-hover-border-color: var(--border-color-light);
-            --popup-button-active-bg-color: var(--header-bg-light); /* Match header for active */
+            --popup-button-active-bg-color: var(--header-bg-light);
 
             --popup-button-disabled-bg-color: var(--header-bg-light);
             --popup-button-disabled-text-color: var(--text-light);
             --popup-button-disabled-border-color: var(--border-color-light);
 
-            --popup-category-header-color: var(--brand-accent-purple); /* Category headers are Purple */
+            --popup-category-header-color: var(--brand-accent-purple);
             --popup-category-header-border-color: var(--border-color-light);
             --popup-category-docs-link-color: var(--brand-accent-purple);
             --popup-category-docs-link-hover-color: var(--brand-accent-purple-lighter-hover);
 
-            --popup-footer-banner-bg-color: var(--header-bg-light); /* Match header */
+            --popup-footer-banner-bg-color: var(--header-bg-light);
             --popup-footer-banner-text-color: var(--text-light);
             --popup-footer-banner-link-color: var(--brand-accent-purple);
             --popup-footer-banner-link-hover-color: var(--brand-accent-purple-lighter-hover);
 
-            --master-toggle-icon-off-stroke: #757575;
-            --master-toggle-icon-on-stroke: var(--brand-accent-purple); /* Master toggle on is PURPLE */
-            --master-toggle-hover-bg-color: rgba(0,0,0,0.05);
+            --master-toggle-icon-off-stroke: var(--text-light);
+            --master-toggle-icon-on-stroke: var(--brand-accent-purple);
+            /* MODIFIED: Master toggle hover background */
+            --master-toggle-hover-bg-color: var(--bg-off-white-darker-hover); /* Use new darker hover for master toggle too */
 
-            /* Notification Banner Colors */
+
             --notification-banner-bg-color: var(--brand-accent-purple);
             --notification-banner-text-color: var(--brand-text-on-accent);
-            --notification-banner-bg-color-debug: #E65100; /* Orange for debug specific message */
+            --notification-banner-bg-color-debug: #E65100;
         }
 
         @media (prefers-color-scheme: dark) {
             :root {
-                /* --- Dark Mode Adaptations --- */
-                 --brand-accent-purple-dm: #C73ED9; /* Lighter Purple for dark */
+                 --brand-accent-purple-dm: #C73ED9;
                  --brand-accent-purple-darker-dm: #AC2BC2;
                  --brand-accent-purple-lighter-hover-dm: #E0B0FF;
 
-                 --header-bg-dark: #37474F; /* Dark Blue-Grey for header */
-                 --header-text-dark: #ECEFF1; /* Light text for dark header */
-
+                 --header-bg-dark: #37474F;
+                 --header-text-dark: #ECEFF1;
 
                 --text-dark-dm: #e9ecef;
                 --text-medium-dm: #adb5bd;
                 --text-light-dm: #868e96;
 
-                --bg-dark-deep: #212529; /* Main popup dark bg */
-                --bg-dark-medium: #2c3034; /* Slightly lighter for elements */
+                --bg-dark-deep: #212529;
+                --bg-dark-medium: #2c3034;
+                /* MODIFIED: Add a slightly lighter dark bg for more distinct hover in dark mode */
+                --bg-dark-medium-lighter-hover: #343a40;
 
 
                 --border-color-dark: #495057;
+                --border-color-medium-dark: #3e444a;
 
-                /* --- UI Element Colors - Dark Mode --- */
+
                 --popup-bg-color: var(--bg-dark-deep);
                 --popup-text-color: var(--text-dark-dm);
                 --popup-header-bg-color: var(--header-bg-dark);
@@ -104,17 +109,17 @@
                 --popup-tooltip-icon-bg-color: var(--bg-dark-medium);
                 --popup-tooltip-icon-text-color: var(--text-dark-dm);
 
-                --popup-switch-bg-off-color: #495057; /* Darker off state */
-                --popup-switch-bg-on-color: var(--brand-accent-purple-dm); /* Lighter Purple 'on' for dark */
+                --popup-switch-bg-off-color: #495057;
+                --popup-switch-bg-on-color: var(--brand-accent-purple-dm);
                 --popup-switch-knob-color: var(--bg-dark-deep);
                 --popup-focus-ring-color: var(--brand-accent-purple-darker-dm);
 
                 --popup-button-bg-color: var(--bg-dark-medium);
                 --popup-button-text-color: var(--brand-accent-purple-dm);
                 --popup-button-border-color: var(--border-color-dark);
-                --popup-button-hover-bg-color: #37474F; /* Header dark bg for hover */
+                --popup-button-hover-bg-color: var(--bg-dark-medium-lighter-hover); /* Use new lighter dark hover */
                 --popup-button-hover-border-color: var(--text-light-dm);
-                --popup-button-active-bg-color: #37474F;
+                --popup-button-active-bg-color: #37474F; /* Keep active distinct */
 
                 --popup-button-disabled-bg-color: var(--bg-dark-medium);
                 --popup-button-disabled-text-color: var(--text-light-dm);
@@ -125,19 +130,20 @@
                 --popup-category-docs-link-color: var(--brand-accent-purple-dm);
                 --popup-category-docs-link-hover-color: var(--brand-accent-purple-lighter-hover-dm);
 
-                --popup-footer-banner-bg-color: var(--header-bg-dark); /* Match header */
+                --popup-footer-banner-bg-color: var(--header-bg-dark);
                 --popup-footer-banner-text-color: var(--text-medium-dm);
                 --popup-footer-banner-link-color: var(--brand-accent-purple-dm);
                 --popup-footer-banner-link-hover-color: var(--brand-accent-purple-lighter-hover-dm);
 
-                --master-toggle-icon-off-stroke: #9e9e9e;
-                --master-toggle-icon-on-stroke: var(--brand-accent-purple-dm); /* Purple for master toggle on dark */
-                --master-toggle-hover-bg-color: rgba(255,255,255,0.08);
+                --master-toggle-icon-off-stroke: var(--text-light-dm);
+                --master-toggle-icon-on-stroke: var(--brand-accent-purple-dm);
+                /* MODIFIED: Master toggle hover background for dark mode */
+                --master-toggle-hover-bg-color: var(--bg-dark-medium-lighter-hover); /* Use new lighter dark hover */
 
-                /* Notification Banner Colors - Dark Mode */
+
                 --notification-banner-bg-color: var(--brand-accent-purple-dm);
-                --notification-banner-text-color: var(--text-dark-dm); 
-                 --notification-banner-bg-color-debug: #F57C00; 
+                --notification-banner-text-color: var(--text-dark-dm);
+                 --notification-banner-bg-color-debug: #F57C00;
             }
         }
 
@@ -153,47 +159,44 @@
             margin: 0;
             font-size: 13px;
             overflow-x: hidden;
-            position: relative; 
+            position: relative;
         }
 
-        /* --- MODIFIED: Top Notification Banner Styling --- */
         .top-notification {
-            display: none; /* Hidden by default */
-            height: 44px; /* Match original header's approximate height */
+            display: none;
+            height: 44px;
             background-color: var(--notification-banner-bg-color);
             color: var(--notification-banner-text-color);
-            padding: 0 12px; /* Adjusted padding for better centering */
+            padding: 0 12px;
             text-align: center;
-            font-size: 11px; 
+            font-size: 11px;
             font-weight: 500;
-            z-index: 100; /* Ensure it's on top of other potential absolute elements if any */
+            z-index: 100;
             box-sizing: border-box;
             opacity: 0;
             transition: opacity 0.3s ease;
             width: 100%;
-            /* For centering text vertically and horizontally */
             align-items: center;
             justify-content: center;
         }
         .top-notification.visible {
-            display: flex; /* Use flex to make it visible and for alignment */
+            display: flex;
             opacity: 1;
         }
-        .top-notification.debug { /* This class can be removed if no longer needed */
+        .top-notification.debug {
             background-color: var(--notification-banner-bg-color-debug);
         }
 
         .popup-header {
-            display: flex; /* Shown by default */
+            display: flex;
             align-items: center;
             justify-content: space-between;
             background-color: var(--popup-header-bg-color);
             padding: 8px 12px;
-            margin-bottom: 8px; /* This will apply when header is visible */
-            height: 44px; /* Explicit height to match banner */
+            margin-bottom: 8px;
+            height: 44px;
             box-sizing: border-box;
         }
-        /* Add a class to hide the original header when banner is shown */
         .popup-header.hidden-by-banner {
             display: none;
         }
@@ -209,83 +212,124 @@
             margin: 0;
             color: var(--popup-header-text-color);
         }
+
+        /* --- START: MODIFIED MASTER TOGGLE STYLES --- */
         #masterToggle {
-            background-color: transparent;
-            border: none;
             cursor: pointer;
-            padding: 4px;
+            padding: 0;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 26px;
-            height: 26px;
-            transition: background-color 0.2s;
+            width: 32px;
+            height: 32px;
+            /* MODIFIED: Added transform to transition */
+            transition: background-color 0.2s, border-color 0.2s, transform 0.15s ease-out;
+            box-sizing: border-box;
         }
         #masterToggle svg {
-            width: 16px;
-            height: 16px;
-            transition: stroke 0.3s, opacity 0.3s;
+            width: 20px;
+            height: 20px;
+            transition: stroke 0.3s;
+        }
+
+        /* ON State */
+        #masterToggle.master-on {
+            background-color: var(--popup-button-bg-color);
+            border: 2px solid var(--master-toggle-icon-on-stroke);
         }
         #masterToggle.master-on svg {
             stroke: var(--master-toggle-icon-on-stroke);
-            opacity: 1;
+        }
+        #masterToggle.master-on:hover {
+            background-color: var(--master-toggle-hover-bg-color); /* Use new darker off-white */
+            border-color: var(--brand-accent-purple-darker);
+            transform: scale(1.02); /* MODIFIED: Added scale */
+        }
+        @media (prefers-color-scheme: dark) {
+            #masterToggle.master-on:hover {
+                background-color: var(--master-toggle-hover-bg-color); /* Uses new lighter dark bg */
+                border-color: var(--brand-accent-purple-darker-dm);
+            }
+        }
+
+
+        /* OFF State */
+        #masterToggle.master-off {
+            background-color: var(--popup-button-bg-color);
+            border: 1px solid var(--popup-button-border-color);
         }
         #masterToggle.master-off svg {
             stroke: var(--master-toggle-icon-off-stroke);
-            opacity: 0.6;
         }
-        #masterToggle:hover {
-            background-color: var(--master-toggle-hover-bg-color);
+        #masterToggle.master-off:hover {
+            background-color: var(--master-toggle-hover-bg-color); /* Use new darker off-white */
+            border-color: var(--brand-accent-purple-lighter-hover);
+            transform: scale(1.05); /* MODIFIED: Added scale */
         }
+        @media (prefers-color-scheme: dark) {
+            #masterToggle.master-off {
+                border-color: var(--border-color-dark);
+            }
+            #masterToggle.master-off svg {
+                 stroke: var(--master-toggle-icon-off-stroke);
+            }
+            #masterToggle.master-off:hover {
+                background-color: var(--master-toggle-hover-bg-color); /* Uses new lighter dark bg */
+                border-color: var(--brand-accent-purple-dm);
+            }
+        }
+
+
         #masterToggle:focus-visible {
             outline: 2px solid var(--popup-focus-ring-color);
-            outline-offset: 1px;
+            outline-offset: 2px;
         }
+        /* --- END: MODIFIED MASTER TOGGLE STYLES --- */
+
 
         .content-wrapper {
              padding: 0 14px 8px 14px;
-             /* MODIFIED: Adjust padding-bottom if footer is fixed or based on actual content height */
-             padding-bottom: 45px; /* Increased to ensure space for fixed footer */
-             max-height: calc(500px - 44px - 30px); /* Example: total popup height - header - footer */
+             padding-bottom: 45px;
+             max-height: calc(500px - 44px - 30px);
              overflow-y: auto;
              overflow-x: hidden;
-             position: relative; 
+             position: relative;
              z-index: 9;
         }
         .feature-list {
             display: flex;
             flex-direction: column;
-            gap: 0px; 
+            gap: 0px;
             margin-bottom: 10px;
         }
         .feature-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 2px 0; 
-            visibility: hidden; 
-            min-height: 28px; 
+            padding: 2px 0;
+            visibility: hidden;
+            min-height: 28px;
         }
         .feature-label-group {
             display: flex;
             align-items: center;
             gap: 5px;
-            flex-shrink: 1; 
-            margin-right: 6px; 
+            flex-shrink: 1;
+            margin-right: 6px;
         }
         .label-text {
             color: var(--popup-label-text-color);
             font-size: 12px;
             font-weight: 500;
-            cursor: pointer; 
+            cursor: pointer;
             line-height: 1.2;
         }
         .tooltip-icon {
-            display: inline-block; 
+            display: inline-block;
             width: 14px;
             height: 14px;
-            line-height: 14px; 
+            line-height: 14px;
             text-align: center;
             border-radius: 50%;
             background-color: var(--popup-tooltip-icon-bg-color);
@@ -293,43 +337,43 @@
             font-size: 10px;
             font-weight: bold;
             cursor: help;
-            position: relative; 
+            position: relative;
             user-select: none;
-            flex-shrink: 0; 
+            flex-shrink: 0;
         }
-        .tooltip-icon::before { 
+        .tooltip-icon::before {
             content: attr(data-tooltip);
             position: absolute;
-            bottom: 130%; 
+            bottom: 130%;
             left: 50%;
             transform: translateX(-50%);
             background-color: var(--popup-tooltip-content-bg-color);
             color: var(--popup-tooltip-content-text-color);
-            padding: 6px 9px; 
-            border-radius: 4px; 
-            font-size: 11px; 
+            padding: 6px 9px;
+            border-radius: 4px;
+            font-size: 11px;
             font-weight: normal;
-            white-space: normal; 
-            width: max-content; 
-            max-width: 190px;   
+            white-space: normal;
+            width: max-content;
+            max-width: 190px;
             text-align: left;
-            z-index: 20; 
+            z-index: 20;
             visibility: hidden;
             opacity: 0;
             transition: opacity 0.2s ease-in-out, visibility 0s linear 0.2s;
             box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
-        .tooltip-icon::after { 
+        .tooltip-icon::after {
             content: '';
             position: absolute;
-            bottom: 130%; 
-            margin-bottom: -5px; 
+            bottom: 130%;
+            margin-bottom: -5px;
             left: 50%;
             transform: translateX(-50%);
-            border-width: 5px; 
+            border-width: 5px;
             border-style: solid;
             border-color: var(--popup-tooltip-arrow-color) transparent transparent transparent;
-            z-index: 20; 
+            z-index: 20;
             visibility: hidden;
             opacity: 0;
             transition: opacity 0.2s ease-in-out, visibility 0s linear 0.2s;
@@ -337,22 +381,22 @@
         .tooltip-icon:hover::before, .tooltip-icon:hover::after {
             visibility: visible;
             opacity: 1;
-            transition-delay: 0.1s; 
+            transition-delay: 0.1s;
         }
 
         .feature-list .feature-item:first-child .tooltip-icon::before,
-        .category-header + .feature-list .feature-item:first-child .tooltip-icon::before { 
-            bottom: auto;   
-            top: 115%;      
+        .category-header + .feature-list .feature-item:first-child .tooltip-icon::before {
+            bottom: auto;
+            top: 115%;
         }
         .feature-list .feature-item:first-child .tooltip-icon::after,
         .category-header + .feature-list .feature-item:first-child .tooltip-icon::after {
-            bottom: auto;   
-            top: 115%;      
-            margin-bottom: 0; 
-            margin-top: -5px; 
-            border-color: transparent transparent var(--popup-tooltip-arrow-color) transparent; 
-            border-width: 0 5px 5px 5px; 
+            bottom: auto;
+            top: 115%;
+            margin-bottom: 0;
+            margin-top: -5px;
+            border-color: transparent transparent var(--popup-tooltip-arrow-color) transparent;
+            border-width: 0 5px 5px 5px;
         }
 
         .switch {
@@ -391,7 +435,7 @@
             background-color: var(--popup-switch-bg-on-color);
         }
         input:focus + .slider {
-            box-shadow: 0 0 1px var(--popup-focus-ring-color); 
+            box-shadow: 0 0 1px var(--popup-focus-ring-color);
         }
         input:checked + .slider:before {
             transform: translateX(18px);
@@ -435,11 +479,11 @@
         }
         .reload-button.reload-button-inactive-context:hover:not(:disabled) {
             background-color: var(--popup-button-hover-bg-color);
-            border-color: #c6c6c6; 
+            border-color: #c6c6c6;
         }
         @media (prefers-color-scheme: dark) {
             .reload-button.reload-button-inactive-context:hover:not(:disabled) {
-                border-color: #70757a; 
+                border-color: #70757a;
             }
              .reload-button:hover:not(:disabled) {
                 color: var(--brand-accent-purple-lighter-hover-dm);
@@ -452,13 +496,13 @@
             font-weight: 700;
             color: var(--popup-category-header-color);
             text-transform: uppercase;
-            margin-top: 12px; 
+            margin-top: 12px;
             margin-bottom: 2px;
             padding-bottom: 3px;
             border-bottom: 1px solid var(--popup-category-header-border-color);
         }
         .content-wrapper > .category-header:first-of-type {
-             margin-top: 0; 
+             margin-top: 0;
         }
         .category-header .lowercase {
             text-transform: none;
@@ -489,7 +533,7 @@
             left: 0;
             width: 100%;
             box-sizing: border-box;
-            z-index: 99; 
+            z-index: 99;
         }
         .footer-banner a {
             color: var(--popup-footer-banner-link-color);
@@ -502,7 +546,6 @@
 </head>
 <body>
     <div id="topNotificationBanner" class="top-notification"></div>
-    <!-- MODIFIED: Added hidden-by-banner class for JS control -->
     <div class="popup-header" id="popupHeader">
         <div class="popup-header-main">
             <img src="icons/icon48.png" alt="GA4 Optimizer Logo" class="popup-logo">
@@ -615,7 +658,7 @@
             <div class="feature-item" id="toggleSegmentComparisonControl">
                 <div class="feature-label-group">
                     <label for="enableSegmentComparisonToggle" class="label-text">Segment Variant Compare</label>
-                    <span class="tooltip-icon" data-tooltip="On hover over a variant segment (starting with 'VAR-'), shows % difference vs. the control segment (starting with 'VAR-Control') for both the raw metric count and the conversion rate (% of column total). Requires specific segment naming (case-sensitive). Enabled by default. See docs.">?</span>
+                    <span class="tooltip-icon" data-tooltip="On hover over a variant segment (starting with 'VAR-'), shows % difference vs. the control segment (starting with 'VAR-Control') for both the raw metric count and the conversion rate (% of column total). Requires specific segment naming. See documentation.">?</span>
                 </div>
                 <label class="switch">
                     <input type="checkbox" id="enableSegmentComparisonToggle" data-storage-key="segmentComparisonEnabled" data-default-state="true">
@@ -628,7 +671,7 @@
     </div>
 
     <div class="footer-banner">
-        For questions or feedback, feel free to email us at
+        For questions or feedback, email us at
         <a href="mailto:optimizerga@gmail.com">optimizerga@gmail.com</a>
     </div>
     <script src="popup.js"></script>
