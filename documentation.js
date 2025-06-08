@@ -1,8 +1,19 @@
 /**
  * documentation.js
- * VERSION: 1.6 - Fixed Accordion not closing on minus click.
+ * VERSION: 1.7 - Added mobile navigation. Fixed Accordion not closing on minus click.
  */
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Mobile Navigation Logic ---
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('.main-nav');
+
+    if (navToggle && mainNav) {
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('is-active');
+            mainNav.classList.toggle('is-active');
+        });
+    }
+
     // --- Video Modal Logic ---
     const videoModal = document.getElementById('videoModal');
     const modalVideoPlayer = document.getElementById('modalVideoPlayer');
