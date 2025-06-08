@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GA4 Optimizer Documentation</title>
+    <style>
+        :root {
+            /* --- ELEGANT NEUTRAL & PURPLE BRAND PALETTE --- */
+            --brand-accent-purple: #8A229B;
+            --brand-accent-purple-darker: #6A1B7A;
+            --brand-accent-purple-lighter-hover: #AC2BC2;
+            --brand-text-on-accent: #FFFFFF;
+            --docs-header-bg: var(--brand-accent-purple);
+            --docs-header-text: var(--brand-text-on-accent);
+            --text-body: #212529;
+            --text-subtle: #495057;
+            --text-muted: #6c757d;
+            --bg-page: #f8f9fa;
+            --bg-container: #FFFFFF;
+            --bg-sidebar: #f7f2fa;
+            --border-light: #e0e0e0;
+            --border-medium: #ced4da;
+            --border-dark: #adb5bd;
+            --note-bg: #f0e6f7;
+            --note-border: var(--brand-accent-purple);
+            --note-text-strong: var(--brand-accent-purple-darker);
+            --requirement-bg: #fdf1e6;
+            --requirement-border: #F9AB00;
+            --requirement-text-strong: #b06000;
+            --warning-bg: #fff3cd;
+            --warning-border: #ffeeba;
+            --warning-text-strong: #856404;
+            --sidebar-width: 260px;
+            --sidebar-gap: 30px;
+            --sticky-top-offset: 20px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-size: 16px;
+            line-height: 1.7;
+            margin: 0 auto;
+            padding: 20px;
+            color: var(--text-body);
+            background-color: var(--bg-page);
+         }
+        .container {
+            background-color: var(--bg-container);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: none;
+            padding: 20px 30px;
+            margin-bottom: 30px;
+            background-color: #eceff1;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: left;
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 17px;
+            color: #222222;
+            font-weight: 600;
+        }
+        h2, h3 {
+            scroll-margin-top: calc(var(--sticky-top-offset) + 20px);
+        }
+        h2 {
+            color: var(--brand-accent-purple);
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 1.6em;
+            margin-top: 35px;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: var(--brand-accent-purple-darker);
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 1.3em;
+            margin-top: 30px;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .docs-layout {
+            display: flex;
+            gap: var(--sidebar-gap);
+            margin-top: 20px;
+        }
+
+        #docs-sidebar {
+            width: var(--sidebar-width);
+            flex-shrink: 0;
+            position: sticky;
+            top: var(--sticky-top-offset);
+            align-self: flex-start;
+            height: calc(100vh - (var(--sticky-top-offset) * 2));
+            overflow-y: auto;
+            padding: 15px;
+            background-color: var(--bg-sidebar);
+            border-radius: 6px;
+            border: 1px solid var(--border-light);
+        }
+
+        #docs-sidebar .sidebar-title {
+            font-size: 1.1em; /* Approx 17.6px */
+            font-weight: 600;
+            color: var(--brand-accent-purple-darker);
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-medium);
+        }
+
+        #docs-sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        #docs-sidebar ul li {
+            margin-bottom: 0;
+        }
+        #docs-sidebar ul li a {
+            display: block;
+            padding: 8px 10px;
+            font-size: 0.95em; /* Approx 15.2px */
+            color: var(--text-subtle);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            font-weight: 500;
+        }
+        #docs-sidebar ul li a:hover {
+            background-color: var(--note-bg);
+            color: var(--brand-accent-purple);
+            text-decoration: none;
+        }
+        #docs-sidebar ul li a.active {
+            background-color: var(--brand-accent-purple);
+            color: var(--brand-text-on-accent);
+            font-weight: 600;
+        }
+        #docs-sidebar ul ul {
+            padding-left: 15px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        #docs-sidebar ul ul li a {
+            font-size: 0.9em; /* Approx 14.4px */
+            padding: 6px 10px;
+        }
+
+        .docs-content {
+            flex-grow: 1;
+            min-width: 0;
+        }
+
+        p, .docs-content li {
+             font-size: 1em; /* This will be 16px based on body */
+             color: var(--text-subtle);
+             margin-bottom: 12px;
+        }
+        .docs-content ul, .docs-content ol {
+            padding-left: 25px;
+            margin-bottom: 18px;
+        }
+        .accordion-panel ul, .accordion-panel ol {
+            padding-left: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .accordion-panel ul li, .accordion-panel ol li {
+            font-size: 1em; /* Matches main content text size now */
+            margin-bottom: 8px;
+        }
+
+        code {
+            background-color: #e8eaed;
+            padding: 0.2em 0.45em;
+            border-radius: 4px;
+            font-size: 0.9em; /* Approx 14.4px, good for code */
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            color: #c7254e;
+            border: 1px solid #ddd;
+         }
+        strong {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        .purple-strong { color: var(--brand-accent-purple); }
+
+        .note, .requirement-note, .warning-note {
+            padding: 14px 20px;
+            margin: 18px 0;
+            font-size: 1em; /* Matches main content text size */
+            border-radius: 4px;
+        }
+        .note {
+            background-color: var(--note-bg);
+            border-left: 4px solid var(--note-border);
+        }
+        .requirement-note {
+            background-color: var(--requirement-bg);
+            border-left: 4px solid var(--requirement-border);
+        }
+        .warning-note {
+            background-color: var(--warning-bg);
+            border-left: 4px solid var(--warning-border);
+        }
+        .note strong { color: var(--note-text-strong); }
+        .requirement-note strong { color: var(--requirement-text-strong); }
+        .warning-note strong { color: var(--warning-text-strong); }
+
+        a {
+            color: var(--brand-accent-purple);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        a:hover {
+            color: var(--brand-accent-purple-lighter-hover);
+            text-decoration: underline;
+        }
+        .tooltip-example { background-color: #f1f3f4; padding: 10px; border-radius: 4px; margin: 10px 0; font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; font-size: 0.9em; line-height: 1.5; }
+        .tooltip-example div { padding: 3px 6px; margin-bottom: 2px; border-radius: 2px; color: white; }
+        .tooltip-example .perc-line { background-color: rgba(66, 133, 244, 0.85); }
+        .tooltip-example .cr-line { background-color: rgba(52, 168, 83, 0.85); }
+        .tooltip-example .segcomp-count-line { background-color: rgba(251, 188, 5, 0.85); color: #202124; }
+        .tooltip-example .segcomp-cr-line { background-color: rgba(234, 67, 53, 0.85); }
+        .tooltip-example .segcomp-statsig-line { background-color: rgba(27, 158, 119, 0.9); font-weight: bold; }
+        .tooltip-example .srm-warning-line { background-color: rgba(249, 171, 0, 0.95); color: #202124; font-weight: bold; }
+
+        .copy-feedback-example {
+            display: inline-block;
+            background-color: #333333;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em; /* Kept slightly smaller, consistent with code */
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+
+        @keyframes ga4-optimizer-pulse {
+          0% { transform: scale(1.15); box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.7); }
+          70% { transform: scale(1.25); box-shadow: 0 0 5px 10px rgba(255, 152, 0, 0); }
+          100% { transform: scale(1.15); box-shadow: 0 0 0 0 rgba(255, 152, 0, 0); }
+        }
+
+        .pulsing-warning-emoji {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.4em;
+            height: 1.4em;
+            border-radius: 50%;
+            animation: ga4-optimizer-pulse 1.5s infinite ease-out;
+            position: relative;
+            font-size: inherit;
+            line-height: 1;
+            vertical-align: -0.15em;
+            margin: 0 0.1em;
+        }
+
+        .feature-video-container {
+            border-radius: 0.375rem;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            background-color: #000000;
+            width: 100%;
+            max-width: 500px;
+            margin: 25px auto 15px auto;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            line-height: 0;
+            cursor: pointer;
+        }
+        .feature-video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            transition-delay: 0s;
+        }
+        .modal-content {
+            background-color: #000;
+            padding: 0;
+            border-radius: 8px;
+            position: relative;
+            width: 90%;
+            max-width: 960px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.7);
+            overflow: visible;
+        }
+        .modal-content video {
+            display: block;
+            width: 100%;
+            max-height: 85vh;
+            border-radius: 8px;
+            outline: none;
+        }
+        .modal-close-button {
+            position: absolute;
+            top: -18px;
+            right: -18px;
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: #222;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 0;
+            text-shadow: 0 0 2px black;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            z-index: 10001;
+        }
+        .modal-close-button:hover {
+            background-color: #444;
+            transform: scale(1.1);
+        }
+
+        .accordion-container {
+            margin-top: 20px;
+        }
+        .accordion-item {
+            border: 1px solid var(--border-medium);
+            border-radius: 4px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        .accordion-item:last-child {
+            margin-bottom: 0;
+        }
+        .accordion-button {
+            background-color: var(--bg-sidebar);
+            color: var(--brand-accent-purple-darker);
+            cursor: pointer;
+            padding: 15px 20px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            font-size: 1.1em; /* Approx 17.6px */
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .accordion-button:hover, .accordion-button.active {
+            background-color: var(--note-bg);
+        }
+        .accordion-button.active {
+            color: var(--brand-accent-purple);
+        }
+        .accordion-button::after {
+            content: '+';
+            font-size: 1.3em;
+            font-weight: bold;
+            color: var(--brand-accent-purple);
+            transition: transform 0.2s ease-out;
+            margin-left: 10px;
+        }
+        .accordion-button.active::after {
+            content: "–";
+        }
+        .accordion-panel {
+            padding: 0 20px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+        .accordion-panel.active {
+            padding: 15px 20px;
+        }
+        .accordion-panel p:first-child, .accordion-panel ul:first-child, .accordion-panel ol:first-child {
+            margin-top: 0;
+        }
+        .accordion-panel p:last-child, .accordion-panel ul:last-child, .accordion-panel ol:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Settings access note */
+        .settings-access-note {
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.95em;
+            margin-top: 5px;
+            display: block; /* Changed to block for easier structure if needed */
+        }
+        .settings-gear-inline { /* More specific styling for the gear IMG */
+            display: inline-block; /* Respect width/height */
+            width: 16px;           /* Match popup icon size */
+            height: 16px;          /* Match popup icon size */
+            vertical-align: -0.2em; /* Adjust for better alignment with text */
+            object-fit: contain;   /* Ensure aspect ratio */
+            margin: 0 2px;         /* Tiny bit of space around it */
+             /* Optional: to make it less prominent, like popup button icon */
+            filter: grayscale(20%) opacity(85%);
+        }
+
+
+        @media (max-width: 900px) {
+            .docs-layout {
+                flex-direction: column;
+            }
+            #docs-sidebar {
+                width: 100%;
+                position: static;
+                height: auto;
+                margin-bottom: var(--sidebar-gap);
+                max-height: 300px;
+            }
+            .docs-content {
+                width: 100%;
+            }
+            h2, h3 {
+                 scroll-margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="page-header">
+            <img src="icons/icon48.png" alt="GA4 Optimizer Logo" class="header-icon">
+            <h1>GA4 Optimizer Documentation</h1>
+        </div>
+        <p>GA4 Optimizer aims to solve common analysis needs when using Googele Analytics™ 4 interface. This guide explains what each feature does and how to use it. Please note that as Google Analytics 4™ interface changes some of these features may stop working.</p>
+        <p><strong>Quick Access to Settings:</strong> Most features can be toggled on/off from the extension popup. Features with more detailed configurations (like "Click to Copy" actions or "Data Range Presets" visibility) have a settings <img src="icons/cog-244x256.png" alt="settings" class="settings-gear-inline"> button next to their toggle in the popup. Clicking this will open a dedicated settings page.</p>
+
+
+        <div class="docs-layout">
+            <aside id="docs-sidebar">
+                <h4 class="sidebar-title">Navigation</h4>
+                <ul>
+                    <li><a href="#features-explained-toc">Features Explained</a>
+                        <ul>
+                            <li><a href="#feature-click-to-copy">1. Click to Copy</a></li>
+                            <li><a href="#feature-sticky-header">2. Sticky Header</a></li>
+                            <li><a href="#feature-highlight-sampling">3. Highlight Sampling</a></li>
+                            <li><a href="#feature-percentage-change-highlighter">4. % Change Highlighter</a></li>
+                            <li><a href="#feature-cr-change-percentage">5. Δ% Share Change (Reports)</a></li>
+                            <li><a href="#feature-percentage-column-total">6. % of Column Total</a></li>
+                            <li><a href="#feature-auto-detailed-results">7. Auto Detailed (Beta)</a></li>
+                            <li><a href="#feature-percentage-all-users">8. % of All Users</a></li>
+                            <li><a href="#feature-ab-test-segment-comparison">9. AB Test Comparison</a></li>
+                            <li><a href="#feature-collapsible-panels">10. Collapsible Panels</a></li>
+                            <li><a href="#feature-sticky-calculator">11. Sticky Calculator</a></li>
+                            <li><a href="#feature-date-range-presets">12. Data Range Presets</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#troubleshooting-toc">Troubleshooting</a></li>
+                </ul>
+            </aside>
+
+            <main class="docs-content">
+                 <h2 id="features-explained-toc">Features Explained</h2>
+
+                <section id="feature-click-to-copy">
+                    <h3>1. Click to Copy Cell</h3>
+                    <p>
+                        <strong class="purple-strong">Applies to: Explorations & Standard Reports</strong><br>
+                        Quickly copy values from table cells, headers, or dimension labels to your clipboard.
+                        <span class="settings-access-note">Detailed click behaviors (single, double, triple) can be configured via the settings <img src="icons/cog-244x256.png" alt="settings" class="settings-gear-inline"> button in the extension popup.</span>
+                    </p>
+                                        <div class="feature-video-container" data-video-name="click_to_copy">
+                        <video autoplay loop muted playsinline aria-label="Demonstration of the Click to Copy Cell feature">
+                            <source src="mp4/click_to_copy.mp4" type="video/mp4">
+                            Your browser does not support the video tag. This video demonstrates the Click to Copy Cell feature.
+                        </video>
+						<div class="play-icon-overlay">▶</div>
+                    </div>
+                    <ul>
+                        <li><strong>Single Click (if enabled):</strong>
+                            <ul>
+                                <li>Copies the text of the specific line you clicked within a cell.</li>
+                                <li>In Explorations, if a cell contains multiple lines, the feedback message will show <span class="copy-feedback-example">Line Clicked Copied!</span>.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Double Click (Explorations Only, if enabled):</strong>
+                            <ul>
+                                <li>Copies the <strong>entire</strong> text content of the clicked cell or label, automatically adding spaces where lines wrap.</li>
+                                <li>NOTE: This is not perfect. You will still have to remove spaces as you see fit.</li>
+                                <li>Feedback message shows <span class="copy-feedback-example">Copied! ⚠️Check for extra spaces</span>.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Triple Click (Exploration Data Cells Only, if enabled):</strong>
+                            <ul>
+                                <li>Copies the combined text content from the hover tooltip (including Percentage of Column Total, Percentage of All Users, Segment Comparison (Δ%Shr), etc., if enabled).</li>
+                                <li>Feedback message shows <span class="copy-feedback-example">Tooltip Copied!</span>.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="note">
+                        <strong>Note:</strong> Copying complex multi-line text from Explorations might occasionally miss or add a space. Manual selection is always an option.
+                    </div>
+                </section>
+
+                <section id="feature-sticky-header">
+                    <h3>2. Sticky Report Header</h3>
+                    <p>
+                        <strong class="purple-strong">Applies to: Standard Reports Only</strong><br>
+                        Keeps the header row(s) of standard Google Analytics 4™ report tables visible at the top of the screen as you scroll down long tables.
+                    </p>
+                    <ul>
+                        <li>When scrolling down a table in a Standard Report, the header row will remain fixed at the top.</li>
+                    </ul>
+                    <div class="feature-video-container" data-video-name="sticky_header">
+                        <video autoplay loop muted playsinline aria-label="Demonstration of the Sticky Report Header feature">
+                            <source src="mp4/sticky_header.mp4" type="video/mp4">
+                            Your browser does not support the video tag. This video demonstrates the Sticky Report Header feature.
+                        </video>
+						<div class="play-icon-overlay">▶</div>
+                    </div>
+                    <div class="warning-note">
+                        <strong>Known Incompatibility:</strong> This feature may not work correctly or may cause layout issues when "Comparisons" are active in Standard Reports.
+                    </div>
+                </section>
+
+                <section id="feature-highlight-sampling">
+                    <h3>3. Highlight Sampling</h3>
+                    <p>
+                        <strong class="purple-strong">Applies to: Explorations & Standard Reports</strong><br>
+                        Makes the data quality/sampling icon more noticeable when your report data isn't 100% complete.
+                    </p>
+                    <ul>
+                        <li>If the icon indicates data is sampled or incomplete (e.g., a yellow warning <span class="pulsing-warning-emoji">⚠️</span>), a subtle pulse animation highlights it.</li>
+                    </ul>
+                    <div class="feature-video-container" data-video-name="highlight_sampling">
+                        <video autoplay loop muted playsinline aria-label="Demonstration of the Highlight Sampling feature">
+                            <source src="mp4/highlight_sampling.mp4" type="video/mp4">
+                            Your browser does not support the video tag. This video demonstrates the Highlight Sampling feature.
+                        </video>
+						<div class="play-icon-overlay">▶</div>
+                    </div>
+                </section>
+
+                <section id="feature-percentage-change-highlighter">
+                    <h3>4. Percentage Change Highlighter</h3>
+                    <p>
+                        <strong class="purple-strong">Applies to: Standard Reports Only (when date comparison is active)</strong><br>
+                        Visually highlights cells containing percentage changes based on user-defined ranges and colors. This helps quickly spot significant positive or negative changes in metrics when comparing date ranges.
+                        It can highlight based on the raw % change or the "Δ% Share Change" (if that feature is also active and values are present).
+                        <span class="settings-access-note">Configure ranges, colors, and highlight source (Raw % or Δ% Share) via the settings <img src="icons/cog-244x256.png" alt="settings" class="settings-gear-inline"> button in the extension popup.</span>
+                    </p>
+                    <ul>
+                        <li>When a Standard Report has a date comparison active, the "% change" rows will be scanned.</li>
+                        <li>Cells containing percentage values (either raw % change or Δ% Share Change, depending on your setting) that fall within your defined ranges will have their background color changed.</li>
+                        <li>Example: Set a range for "From 20 To inf" (infinity) with a green color to highlight all increases of 20% or more.</li>
+                        <li>Example: Set "From -inf To -20" with a red color for decreases of 20% or more.</li>
+                    </ul>
+                     <div class="note">
+                        <strong>Tip:</strong> You can define multiple ranges. The first matching range in your settings list will be applied. Use "inf" for positive infinity and "-inf" for negative infinity in your range definitions.
+                        If highlighting by "Δ% Share Change", ensure the "Δ% Share Change (Reports)" feature is also enabled.
+                    </div>
+                </section>
+
+                <section id="feature-cr-change-percentage">
+                    <h3>5. Δ% Share Change (Reports)</h3>
+                    <p>
+                        <strong class="purple-strong">Applies to: Standard Reports Only (when date comparison is active)</strong><br>
+                        Calculates and displays the percentage change of the "percentage of total" values (share) directly in the "% change" row of Standard Reports.
+                        This provides a more insightful comparison of how a metric's share of the total has changed over time.
+                    </p>
+                    <ul>
+                        <li>When a Standard Report has a date comparison active, this feature looks at the two date period rows and their respective "% of total" values (e.g., <code>Metric A: 100 (10%)</code>, <code>Metric A: 120 (12%)</code>).</li>
+                        <li>It then calculates the percentage change between these share percentages (e.g., a share change from 10% to 12% is a +20% change in the share).</li>
+                        <li>This "Δ% Share Change" is appended to the existing raw value % change in the summary row. For example: <code>-16.4% (Δ%Shr +20.00%)</code>.</li>
+                    </ul>
+                    <div class="note">
+                        <strong>Note:</strong> This feature relies on the presence of the "percent-of-total" spans (e.g., <code>(XX.XX%)</code>) generated by GA4 in the data rows. If these are missing or GA4 changes their structure, this feature may not work. The "Percentage Change Highlighter" can be configured to use these "Δ%Shr" values for its highlighting.
+                    </div>
+                </section>
+
+
+                <section id="feature-percentage-column-total">
+                    <h3>6. Percentage of Column Total</h3>
+                    <p>
+                        <strong class="purple-strong">Applies to: Explorations Only</strong><br>
+                        When viewing tables within Explorations, this feature automatically calculates and displays the percentage contribution of each row's value relative to the column's total.
+                    </p>
+                    <ul>
+                        <li>The percentage value appears when you hover over a metric cell.</li>
+                        <li>If the value is short enough, it may also appear inline, like <code>1,234 (12.34%)</code>.</li>
+                    </ul>
+                    <div class="feature-video-container" data-video-name="percentage_column_total">
+                        <video autoplay loop muted playsinline aria-label="Demonstration of the Percentage of Column Total feature">
+                            <source src="mp4/percentage_column_total.mp4" type="video/mp4">
+                            Your browser does not support the video tag. This video demonstrates the Percentage of Column Total feature.
+                        </video>
+						<div class="play-icon-overlay">▶</div>
+                    </div>
+                    <div class="note">
+                        <strong>Note:</strong> If the "Total" row is scrolled out of view, percentages might temporarily show "Scroll up to capture Column's Total" or be based on the last known total.
+                    </div>
+                </section>
+
+                <section id="feature-auto-detailed-results">
+                    <h3>7. Auto Detailed Results (Beta)</h3>
+                    <p>
+                        <strong class="purple-strong">Applies to: Explorations Only</strong><br>
+                        Automatically attempts to switch Exploration reports to use "More detailed results" (less sampling) for better accuracy.
+                    </p>
+                    <ul>
+                        <li>When an Exploration loads with sampled data, the extension tries to select "More detailed results."</li>
+                    </ul>
+                    <div class="feature-video-container" data-video-name="auto_detail">
+                        <video autoplay loop muted playsinline aria-label="Demonstration of the Auto Detailed Results feature">
+                            <source src="mp4/auto_detail.mp4" type="video/mp4">
+                            Your browser does not support the video tag. This video demonstrates the Auto Detailed Results feature.
+                        </video>
+						<div class="play-icon-overlay">▶</div>
+                    </div>
+                    <div class="note">
+                        <strong>Note:</strong> This Beta feature relies on UI automation. It might not work if GA4 loads slowly or changes significantly.
+                    </div>
+                </section>
+
+                <section id="feature-percentage-all-users">
+                    <h3>8. Percentage of All Users</h3>
+                    <p>
+                        <strong class="purple-strong">Applies to: Explorations Only</strong><br>
+                        Provides quick conversion rate insights by comparing segments against an "All Users" segment within Exploration tables.
+                    </p>
+                    <div class="requirement-note">
+                        <strong>Requirement:</strong> The <strong>'All Users' segment</strong> must be included in your Exploration table setup.
+                    </div>
+                    <ul>
+                        <li>Hover over any metric cell (except the 'All Users' column itself).</li>
+                        <li>A tooltip shows the conversion rate: <code>(Current Segment Cell Value) / ('All Users' Cell Value for Same Row)</code>.</li>
+                    </ul>
+                    <div class="feature-video-container" data-video-name="all_users_segment_compare">
+                        <video autoplay loop muted playsinline aria-label="Demonstration of the Percentage of All Users feature">
+                            <source src="mp4/all_users_segment_compare.mp4" type="video/mp4">
+                            Your browser does not support the video tag. This video demonstrates the Percentage of All Users feature.
+                        </video>
+						<div class="play-icon-overlay">▶</div>
+                    </div>
+                    <div class="note">
+                        <strong>Visibility Requirement:</strong> If the 'All Users' column is scrolled out of view, the conversion rate might be unavailable or show 'N/A'.
+                    </div>
+                </section>
+
+                <section id="feature-ab-test-segment-comparison">
+                    <h3>9. AB Test Segment Comparison</h3>
+                    <p>
+                        <strong class="purple-strong">Applies to: Explorations Only</strong><br>
+                        Compares performance metrics between test variations relative to a control segment. Ideal for A/B/n testing. This feature calculates the percentage difference in the raw metric count, the "Delta Percentage Share" (Δ%Shr) of the column total, and the **statistical significance of the change**. It also automatically checks for **Sample Ratio Mismatch (SRM)**.
+                    </p>
+                    <div class="feature-video-container" data-video-name="ab_test_compare">
+                        <video autoplay loop muted playsinline aria-label="Demonstration of the Segment Variation Comparison feature">
+                            <source src="mp4/ab_test_compare.mp4" type="video/mp4">
+                            Your browser does not support the video tag. This video demonstrates the AB Test Segment Variation Comparison feature.
+                        </video>
+						<div class="play-icon-overlay">▶</div>
+                    </div>
+                    <div class="requirement-note">
+                        <strong>Requirement: Strict Segment Naming (Case-Sensitive)</strong><br>
+                        <ul>
+                            <li>Segments in a group <strong>must</strong> start with <code>VAR-</code>.</li>
+                            <li>Control segment <strong>must</strong> start with <code>VAR-Control</code> (e.g., <code>VAR-Control Original Homepage</code>).</li>
+                            <li>Other _VAR-_ segments are variants (e.g., _VAR-Variant A - Blue Button_).</li>
+                        </ul>
+                    </div>
+                    <ul>
+                        <li>Hover over a <strong>Variant Segment</strong> cell.</li>
+                        <li>The tooltip shows:
+                            <ol type="a">
+                                <li>% difference in the metric's <strong>count</strong> vs. the Control segment.</li>
+                                <li>% difference in the metric's <strong>Δ%Shr</strong> (% of Column Total) vs. the Control segment.</li>
+                                <li><strong>Statistical Significance:</strong> The confidence level (calculated via a two-proportion z-test) that the observed difference is not due to random chance. Highlighted green for >= 95% confidence and orange for 90-94.99%.</li>
+                                <li><strong>Sample Ratio Mismatch (SRM) Warning:</strong> Appears if the traffic distribution among all variants is statistically uneven, which can invalidate test results.</li>
+                            </ol>
+                        </li>
+                        <li>Example tooltip:
+                            <div class="tooltip-example">
+                                <div class="segcomp-count-line">-7.50% vs Control Count</div>
+                                <div class="segcomp-cr-line">+2.10% Δ%Shr vs Control</div>
+                                <div class="segcomp-statsig-line">Stat Sig: 98.50%</div>
+                                <div class="srm-warning-line">Sample Ratio Mismatch, see docs</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="note">
+                        <strong>Note:</strong> Ensure only one `VAR-Control` segment exists. If the control column is out of view, comparisons may be unavailable. The Δ%Shr and Stat Sig calculations are skipped for the "Totals" row.
+                    </div>
+                </section>
+
+                <section id="feature-collapsible-panels">
+                    <h3>10. Collapsible Panels</h3>
+                    <p>
+                        <strong class="purple-strong">Applies to: Explorations Only</strong><br>
+                        Adds a toggle button to collapse/expand "Variables" and "Tab Settings" panels in Explorations.
+                    </p>
+                    <ul>
+                        <li>A chevron button appears on the left of the Exploration table to minimize/expand these panels.</li>
+                    </ul>
+                    <div class="feature-video-container" data-video-name="collapsible_panels">
+                        <video autoplay loop muted playsinline aria-label="Demonstration of the Collapsible Panels feature">
+                            <source src="mp4/collapsible_panels.mp4" type="video/mp4">
+                            Your browser does not support the video tag. This video demonstrates the Collapsible Panels feature.
+                        </video>
+						<div class="play-icon-overlay">▶</div>
+                    </div>
+                    <div class="note">
+                        <strong>Note:</strong> Refresh the page if the button is misplaced or missing.
+                    </div>
+                </section>
+
+                <section id="feature-sticky-calculator">
+                    <h3>11. Sticky Conversion Calculator</h3>
+                    <p>
+                        <strong class="purple-strong">Applies to: All Google Analytics 4™ Pages</strong><br>
+                        Provides a quick-access conversion rate calculator widget.
+                    </p>
+                    <div class="feature-video-container" data-video-name="sticky_calculator">
+                        <video autoplay loop muted playsinline aria-label="Demonstration of the Sticky Conversion Calculator feature">
+                            <source src="mp4/sticky_calculator.mp4" type="video/mp4">
+                            Your browser does not support the video tag. This video demonstrates the Sticky Conversion Calculator feature.
+                        </video>
+						<div class="play-icon-overlay">▶</div>
+                    </div>
+                    <ul>
+                        <li>A calculator icon appears in the bottom-right. Click to open.</li>
+                        <li>Calculate two CRs (CR1, CR2) by entering Conversions and Total.</li>
+                        <li>Compares CR2 vs CR1 (Absolute Difference, Relative Uplift).</li>
+                        <li>Panel header is draggable. Click icon or "X" to close.</li>
+                    </ul>
+                </section>
+
+                <section id="feature-date-range-presets">
+                    <h3>12. Data Range Presets</h3>
+                    <p>
+                        <strong class="purple-strong">Applies to: Standard Reports Only</strong><br>
+                        Adds quick-select buttons for common date ranges (e.g., 7D, 30D, LM) and comparisons (e.g., LM MoM).
+                        <span class="settings-access-note">Customize visible presets and their order via the settings <img src="icons/cog-244x256.png" alt="settings" class="settings-gear-inline"> button in the extension popup, or by clicking the gear icon <img src="icons/cog-244x256.png" alt="settings" class="settings-gear-inline"> next to the presets on the GA4 page.</span>
+                    </p>
+                    <ul>
+                        <li>Preset buttons appear next to the date picker in Standard Reports.</li>
+                        <li>Clicking a preset applies it and reloads the report.</li>
+                        <li>If many presets are visible, a scrollbar appears in the preset area.</li>
+                        <li>Comparison presets are hidden on Advertising pages.</li>
+                    </ul>
+                     <div class="note">
+                        <strong>Note:</strong> Works by changing URL parameters. Changes from the settings page should reflect after a save, or on the next report load.
+                    </div>
+                </section>
+
+                <h2 id="troubleshooting-toc">Troubleshooting</h2>
+                <div class="accordion-container">
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-1" id="trouble-button-1">Features not activating</button>
+                        <div class="accordion-panel" id="trouble-panel-1" role="region" aria-labelledby="trouble-button-1">
+                            <p>Ensure you are on the correct page type (Exploration or Standard Report). Try refreshing the GA4 page using the button in the popup or your browser's refresh. Double-check the feature is toggled on in the popup.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-2" id="trouble-button-2">Percentages/Tooltips missing (Explorations)</button>
+                        <div class="accordion-panel" id="trouble-panel-2" role="region" aria-labelledby="trouble-button-2">
+                            <p>The GA4 interface might have changed. Check for extension updates or report the issue. For "Percentage of Column Total", if "Total" row is scrolled out of view, data might be unavailable. For "Percentage of All Users" or "AB Test Segment Comparison", if 'All Users' or 'VAR-Control' columns are out of view, data may be unavailable.</p>
+                        </div>
+                    </div>
+                     <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-12" id="trouble-button-12">Percentage Change Highlighter not working (Standard Reports)</button>
+                        <div class="accordion-panel" id="trouble-panel-12" role="region" aria-labelledby="trouble-button-12">
+                            <p>Ensure the feature is enabled in the popup and that you have configured ranges in the settings page (accessible via the <img src="icons/cog-244x256.png" alt="settings" class="settings-gear-inline"> icon). This feature only applies when a date comparison is active in a Standard Report, showing "% change" rows. Refresh the page after changing settings. Also, check if the "Highlight Source" in settings (Raw % or Δ% Share) matches the data you expect to be highlighted.</p>
+                        </div>
+                    </div>
+                     <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-13" id="trouble-button-13">Δ% Share Change not appearing (Standard Reports)</button>
+                        <div class="accordion-panel" id="trouble-panel-13" role="region" aria-labelledby="trouble-button-13">
+                            <p>This feature only applies when a date comparison is active in a Standard Report and GA4 displays rows for each date period along with a "% change" summary row. Ensure the table includes "percent-of-total" values (e.g., <code>(XX.XX%)</code>) in the date period rows, as this is what the feature uses for calculation. If GA4 changes the table structure, the feature might not work.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-3" id="trouble-button-3">Hover Percentage showing N/A (Explorations)</button>
+                        <div class="accordion-panel" id="trouble-panel-3" role="region" aria-labelledby="trouble-button-3">
+                            <p>Make sure 'All Users' segment is in your Exploration, has a non-zero value, and is reasonably visible. Ensure feature is enabled.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-4" id="trouble-button-4">Segment Comparison showing N/A (Explorations)</button>
+                        <div class="accordion-panel" id="trouble-panel-4" role="region" aria-labelledby="trouble-button-4">
+                            <ul>
+                                <li>Check segment naming: must start with <code>VAR-</code>, control with <code>VAR-Control</code> (case-sensitive).</li>
+                                <li>Ensure variant and a matching control segment (same metric) are in the table and visible.</li>
+                                <li>Control segment's value must not be zero/non-numeric for count comparison.</li>
+                                <li>For Δ%Shr comparison, both variant and control cells need valid, non-zero column totals (denominator for the share calculation).</li>
+                                <li>Statistical significance requires column totals to be visible for all variants in the test and for sample sizes to be adequate (n > 30).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-5" id="trouble-button-5">Click to Copy not working / incorrect text</button>
+                        <div class="accordion-panel" id="trouble-panel-5" role="region" aria-labelledby="trouble-button-5">
+                            <p>Ensure feature and desired click actions are enabled in settings (via popup <img src="icons/cog-244x256.png" alt="settings" class="settings-gear-inline">). Complex Exploration tables can be tricky; manual selection might be needed.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-6" id="trouble-button-6">Sticky Header not working (Standard Reports)</button>
+                        <div class="accordion-panel" id="trouble-panel-6" role="region" aria-labelledby="trouble-button-6">
+                            <p>GA4 report structure might have changed. Try refreshing. If "Comparisons" are active, Sticky Header may not work.</p>
+                        </div>
+                    </div>
+                     <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-7" id="trouble-button-7">Sampling Highlight not appearing</button>
+                        <div class="accordion-panel" id="trouble-panel-7" role="region" aria-labelledby="trouble-button-7">
+                             <p>Ensure GA4 Optimizer is enabled. Highlight only appears if GA4 indicates data is sampled (yellow warning <span class="pulsing-warning-emoji">⚠️</span>). If icon is green ✅ (100% data), no highlight.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-8" id="trouble-button-8">Collapsible Panels button not appearing/working (Explorations)</button>
+                        <div class="accordion-panel" id="trouble-panel-8" role="region" aria-labelledby="trouble-button-8">
+                            <ul>
+                                <li>Ensure you are on an Exploration page.</li>
+                                <li>Try refreshing the GA4 page. Check if feature is enabled in popup.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-9" id="trouble-button-9">Sticky Conversion Rate Calculator not appearing/working</button>
+                        <div class="accordion-panel" id="trouble-panel-9" role="region" aria-labelledby="trouble-button-9">
+                            <ul>
+                                <li>Ensure feature is enabled in popup. Try refreshing GA4 page.</li>
+                                <li>If issues persist, check browser console for "StickyCalc" errors and report them.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-11" id="trouble-button-11">Date Range Presets not appearing or working correctly</button>
+                        <div class="accordion-panel" id="trouble-panel-11" role="region" aria-labelledby="trouble-button-11">
+                            <ul>
+                                <li>Ensure you are on a Standard Report page. Try refreshing GA4 page.</li>
+                                <li>Check feature is enabled and configured in settings (via popup <img src="icons/cog-244x256.png" alt="settings" class="settings-gear-inline">).</li>
+                                <li>Visual overlaps with sticky header might occur; try toggling sticky header or refresh.</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-10" id="trouble-button-10">Contact for questions or feedback</button>
+                        <div class="accordion-panel" id="trouble-panel-10" role="region" aria-labelledby="trouble-button-10">
+                             <p>For questions or feedback, feel free to email us at <strong><a href="mailto:optimizerga@gmail.com" target="_blank" >optimizerga@gmail.com</a></strong></p>
+                        </div>
+                    </div>
+                </div> <!-- End accordion-container -->
+            </main>
+        </div>
+    </div>
+
+    <div id="videoModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="modal-close-button" title="Close video (Esc)">×</span>
+            <video id="modalVideoPlayer" controls autoplay playsinline aria-label="Feature demonstration video"></video>
+        </div>
+    </div>
+
+    <script src="documentation.js"></script>
+</body>
+</html>
