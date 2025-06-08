@@ -3,72 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation | GA4 Optimizer</title>
-    <meta name="description" content="Complete documentation for all features of the GA4 Optimizer Chrome Extension, including Click-to-Copy, Sticky Headers, Segment Comparison, and more.">
+    <!-- SEO Enhancement: Title optimized for feature-related searches -->
+    <title>GA4 Optimizer Features - Improve GA4 Reporting & Analysis</title>
+    <!-- SEO Enhancement: Meta Description updated to highlight problem-solving benefits -->
+    <meta name="description" content="Explore the features of GA4 Optimizer. Improve data analysis, speed up reporting, and simplify segment comparisons with our tools for Google Analytics 4.">
     
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="icons/icon48.png" type="image/png">
+    <link rel="canonical" href="https://www.gaoptimizer.com/documentation.html" />
 
-    <!-- Styles from original documentation for sidebar, notes, etc. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the Click to Copy Cell feature?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The 'Click to Copy' feature allows you to quickly copy values from table cells, headers, or dimension labels in both Explorations & Standard Reports within Google Analytics 4. This simplifies the process of exporting data for your external reports and analysis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the Sticky Report Header work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The 'Sticky Report Header' feature keeps the header row of standard GA4 reports visible as you scroll, which makes analyzing long reports much easier by ensuring you never lose track of which metric column you are viewing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the AB Test Segment Comparison feature for GA4?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This feature enhances GA4 Explorations by comparing performance metrics between test variations and a control segment. It is designed for conversion rate optimization (CRO) and includes statistical significance calculations and SRM checks to validate your A/B test results."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do Collapsible Panels improve usability?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In GA4 Explorations, this feature adds a toggle to collapse the 'Variables' and 'Tab Settings' panels. This creates a larger, less cluttered workspace, allowing you to focus on the data analysis."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- UX Improvement: Styles adjusted for maximum compactness to support future features -->
     <style>
-        .docs-layout {
-            display: flex;
-            gap: 30px;
-            margin-top: 20px;
-        }
-        #docs-sidebar {
-            width: 260px;
-            flex-shrink: 0;
-            position: sticky;
-            top: 100px; /* Aligns with bottom of the fixed header */
-            align-self: flex-start;
-            height: calc(100vh - 120px);
-            overflow-y: auto;
-            padding: 15px;
-            background-color: var(--bg-light);
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-        }
-        #docs-sidebar .sidebar-title {
-            font-size: 1.1em;
-            font-weight: 600;
-            color: var(--brand-purple-dark);
-            margin-top: 0;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-color);
-        }
+        .docs-layout { display: flex; gap: 40px; margin-top: 20px; }
+        #docs-sidebar { width: 240px; flex-shrink: 0; position: sticky; top: 100px; align-self: flex-start; border: 1px solid var(--border-color); background-color: var(--bg-light); border-radius: 6px; }
+        /* UX FIX: Reduced padding for a more compact title */
+        .sidebar-title { font-size: 1.1em; font-weight: 600; color: var(--brand-purple-dark); margin: 0; padding: 12px 15px; border-bottom: 1px solid var(--border-color); }
+        /* UX FIX: Reduced padding for the content area */
+        .sidebar-content { padding: 8px 12px; }
         #docs-sidebar ul { list-style-type: none; padding-left: 0; margin: 0; }
-        #docs-sidebar ul li a {
-            display: block; padding: 8px 10px; font-size: 0.95em;
-            color: var(--text-light); text-decoration: none; border-radius: 4px;
-            transition: background-color 0.2s ease, color 0.2s ease; font-weight: 500;
-        }
+        /* UX FIX: Further reduced padding and font-size for maximum scannability and future scalability */
+        #docs-sidebar ul li a { display: block; padding: 3px 8px; font-size: 0.9em; color: var(--text-light); text-decoration: none; border-radius: 4px; transition: background-color 0.2s ease, color 0.2s ease; font-weight: 500; }
         #docs-sidebar ul li a:hover { background-color: #e9e6ed; color: var(--brand-purple); }
         #docs-sidebar ul li a.active { background-color: var(--brand-purple); color: var(--bg-white); font-weight: 600; }
-        #docs-sidebar ul ul { padding-left: 15px; margin-top: 5px; margin-bottom: 10px; }
-        #docs-sidebar ul ul li a { font-size: 0.9em; padding: 6px 10px; }
-
-        .docs-content { flex-grow: 1; min-width: 0; }
-        .note, .requirement-note {
-            padding: 14px 20px; margin: 18px 0; font-size: 1em; border-radius: 4px; border-left: 4px solid;
-        }
+        #docs-sidebar ul ul { padding-left: 15px; margin-top: 4px; margin-bottom: 4px; }
+        #docs-sidebar ul ul li a { font-size: 0.9em; padding: 3px 8px; }
+        .docs-content { flex-grow: 1; min-width: 0; font-size: 1.05em; }
+        .docs-content section { border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 20px; }
+        .docs-content section:first-child { border-top: none; margin-top: 0; padding-top: 0; }
+        .note, .requirement-note { padding: 14px 20px; margin: 18px 0; font-size: 1em; border-radius: 4px; border-left: 4px solid; }
         .note { background-color: #f0e6f7; border-color: var(--brand-purple); }
         .requirement-note { background-color: #fdf1e6; border-color: #F9AB00; }
         .note strong { color: var(--brand-purple-dark); }
         .requirement-note strong { color: #b06000; }
-
-        .settings-gear-inline {
-            width: 16px; height: 16px; vertical-align: -0.2em;
-            object-fit: contain; margin: 0 2px;
-            filter: grayscale(20%) opacity(85%);
-        }
-
-        /* Responsive adjustments for documentation layout */
-        @media (max-width: 900px) {
-            .docs-layout { flex-direction: column; }
-            #docs-sidebar { width: 100%; position: static; height: auto; max-height: 350px; }
-        }
+        .settings-gear-inline { width: 16px; height: 16px; vertical-align: -0.2em; object-fit: contain; margin: 0 2px; filter: grayscale(20%) opacity(85%); }
+        @media (max-width: 900px) { .docs-layout { flex-direction: column; gap: 0; } #docs-sidebar { width: 100%; position: sticky; top: 70px; height: auto; z-index: 900; overflow-y: visible; margin-bottom: 20px; } .sidebar-title { cursor: pointer; position: relative; background-color: var(--bg-light); } .sidebar-title::after { content: '▾'; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 1.2em; transition: transform 0.3s ease; } #docs-sidebar.is-open .sidebar-title::after { transform: translateY(-50%) rotate(180deg); } .sidebar-content { max-height: 0; overflow: hidden; padding: 0 15px; margin: 0; transition: max-height 0.4s ease-out, padding 0.4s ease-out; background-color: var(--bg-light); border-top: 1px solid var(--border-color); } #docs-sidebar.is-open .sidebar-title { border-bottom-left-radius: 0; border-bottom-right-radius: 0; } #docs-sidebar.is-open .sidebar-content { padding: 15px; } #docs-sidebar ul { margin: 0; } }
     </style>
 </head>
 <body>
@@ -82,9 +91,9 @@
             <nav class="main-nav">
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="documentation.html" class="active">Documentation</a></li>
+                    <li><a href="documentation.html" class="active" aria-current="page">Documentation</a></li>
                     <li><a href="privacy.html">Privacy</a></li>
-                    <li><a href="https://chromewebstore.google.com/detail/ga4-optimizer/fclkadgceopbphjinkpnmcfjopimglaj" class="cta-button" target="_blank" rel="noopener noreferrer">Add to Chrome</a></li>
+                    <li><a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj" class="cta-button" target="_blank" rel="noopener noreferrer">Add to Chrome</a></li>
                 </ul>
             </nav>
             <button class="nav-toggle" aria-label="Toggle navigation">
@@ -96,91 +105,105 @@
     <main class="container">
         <div class="main-content content-page">
             <h1>GA4 Optimizer Documentation</h1>
-            <p>GA4 Optimizer aims to solve common analysis needs when using Google Analytics™ 4 interface. This guide explains what each feature does and how to use it.</p>
-            <p><strong>Quick Access to Settings:</strong> Most features can be toggled on/off from the extension popup. Features with more detailed configurations have a settings <img src="icons/cog-244x256.png" alt="settings" class="settings-gear-inline"> button next to their toggle in the popup.</p>
+            <!-- SEO Enhancement: Intro text enriched with more context. -->
+            <p>GA4 Optimizer aims to solve common challenges in the Google Analytics™ 4 interface. This guide explains how each feature can improve your daily analysis, reporting, and insight-gathering tasks.</p>
+            <p><strong>Quick Access to Settings:</strong> Most features can be toggled on/off from the extension popup. Features with more detailed configurations have a settings <img src="icons/cog-244x256.png" alt="Settings icon" class="settings-gear-inline"> button next to their toggle in the popup.</p>
             
             <div class="docs-layout">
                 <aside id="docs-sidebar">
                     <h4 class="sidebar-title">Navigation</h4>
-                    <ul>
-                        <li><a href="#feature-click-to-copy">1. Click to Copy</a></li>
-                        <li><a href="#feature-sticky-header">2. Sticky Header</a></li>
-                        <li><a href="#feature-highlight-sampling">3. Highlight Sampling</a></li>
-                        <li><a href="#feature-percentage-change-highlighter">4. % Change Highlighter</a></li>
-                        <li><a href="#feature-cr-change-percentage">5. Δ% Share Change</a></li>
-                        <li><a href="#feature-percentage-column-total">6. % of Column Total</a></li>
-                        <li><a href="#feature-auto-detailed-results">7. Auto Detailed Results</a></li>
-                        <li><a href="#feature-percentage-all-users">8. % of All Users</a></li>
-                        <li><a href="#feature-ab-test-segment-comparison">9. AB Test Comparison</a></li>
-                        <li><a href="#feature-collapsible-panels">10. Collapsible Panels</a></li>
-                        <li><a href="#feature-sticky-calculator">11. Sticky Calculator</a></li>
-                        <li><a href="#feature-date-range-presets">12. Data Range Presets</a></li>
-                    </ul>
+                    <div class="sidebar-content">
+                        <ul>
+                            <li><a href="#feature-click-to-copy">1. Click to Copy</a></li>
+                            <li><a href="#feature-sticky-header">2. Sticky Header</a></li>
+                            <li><a href="#feature-highlight-sampling">3. Highlight Sampling</a></li>
+                            <li><a href="#feature-percentage-change-highlighter">4. % Change Highlighter</a></li>
+                            <li><a href="#feature-cr-change-percentage">5. Δ% Share Change</a></li>
+                            <li><a href="#feature-percentage-column-total">6. % of Column Total</a></li>
+                            <li><a href="#feature-auto-detailed-results">7. Auto Detailed Results</a></li>
+                            <li><a href="#feature-percentage-all-users">8. % of All Users</a></li>
+                            <li><a href="#feature-ab-test-segment-comparison">9. AB Test Comparison</a></li>
+                            <li><a href="#feature-collapsible-panels">10. Collapsible Panels</a></li>
+                            <li><a href="#feature-sticky-calculator">11. Sticky Calculator</a></li>
+                            <li><a href="#feature-date-range-presets">12. Data Range Presets</a></li>
+                        </ul>
+                    </div>
                 </aside>
                 <div class="docs-content">
                     <section id="feature-click-to-copy">
-                        <h3>1. Click to Copy Cell</h3>
-                        <p><strong>Applies to: Explorations & Standard Reports</strong><br>Quickly copy values from table cells, headers, or dimension labels. Detailed behaviors can be configured via the settings <img src="icons/cog-244x256.png" alt="settings" class="settings-gear-inline"> button in the popup.</p>
-                        <div class="feature-video-container"><video autoplay loop muted playsinline><source src="mp4/click_to_copy.mp4" type="video/mp4"></video></div>
+                        <h2>1. Click to Copy Cell</h2>
+                        <p><strong>Applies to: Explorations & Standard Reports</strong><br>Quickly copy values from table cells, headers, or dimension labels for easier data export to spreadsheets or presentations.</p>
+                        <div class="feature-video-container" data-video-name="ClickToCopy"><video autoplay loop muted playsinline><source src="mp4/click_to_copy.mp4" type="video/mp4"></video><div class="play-icon-overlay"></div></div>
                     </section>
                     <section id="feature-sticky-header">
-                        <h3>2. Sticky Report Header</h3>
-                        <p><strong>Applies to: Standard Reports Only</strong><br>Keeps the header row of standard reports visible at the top of the screen as you scroll down long tables.</p>
-                        <div class="feature-video-container"><video autoplay loop muted playsinline><source src="mp4/sticky_header.mp4" type="video/mp4"></video></div>
+                        <h2>2. Sticky Report Header</h2>
+                        <p><strong>Applies to: Standard Reports Only</strong><br>Keeps the header row visible while scrolling, making it easier to analyze long reports without losing track of metric columns.</p>
+                        <div class="feature-video-container" data-video-name="StickyHeader"><video autoplay loop muted playsinline><source src="mp4/sticky_header.mp4" type="video/mp4"></video><div class="play-icon-overlay"></div></div>
                     </section>
                     <section id="feature-highlight-sampling">
-                        <h3>3. Highlight Sampling</h3>
-                        <p><strong>Applies to: Explorations & Standard Reports</strong><br>Makes the data quality/sampling icon more noticeable by adding a subtle pulse animation when your report data isn't 100% complete.</p>
-                        <div class="feature-video-container"><video autoplay loop muted playsinline><source src="mp4/highlight_sampling.mp4" type="video/mp4"></video></div>
+                        <h2>3. Highlight Sampling</h2>
+                        <p><strong>Applies to: Explorations & Standard Reports</strong><br>Instantly see when your data is sampled. This feature makes the data quality icon pulse so you're always aware of potential data inaccuracies.</p>
+                        <div class="feature-video-container" data-video-name="HighlightSampling"><video autoplay loop muted playsinline><source src="mp4/highlight_sampling.mp4" type="video/mp4"></video><div class="play-icon-overlay"></div></div>
                     </section>
                     <section id="feature-percentage-change-highlighter">
-                        <h3>4. Percentage Change Highlighter</h3>
-                        <p><strong>Applies to: Standard Reports Only</strong><br>Visually highlights cells containing percentage changes based on user-defined ranges and colors, helping to spot significant changes quickly.</p>
+                        <h2>4. Percentage Change Highlighter</h2>
+                        <p><strong>Applies to: Standard Reports Only</strong><br>Uses conditional formatting to highlight significant positive or negative trends, helping you spot important changes in your performance metrics.</p>
                     </section>
                     <section id="feature-cr-change-percentage">
-                        <h3>5. Δ% Share Change (Reports)</h3>
-                        <p><strong>Applies to: Standard Reports Only</strong><br>Calculates and displays the percentage change of the "percentage of total" values (share) directly in the "% change" row.</p>
+                        <h2>5. Δ% Share Change (Reports)</h2>
+                        <p><strong>Applies to: Standard Reports Only</strong><br>In comparison mode, this calculates the percentage point change in a metric's share of the total, providing deeper context than the standard % change.</p>
                     </section>
                     <section id="feature-percentage-column-total">
-                        <h3>6. Percentage of Column Total</h3>
-                        <p><strong>Applies to: Explorations Only</strong><br>Calculates and displays the percentage contribution of each row's value relative to the column's total on hover.</p>
-                        <div class="feature-video-container"><video autoplay loop muted playsinline><source src="mp4/percentage_column_total.mp4" type="video/mp4"></video></div>
+                        <h2>6. Percentage of Column Total</h2>
+                        <p><strong>Applies to: Explorations Only</strong><br>On hover, this instantly calculates each row's percentage contribution to the column total, ideal for quick contribution analysis.</p>
+                        <div class="feature-video-container" data-video-name="PercentageOfColumn"><video autoplay loop muted playsinline><source src="mp4/percentage_column_total.mp4" type="video/mp4"></video><div class="play-icon-overlay"></div></div>
                     </section>
                     <section id="feature-auto-detailed-results">
-                        <h3>7. Auto Detailed Results (Beta)</h3>
-                        <p><strong>Applies to: Explorations Only</strong><br>Automatically attempts to switch Exploration reports to use "More detailed results" for better accuracy.</p>
-                        <div class="feature-video-container"><video autoplay loop muted playsinline><source src="mp4/auto_detail.mp4" type="video/mp4"></video></div>
+                        <h2>7. Auto Detailed Results (Beta)</h2>
+                        <p><strong>Applies to: Explorations Only</strong><br>For better data accuracy, this feature automatically attempts to request the most granular data available for your Exploration reports, a key method to reduce data sampling.</p>
+                        <div class="feature-video-container" data-video-name="AutoDetail"><video autoplay loop muted playsinline><source src="mp4/auto_detail.mp4" type="video/mp4"></video><div class="play-icon-overlay"></div></div>
                     </section>
                     <section id="feature-percentage-all-users">
-                        <h3>8. Percentage of All Users</h3>
-                        <p><strong>Applies to: Explorations Only</strong><br>Provides quick conversion rate insights by comparing segments against an "All Users" segment.</p>
+                        <h2>8. Percentage of All Users</h2>
+                        <p><strong>Applies to: Explorations Only</strong><br>Quickly calculate and compare user conversion rates for different segments against the total user base, simplifying funnel and segment performance analysis.</p>
                         <div class="requirement-note"><strong>Requirement:</strong> The 'All Users' segment must be included in your Exploration table setup.</div>
-                        <div class="feature-video-container"><video autoplay loop muted playsinline><source src="mp4/all_users_segment_compare.mp4" type="video/mp4"></video></div>
+                        <div class="feature-video-container" data-video-name="AllUsersCompare"><video autoplay loop muted playsinline><source src="mp4/all_users_segment_compare.mp4" type="video/mp4"></video><div class="play-icon-overlay"></div></div>
                     </section>
                     <section id="feature-ab-test-segment-comparison">
-                        <h3>9. AB Test Segment Comparison</h3>
-                        <p><strong>Applies to: Explorations Only</strong><br>Compares performance metrics between test variations relative to a control segment, including statistical significance and SRM checks.</p>
+                        <h2>9. AB Test Segment Comparison</h2>
+                        <p><strong>Applies to: Explorations Only</strong><br>A powerful tool for conversion rate optimization (CRO) that compares metrics between test variations, calculates statistical significance, and checks for sample ratio mismatch (SRM).</p>
                         <div class="requirement-note"><strong>Requirement:</strong> Segments must be named with `VAR-` prefix, and the control segment must start with `VAR-Control`.</div>
-                        <div class="feature-video-container"><video autoplay loop muted playsinline><source src="mp4/ab_test_compare.mp4" type="video/mp4"></video></div>
+                        <div class="feature-video-container" data-video-name="ABTestCompare"><video autoplay loop muted playsinline><source src="mp4/ab_test_compare.mp4" type="video/mp4"></video><div class="play-icon-overlay"></div></div>
                     </section>
                     <section id="feature-collapsible-panels">
-                        <h3>10. Collapsible Panels</h3>
-                        <p><strong>Applies to: Explorations Only</strong><br>Adds a toggle button to collapse/expand the "Variables" and "Tab Settings" panels for more analysis space.</p>
-                        <div class="feature-video-container"><video autoplay loop muted playsinline><source src="mp4/collapsible_panels.mp4" type="video/mp4"></video></div>
+                        <h2>10. Collapsible Panels</h2>
+                        <p><strong>Applies to: Explorations Only</strong><br>Get more space for your data. This adds a toggle to collapse the "Variables" and "Tab Settings" panels for a less cluttered analysis view.</p>
+                        <div class="feature-video-container" data-video-name="CollapsiblePanels"><video autoplay loop muted playsinline><source src="mp4/collapsible_panels.mp4" type="video/mp4"></video><div class="play-icon-overlay"></div></div>
                     </section>
                     <section id="feature-sticky-calculator">
-                        <h3>11. Sticky Conversion Calculator</h3>
-                        <p><strong>Applies to: All GA4 Pages</strong><br>Provides a quick-access conversion rate calculator widget that can be opened and dragged around the screen.</p>
-                        <div class="feature-video-container"><video autoplay loop muted playsinline><source src="mp4/sticky_calculator.mp4" type="video/mp4"></video></div>
+                        <h2>11. Sticky Conversion Calculator</h2>
+                        <p><strong>Applies to: All GA4 Pages</strong><br>A quick-access calculator for common marketing calculations like conversion rate or CPC, available anywhere in the GA4 interface.</p>
+                        <div class="feature-video-container" data-video-name="StickyCalculator"><video autoplay loop muted playsinline><source src="mp4/sticky_calculator.mp4" type="video/mp4"></video><div class="play-icon-overlay"></div></div>
                     </section>
                     <section id="feature-date-range-presets">
-                        <h3>12. Data Range Presets</h3>
-                        <p><strong>Applies to: Standard Reports Only</strong><br>Adds quick-select buttons for common date ranges and comparisons next to the date picker.</p>
+                        <h2>12. Data Range Presets</h2>
+                        <p><strong>Applies to: Standard Reports Only</strong><br>Speeds up your reporting by adding one-click buttons for common date ranges and comparison periods, like "Last 7 Days" or "Month-over-Month."</p>
                     </section>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- Video Modal Structure -->
+    <div id="videoModal" class="video-modal">
+        <div class="modal-content">
+            <button class="modal-close-button">×</button>
+            <div class="video-wrapper">
+                <iframe id="modalVideoPlayer" style="display:none;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <video id="modalVideoPlayerLocal" controls style="display:none; width:100%; height:auto;"></video>
+            </div>
+        </div>
+    </div>
 
     <footer class="site-footer">
         <p>© 2025 GA4 Optimizer. All rights reserved.</p>

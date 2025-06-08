@@ -1,6 +1,7 @@
 /**
  * documentation.js
- * VERSION: 1.7 - Added mobile navigation. Fixed Accordion not closing on minus click.
+ * VERSION: 2.0 - Widened desktop layout. Removed sidebar scrollbar. Made mobile docs nav sticky and auto-closing.
+ * VERSION: 2.1 - Implemented global video modal, play icon overlays, and improved mobile UX for sidebar.
  */
 document.addEventListener('DOMContentLoaded', () => {
     // --- Mobile Navigation Logic ---
@@ -14,123 +15,122 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Video Modal Logic ---
+    // --- Collapsible Docs Sidebar for Mobile ---
+    const docsSidebar = document.getElementById('docs-sidebar');
+    if (docsSidebar) {
+        const sidebarTitle = docsSidebar.querySelector('.sidebar-title');
+        const sidebarContent = docsSidebar.querySelector('.sidebar-content');
+
+        if (sidebarTitle && sidebarContent) {
+            // Logic to toggle the menu on mobile
+            sidebarTitle.addEventListener('click', () => {
+                if (window.innerWidth <= 900) {
+                    const isCurrentlyOpen = docsSidebar.classList.contains('is-open');
+                    if (isCurrentlyOpen) {
+                        sidebarContent.style.maxHeight = null;
+                        docsSidebar.classList.remove('is-open');
+                    } else {
+                        docsSidebar.classList.add('is-open');
+                        sidebarContent.style.maxHeight = sidebarContent.scrollHeight + 'px';
+                    }
+                }
+            });
+
+            // Logic to auto-close the menu when a link is clicked on mobile
+            const sidebarLinks = sidebarContent.querySelectorAll('a');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 900 && docsSidebar.classList.contains('is-open')) {
+                        // Use a timeout to allow navigation to happen before closing
+                        setTimeout(() => {
+                           sidebarContent.style.maxHeight = null;
+                           docsSidebar.classList.remove('is-open');
+                           navToggle.classList.remove('is-active');
+                        }, 150);
+                    }
+                });
+            });
+        }
+
+         // Reset inline style on resize to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 900) {
+                if(sidebarContent) sidebarContent.style.maxHeight = null;
+                if(docsSidebar && docsSidebar.classList.contains('is-open')) {
+                    docsSidebar.classList.remove('is-open');
+                }
+            }
+        });
+    }
+
+
+    // --- Global Video Modal Logic ---
     const videoModal = document.getElementById('videoModal');
-    const modalVideoPlayer = document.getElementById('modalVideoPlayer');
+    const modalIframePlayer = document.getElementById('modalVideoPlayer');
+    const modalLocalPlayer = document.getElementById('modalVideoPlayerLocal');
     const closeModalButton = videoModal ? videoModal.querySelector('.modal-close-button') : null;
     const previewVideoContainers = document.querySelectorAll('.feature-video-container');
 
-    if (previewVideoContainers.length > 0 && videoModal && modalVideoPlayer && closeModalButton) {
+    if (previewVideoContainers.length > 0 && videoModal && modalIframePlayer && modalLocalPlayer && closeModalButton) {
+        
         previewVideoContainers.forEach(container => {
-            const previewVideo = container.querySelector('video');
-            const playIconOverlay = container.querySelector('.play-icon-overlay'); 
-
-            if (!previewVideo) {
-                console.warn("Documentation.js WARN: No <video> element found in container identified by data-video-name:", container.dataset.videoName || "Unknown", container);
-            }
-            if (!playIconOverlay) {
-                console.warn("Documentation.js WARN: No .play-icon-overlay element found in container identified by data-video-name:", container.dataset.videoName || "Unknown", container);
-            }
-
-            const previewVideoSourceTag = previewVideo ? previewVideo.querySelector('source[src]') : null;
-            const videoSrc = previewVideoSourceTag ? previewVideoSourceTag.getAttribute('src') : null;
-
-            if (previewVideo) { 
-                const manageIconVisibility = () => {
-                    if (playIconOverlay) { 
-                        if (previewVideo.paused || previewVideo.ended) {
-                            playIconOverlay.style.display = 'block';
-                        } else {
-                            playIconOverlay.style.display = 'none';
-                        }
-                    }
-                };
-
-                previewVideo.addEventListener('play', manageIconVisibility);
-                previewVideo.addEventListener('pause', manageIconVisibility);
-                previewVideo.addEventListener('loadeddata', manageIconVisibility); 
-
-                previewVideo.addEventListener('ended', () => {
-                    previewVideo.currentTime = 0; 
-                    previewVideo.play().catch(e => {
-                        manageIconVisibility(); 
-                    });
+            container.addEventListener('click', () => {
+                // Pause all preview videos on the page
+                previewVideoContainers.forEach(cont => {
+                    const vid = cont.querySelector('video');
+                    if (vid) vid.pause();
                 });
 
-                setTimeout(() => {
-                    manageIconVisibility();
-                }, 150);
+                const youtubeSrc = container.querySelector('.modal-video-source')?.dataset.modalSrc;
+                const localVideo = container.querySelector('video > source');
 
-            } 
+                if (youtubeSrc) {
+                    modalIframePlayer.style.display = 'block';
+                    modalLocalPlayer.style.display = 'none';
+                    modalIframePlayer.setAttribute('src', youtubeSrc + "?autoplay=1");
+                } else if (localVideo) {
+                    modalIframePlayer.style.display = 'none';
+                    modalLocalPlayer.style.display = 'block';
+                    modalLocalPlayer.setAttribute('src', localVideo.getAttribute('src'));
+                    modalLocalPlayer.play().catch(e => console.error("Modal play error:", e));
+                }
 
-            if (videoSrc && previewVideo) { 
-                container.addEventListener('click', () => {
-                    previewVideoContainers.forEach(cont => {
-                        const vid = cont.querySelector('video');
-                        if (vid) {
-                            vid.pause();
-                        }
-                    });
-
-                    modalVideoPlayer.setAttribute('src', videoSrc);
-                    videoModal.style.display = 'flex';
-                    setTimeout(() => {
-                        videoModal.classList.add('active');
-                    }, 10);
-
-                    modalVideoPlayer.load();
-                    modalVideoPlayer.play().catch(error => {
-                        console.error("Documentation.js: Error attempting to play modal video:", error);
-                    });
-                });
-            } else if (!videoSrc && previewVideo) { 
-                 console.warn("Documentation.js WARN: videoSrc not found for modal for video in container:", container.dataset.videoName || "Unknown", ". Modal click disabled for this item.");
-            }
-
-        }); 
+                videoModal.style.display = 'flex';
+                setTimeout(() => videoModal.classList.add('active'), 10);
+            });
+        });
 
         function closeModal() {
             videoModal.classList.remove('active');
-            if (modalVideoPlayer) {
-                modalVideoPlayer.pause();
-            }
+            
+            // Stop both players
+            modalIframePlayer.setAttribute('src', '');
+            modalLocalPlayer.pause();
+            modalLocalPlayer.setAttribute('src', '');
+
             setTimeout(() => {
                 if (!videoModal.classList.contains('active')) {
                     videoModal.style.display = 'none';
-                    if (modalVideoPlayer) {
-                        modalVideoPlayer.removeAttribute('src');
-                    }
-
+                    // Resume preview videos
                     previewVideoContainers.forEach(container => {
                         const video = container.querySelector('video');
-                        const playIcon = container.querySelector('.play-icon-overlay');
-                        if (video) { 
-                            video.play().catch(err => {
-                                if (playIcon) playIcon.style.display = 'block'; 
-                            });
-                        } else if (playIcon){
-                            playIcon.style.display = 'block'; 
-                        }
+                        if (video) video.play().catch(err => {});
                     });
                 }
-            }, 300);
+            }, 300); // Wait for transition
         }
 
         if(closeModalButton) closeModalButton.addEventListener('click', closeModal);
         
         videoModal.addEventListener('click', (event) => {
-            if (event.target === videoModal) {
-                closeModal();
-            }
+            // Close if clicking on the modal background
+            if (event.target === videoModal) closeModal();
         });
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape' && videoModal.classList.contains('active')) {
                 closeModal();
             }
         });
-    } else {
-        if (!videoModal) console.warn("Documentation.js: Video modal element not found.");
-        if (previewVideoContainers.length === 0) console.warn("Documentation.js: No preview video containers found.");
     }
 
     // --- Sticky Sidebar Scrollspy Logic ---
@@ -154,36 +154,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (sections.length > 0) {
-            const scrollOffset = 80;
+            const scrollOffset = 120; // Increased offset for better accuracy with sticky nav
 
             function highlightActiveLink() {
-                let currentSectionId = null;
-                for (let i = sections.length - 1; i >= 0; i--) {
-                    const section = sections[i];
-                    const rect = section.element.getBoundingClientRect();
-                    if (rect.top <= scrollOffset) {
+                let currentSectionId = '';
+                const fromTop = window.scrollY + scrollOffset;
+
+                sections.forEach(section => {
+                    if (section.element.offsetTop <= fromTop) {
                         currentSectionId = section.id;
-                        break;
                     }
-                }
-                if (!currentSectionId && sections.length > 0) {
-                    currentSectionId = sections[0].id;
-                }
+                });
 
                 navLinks.forEach(link => {
                     link.classList.remove('active');
-                    const href = link.getAttribute('href');
-                    if (href && href.substring(1) === currentSectionId) {
+                    if (link.getAttribute('href') === '#' + currentSectionId) {
                         link.classList.add('active');
-                        
-                        const linkRect = link.getBoundingClientRect();
-                        const sidebarRect = sidebar.getBoundingClientRect();
-                        if (linkRect.top < sidebarRect.top || linkRect.bottom > sidebarRect.bottom) {
-                            const parentUl = link.closest('ul');
-                            if (parentUl && parentUl.childElementCount > 3) {
-                               link.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                            }
-                        }
                     }
                 });
             }
@@ -191,12 +177,11 @@ document.addEventListener('DOMContentLoaded', () => {
             let scrollTimeout;
             window.addEventListener('scroll', () => {
                 clearTimeout(scrollTimeout);
-                scrollTimeout = setTimeout(highlightActiveLink, 50);
-            });
-            highlightActiveLink();
+                scrollTimeout = setTimeout(highlightActiveLink, 50); // Debounce scroll event
+            }, { passive: true }); // Improve scroll performance
+            
+            highlightActiveLink(); // Initial check
         }
-    } else {
-        console.warn("Documentation.js: Docs sidebar element not found.");
     }
 
     // --- Accordion Logic for Troubleshooting ---
@@ -231,27 +216,21 @@ document.addEventListener('DOMContentLoaded', () => {
                         panel.classList.add('active');
                         panel.style.maxHeight = panel.scrollHeight + "px";
                     }
-                    // If it was active (isCurrentlyActive was true), the loop above already closed it.
                 });
 
-                // Logic to open the first accordion item by default
                 if (index === 0) {
                     button.classList.add('active');
                     button.setAttribute('aria-expanded', 'true');
                     panel.classList.add('active');
-                    // Use requestAnimationFrame to ensure panel.scrollHeight is calculated after styles are applied
                     requestAnimationFrame(() => {
-                        // Double check if it's still active, in case of race conditions (though unlikely here)
                         if (panel.classList.contains('active')) {
                            panel.style.maxHeight = panel.scrollHeight + "px";
                         }
                     });
                 } else {
-                     button.setAttribute('aria-expanded', 'false'); // Ensure others are marked as collapsed
+                     button.setAttribute('aria-expanded', 'false');
                 }
             }
         });
-    } else {
-        console.warn("Documentation.js: Accordion container not found.");
     }
 });
