@@ -3,11 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy | GA4 Optimizer</title>
-    <meta name="description" content="Privacy Policy for the GA4 Optimizer Chrome Extension. We respect your privacy and do not collect any personal or analytics data.">
+    <title>Documentation | GA4 Optimizer</title>
+    <meta name="description" content="Complete documentation for all features of the GA4 Optimizer Chrome Extension, including Click-to-Copy, Sticky Headers, Segment Comparison, and more.">
     
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="icons/icon48.png" type="image/png">
+
+    <!-- Styles from original documentation for sidebar, notes, etc. -->
+    <style>
+        .docs-layout {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        #docs-sidebar {
+            width: 260px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 100px; /* Aligns with bottom of the fixed header */
+            align-self: flex-start;
+            height: calc(100vh - 120px);
+            overflow-y: auto;
+            padding: 15px;
+            background-color: var(--bg-light);
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+        #docs-sidebar .sidebar-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--brand-purple-dark);
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        #docs-sidebar ul { list-style-type: none; padding-left: 0; margin: 0; }
+        #docs-sidebar ul li a {
+            display: block; padding: 8px 10px; font-size: 0.95em;
+            color: var(--text-light); text-decoration: none; border-radius: 4px;
+            transition: background-color 0.2s ease, color 0.2s ease; font-weight: 500;
+        }
+        #docs-sidebar ul li a:hover { background-color: #e9e6ed; color: var(--brand-purple); }
+        #docs-sidebar ul li a.active { background-color: var(--brand-purple); color: var(--bg-white); font-weight: 600; }
+        #docs-sidebar ul ul { padding-left: 15px; margin-top: 5px; margin-bottom: 10px; }
+        #docs-sidebar ul ul li a { font-size: 0.9em; padding: 6px 10px; }
+
+        .docs-content { flex-grow: 1; min-width: 0; }
+        .note, .requirement-note {
+            padding: 14px 20px; margin: 18px 0; font-size: 1em; border-radius: 4px; border-left: 4px solid;
+        }
+        .note { background-color: #f0e6f7; border-color: var(--brand-purple); }
+        .requirement-note { background-color: #fdf1e6; border-color: #F9AB00; }
+        .note strong { color: var(--brand-purple-dark); }
+        .requirement-note strong { color: #b06000; }
+
+        .settings-gear-inline {
+            width: 16px; height: 16px; vertical-align: -0.2em;
+            object-fit: contain; margin: 0 2px;
+            filter: grayscale(20%) opacity(85%);
+        }
+
+        /* Responsive adjustments for documentation layout */
+        @media (max-width: 900px) {
+            .docs-layout { flex-direction: column; }
+            #docs-sidebar { width: 100%; position: static; height: auto; max-height: 350px; }
+        }
+    </style>
 </head>
 <body>
 
@@ -20,8 +82,8 @@
             <nav class="main-nav">
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="documentation.html">Documentation</a></li>
-                    <li><a href="privacy.html" class="active">Privacy</a></li>
+                    <li><a href="documentation.html" class="active">Documentation</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
                     <li><a href="https://chromewebstore.google.com/detail/ga4-optimizer/fclkadgceopbphjinkpnmcfjopimglaj" class="cta-button" target="_blank" rel="noopener noreferrer">Add to Chrome</a></li>
                 </ul>
             </nav>
@@ -30,48 +92,90 @@
 
     <main class="container">
         <div class="main-content content-page">
-            <h1>Privacy Policy for GA4 Optimizer</h1>
-            <p><strong>Effective Date:</strong> May 16, 2025</p>
-
-            <p>Thank you for using GA4 Optimizer (the "Extension"), a free tool created by an individual developer to help Google Analytics users speed up their insight gathering. Your privacy is very important to us. This policy outlines how the Extension handles information.</p>
-
-            <h3>1. About This Extension & Your Privacy</h3>
-            <p>GA4 Optimizer is a free Chrome extension created by an individual developer to help you work more efficiently with Google Analytics 4. Your privacy is the top priority. This Extension does not collect, store, transmit, or share any of your personal data or your Google Analytics data. All operations are performed locally within your browser.</p>
-
-            <h3>2. Information We Don't Collect</h3>
-            <p>To be clear, the Extension does not access or handle:</p>
-            <ul>
-                <li>Your personal information (name, email, IP address, etc.).</li>
-                <li>Your Google Analytics account data.</li>
-                <li>Your general browsing history.</li>
-                <li>Analytics about your use of the Extension itself.</li>
-            </ul>
-
-            <h3>3. How the Extension Uses Information Locally</h3>
-            <p>The Extension primarily uses information locally on your device to provide its features and save your preferences. This information never leaves your computer via the Extension.</p>
-            <ul>
-                <li><strong>Settings Storage (Client-Side):</strong> The Extension uses <code>chrome.storage.sync</code> to save your preferences, such as which features are enabled and the position of the sticky calculator. This data is stored locally on your computer and is not sent to the developer.</li>
-                <li><strong>Real-time Page Interaction:</strong> To make its features work, the Extension interacts with the content of the GA4 pages you are currently viewing. This interaction is all done locally within your browser.</li>
-                <li><strong>Clipboard Access:</strong> The "Click to Copy Cell" feature requires permission to write to your clipboard, solely to allow you to copy text as initiated by your clicks.</li>
-            </ul>
-
-            <h3>4. Permissions We Use</h3>
-            <p>The Extension requests the following permissions:</p>
-            <ul>
-                <li><strong>storage:</strong> To save your feature preferences locally.</li>
-                <li><strong>tabs:</strong> To interact with your active Google Analytics tab.</li>
-                <li><strong>clipboardWrite:</strong> For the "Click to Copy Cell" feature.</li>
-                <li><strong>Host Permissions (<code>https://analytics.google.com/analytics/web/*</code>):</strong> Essential for the Extension to operate on Google Analytics 4 pages.</li>
-            </ul>
-
-            <h3>5. Data Sharing</h3>
-            <p>Since no personal data is collected by the developer, no data is shared with or sold to any third parties.</p>
-
-            <h3>6. Changes to This Privacy Policy</h3>
-            <p>This Privacy Policy may be updated from time to time. Any changes will be reflected by an updated "Effective Date" at the top of this policy.</p>
-
-            <h3>7. Contact Us</h3>
-            <p>If you have any questions or concerns about this Privacy Policy, please contact us at <a href="mailto:support@gaoptimizer.com">support@gaoptimizer.com</a>.</p>
+            <h1>GA4 Optimizer Documentation</h1>
+            <p>GA4 Optimizer aims to solve common analysis needs when using Google Analytics™ 4 interface. This guide explains what each feature does and how to use it.</p>
+            <p><strong>Quick Access to Settings:</strong> Most features can be toggled on/off from the extension popup. Features with more detailed configurations have a settings <img src="icons/cog-244x256.png" alt="settings" class="settings-gear-inline"> button next to their toggle in the popup.</p>
+            
+            <div class="docs-layout">
+                <aside id="docs-sidebar">
+                    <h4 class="sidebar-title">Navigation</h4>
+                    <ul>
+                        <li><a href="#feature-click-to-copy">1. Click to Copy</a></li>
+                        <li><a href="#feature-sticky-header">2. Sticky Header</a></li>
+                        <li><a href="#feature-highlight-sampling">3. Highlight Sampling</a></li>
+                        <li><a href="#feature-percentage-change-highlighter">4. % Change Highlighter</a></li>
+                        <li><a href="#feature-cr-change-percentage">5. Δ% Share Change</a></li>
+                        <li><a href="#feature-percentage-column-total">6. % of Column Total</a></li>
+                        <li><a href="#feature-auto-detailed-results">7. Auto Detailed Results</a></li>
+                        <li><a href="#feature-percentage-all-users">8. % of All Users</a></li>
+                        <li><a href="#feature-ab-test-segment-comparison">9. AB Test Comparison</a></li>
+                        <li><a href="#feature-collapsible-panels">10. Collapsible Panels</a></li>
+                        <li><a href="#feature-sticky-calculator">11. Sticky Calculator</a></li>
+                        <li><a href="#feature-date-range-presets">12. Data Range Presets</a></li>
+                    </ul>
+                </aside>
+                <div class="docs-content">
+                    <section id="feature-click-to-copy">
+                        <h3>1. Click to Copy Cell</h3>
+                        <p><strong>Applies to: Explorations & Standard Reports</strong><br>Quickly copy values from table cells, headers, or dimension labels. Detailed behaviors can be configured via the settings <img src="icons/cog-244x256.png" alt="settings" class="settings-gear-inline"> button in the popup.</p>
+                        <div class="feature-video-container"><video autoplay loop muted playsinline><source src="mp4/click_to_copy.mp4" type="video/mp4"></video></div>
+                    </section>
+                    <section id="feature-sticky-header">
+                        <h3>2. Sticky Report Header</h3>
+                        <p><strong>Applies to: Standard Reports Only</strong><br>Keeps the header row of standard reports visible at the top of the screen as you scroll down long tables.</p>
+                        <div class="feature-video-container"><video autoplay loop muted playsinline><source src="mp4/sticky_header.mp4" type="video/mp4"></video></div>
+                    </section>
+                    <section id="feature-highlight-sampling">
+                        <h3>3. Highlight Sampling</h3>
+                        <p><strong>Applies to: Explorations & Standard Reports</strong><br>Makes the data quality/sampling icon more noticeable by adding a subtle pulse animation when your report data isn't 100% complete.</p>
+                        <div class="feature-video-container"><video autoplay loop muted playsinline><source src="mp4/highlight_sampling.mp4" type="video/mp4"></video></div>
+                    </section>
+                    <section id="feature-percentage-change-highlighter">
+                        <h3>4. Percentage Change Highlighter</h3>
+                        <p><strong>Applies to: Standard Reports Only</strong><br>Visually highlights cells containing percentage changes based on user-defined ranges and colors, helping to spot significant changes quickly.</p>
+                    </section>
+                    <section id="feature-cr-change-percentage">
+                        <h3>5. Δ% Share Change (Reports)</h3>
+                        <p><strong>Applies to: Standard Reports Only</strong><br>Calculates and displays the percentage change of the "percentage of total" values (share) directly in the "% change" row.</p>
+                    </section>
+                    <section id="feature-percentage-column-total">
+                        <h3>6. Percentage of Column Total</h3>
+                        <p><strong>Applies to: Explorations Only</strong><br>Calculates and displays the percentage contribution of each row's value relative to the column's total on hover.</p>
+                        <div class="feature-video-container"><video autoplay loop muted playsinline><source src="mp4/percentage_column_total.mp4" type="video/mp4"></video></div>
+                    </section>
+                    <section id="feature-auto-detailed-results">
+                        <h3>7. Auto Detailed Results (Beta)</h3>
+                        <p><strong>Applies to: Explorations Only</strong><br>Automatically attempts to switch Exploration reports to use "More detailed results" for better accuracy.</p>
+                        <div class="feature-video-container"><video autoplay loop muted playsinline><source src="mp4/auto_detail.mp4" type="video/mp4"></video></div>
+                    </section>
+                    <section id="feature-percentage-all-users">
+                        <h3>8. Percentage of All Users</h3>
+                        <p><strong>Applies to: Explorations Only</strong><br>Provides quick conversion rate insights by comparing segments against an "All Users" segment.</p>
+                        <div class="requirement-note"><strong>Requirement:</strong> The 'All Users' segment must be included in your Exploration table setup.</div>
+                        <div class="feature-video-container"><video autoplay loop muted playsinline><source src="mp4/all_users_segment_compare.mp4" type="video/mp4"></video></div>
+                    </section>
+                    <section id="feature-ab-test-segment-comparison">
+                        <h3>9. AB Test Segment Comparison</h3>
+                        <p><strong>Applies to: Explorations Only</strong><br>Compares performance metrics between test variations relative to a control segment, including statistical significance and SRM checks.</p>
+                        <div class="requirement-note"><strong>Requirement:</strong> Segments must be named with `VAR-` prefix, and the control segment must start with `VAR-Control`.</div>
+                        <div class="feature-video-container"><video autoplay loop muted playsinline><source src="mp4/ab_test_compare.mp4" type="video/mp4"></video></div>
+                    </section>
+                    <section id="feature-collapsible-panels">
+                        <h3>10. Collapsible Panels</h3>
+                        <p><strong>Applies to: Explorations Only</strong><br>Adds a toggle button to collapse/expand the "Variables" and "Tab Settings" panels for more analysis space.</p>
+                        <div class="feature-video-container"><video autoplay loop muted playsinline><source src="mp4/collapsible_panels.mp4" type="video/mp4"></video></div>
+                    </section>
+                    <section id="feature-sticky-calculator">
+                        <h3>11. Sticky Conversion Calculator</h3>
+                        <p><strong>Applies to: All GA4 Pages</strong><br>Provides a quick-access conversion rate calculator widget that can be opened and dragged around the screen.</p>
+                        <div class="feature-video-container"><video autoplay loop muted playsinline><source src="mp4/sticky_calculator.mp4" type="video/mp4"></video></div>
+                    </section>
+                    <section id="feature-date-range-presets">
+                        <h3>12. Data Range Presets</h3>
+                        <p><strong>Applies to: Standard Reports Only</strong><br>Adds quick-select buttons for common date ranges and comparisons next to the date picker.</p>
+                    </section>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -84,5 +188,6 @@
         </p>
     </footer>
 
+    <script src="documentation.js"></script>
 </body>
 </html>
