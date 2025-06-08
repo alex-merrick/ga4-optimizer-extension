@@ -240,7 +240,7 @@ a:hover {
     padding: 40px 20px;
     margin-top: 40px;
     font-size: 0.9rem;
-    color: #95a5a6;
+    color: #525c5c;
     border-top: 1px solid var(--border-color);
 }
 .site-footer a { color: var(--text-light); }
