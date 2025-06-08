@@ -1,0 +1,150 @@
+/* General Body & Font Styling */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Main Container */
+.container {
+    max-width: 650px;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+/* Header */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+    margin-right: 15px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Main Content */
+.main-content {
+    margin-bottom: 40px;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    color: #34495e;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+/* Call-to-Action Button */
+.cta-button {
+    display: inline-block;
+    background-color: #8A229B; /* GA4 Optimizer Brand Purple */
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 15px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #6A1B7A; /* Darker Purple */
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.site-footer {
+    font-size: 0.9rem;
+    color: #95a5a6;
+}
+
+.site-footer a {
+    color: #7f8c8d;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.site-footer a:hover {
+    color: #34495e;
+    text-decoration: underline;
+}
+
+.site-footer span {
+    margin: 0 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    .tagline {
+        font-size: 1.25rem;
+    }
+    .subtitle {
+        font-size: 1rem;
+    }
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+/* -- ADD TO BOTTOM OF style.css -- */
+.privacy-container {
+    max-width: 800px;
+}
+.text-left {
+    text-align: left;
+}
+.effective-date {
+    font-style: italic;
+    color: #7f8c8d;
+    margin-bottom: 25px;
+}
+.privacy-container h3 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ecf0f1;
+}
+.privacy-container ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+.privacy-container li {
+    margin-bottom: 10px;
+}
