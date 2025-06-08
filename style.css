@@ -1,101 +1,199 @@
-/* General Body & Font Styling */
+/* --- GA4 Optimizer Professional Website Styles --- */
+
+/* :root variables for easy theme management */
+:root {
+    --brand-purple: #8A229B;
+    --brand-purple-dark: #6A1B7A;
+    --text-dark: #2c3e50;
+    --text-light: #5a6a78;
+    --bg-light: #f8f9fa;
+    --bg-white: #ffffff;
+    --border-color: #e9ecef;
+}
+
+/* Base & Typography */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #f4f7f6;
-    color: #333;
+    background-color: var(--bg-light);
+    color: var(--text-light);
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
+    padding-top: 80px; /* Space for the fixed header */
+    line-height: 1.7;
 }
 
-/* Main Container */
 .container {
-    max-width: 650px;
-    width: 100%;
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    text-align: center;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-/* Header */
-.site-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-
-.logo {
-    width: 48px;
-    height: 48px;
-    margin-right: 15px;
-}
-
-h1 {
-    font-size: 2.5rem;
-    color: #2c3e50;
-    margin: 0;
+h1, h2, h3 {
+    color: var(--text-dark);
     font-weight: 600;
 }
 
-/* Main Content */
-.main-content {
-    margin-bottom: 40px;
-}
-
-.tagline {
-    font-size: 1.5rem;
-    color: #34495e;
-    font-weight: 400;
-    margin-bottom: 15px;
-}
-
-.subtitle {
-    font-size: 1.1rem;
-    color: #7f8c8d;
-    line-height: 1.6;
-    margin-bottom: 35px;
-}
-
-/* Call-to-Action Button */
-.cta-button {
-    display: inline-block;
-    background-color: #8A229B; /* GA4 Optimizer Brand Purple */
-    color: #ffffff;
-    font-size: 1.1rem;
-    font-weight: 600;
-    padding: 15px 30px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.cta-button:hover {
-    background-color: #6A1B7A; /* Darker Purple */
-    transform: translateY(-2px);
-}
-
-/* Footer */
-.site-footer {
-    font-size: 0.9rem;
-    color: #95a5a6;
-}
-
-.site-footer a {
-    color: #7f8c8d;
+a {
+    color: var(--brand-purple);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
-.site-footer a:hover {
-    color: #34495e;
-    text-decoration: underline;
+a:hover {
+    color: var(--brand-purple-dark);
+}
+
+/* Header & Navigation */
+.site-header {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    color: var(--text-dark);
+}
+
+.brand-logo img {
+    width: 36px;
+    height: 36px;
+    margin-right: 12px;
+}
+
+.brand-logo .brand-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.main-nav a {
+    font-weight: 500;
+    color: var(--text-light);
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--text-dark);
+    border-bottom-color: var(--brand-purple);
+}
+
+.cta-button {
+    background-color: var(--brand-purple);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--brand-purple-dark);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Main Content Styles */
+.main-content {
+    background-color: var(--bg-white);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    margin-top: 40px;
+}
+
+/* Homepage Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.hero-section .subtitle {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+/* Documentation & Privacy Page Styles */
+.content-page h1 {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.content-page h3 {
+    font-size: 1.5rem;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.content-page ul {
+    list-style-type: disc;
+    padding-left: 25px;
+}
+
+.content-page li {
+    margin-bottom: 10px;
+}
+
+.feature-video-container {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 600px;
+    margin: 25px auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.feature-video-container video {
+    width: 100%;
+    display: block;
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #95a5a6;
+    border-top: 1px solid var(--border-color);
+}
+
+.site-footer a {
+    color: var(--text-light);
 }
 
 .site-footer span {
@@ -104,47 +202,26 @@ h1 {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .container {
-        padding: 30px;
+    body {
+        padding-top: 70px; /* Adjust for smaller header */
     }
-    h1 {
-        font-size: 2rem;
+    .nav-container {
+        height: 70px;
     }
-    .tagline {
-        font-size: 1.25rem;
+    .main-nav {
+        display: none; /* Hide nav links on mobile for simplicity */
     }
-    .subtitle {
-        font-size: 1rem;
+    .brand-logo .brand-name {
+        display: none; /* Hide brand name to save space */
     }
-    .cta-button {
-        padding: 12px 25px;
-        font-size: 1rem;
+    .main-content {
+        padding: 25px;
+        margin-top: 20px;
     }
-}
-/* -- ADD TO BOTTOM OF style.css -- */
-.privacy-container {
-    max-width: 800px;
-}
-.text-left {
-    text-align: left;
-}
-.effective-date {
-    font-style: italic;
-    color: #7f8c8d;
-    margin-bottom: 25px;
-}
-.privacy-container h3 {
-    font-size: 1.4rem;
-    color: #2c3e50;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #ecf0f1;
-}
-.privacy-container ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-.privacy-container li {
-    margin-bottom: 10px;
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+    .hero-section .subtitle {
+        font-size: 1.1rem;
+    }
 }
