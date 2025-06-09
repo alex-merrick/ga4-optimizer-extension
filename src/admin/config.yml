@@ -1,0 +1,22 @@
+# This is the authentication backend for the CMS
+backend:
+  name: git-gateway
+  branch: main # Use "main" or "master" depending on your GitHub repository's default branch
+
+# This is where the CMS will upload images
+media_folder: "src/icons/uploads" # Folder where media files will be stored
+public_folder: "/icons/uploads" # The src attribute for the media file
+
+# This defines the "Blog" content type in the CMS
+collections:
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Blog Posts" # Used in the CMS UI
+    folder: "src/blog" # The path to the folder where blog post files are stored
+    create: true # Allow users to create new posts
+    slug: "{{slug}}" # Uses the title to generate the filename, e.g., my-new-post.md
+    fields: # The editor fields for each post
+      - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/post.njk"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description (for SEO and Previews)", name: "description", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Body (Main Content)", name: "body", widget: "markdown"}

@@ -1,0 +1,24 @@
+---
+layout: "layouts/base.njk"
+---
+<main class="container">
+    <div class="main-content content-page">
+        <h1>{{ title }}</h1>
+        <p class="post-meta" style="color: var(--text-light); font-style: italic;">Published on {{ page.date.toDateString() }}</p>
+        
+        <article class="post-body">
+            {{ content | safe }}
+        </article>
+
+        <hr style="margin-top: 40px; border-color: var(--border-color);">
+
+        <div class="cta-box" style="background-color: var(--bg-light); padding: 25px; border-radius: 8px; text-align: center; margin-top: 30px;">
+            <h3 style="margin-top: 0;">Ready to Supercharge Your Workflow?</h3>
+            <p>Get all these features and more with our free Chrome Extension.</p>
+            <a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj" class="cta-button" target="_blank" rel="noopener noreferrer">
+                Add GA4 Optimizer to Chrome
+            </a>
+            <p class="cta-subtext">— It's Free</p>
+        </div>
+    </div>
+</main>

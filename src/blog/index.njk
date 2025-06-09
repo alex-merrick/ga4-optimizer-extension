@@ -1,0 +1,25 @@
+---
+layout: "layouts/base.njk"
+title: "Blog | GA4 Optimizer"
+description: "Tips, tricks, and guides for making Google Analytics 4 easier to use and more powerful."
+permalink: "blog/index.html"
+---
+<main class="container">
+    <div class="main-content content-page">
+        <h1>GA4 Optimizer Blog</h1>
+        <p>Actionable advice on solving common GA4 frustrations and getting more from your data.</p>
+        
+        <hr style="border-color: var(--border-color);">
+
+        <ul style="list-style: none; padding-left: 0;">
+            {%- for post in collections.posts -%}
+                <li style="margin-bottom: 35px;">
+                    <h2 style="font-size: 1.8rem; margin-bottom: 5px;"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+                    <p style="color: var(--text-light); font-style: italic; margin-top: 0;">Published on {{ post.date.toDateString() }}</p>
+                    <p>{{ post.data.description }}</p>
+                    <p><a href="{{ post.url }}" style="font-weight: 600;">Read more...</a></p>
+                </li>
+            {%- endfor -%}
+        </ul>
+    </div>
+</main>
