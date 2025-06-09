@@ -9,7 +9,6 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/CNAME");
     eleventyConfig.addPassthroughCopy("src/BingSiteAuth.xml");
     eleventyConfig.addPassthroughCopy("src/robots.txt");
-    eleventyConfig.addPassthroughCopy("src/sitemap.xml");
 
     // Tell Eleventy to copy the admin folder for the CMS
     eleventyConfig.addPassthroughCopy("src/admin");
