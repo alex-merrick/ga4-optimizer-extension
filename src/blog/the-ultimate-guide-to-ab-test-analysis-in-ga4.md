@@ -25,6 +25,14 @@ This process is a major workflow interruption.
 
 The **AB Test Segment Comparison** feature in GA4 Optimizer completely automates this analysis.
 
+<!-- THIS IS THE NEW VIDEO BLOCK -->
+<div class="feature-video-container" data-video-name="ABTestCompare" style="max-width: 700px; margin: 20px auto;">
+    <video autoplay loop muted playsinline>
+        <source src="/mp4/ab_test_compare.mp4" type="video/mp4">
+    </video>
+    <div class="play-icon-overlay"></div>
+</div>
+
 By simply naming your segments correctly (e.g., `VAR-Control`, `VAR-Variation 1`), the extension automatically enhances your Exploration report with the data you actually need:
 
 *   **Conversion Rate (CR):** Calculates the conversion rate for each variation.
