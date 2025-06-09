@@ -4,7 +4,7 @@ title: The Ultimate Guide to Analyzing A/B Test Results in GA4 (Without Spreadsh
 description: Learn how to analyze A/B test results directly within Google
   Analytics 4, including statistical significance and SRM checks, using the GA4
   Optimizer extension.
-date: 2025-06-15
+date: 2025-06-09T00:00:00.000Z
 ---
 Analyzing the results of an A/B test in Google Analytics 4 can be a cumbersome process. You have to build comparisons in Explorations, export the data to a spreadsheet, and then manually run calculations for statistical significance. It's slow and leaves room for error.
 
