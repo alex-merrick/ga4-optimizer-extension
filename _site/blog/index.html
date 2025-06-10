@@ -21,6 +21,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 
+    <!-- THIS IS THE NEW LINE YOU ARE ADDING -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -53,13 +56,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h1>GA4 Optimizer Blog</h1>
         <p>Actionable advice on solving common GA4 frustrations and getting more from your data.</p>
         
-        <hr style="border-color: var(--border-color);">
+        <hr style="border-color: var(--border-color); margin-bottom: 40px;">
 
-        <ul style="list-style: none; padding-left: 0;"><li style="margin-bottom: 35px;">
-                    <h2 style="font-size: 1.8rem; margin-bottom: 5px;"><a href="/blog/the-ultimate-guide-to-ab-test-analysis-in-ga4/">The Ultimate Guide to Analyzing A/B Test Results in GA4 (Without Spreadsheets)</a></h2>
-                    <p style="color: var(--text-light); font-style: italic; margin-top: 0;">Published on Sat Jun 14 2025</p>
-                    <p>Learn how to analyze A/B test results directly within Google Analytics 4, including statistical significance and SRM checks, using the GA4 Optimizer extension.</p>
-                    <p><a href="/blog/the-ultimate-guide-to-ab-test-analysis-in-ga4/" style="font-weight: 600;">Read more...</a></p>
+        <ul style="list-style: none; padding-left: 0;"><li class="blog-post-item" style="margin-bottom: 50px; padding-bottom: 30px; border-bottom: 1px solid var(--border-color);">
+                    <!-- Use Flexbox for side-by-side layout -->
+                    <div class="blog-post-layout" style="display: flex; gap: 30px; align-items: flex-start;">
+                        
+                        <!-- Thumbnail Column --><div style="flex-shrink: 0; width: 200px;">
+                            <a href="/blog/the-ultimate-guide-to-ab-test-analysis-in-ga4/">
+                                <img src="/img/thumbnails/thumb-ab-test.jpg" alt="The Ultimate Guide to Analyzing A/B Test Results in GA4 (Without Spreadsheets)" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; display: block;">
+                            </a>
+                        </div><!-- Text Content Column -->
+                        <div style="flex-grow: 1;">
+                            <h2 style="font-size: 1.8rem; margin-top:0; margin-bottom: 5px;"><a href="/blog/the-ultimate-guide-to-ab-test-analysis-in-ga4/">The Ultimate Guide to Analyzing A/B Test Results in GA4 (Without Spreadsheets)</a></h2>
+                            <p style="color: var(--text-light); font-style: italic; margin-top: 0;">Published on Sun Jun 08 2025</p>
+                            <p>Learn how to analyze A/B test results directly within Google Analytics 4, including statistical significance and SRM checks, using the GA4 Optimizer extension.</p>
+                            <p><a href="/blog/the-ultimate-guide-to-ab-test-analysis-in-ga4/" style="font-weight: 600;">Read more...</a></p>
+                        </div>
+
+                    </div>
                 </li></ul>
     </div>
 </main>

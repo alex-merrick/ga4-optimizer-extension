@@ -1,11 +1,14 @@
+# This enables the Draft -> In Review -> Ready workflow
+publish_mode: editorial_workflow
+
 # This is the authentication backend for the CMS
 backend:
   name: git-gateway
   branch: main # Use "main" or "master" depending on your GitHub repository's default branch
 
 # This is where the CMS will upload images
-media_folder: "src/icons/uploads" # Folder where media files will be stored
-public_folder: "/icons/uploads" # The src attribute for the media file
+media_folder: "src/img/thumbnails" # Folder where all media files will be stored
+public_folder: "/img/thumbnails" # The src attribute for the media file
 
 # This defines the "Blog" content type in the CMS
 collections:
@@ -17,6 +20,8 @@ collections:
     fields: # The editor fields for each post
       - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/post.njk"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description (for SEO and Previews)", name: "description", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Thumbnail Image (for list page)", name: "thumbnail", widget: "image", required: false}
+      - {label: "Post Banner Image (for article page)", name: "post_image", widget: "image", required: false} # <-- ADD THIS NEW FIELD
+      - {label: "Description (for SEO and Previews)", name: "description", widget: "string"}
       - {label: "Body (Main Content)", name: "body", widget: "markdown"}

@@ -4,12 +4,13 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/documentation.js");
     eleventyConfig.addPassthroughCopy("src/icons");
     eleventyConfig.addPassthroughCopy("src/mp4");
+    eleventyConfig.addPassthroughCopy("src/img");
 
     // Copy all other root files like robots.txt, CNAME, etc.
     eleventyConfig.addPassthroughCopy("src/CNAME");
     eleventyConfig.addPassthroughCopy("src/BingSiteAuth.xml");
     eleventyConfig.addPassthroughCopy("src/robots.txt");
-
+    
     // Tell Eleventy to copy the admin folder for the CMS
     eleventyConfig.addPassthroughCopy("src/admin");
 
@@ -28,7 +29,7 @@ module.exports = function(eleventyConfig) {
         dir: {
             input: "src",
             output: "_site",
-            includes: "_includes" // Folder for re-usable components
+            includes: "_includes" // This is the only folder path we need to specify
         },
         templateFormats: ["html", "md", "njk"],
         htmlTemplateEngine: "njk",

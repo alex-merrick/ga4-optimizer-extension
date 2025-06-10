@@ -438,3 +438,45 @@ a:hover {
     box-sizing: border-box; /* Ensures padding is included in the width */
   }
 }
+
+/* --- Blog Responsive Styles --- */
+@media (max-width: 600px) {
+    .blog-post-layout {
+        flex-direction: column; /* Stack items vertically on mobile */
+        gap: 20px !important; /* Adjust the gap for a vertical layout */
+    }
+
+    .blog-post-layout > div:first-child {
+        width: 100% !important; /* Allow thumbnail container to be full-width */
+    }
+
+    .blog-post-layout img {
+        height: auto !important; /* Let the image height be natural */
+        max-height: 200px; /* But don't let it get too tall */
+    }
+
+    .blog-post-item h2 {
+        font-size: 1.5rem !important; /* Slightly smaller title for mobile */
+    }
+}
+
+
+/* --- Responsive Post Banner Image Styles --- */
+
+/* By default (on desktop), hide the mobile banner */
+.post-banner-mobile {
+    display: none;
+}
+
+/* On screens 600px or less (mobile devices) */
+@media (max-width: 600px) {
+    /* Hide the desktop banner */
+    .post-banner-desktop {
+        display: none;
+    }
+
+    /* Show the mobile banner */
+    .post-banner-mobile {
+        display: block;
+    }
+}
