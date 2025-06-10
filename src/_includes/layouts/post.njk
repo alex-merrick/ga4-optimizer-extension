@@ -5,19 +5,16 @@ layout: "layouts/base.njk"
     <div class="main-content content-page">
         
         {# --- Smart Image Selection Logic --- #}
-        {# Use post_image if it exists, otherwise fall back to thumbnail #}
         {% set desktop_image = post_image or thumbnail %}
-
-        {# Use thumbnail if it exists, otherwise fall back to post_image #}
         {% set mobile_image = thumbnail or post_image %}
 
-        {# --- Output Both Images with Different Classes --- #}
+        {# --- Output Both Images with Specific Classes --- #}
         {% if desktop_image %}
-            <img src="{{ desktop_image }}" alt="{{ title }}" class="post-banner-desktop" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 30px;">
+            <img src="{{ desktop_image }}" alt="{{ title }}" class="post-banner-image post-banner-desktop">
         {% endif %}
 
         {% if mobile_image %}
-             <img src="{{ mobile_image }}" alt="{{ title }}" class="post-banner-mobile" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 30px;">
+             <img src="{{ mobile_image }}" alt="{{ title }}" class="post-banner-image post-banner-mobile">
         {% endif %}
 
         <h1>{{ title }}</h1>

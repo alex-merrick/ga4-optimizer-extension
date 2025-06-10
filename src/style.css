@@ -610,3 +610,35 @@ a:hover {
 .feature-item img {
     color: var(--brand-purple);
 }
+/* --- CLS Fix for Post Banners --- */
+.post-banner-image {
+    width: 100%;
+    height: auto; /* This allows height to be determined by aspect-ratio */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    /* This prevents a flash of empty space if the image loads instantly */
+    background-color: var(--border-color);
+}
+
+.post-banner-desktop {
+    aspect-ratio: 2 / 1; /* Aspect ratio for the WIDE banner */
+}
+
+.post-banner-mobile {
+    aspect-ratio: 3 / 2; /* Aspect ratio for the SQUARER thumbnail */
+    display: none; /* Hide mobile banner by default */
+}
+
+/* On screens 600px or less (mobile devices) */
+@media (max-width: 600px) {
+    /* Hide the desktop banner */
+    .post-banner-desktop {
+        display: none;
+    }
+
+    /* Show the mobile banner */
+    .post-banner-mobile {
+        display: block;
+    }
+}
