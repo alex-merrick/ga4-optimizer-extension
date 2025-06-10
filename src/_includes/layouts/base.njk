@@ -23,7 +23,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </script>
     {% endif %}
 
-    {# --- THIS IS THE NEW CONDITIONAL BLOCK FOR DOCS STYLES --- #}
     {% if page.url == '/documentation.html' %}
     <style>
         .docs-layout { display: flex; gap: 40px; margin-top: 20px; }
@@ -49,7 +48,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </style>
     {% endif %}
     
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <!-- THIS SCRIPT IS NO LONGER RENDER-BLOCKING -->
+    <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 </head>
 <body>
