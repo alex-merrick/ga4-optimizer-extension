@@ -1,0 +1,26 @@
+# This is a master redirect rule to ensure all traffic goes to the
+# canonical "www" version of the site over HTTPS.
+
+[[redirects]]
+  # Redirect all requests from the non-www domain to the www domain.
+  # The ":splat" is a wildcard that forwards the rest of the URL path.
+  # e.g., https://gaoptimizer.com/blog/ -> https://www.gaoptimizer.com/blog/
+  from = "https://gaoptimizer.com/*"
+  to = "https://www.gaoptimizer.com/:splat"
+  status = 301  # This signifies a permanent redirect, which is crucial for SEO.
+  force = true
+
+[[redirects]]
+  # This rule handles any non-secure http requests and forwards them
+  # to the secure "www" version.
+  from = "http://gaoptimizer.com/*"
+  to = "https://www.gaoptimizer.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  # This rule handles the http www version.
+  from = "http://www.gaoptimizer.com/*"
+  to = "https://www.gaoptimizer.com/:splat"
+  status = 301
+  force = true
