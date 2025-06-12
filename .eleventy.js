@@ -10,6 +10,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/CNAME");
     eleventyConfig.addPassthroughCopy("src/BingSiteAuth.xml");
     eleventyConfig.addPassthroughCopy("src/robots.txt");
+    eleventyConfig.addPassthroughCopy("src/_redirects"); // <-- ADD THIS NEW LINE
     
     // Tell Eleventy to copy the admin folder for the CMS
     eleventyConfig.addPassthroughCopy("src/admin");
@@ -29,7 +30,7 @@ module.exports = function(eleventyConfig) {
         dir: {
             input: "src",
             output: "_site",
-            includes: "_includes" // This is the only folder path we need to specify
+            includes: "_includes"
         },
         templateFormats: ["html", "md", "njk"],
         htmlTemplateEngine: "njk",
