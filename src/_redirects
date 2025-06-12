@@ -2,6 +2,15 @@
 http://gaoptimizer.com/*    https://www.gaoptimizer.com/:splat   301!
 http://www.gaoptimizer.com/* https://www.gaoptimizer.com/:splat   301!
 
-# --- Redirect ONLY from the old .html files to the clean folder URL ---
-/documentation.html   /documentation/   301
-/privacy.html         /privacy/         301
+# ==============================================================================
+# --- THE DEFINITIVE FIX: Force all traffic to the one true canonical URL ---
+# ==============================================================================
+
+# Redirect from the old .html version to the correct folder version
+/documentation.html   /documentation/   301!
+/privacy.html         /privacy/         301!
+
+# Forcefully redirect from the no-slash version to the correct folder version
+/documentation        /documentation/   301!
+/privacy              /privacy/         301!
+/blog                 /blog/            301!
