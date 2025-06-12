@@ -2,13 +2,7 @@
 http://gaoptimizer.com/*    https://www.gaoptimizer.com/:splat   301!
 http://www.gaoptimizer.com/* https://www.gaoptimizer.com/:splat   301!
 
-# --- Enforce Canonical Clean URLs with Trailing Slashes ---
-
-# Redirect from the .html version to the folder version
-/documentation.html   /documentation/   301!
-/privacy.html         /privacy/         301!
-
-# Redirect from the no-slash version to the folder version
-/documentation        /documentation/   301!
-/privacy              /privacy/         301!
-/blog                 /blog/            301!
+# --- Enforce Clean, Trailing-Slash URLs ---
+/documentation.html /documentation/ 301
+/privacy.html     /privacy/     301
+/blog/index.html  /blog/        301
