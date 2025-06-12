@@ -29,7 +29,7 @@ module.exports = function(eleventyConfig) {
         dir: {
             input: "src",
             output: "_site",
-            includes: "_includes"
+            includes: "_includes" // This is the only folder path we need to specify
         },
         templateFormats: ["html", "md", "njk"],
         htmlTemplateEngine: "njk",
