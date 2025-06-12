@@ -58,18 +58,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <hr style="border-color: var(--border-color); margin-bottom: 40px;">
 
-        <ul style="list-style: none; padding-left: 0;"><li class="blog-post-item" style="margin-bottom: 50px; padding-bottom: 30px; border-bottom: 1px solid var(--border-color);">
-                    <!-- Use Flexbox for side-by-side layout -->
-                    <div class="blog-post-layout" style="display: flex; gap: 30px; align-items: flex-start;">
+        <ul style="list-style: none; padding-left: 0;"><li class="blog-post-item">
+                    <div class="blog-post-layout">
                         
-                        <!-- Thumbnail Column --><div style="flex-shrink: 0; width: 200px;">
+                        <!-- Thumbnail Column --><div class="blog-post-thumbnail-container">
                             <a href="/blog/the-ultimate-guide-to-ab-test-analysis-in-ga4/">
-                                <img src="/img/thumbnails/thumb-ab-test.jpg" alt="How to Properly Analyze A/B Test Results in GA4" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; display: block;">
+                                <img src="/img/thumbnails/thumb-ab-test.jpg" alt="How to Properly Analyze A/B Test Results in GA4" class="blog-list-thumbnail">
                             </a>
                         </div><!-- Text Content Column -->
-                        <div style="flex-grow: 1;">
-                            <h2 style="font-size: 1.8rem; margin-top:0; margin-bottom: 5px;"><a href="/blog/the-ultimate-guide-to-ab-test-analysis-in-ga4/">How to Properly Analyze A/B Test Results in GA4</a></h2>
-                            <p style="color: var(--text-light); font-style: italic; margin-top: 0;">Published on Sat Jun 07 2025</p>
+                        <div class="blog-post-text-container">
+                            <h2><a href="/blog/the-ultimate-guide-to-ab-test-analysis-in-ga4/">How to Properly Analyze A/B Test Results in GA4</a></h2>
+                            <p><em>Published on Sat Jun 07 2025</em></p>
                             <p>Struggling to validate your A/B test results in GA4? Learn the manual method for checking statistical significance and discover how to automate the entire process in one click.</p>
                             <p><a href="/blog/the-ultimate-guide-to-ab-test-analysis-in-ga4/" style="font-weight: 600;">Read more...</a></p>
                         </div>
