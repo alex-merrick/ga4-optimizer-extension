@@ -23,7 +23,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </script>
     {% endif %}
 
-    {% if page.url == '/documentation/' %}
+    {% if page.url == '/documentation.html' %}
     <style>
         .docs-layout { display: flex; gap: 40px; margin-top: 20px; }
         #docs-sidebar { width: 240px; flex-shrink: 0; position: sticky; top: 100px; align-self: flex-start; border: 1px solid var(--border-color); background-color: var(--bg-light); border-radius: 6px; }
@@ -65,9 +65,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <nav class="main-nav">
                 <ul>
                     <li><a href="/" {% if page.url == '/' %}class="active" aria-current="page"{% endif %}>Home</a></li>
-                    <li><a href="/blog/" {% if page.url.startsWith('/blog') %}class="active" aria-current="page"{% endif %}>Blog</a></li>
-                    <li><a href="/documentation/" {% if page.url == '/documentation/' %}class="active" aria-current="page"{% endif %}>Documentation</a></li>
-                    <li><a href="/privacy/" {% if page.url == '/privacy/' %}class="active" aria-current="page"{% endif %}>Privacy</a></li>
+                    <li><a href="/blog/index.html" {% if page.url.startsWith('/blog') %}class="active" aria-current="page"{% endif %}>Blog</a></li>
+                    <li><a href="/documentation.html" {% if page.url == '/documentation.html' %}class="active" aria-current="page"{% endif %}>Documentation</a></li>
+                    <li><a href="/privacy.html" {% if page.url == '/privacy.html' %}class="active" aria-current="page"{% endif %}>Privacy</a></li>
                     <li><a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj" class="cta-button" target="_blank" rel="noopener noreferrer">Add to Chrome</a></li>
                 </ul>
             </nav>
@@ -94,7 +94,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <footer class="site-footer">
         <p>© 2025 GA4 Optimizer. All rights reserved.</p>
         <p>
-            <a href="/privacy/">Privacy Policy</a>
+            <a href="/privacy.html">Privacy Policy</a>
             <span>•</span>
             <a href="mailto:support@gaoptimizer.com">Contact Support</a>
         </p>
