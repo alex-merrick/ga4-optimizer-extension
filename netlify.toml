@@ -1,0 +1,18 @@
+# This build command is a fallback for Netlify's UI.
+[build]
+  command = "npm run build"
+  publish = "_site"
+
+# This file is the single source of truth for our essential redirects.
+# These rules are processed before Netlify's "Pretty URLs" feature.
+
+# Rule 1: Redirect old .html files to the clean, trailing-slash version.
+[[redirects]]
+  from = "/documentation.html"
+  to = "/documentation/"
+  status = 301
+
+[[redirects]]
+  from = "/privacy.html"
+  to = "/privacy/"
+  status = 301
