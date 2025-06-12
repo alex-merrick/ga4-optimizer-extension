@@ -1,0 +1,26 @@
+---
+layout: "layouts/base.njk"
+title: "Contact Support | GA4 Optimizer"
+permalink: "/contact.html"
+---
+<main class="container">
+    <div class="main-content content-page">
+        <h1>Contact Us</h1>
+        <p>Have a question or feedback? We'd love to hear from you.</p>
+        
+        <form name="contact" method="POST" data-netlify="true">
+            <p>
+                <label>Your Name: <input type="text" name="name" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc;" /></label>
+            </p>
+            <p>
+                <label>Your Email: <input type="email" name="email" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc;" /></label>
+            </p>
+            <p>
+                <label>Message: <textarea name="message" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc; min-height: 150px;"></textarea></label>
+            </p>
+            <p>
+                <button type="submit" class="cta-button">Send</button>
+            </p>
+        </form>
+    </div>
+</main>
