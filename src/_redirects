@@ -1,7 +1,0 @@
-# --- Force HTTPS ---
-http://gaoptimizer.com/*    https://www.gaoptimizer.com/:splat   301!
-http://www.gaoptimizer.com/* https://www.gaoptimizer.com/:splat   301!
-
-# --- Redirect ONLY from old .html files to the clean folder URL ---
-/documentation.html   /documentation/   301
-/privacy.html         /privacy/         301
