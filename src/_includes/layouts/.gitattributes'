@@ -1,0 +1,14 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
+#
+# The following are defined as text files and will have their line endings
+# normalized to LF in the repository.
+#
+*.html   text eol=lf
+*.css    text eol=lf
+*.js     text eol=lf
+*.json   text eol=lf
+*.njk    text eol=lf
+*.md     text eol=lf
+*.yml    text eol=lf
