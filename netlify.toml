@@ -1,18 +1,29 @@
 # === Netlify Configuration File ===
-# ... your existing [build] settings ...
+
+[build]
+  command = "npm run start" # Or your actual build command, e.g., "npm run build"
+  publish = "_site"
 
 # --- SEO Redirect Rules ---
 
-# Rule 1: Enforce Trailing Slashes
+# Rule 1: Redirect the old specific .html page to its new canonical URL
+# This is CRITICAL for migrating old indexed pages.
 [[redirects]]
-  from = "/:slug"
-  to = "/:slug/"
-  status = 301
-  force = false
-  conditions = {path = "!/\\.html$|/\\.xml$|/\\.txt$|/\\.png$|/\\.jpg$|/\\.svg$|/\\.mp4$|/\\.js$|/\\.css$"}
+  from = "/documentation.html"
+  to = "/features/"
+  status = 301 # Permanent Redirect
 
-# Rule 2: Redirect old /documentation/ URL to /features/
+# Rule 2: Redirect the old clean URL to its new canonical URL
 [[redirects]]
   from = "/documentation/"
   to = "/features/"
   status = 301 # Permanent Redirect
+
+# Rule 3: Enforce Trailing Slashes sitewide for consistency
+# This rule ensures that a request to /contact goes to /contact/
+[[redirects]]
+  from = "/:slug"
+  to = "/:slug/"
+  status = 301
+  # This condition prevents the rule from applying to actual files (e.g., /sitemap.xml)
+  conditions = {path = "!/\\.html$|/\\.xml$|/\\.txt$|/\\.png$|/\\.jpg$|/\\.svg$|/\\.mp4$|/\\.js$|/\\.css$"}
