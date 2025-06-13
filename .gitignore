@@ -1,0 +1,8 @@
+# Ignore the entire Eleventy output directory
+/_site
+
+# Ignore Node.js dependencies folder
+/node_modules
+
+# Optional: Ignore environment variables file if you use one
+.env
