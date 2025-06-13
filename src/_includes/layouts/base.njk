@@ -37,7 +37,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     </script>
 
-    {% if page.url == '/documentation/' %}
+    {% if page.url == '/features/' %}
     <style>
         .docs-layout { display: flex; gap: 40px; margin-top: 20px; }
         #docs-sidebar { width: 240px; flex-shrink: 0; position: sticky; top: 100px; align-self: flex-start; border: 1px solid var(--border-color); background-color: var(--bg-light); border-radius: 6px; }
@@ -82,7 +82,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <nav class="main-nav">
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/documentation/">Features</a></li>
+                <li><a href="/features/">Features</a></li>
                 
                 <li class="nav-item-dropdown">
                     <button type="button" class="nav-dropdown-toggle">Tools</button>
@@ -131,7 +131,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="/global.js"></script>
 
     {# Conditionally load the documentation script ONLY on the docs page #}
-    {% if page.url == '/documentation/' %}
+    {% if page.url == '/features/' %}
     <script src="/documentation.js"></script>
     {% endif %}
 
