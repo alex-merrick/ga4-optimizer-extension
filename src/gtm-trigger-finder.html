@@ -1,0 +1,771 @@
+---
+layout: "layouts/base.njk"
+title: "GA4 Trigger Finder | GA4 Optimizer Tools"
+permalink: "/tools/gtm-trigger-finder/"
+schema: |
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Find Unique GTM Trigger Parameters",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Provide Positive Examples",
+        "text": "Paste the Data Layer objects for events you WANT to trigger on into the 'Positive Examples' box."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Provide Negative Examples",
+        "text": "Paste Data Layer objects from similar events you want to ignore into the 'Negative Examples' box."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Analyze and Generate",
+        "text": "Click 'Find Unique Parameters' to generate the conditions for your GTM trigger."
+      }
+    ]
+  }
+---
+<style>
+    /* --- UX Redesign: Scoped & Responsive Styles for the Tool Page --- */
+
+    /* Base layout and typography */
+    .tool-body {
+        background-color: var(--bg-light);
+        padding: 2rem 0;
+    }
+
+    .tool-header h1 { 
+        color: var(--text-dark); 
+        font-size: 2rem;
+    }
+    .tool-header p { 
+        color: var(--text-light); 
+        font-size: 1.1rem;
+        max-width: 700px;
+    }
+    
+    .tool-section {
+        background-color: var(--bg-white);
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+        margin-bottom: 2rem;
+    }
+    
+    /* Step numbering and titles */
+    .step-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: var(--brand-purple);
+        color: white;
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-right: 0.75rem;
+        flex-shrink: 0;
+    }
+
+    .tool-section-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    .tool-section-header h2 {
+        font-size: 1.75rem;
+        margin: 0;
+    }
+
+    /* Form Elements */
+    .tool-textarea {
+        background-color: #f8f9fa;
+        border: 1px solid var(--border-color);
+        color: var(--text-dark);
+        width: 100%;
+        border-radius: 6px;
+        padding: 0.75rem;
+        font-family: monospace;
+        font-size: 0.9rem;
+        min-height: 250px;
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .tool-textarea:focus {
+        border-color: var(--brand-purple);
+        box-shadow: 0 0 0 3px rgba(138, 34, 155, 0.15);
+        outline: none;
+    }
+
+    /* Button styles */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        padding: 12px 28px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        /* FIX: Set a fixed height to ensure all buttons are consistent */
+        height: 52px;
+        box-sizing: border-box; /* Important for fixed height + padding */
+    }
+    .btn-primary {
+        background-color: var(--brand-purple);
+        color: white;
+    }
+    .btn-primary:hover {
+        background-color: var(--brand-purple-dark);
+        transform: translateY(-2px);
+        color: white;
+    }
+    .btn-secondary {
+        background-color: #e9ecef;
+        color: #495057;
+        margin-left: 8px;
+    }
+     .btn-secondary:hover {
+        background-color: #ced4da;
+        color: #495057;
+        margin-left: 8px;
+    }
+    
+    .btn-text-link {
+        margin-top: 1rem;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--brand-purple);
+        transition: background-color 0.2s ease;
+    }
+    .btn-text-link:hover {
+        background-color: #f0e6f7;
+        color: var(--brand-purple-dark);
+        text-decoration: none;
+    }
+
+    /* Logic Toggle Styles */
+    .logic-container {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background-color: #f8f9fa;
+        padding: 0.75rem;
+        border-radius: 6px;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+    }
+    .toggle-label { width: 52px; height: 28px; position: relative; display: inline-block; }
+    .toggle-checkbox { opacity: 0; width: 0; height: 0; }
+    .toggle-slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #7f8c8d; transition: .4s; border-radius: 28px; }
+    .toggle-slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+    .toggle-checkbox:checked + .toggle-slider { background-color: var(--brand-purple); }
+    .toggle-checkbox:checked + .toggle-slider:before { transform: translateX(24px); }
+    .toggle-slider:after { position: absolute; content: 'OR'; display: block; color: white; font-weight: bold; font-size: 10px; right: 8px; top: 50%; transform: translateY(-50%); }
+    .toggle-checkbox:checked + .toggle-slider:after { content: 'AND'; left: 6px; }
+
+    /* Results Section */
+    .results-tabs { border-bottom: 2px solid var(--border-color); margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; }
+    .results-tab {
+        padding: 0.75rem 1.25rem;
+        cursor: pointer;
+        border: none;
+        background: none;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-light);
+        border-bottom: 3px solid transparent;
+        margin-bottom: -2px;
+        text-align: center;
+    }
+    .results-tab.active {
+        color: var(--brand-purple);
+        border-bottom-color: var(--brand-purple);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* Responsive Table/Card Design */
+    .results-table {
+        width: 100%;
+        text-align: left;
+        border-collapse: collapse;
+    }
+    .results-table th {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        background-color: var(--bg-light);
+        border-bottom: 2px solid var(--border-color);
+    }
+    .results-table td {
+        padding: 0.75rem;
+        border-bottom: 1px solid var(--border-color);
+        font-family: monospace;
+        vertical-align: middle;
+    }
+    .results-table .key-cell { color: var(--brand-purple); }
+    .results-table .value-cell { word-break: break-all; }
+    .results-table .copy-btn {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 0.8rem;
+        padding: 6px 12px;
+        background-color: #e9ecef;
+        color: #495057;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .regex-label {
+        font-size: 0.8em;
+        font-weight: 600;
+        color: var(--brand-purple);
+        margin-left: 8px;
+        vertical-align: middle;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    /* --- Mobile-First & Responsive Breakpoints --- */
+    .main-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        /* FIX: Add margin to bottom to create space from action buttons */
+        margin-bottom: 2rem;
+    }
+
+    @media (min-width: 1024px) {
+        .main-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+        .tool-header h1 { font-size: 2.5rem; }
+        .tool-header p { font-size: 1.2rem; }
+        .tool-section { padding: 2rem; }
+    }
+    
+    @media (max-width: 767px) {
+        .results-table thead { display: none; }
+        .results-table tbody, .results-table tr, .results-table td {
+            display: block;
+            width: 100%;
+            text-align: left;
+        }
+        .results-table tr {
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1rem;
+            background-color: #fff;
+        }
+        .results-table td {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: none;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        .results-table td::before {
+            content: attr(data-label);
+            font-weight: 600;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-dark);
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        .results-table .value-cell { text-align: right; }
+        .results-table .copy-btn-cell {
+            justify-content: center;
+            margin-top: 1rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border-color);
+        }
+        .results-table .copy-btn {
+            width: 100%;
+            padding: 10px;
+        }
+    }
+     .internal-link-note {
+        background-color: #f0e6f7;
+        border-left: 4px solid var(--brand-purple);
+        padding: 1rem;
+        margin-top: 2rem;
+        border-radius: 4px;
+        font-size: 0.95rem;
+    }
+</style>
+
+<div class="tool-body">
+    <div class="container mx-auto px-4">
+        <!-- Header -->
+        <header class="tool-header text-center mb-10">
+            <h1>GTM Data Layer Trigger Finder</h1>
+            <p class="mt-2 max-w-2xl mx-auto">
+                Compare dataLayer pushes from GTM's Preview mode to find the unique parameters needed to build the perfect Custom Event trigger.
+            </p>
+        </header>
+
+        <!-- Onboarding Section -->
+        <section class="tool-section">
+            <div class="tool-section-header">
+                <div class="step-badge">?</div>
+                <h2>How This Works</h2>
+            </div>
+            <ol class="list-decimal list-inside space-y-2 text-slate-600">
+                <li>Enable <strong>Preview Mode</strong> in Google Tag Manager and perform the actions you want to track.</li>
+                <li>In the Preview panel's event timeline, select a Custom Event (e.g., `gtm_click`).</li>
+                <li>Go to the **Data Layer** tab and copy the entire block of data.</li>
+                <li>Paste the data layer objects you **WANT** to trigger on into the **"Positive Examples"** box.</li>
+                <li>Paste data layer objects from similar events you want to ignore into the **"Negative Examples"** box.</li>
+                <li>Click "Find Unique Parameters" to generate your GTM trigger conditions.</li>
+            </ol>
+             <div class="internal-link-note">
+                <strong>Need to analyze GA4 event logs from the console instead?</strong> <a href="/tools/event-analyzer/">Check out our GA4 Event Analyzer tool.</a>
+            </div>
+        </section>
+
+        <!-- Main Tool Section -->
+        <section class="tool-section">
+            <div class="main-grid">
+                <!-- Positive Examples Section -->
+                <div>
+                    <div class="tool-section-header">
+                        <div class="step-badge">1</div>
+                        <h2>Positive Examples</h2>
+                    </div>
+                    <p class="text-sm text-slate-500 mb-4">Paste the Data Layer objects for events you <strong>WANT</strong> to trigger on.</p>
+                    <div class="logic-container text-sm text-slate-600">
+                        <span>Find parameters that exist in</span>
+                        <label for="match-logic-toggle" class="toggle-label">
+                            <input type="checkbox" id="match-logic-toggle" class="toggle-checkbox" aria-label="Toggle matching logic between AND and OR">
+                            <div class="toggle-slider"></div>
+                        </label>
+                        <span>of the positive examples.</span>
+                    </div>
+                    <div id="match-container" class="space-y-4">
+                        <textarea class="tool-textarea" placeholder="Paste the Data Layer object for your target event here..."></textarea>
+                    </div>
+                    <button id="add-match" class="btn-text-link">+ Add Another Positive Example</button>
+                </div>
+
+                <!-- Negative Examples Section -->
+                <div>
+                    <div class="tool-section-header">
+                        <div class="step-badge">2</div>
+                        <h2>Negative Examples</h2>
+                    </div>
+                    <p class="text-sm text-slate-500 mb-4">Paste Data Layer objects for other events you <strong>DON'T WANT</strong> to trigger on.</p>
+                    <div class="logic-container text-sm text-slate-600">
+                        <span>Exclude parameters that exist in</span>
+                        <label for="exclusion-logic-toggle" class="toggle-label">
+                            <input type="checkbox" id="exclusion-logic-toggle" class="toggle-checkbox" aria-label="Toggle exclusion logic between AND and OR">
+                            <div class="toggle-slider"></div>
+                        </label>
+                        <span>of the negative examples.</span>
+                    </div>
+                    <div id="dont-match-container" class="space-y-4">
+                        <textarea class="tool-textarea" placeholder="Paste the Data Layer object for a similar, non-target event here..."></textarea>
+                    </div>
+                    <button id="add-dont-match" class="btn-text-link">+ Add Another Negative Example</button>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="text-center pt-8 mt-8 border-t border-slate-200">
+                <div class="flex justify-center items-center gap-4 flex-wrap">
+                    <button id="analyze-btn" class="btn btn-primary">
+                        <span class="step-badge !bg-white !text-[var(--brand-purple)] !w-7 !h-7 !text-base !mr-2">3</span>Find Unique Parameters
+                    </button>
+                    <button id="reset-btn" class="btn btn-secondary">Reset</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <div id="results-wrapper" class="tool-section hidden">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">Analysis Results</h2>
+            <div class="results-tabs">
+                <button class="results-tab active" data-tab="gtm-trigger">GTM Trigger</button>
+                <button class="results-tab" data-tab="gtm-variables">GTM Variables</button>
+                <button class="results-tab" data-tab="unique">Unique Parameters</button>
+                <button class="results-tab" data-tab="common">Common Parameters</button>
+                <button class="results-tab" data-tab="null">Common Nulls</button>
+            </div>
+            
+            <div id="gtm-trigger-panel" class="tab-panel active"></div>
+            <div id="gtm-variables-panel" class="tab-panel"></div>
+            <div id="unique-panel" class="tab-panel"></div>
+            <div id="common-panel" class="tab-panel"></div>
+            <div id="null-panel" class="tab-panel"></div>
+            <div id="error-panel" class="tab-panel"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- DOM Element References ---
+        const addMatchBtn = document.getElementById('add-match');
+        const matchContainer = document.getElementById('match-container');
+        const addDontMatchBtn = document.getElementById('add-dont-match');
+        const dontMatchContainer = document.getElementById('dont-match-container');
+        const analyzeBtn = document.getElementById('analyze-btn');
+        const resetBtn = document.getElementById('reset-btn');
+        
+        const resultsWrapper = document.getElementById('results-wrapper');
+        const gtmTriggerPanel = document.getElementById('gtm-trigger-panel');
+        const gtmVariablesPanel = document.getElementById('gtm-variables-panel');
+        const uniquePanel = document.getElementById('unique-panel');
+        const commonPanel = document.getElementById('common-panel');
+        const nullPanel = document.getElementById('null-panel');
+        const errorPanel = document.getElementById('error-panel');
+        
+        const tabs = document.querySelectorAll('.results-tab');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+
+        const matchLogicToggle = document.getElementById('match-logic-toggle');
+        const exclusionLogicToggle = document.getElementById('exclusion-logic-toggle');
+
+        // --- Event Listeners ---
+        addMatchBtn.addEventListener('click', () => createTextarea(matchContainer, 'match-data', 'Paste another positive example log here...'));
+        addDontMatchBtn.addEventListener('click', () => createTextarea(dontMatchContainer, 'dont-match-data', 'Paste another negative example log here...'));
+        analyzeBtn.addEventListener('click', runAnalysis);
+        resetBtn.addEventListener('click', resetForm);
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const targetPanelId = tab.dataset.tab + '-panel';
+                tabPanels.forEach(panel => panel.classList.toggle('active', panel.id === targetPanelId));
+            });
+        });
+
+        function createTextarea(container, className, placeholder) {
+            const newTextArea = document.createElement('textarea');
+            newTextArea.className = 'tool-textarea fade-in';
+            newTextArea.placeholder = placeholder;
+            container.appendChild(newTextArea);
+            setTimeout(() => newTextArea.classList.remove('fade-in'), 10);
+        }
+
+        function resetForm() {
+            document.querySelectorAll('.tool-textarea').forEach((area, index) => {
+                const container = area.parentElement;
+                if (index > 1) { 
+                    area.remove();
+                } else {
+                    area.value = '';
+                }
+            });
+            if (!matchContainer.querySelector('textarea')) createTextarea(matchContainer, 'match-data', 'Paste the log for your target click here...');
+            if (!dontMatchContainer.querySelector('textarea')) createTextarea(dontMatchContainer, 'dont-match-data', 'Paste the log for a similar, non-target click here...');
+
+            resultsWrapper.classList.add('hidden');
+            matchLogicToggle.checked = false;
+            exclusionLogicToggle.checked = false;
+        }
+        
+        function robustTrim(str) {
+            if (!str) return '';
+            return str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+        }
+
+        function parseLogData(logText) {
+            const paramsMap = new Map();
+            const prefixRegex = /^js\?id=.*?:[0-9]+\s/gm;
+            const cleanedLog = logText.replace(prefixRegex, '');
+            const trimmedLog = robustTrim(cleanedLog);
+
+            if (!trimmedLog) return paramsMap;
+
+            if (trimmedLog.startsWith('{') && trimmedLog.endsWith('}')) {
+                const innerContent = trimmedLog.substring(1, trimmedLog.length - 1);
+                const pairs = innerContent.split(/,\s*(?=[a-zA-Z0-9\._-]+\s*:)/);
+                for (const pair of pairs) {
+                    const firstColonIndex = pair.indexOf(':');
+                    if (firstColonIndex > -1) {
+                        let key = robustTrim(pair.substring(0, firstColonIndex)).replace(/^"|"$/g, '');
+                        let value = robustTrim(pair.substring(firstColonIndex + 1)).replace(/^"|"$/g, '');
+                        if (key) paramsMap.set(key, value);
+                    }
+                }
+            }
+            else {
+                 const lines = trimmedLog.split('\n').filter(line => robustTrim(line) !== '');
+                for (const line of lines) {
+                    const firstColonIndex = line.indexOf(':');
+                    if (firstColonIndex > -1) {
+                        const key = robustTrim(line.substring(0, firstColonIndex));
+                        let value = robustTrim(line.substring(firstColonIndex + 1));
+
+                        if (value.endsWith(',')) {
+                            value = robustTrim(value.slice(0, -1));
+                        }
+                        if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+                            value = value.slice(1, -1);
+                        }
+                        
+                        if (key && key !== '_et' && key !== 'tfd') {
+                            paramsMap.set(key, value);
+                        }
+                    }
+                }
+            }
+            return paramsMap;
+        }
+
+        function runAnalysis() {
+            try {
+                const matchLogs = Array.from(matchContainer.querySelectorAll('textarea')).map(t => t.value).filter(v => v.trim());
+                const exclusionLogs = Array.from(dontMatchContainer.querySelectorAll('textarea')).map(t => t.value).filter(v => v.trim());
+
+                if (matchLogs.length === 0) return showError('You must provide at least one "Positive Example" log.');
+                
+                const allMatchParams = matchLogs.map(parseLogData);
+                const allExclusionParams = exclusionLogs.map(parseLogData);
+
+                const isMatchAnd = matchLogicToggle.checked;
+                
+                const positiveParams = new Map();
+                allMatchParams.forEach(log => {
+                    log.forEach((value, key) => {
+                        if (!positiveParams.has(key)) positiveParams.set(key, new Set());
+                        positiveParams.get(key).add(value);
+                    });
+                });
+
+                const negativeParams = new Map();
+                allExclusionParams.forEach(log => {
+                    log.forEach((value, key) => {
+                        if (!negativeParams.has(key)) negativeParams.set(key, new Set());
+                        negativeParams.get(key).add(value);
+                    });
+                });
+                
+                let uniqueParams = new Map();
+                for (const [key, pValues] of positiveParams.entries()) {
+                    if (isMatchAnd && allMatchParams.some(log => !log.has(key) || log.get(key) !== Array.from(pValues)[0] )) {
+                        if(pValues.size > 1) continue; 
+                        if(allMatchParams.some(log => !log.has(key) || log.get(key) !== Array.from(pValues)[0] )) continue;
+                    }
+
+                    const nValues = negativeParams.get(key) || new Set();
+                    const uniquePositiveValues = new Set([...pValues].filter(x => !nValues.has(x)));
+
+                    if (uniquePositiveValues.size > 0) {
+                        const isCommonAcrossAllPositives = allMatchParams.every(log => log.has(key));
+                        const commonValue = isCommonAcrossAllPositives ? allMatchParams[0].get(key) : null;
+                        
+                        let isDifferentFromCommon = true;
+                        if(isCommonAcrossAllPositives){
+                            isDifferentFromCommon = !allExclusionParams.every(log => log.get(key) === commonValue)
+                        }
+
+                        if(uniquePositiveValues.size > 1){
+                             uniqueParams.set(key, Array.from(uniquePositiveValues).join('|'));
+                        } else if(isDifferentFromCommon) {
+                            uniqueParams.set(key, Array.from(uniquePositiveValues)[0]);
+                        }
+                    }
+                }
+                
+                const commonParams = new Map();
+                if (allMatchParams.length > 0) {
+                    const firstMatch = new Map(allMatchParams[0]);
+                    for (const [key, value] of firstMatch.entries()) {
+                        if (allMatchParams.every(matchMap => matchMap.get(key) === value)) {
+                            commonParams.set(key, value);
+                        }
+                    }
+                }
+                
+                uniqueParams.forEach((value, key) => {
+                    if (commonParams.has(key) && commonParams.get(key) === value) {
+                        commonParams.delete(key);
+                    }
+                });
+
+                const nullParams = new Map();
+                 for (const [key, value] of commonParams.entries()) {
+                    if(value.trim() === '' || value.toLowerCase() === 'null'){
+                        nullParams.set(key, value);
+                        commonParams.delete(key);
+                    }
+                }
+
+                displayResults(uniqueParams, commonParams, nullParams);
+
+            } catch (error) {
+                console.error("Analysis Error:", error);
+                showError("An unexpected error occurred. Please check the console and ensure your log data is formatted correctly.");
+            }
+        }
+        
+        function displayResults(unique, common, nulls) {
+            resultsWrapper.classList.remove('hidden');
+            errorPanel.innerHTML = '';
+            errorPanel.classList.remove('active');
+            
+            generateGtmTriggerTable(unique, gtmTriggerPanel, "No unique parameters found to generate a GTM trigger.");
+            generateGtmVariablesTable(unique, gtmVariablesPanel, "No unique parameters found to generate GTM variables.");
+            generateResultsTable(unique, uniquePanel, "No unique parameters found. Try adjusting the AND/OR logic or the logs provided.");
+            generateResultsTable(common, commonPanel, "No parameters were found to be common across ALL 'Positive' examples.");
+            generateResultsTable(nulls, nullPanel, "No common 'null' value parameters were found across ALL 'Positive' examples.", 'key');
+            
+            if (unique.size > 0) {
+                document.querySelector('.results-tab[data-tab="gtm-trigger"]').click();
+            } else {
+                document.querySelector('.results-tab[data-tab="unique"]').click();
+            }
+            
+            resultsWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function generateResultsTable(paramsMap, panel, notFoundMessage, copyTarget = 'value') {
+            panel.innerHTML = ''; 
+            if (paramsMap.size === 0) {
+                panel.innerHTML = `<div class="p-4 bg-slate-100 border border-slate-200 rounded-md text-slate-500"><p>${notFoundMessage}</p></div>`;
+                return;
+            }
+
+            const table = document.createElement('table');
+            table.className = 'results-table';
+            table.innerHTML = `<thead><tr><th>Parameter Key</th><th>Value</th><th class="text-center">Actions</th></tr></thead><tbody></tbody>`;
+            const tableBody = table.querySelector('tbody');
+
+            paramsMap.forEach((value, key) => {
+                const row = tableBody.insertRow();
+                const isRegex = value.includes('|');
+                const regexLabel = isRegex ? '<span class="regex-label">(regex)</span>' : '';
+                
+                const tempDiv = document.createElement('div');
+                tempDiv.textContent = value;
+                const escapedValue = tempDiv.innerHTML;
+
+                const displayValue = (value||"").trim() === '' || (value||"").toLowerCase() === 'null' ? `<span class="text-slate-400 italic">Null</span>` : escapedValue + regexLabel;
+                const buttonText = copyTarget === 'key' ? 'Copy Key' : 'Copy Value';
+                const textToCopy = copyTarget === 'key' ? key : value;
+                
+                row.innerHTML = `
+                    <td data-label="Key" class="key-cell">${key}</td>
+                    <td data-label="Value" class="value-cell">${displayValue}</td>
+                    <td data-label="Action" class="copy-btn-cell text-center">
+                        <button class="copy-btn">${buttonText}</button>
+                    </td>`;
+                row.querySelector('.copy-btn').addEventListener('click', (e) => copyToClipboard(textToCopy, e.target, buttonText));
+            });
+            panel.appendChild(table);
+        }
+        
+        function generateGtmTriggerTable(paramsMap, panel, notFoundMessage) {
+            panel.innerHTML = ''; 
+            if (paramsMap.size === 0) {
+                panel.innerHTML = `<div class="p-4 bg-slate-100 border border-slate-200 rounded-md text-slate-500"><p>${notFoundMessage}</p></div>`;
+                return;
+            }
+
+            const table = document.createElement('table');
+            table.className = 'results-table';
+            table.innerHTML = `<thead><tr><th>Variable</th><th>Match Type</th><th>Value</th></tr></thead><tbody></tbody>`;
+            const tableBody = table.querySelector('tbody');
+            
+            let eventName = 'gtm.click'; 
+            if (paramsMap.has('event')) {
+                eventName = paramsMap.get('event');
+            } else if (paramsMap.has('en')) {
+                 eventName = paramsMap.get('en');
+            }
+            
+            const eventRow = tableBody.insertRow();
+            eventRow.innerHTML = `
+                <td data-label="Variable" class="key-cell">event</td>
+                <td data-label="Match Type">equals</td>
+                <td data-label="Value" class="value-cell">${eventName}</td>
+            `;
+
+            paramsMap.forEach((value, key) => {
+                if (key === 'event' || key === 'en') return;
+
+                const row = tableBody.insertRow();
+                const isRegex = value.includes('|');
+                const matchType = isRegex ? 'matches RegEx (ignore case)' : 'equals';
+                
+                const tempDiv = document.createElement('div');
+                tempDiv.textContent = value;
+                const escapedValue = tempDiv.innerHTML;
+
+                row.innerHTML = `
+                    <td data-label="Variable" class="key-cell">${key}</td>
+                    <td data-label="Match Type">${matchType}</td>
+                    <td data-label="Value" class="value-cell">${escapedValue}</td>`;
+            });
+            
+            panel.innerHTML = `<p class="text-sm text-slate-500 mb-4">Use these conditions to create a <strong>Custom Event</strong> trigger in Google Tag Manager.</p>`;
+            panel.appendChild(table);
+        }
+
+        function generateGtmVariablesTable(paramsMap, panel, notFoundMessage) {
+            panel.innerHTML = ''; 
+            if (paramsMap.size === 0) {
+                panel.innerHTML = `<div class="p-4 bg-slate-100 border border-slate-200 rounded-md text-slate-500"><p>${notFoundMessage}</p></div>`;
+                return;
+            }
+
+            const table = document.createElement('table');
+            table.className = 'results-table';
+            table.innerHTML = `<thead><tr><th>GTM Variable Name</th><th>Data Layer Variable Name</th></tr></thead><tbody></tbody>`;
+            const tableBody = table.querySelector('tbody');
+
+            paramsMap.forEach((value, key) => {
+                if (key === 'event' || key === 'en') return; 
+
+                const row = tableBody.insertRow();
+                const gtmVariableName = `dlv - ${key}`;
+
+                row.innerHTML = `
+                    <td data-label="GTM Variable" class="key-cell">${gtmVariableName}</td>
+                    <td data-label="DL Variable" class="value-cell">${key}</td>`;
+            });
+            
+            if (tableBody.rows.length === 0) {
+                 panel.innerHTML = `<div class="p-4 bg-slate-100 border border-slate-200 rounded-md text-slate-500"><p>No unique parameters found that require custom Data Layer Variables.</p></div>`;
+                 return;
+            }
+            
+            panel.innerHTML = `<p class="text-sm text-slate-500 mb-4">Create these <strong>Data Layer Variable</strong> types in GTM to use them in your trigger.</p>`;
+            panel.appendChild(table);
+        }
+        
+        function showError(message) {
+            resultsWrapper.classList.remove('hidden');
+            tabs.forEach(t => t.classList.remove('active'));
+            tabPanels.forEach(p => p.classList.remove('active'));
+            errorPanel.classList.add('active');
+            errorPanel.innerHTML = `<div class="p-4 bg-red-100 border border-red-300 rounded-md text-red-800"><strong class="font-semibold">Error!</strong><p class="text-sm mt-1">${message}</p></div>`;
+            resultsWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function copyToClipboard(text, buttonElement, originalButtonText) {
+            if (!text) return;
+            navigator.clipboard.writeText(text).then(() => {
+                buttonElement.textContent = 'Copied!';
+                buttonElement.style.backgroundColor = '#22c55e';
+                buttonElement.style.color = 'white';
+                setTimeout(() => {
+                    buttonElement.textContent = originalButtonText;
+                    buttonElement.style.backgroundColor = '';
+                    buttonElement.style.color = '';
+                }, 2000);
+            }).catch(err => console.error('Failed to copy text: ', err));
+        }
+    });
+</script>

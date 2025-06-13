@@ -16,12 +16,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="icon" href="/icons/icon128-min.png" type="image/png">
     <link rel="canonical" href="https://www.gaoptimizer.com/blog/" />
 
-    <!-- Schema will be injected here if provided -->
+    <!-- Schema will be injected here if provided by a template -->
     
 
+    <!-- Sitewide Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "GA4 Optimizer",
+      "url": "https://www.gaoptimizer.com/",
+      "logo": "https://www.gaoptimizer.com/icons/logo-64.png",
+      "sameAs": [
+        "https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj"
+      ]
+    }
+    </script>
+
     
-    
-    <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 </head>
 <body>
@@ -30,25 +42,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
     <header class="site-header">
-        <div class="nav-container">
-            <a href="/" class="brand-logo">
-                <img src="/icons/icon128-min.png" alt="GA4 Optimizer Logo">
-                <span class="brand-name">GA4 Optimizer</span>
-            </a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="/" >Home</a></li>
-                    <li><a href="/blog/index.html" class="active" aria-current="page">Blog</a></li>
-                    <li><a href="/documentation.html" >Documentation</a></li>
-                    <li><a href="/privacy.html" >Privacy</a></li>
-                    <li><a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj" class="cta-button" target="_blank" rel="noopener noreferrer">Add to Chrome</a></li>
-                </ul>
-            </nav>
-            <button class="nav-toggle" aria-label="Toggle navigation">
-                <span></span>
-            </button>
-        </div>
-    </header>
+    <div class="nav-container">
+        <a href="/" class="brand-logo">
+            <img src="/icons/logo-64.png" alt="GA4 Optimizer Logo">
+            <span class="brand-name">GA4 Optimizer</span>
+        </a>
+
+        <button type="button" class="nav-toggle" aria-label="Toggle Navigation">
+            <span></span>
+        </button>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/documentation/">Features</a></li>
+                
+                <li class="nav-item-dropdown">
+                    <button type="button" class="nav-dropdown-toggle">Tools</button>
+                    <ul class="sub-nav">
+                        <li><a href="/tools/event-analyzer/">GA4 Event Analyzer</a></li>
+                        <li><a href="/tools/gtm-trigger-finder/">GTM Trigger Finder</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li>
+                    <a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj" class="cta-button" target="_blank" rel="noopener">
+                        Add to Chrome
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
     <main class="container">
     <div class="main-content content-page">
@@ -92,12 +119,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <footer class="site-footer">
         <p>© 2025 GA4 Optimizer. All rights reserved.</p>
         <p>
-            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/privacy/">Privacy Policy</a>
             <span>•</span>
-            <a href="/contact.html">Contact Support</a>
+            <a href="/contact/">Contact Support</a>
         </p>
     </footer>
 
-    <script src="/documentation.js"></script>
+    
+    <script src="/global.js"></script>
+
+    
+    
+
 </body>
 </html>

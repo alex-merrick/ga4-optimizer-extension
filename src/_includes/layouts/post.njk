@@ -1,6 +1,57 @@
 ---
 layout: "layouts/base.njk"
 ---
+{#
+    Developer Notes:
+    This block now handles multiple schema types gracefully.
+    1. It builds the primary 'Article' schema.
+    2. It checks if a page-specific schema (like our FAQ) exists in the front matter.
+    3. It combines both into a single <script> using Google's recommended '@graph' structure.
+    4. This final graph is passed to base.njk to be rendered in the <head>.
+#}
+{% set articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "datePublished": page.date.toISOString(),
+  "dateModified": last_modified_at | default(page.date.toISOString()),
+  "author": {
+    "@type": "Person",
+    "name": author | default("The GA4 Optimizer Team")
+  },
+  "publisher": {
+      "@type": "Organization",
+      "name": "GA4 Optimizer",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.gaoptimizer.com/icons/logo-64.png"
+      }
+  },
+  "image": {
+      "@type": "ImageObject",
+      "url": "https://www.gaoptimizer.com" + (post_image or thumbnail)
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.gaoptimizer.com" + page.url
+  }
+} %}
+
+{# Check for page-specific schema and combine schemas using @graph #}
+{% if faq_schema %}
+  {% set combinedSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      articleSchema,
+      faq_schema | fromJson
+    ]
+  } %}
+  {% set schema = combinedSchema | dump %}
+{% else %}
+  {% set schema = articleSchema | dump %}
+{% endif %}
+
+
 <main class="container">
     <div class="main-content content-page">
         

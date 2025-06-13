@@ -43,8 +43,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         @media (max-width: 900px) { .docs-layout { flex-direction: column; gap: 0; } #docs-sidebar { width: 100%; position: sticky; top: 70px; height: auto; z-index: 900; overflow-y: visible; margin-bottom: 20px; } .sidebar-title { cursor: pointer; position: relative; background-color: var(--bg-light); } .sidebar-title::after { content: '▾'; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 1.2em; transition: transform 0.3s ease; } #docs-sidebar.is-open .sidebar-title::after { transform: translateY(-50%) rotate(180deg); } .sidebar-content { max-height: 0; overflow: hidden; padding: 0 15px; margin: 0; transition: max-height 0.4s ease-out, padding 0.4s ease-out; background-color: var(--bg-light); border-top: 1px solid var(--border-color); } #docs-sidebar.is-open .sidebar-title { border-bottom-left-radius: 0; border-bottom-right-radius: 0; } #docs-sidebar.is-open .sidebar-content { padding: 15px; } #docs-sidebar ul { margin: 0; } }
     </style>
     
-    
-    <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <!--
+      The conflicting style block that was here has been REMOVED.
+      The main style.css file will now control the navigation correctly.
+    -->
 
 </head>
 <body>
@@ -53,29 +56,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
     <header class="site-header">
-        <div class="nav-container">
-            <a href="/" class="brand-logo">
-                <img src="/icons/icon128-min.png" alt="GA4 Optimizer Logo">
-                <span class="brand-name">GA4 Optimizer</span>
-            </a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="/" >Home</a></li>
-                    <li><a href="/blog/index.html" >Blog</a></li>
-                    <li><a href="/documentation.html" class="active" aria-current="page">Documentation</a></li>
-                    <li><a href="/privacy.html" >Privacy</a></li>
-                    <li><a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj" class="cta-button" target="_blank" rel="noopener noreferrer">Add to Chrome</a></li>
-                </ul>
-            </nav>
-            <button class="nav-toggle" aria-label="Toggle navigation">
-                <span></span>
-            </button>
-        </div>
-    </header>
+    <div class="nav-container">
+        <a href="/" class="brand-logo">
+            <img src="/icons/logo-64.png" alt="GA4 Optimizer Logo">
+            <span class="brand-name">GA4 Optimizer</span>
+        </a>
+
+        <button class="nav-toggle" aria-label="Toggle Navigation">
+            <span></span>
+        </button>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/documentation/">Features</a></li>
+                
+                <li class="nav-item-dropdown">
+                <a>Tools</a> 
+                <ul class="sub-nav">
+                <li><a href="/tools/event-analyzer/">GA4 Event Analyzer</a></li>
+                 <li><a href="/tools/gtm-trigger-finder/">GTM Trigger Finder</a></li>
+            </ul>
+                </li>
+
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li>
+                    <a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj" class="cta-button" target="_blank" rel="noopener">
+                        Add to Chrome
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
     <main class="container">
     <div class="main-content content-page">
-        <h1>GA4 Optimizer Documentation</h1>
+        <h1>GA4 Optimizer Features</h1>
         <p>GA4 Optimizer aims to solve common challenges in the Google Analytics™ 4 interface. This guide explains how each feature can improve your daily analysis, reporting, and insight-gathering tasks.</p>
         <p><strong>Quick Access to Settings:</strong> Most features can be toggled on/off from the extension popup. Features with more detailed configurations have a settings <img src="/icons/cog-244x256.png" alt="Settings icon" class="settings-gear-inline"> button next to their toggle in the popup.</p>
         

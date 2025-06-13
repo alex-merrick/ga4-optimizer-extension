@@ -16,12 +16,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="icon" href="/icons/icon128-min.png" type="image/png">
     <link rel="canonical" href="https://www.gaoptimizer.com/blog/the-ultimate-guide-to-ab-test-analysis-in-ga4/" />
 
-    <!-- Schema will be injected here if provided -->
+    <!-- Schema will be injected here if provided by a template -->
     
 
+    <!-- Sitewide Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "GA4 Optimizer",
+      "url": "https://www.gaoptimizer.com/",
+      "logo": "https://www.gaoptimizer.com/icons/logo-64.png",
+      "sameAs": [
+        "https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj"
+      ]
+    }
+    </script>
+
     
-    
-    <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 </head>
 <body>
@@ -30,27 +42,52 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
     <header class="site-header">
-        <div class="nav-container">
-            <a href="/" class="brand-logo">
-                <img src="/icons/icon128-min.png" alt="GA4 Optimizer Logo">
-                <span class="brand-name">GA4 Optimizer</span>
-            </a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="/" >Home</a></li>
-                    <li><a href="/blog/index.html" class="active" aria-current="page">Blog</a></li>
-                    <li><a href="/documentation.html" >Documentation</a></li>
-                    <li><a href="/privacy.html" >Privacy</a></li>
-                    <li><a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj" class="cta-button" target="_blank" rel="noopener noreferrer">Add to Chrome</a></li>
-                </ul>
-            </nav>
-            <button class="nav-toggle" aria-label="Toggle navigation">
-                <span></span>
-            </button>
-        </div>
-    </header>
+    <div class="nav-container">
+        <a href="/" class="brand-logo">
+            <img src="/icons/logo-64.png" alt="GA4 Optimizer Logo">
+            <span class="brand-name">GA4 Optimizer</span>
+        </a>
 
-    <main class="container">
+        <button type="button" class="nav-toggle" aria-label="Toggle Navigation">
+            <span></span>
+        </button>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/documentation/">Features</a></li>
+                
+                <li class="nav-item-dropdown">
+                    <button type="button" class="nav-dropdown-toggle">Tools</button>
+                    <ul class="sub-nav">
+                        <li><a href="/tools/event-analyzer/">GA4 Event Analyzer</a></li>
+                        <li><a href="/tools/gtm-trigger-finder/">GTM Trigger Finder</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li>
+                    <a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj" class="cta-button" target="_blank" rel="noopener">
+                        Add to Chrome
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    
+
+
+
+
+  
+  
+
+
+
+<main class="container">
     <div class="main-content content-page">
         
         
@@ -72,7 +109,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <article class="post-body">
             <p>So, your A/B test has finished collecting data. You've dutifully created an Exploration report in Google Analytics 4, comparing your control against your new variation. You see a lift in conversions—but can you trust it? Is it a real win or just random statistical noise?</p>
 <p>Answering this question is one of the most critical—and frustrating—parts of conversion rate optimization (CRO). In this guide, we'll walk you through how to properly analyze your A/B test results, first the manual way, and then the easy, automated way.</p>
-<h3>The Challenge: What GA4 Doesn't Tell You</h3>
+<h2>The Challenge: What GA4 Doesn't Tell You</h2>
 <p>The standard GA4 interface presents two major challenges for analyzing test results:</p>
 <ul>
 <li><strong>No Built-in Significance Calculator:</strong> GA4 shows you user and conversion counts, but it won't tell you the statistical significance (or &quot;confidence level&quot;) of your results. A 10% lift is meaningless if there's only a 60% chance it's a real effect.</li>
@@ -83,7 +120,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <ol>
 <li><strong>Set up your GA4 Exploration:</strong> Create a Free-form exploration with your test segments applied and the &quot;Users&quot; and &quot;Conversions&quot; metrics enabled.</li>
 <li><strong>Export the Data:</strong> Manually copy the user and conversion counts for your control and variation segments.</li>
-<li><strong>Use an Online Calculator:</strong> Go to a trusted A/B test calculator online (like <a href="https://www.surveymonkey.com/mp/ab-testing-significance-calculator/">SurveyMonkey's</a> or <a href="https://neilpatel.com/ab-testing-calculator/">Neil Patel's</a>) and paste in your numbers.</li>
+<li><strong>Use an Online Calculator:</strong> Go to a trusted A/B test calculator online (like <a href="https://www.surveymonkey.com/mp/ab-testing-significance-calculator/" target="_blank" rel="noopener noreferrer">SurveyMonkey's</a> or <a href="https://neilpatel.com/ab-testing-calculator/" target="_blank" rel="noopener noreferrer">Neil Patel's</a>) and paste in your numbers.</li>
 <li><strong>Analyze the Results:</strong> The calculator will tell you the observed uplift and, most importantly, the statistical significance level. For most businesses, a confidence level of <strong>95% or higher</strong> is required to declare a winning result.</li>
 </ol>
 <p>While this works, it's slow, repetitive, and pulls you out of your workflow every single time you need to check a result.</p>
@@ -104,12 +141,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </ul>
 <p>This turns a half hour data-exporting task into a 5-second glance, allowing you to make faster, more confident decisions.</p>
 <hr>
-<h3><strong>Frequently Asked Questions (FAQ)</strong></h3>
-<p><strong>Q: What is statistical significance?</strong>
+<h2><strong>Frequently Asked Questions (FAQ)</strong></h2>
+<p><strong>Q: What is statistical significance?</strong><br>
 A: In simple terms, it's the probability that the measured difference between your control and variation is not due to random chance. A 95% significance level means there is a 95% chance that the result is real and repeatable.</p>
-<p><strong>Q: Why is a Sample Ratio Mismatch (SRM) bad?</strong>
+<p><strong>Q: Why is a Sample Ratio Mismatch (SRM) bad?</strong><br>
 A: SRM indicates a problem with how users were assigned to your test groups. It can be caused by redirects, tracking bugs, or other technical issues. If the user split isn't what you expected (e.g., 50/50), the entire test result is unreliable, even if it looks significant.</p>
-<p><strong>Q: Where can I learn more about this feature?</strong>
+<p><strong>Q: Where can I learn more about this feature?</strong><br>
 A: You can see the detailed requirements and setup in our official <a href="/documentation.html#feature-ab-test-segment-comparison">A/B Test Comparison documentation</a>.</p>
 
         </article>
@@ -141,12 +178,17 @@ A: You can see the detailed requirements and setup in our official <a href="/doc
     <footer class="site-footer">
         <p>© 2025 GA4 Optimizer. All rights reserved.</p>
         <p>
-            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/privacy/">Privacy Policy</a>
             <span>•</span>
-            <a href="/contact.html">Contact Support</a>
+            <a href="/contact/">Contact Support</a>
         </p>
     </footer>
 
-    <script src="/documentation.js"></script>
+    
+    <script src="/global.js"></script>
+
+    
+    
+
 </body>
 </html>

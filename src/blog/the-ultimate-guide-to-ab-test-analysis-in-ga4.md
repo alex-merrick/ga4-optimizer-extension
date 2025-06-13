@@ -5,13 +5,34 @@ description: "Struggling to validate your A/B test results in GA4? Learn the man
 date: 2025-06-08T00:00:00.000Z
 thumbnail: /img/thumbnails/thumb-ab-test.jpg
 post_image: /img/thumbnails/banner-ab-test.jpg
+author: "Alex Merrick"
+faq_schema: |
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "What is statistical significance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In simple terms, statistical significance is the probability that the measured difference between your control and variation is not due to random chance. A 95% significance level means there is a 95% chance that the result is real and repeatable."
+      }
+    }, {
+      "@type": "Question",
+      "name": "Why is a Sample Ratio Mismatch (SRM) bad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SRM indicates a problem with how users were assigned to your test groups. It can be caused by redirects, tracking bugs, or other technical issues. If the user split isn't what you expected (e.g., 50/50), the entire test result is unreliable, even if it looks significant."
+      }
+    }]
+  }
 ---
 
 So, your A/B test has finished collecting data. You've dutifully created an Exploration report in Google Analytics 4, comparing your control against your new variation. You see a lift in conversions—but can you trust it? Is it a real win or just random statistical noise?
 
 Answering this question is one of the most critical—and frustrating—parts of conversion rate optimization (CRO). In this guide, we'll walk you through how to properly analyze your A/B test results, first the manual way, and then the easy, automated way.
 
-### The Challenge: What GA4 Doesn't Tell You
+## The Challenge: What GA4 Doesn't Tell You
 
 The standard GA4 interface presents two major challenges for analyzing test results:
 
@@ -51,7 +72,7 @@ This turns a half hour data-exporting task into a 5-second glance, allowing you 
 
 ---
 
-### **Frequently Asked Questions (FAQ)**
+## **Frequently Asked Questions (FAQ)**
 
 **Q: What is statistical significance?**
 A: In simple terms, it's the probability that the measured difference between your control and variation is not due to random chance. A 95% significance level means there is a 95% chance that the result is real and repeatable.

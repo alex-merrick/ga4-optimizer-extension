@@ -1,0 +1,413 @@
+---
+layout: "layouts/base.njk"
+title: "GA4 Event Analyzer | GA4 Optimizer Tools"
+permalink: "/tools/event-analyzer/"
+schema: |
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Analyze GA4 Event Parameters",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Provide Positive Examples",
+        "text": "Paste the GA4 event logs for the actions you WANT to track into the 'Positive Examples' box."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Provide Negative Examples",
+        "text": "Paste GA4 event logs for other actions you DON'T WANT to track into the 'Negative Examples' box."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Analyze and Isolate",
+        "text": "Click 'Find Unique Parameters' to see what makes your target events different."
+      }
+    ]
+  }
+---
+<style>
+    /* --- UX Redesign: Scoped & Responsive Styles for the Tool Page --- */
+
+    /* Base layout and typography */
+    .tool-body {
+        background-color: var(--bg-light);
+        padding: 2rem 0;
+    }
+
+    .tool-header h1 { 
+        color: var(--text-dark); 
+        font-size: 2rem;
+    }
+    .tool-header p { 
+        color: var(--text-light); 
+        font-size: 1.1rem;
+        max-width: 700px;
+    }
+    
+    .tool-section {
+        background-color: var(--bg-white);
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+        margin-bottom: 2rem;
+    }
+    
+    /* Step numbering and titles */
+    .step-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: var(--brand-purple);
+        color: white;
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-right: 0.75rem;
+        flex-shrink: 0;
+    }
+
+    .tool-section-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    .tool-section-header h2 {
+        font-size: 1.75rem;
+        margin: 0;
+    }
+
+    /* Form Elements */
+    .tool-textarea {
+        background-color: #f8f9fa;
+        border: 1px solid var(--border-color);
+        color: var(--text-dark);
+        width: 100%;
+        border-radius: 6px;
+        padding: 0.75rem;
+        font-family: monospace;
+        font-size: 0.9rem;
+        min-height: 250px;
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .tool-textarea:focus {
+        border-color: var(--brand-purple);
+        box-shadow: 0 0 0 3px rgba(138, 34, 155, 0.15);
+        outline: none;
+    }
+
+    /* Button styles */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        padding: 12px 28px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        height: 52px;
+        box-sizing: border-box;
+    }
+    .btn-primary {
+        background-color: var(--brand-purple);
+        color: white;
+    }
+    .btn-primary:hover {
+        background-color: var(--brand-purple-dark);
+        transform: translateY(-2px);
+        color: white;
+    }
+    .btn-secondary {
+        background-color: #e9ecef;
+        color: #495057;
+    }
+     .btn-secondary:hover {
+        background-color: #ced4da;
+        color: #495057;
+    }
+
+    .btn-text-link {
+        margin-top: 1rem;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--brand-purple);
+        transition: background-color 0.2s ease;
+    }
+    .btn-text-link:hover {
+        background-color: #f0e6f7;
+        color: var(--brand-purple-dark);
+        text-decoration: none;
+    }
+
+    /* Logic Toggle Styles */
+    .logic-container {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background-color: #f8f9fa;
+        padding: 0.75rem;
+        border-radius: 6px;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+    }
+    .toggle-label { width: 52px; height: 28px; position: relative; display: inline-block; }
+    .toggle-checkbox { opacity: 0; width: 0; height: 0; }
+    .toggle-slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #7f8c8d; transition: .4s; border-radius: 28px; }
+    .toggle-slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+    .toggle-checkbox:checked + .toggle-slider { background-color: var(--brand-purple); }
+    .toggle-checkbox:checked + .toggle-slider:before { transform: translateX(24px); }
+    .toggle-slider:after { position: absolute; content: 'OR'; display: block; color: white; font-weight: bold; font-size: 10px; right: 8px; top: 50%; transform: translateY(-50%); }
+    .toggle-checkbox:checked + .toggle-slider:after { content: 'AND'; left: 6px; }
+
+    /* Results Section */
+    .results-tabs { border-bottom: 2px solid var(--border-color); margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; }
+    .results-tab {
+        padding: 0.75rem 1.25rem;
+        cursor: pointer;
+        border: none;
+        background: none;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-light);
+        border-bottom: 3px solid transparent;
+        margin-bottom: -2px;
+        text-align: center;
+    }
+    .results-tab.active {
+        color: var(--brand-purple);
+        border-bottom-color: var(--brand-purple);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* Responsive Table/Card Design */
+    .results-table {
+        width: 100%;
+        text-align: left;
+        border-collapse: collapse;
+    }
+    .results-table th {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        background-color: var(--bg-light);
+        border-bottom: 2px solid var(--border-color);
+    }
+    .results-table td {
+        padding: 0.75rem;
+        border-bottom: 1px solid var(--border-color);
+        font-family: monospace;
+        vertical-align: middle;
+    }
+    .results-table .key-cell { color: var(--brand-purple); }
+    .results-table .value-cell { word-break: break-all; }
+    .results-table .copy-btn {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 0.8rem;
+        padding: 6px 12px;
+        background-color: #e9ecef;
+        color: #495057;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .regex-label {
+        font-size: 0.8em;
+        font-weight: 600;
+        color: var(--brand-purple);
+        margin-left: 8px;
+        vertical-align: middle;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    
+    /* Styles for instructional content in results */
+    .instruction-block { line-height: 1.6; }
+    .instruction-block h3 { font-size: 1.25rem; margin-top: 1rem; margin-bottom: 0.5rem; color: var(--text-dark); }
+    .instruction-block ol { list-style: decimal; padding-left: 20px; }
+    .instruction-block li { margin-bottom: 0.5rem; }
+    .instruction-block code { background-color: #e9ecef; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+    .instruction-block .important-note { background-color: #fdf1e6; border-left: 4px solid #F9AB00; padding: 1rem; margin-top: 1.5rem; border-radius: 4px; }
+
+    /* --- Mobile-First & Responsive Breakpoints --- */
+    .main-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    @media (min-width: 1024px) {
+        .main-grid { grid-template-columns: 1fr 1fr; }
+        .tool-header h1 { font-size: 2.5rem; }
+        .tool-header p { font-size: 1.2rem; }
+        .tool-section { padding: 2rem; }
+    }
+    
+    @media (max-width: 767px) {
+        .results-table thead { display: none; }
+        .results-table tbody, .results-table tr, .results-table td {
+            display: block;
+            width: 100%;
+            text-align: left;
+        }
+        .results-table tr {
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1rem;
+            background-color: #fff;
+        }
+        .results-table td {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: none;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        .results-table td::before {
+            content: attr(data-label);
+            font-weight: 600;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-dark);
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        .results-table .value-cell { text-align: right; }
+        .results-table .copy-btn-cell {
+            justify-content: center;
+            margin-top: 1rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border-color);
+        }
+        .results-table .copy-btn { width: 100%; padding: 10px; }
+    }
+    .internal-link-note {
+        background-color: #f0e6f7;
+        border-left: 4px solid var(--brand-purple);
+        padding: 1rem;
+        margin-top: 2rem;
+        border-radius: 4px;
+        font-size: 0.95rem;
+    }
+</style>
+
+<div class="tool-body">
+    <div class="container mx-auto px-4">
+        <!-- Header -->
+        <header class="tool-header text-center mb-10">
+            <h1>GA4 Event Parameter Comparison Tool</h1>
+            <p class="mt-2 max-w-2xl mx-auto">
+                Isolate the unique GA4 event parameters that separate one user action from another to build perfect event modification rules or GTM triggers.
+            </p>
+        </header>
+
+        <!-- Onboarding Section -->
+        <section class="tool-section">
+            <div class="tool-section-header">
+                <div class="step-badge">?</div>
+                <h2>How This Works</h2>
+            </div>
+            <ol class="list-decimal list-inside space-y-2 text-slate-600">
+                <li>Use the official <strong><a href="https://chromewebstore.google.com/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna" target="_blank" rel="noopener">GA Debugger Chrome extension</a></strong> to see event data in your browser's Console.</li>
+                <li>Perform the specific action you want to track (e.g., clicking a "Buy Now" button).</li>
+                <li>In the Console, find the GA4 event log and copy the entire block of event parameters.</li>
+                <li>Paste the logs for the events you **WANT** to isolate into the **"Positive Examples"** box.</li>
+                <li>Paste logs from other, similar events you want to ignore into the **"Negative Examples"** box.</li>
+                <li>Click "Find Unique Parameters" to see what makes your target events different.</li>
+            </ol>
+            <div class="internal-link-note">
+                <strong>Looking to analyze raw dataLayer pushes instead?</strong> <a href="/tools/gtm-trigger-finder/">Check out our GTM Trigger Finder tool.</a>
+            </div>
+        </section>
+
+        <!-- Main Tool Section -->
+        <section class="tool-section">
+            <div class="main-grid">
+                <!-- Positive Examples Section -->
+                <div>
+                    <div class="tool-section-header">
+                        <div class="step-badge">1</div>
+                        <h2>Positive Examples</h2>
+                    </div>
+                    <p class="text-sm text-slate-500 mb-4">Paste the GA4 event logs for the actions you <strong>WANT</strong> to track.</p>
+                    <div class="logic-container text-sm text-slate-600">
+                        <span>Find parameters that exist in</span>
+                        <label for="match-logic-toggle" class="toggle-label">
+                            <input type="checkbox" id="match-logic-toggle" class="toggle-checkbox" aria-label="Toggle matching logic between AND and OR">
+                            <div class="toggle-slider"></div>
+                        </label>
+                        <span>of the positive examples.</span>
+                    </div>
+                    <div id="match-container" class="space-y-4">
+                        <textarea class="tool-textarea" placeholder="Paste the GA4 event log for your target action here..."></textarea>
+                    </div>
+                    <button id="add-match" class="btn-text-link">+ Add Another Positive Example</button>
+                </div>
+
+                <!-- Negative Examples Section -->
+                <div>
+                    <div class="tool-section-header">
+                        <div class="step-badge">2</div>
+                        <h2>Negative Examples</h2>
+                    </div>
+                    <p class="text-sm text-slate-500 mb-4">Paste GA4 event logs for other actions you <strong>DON'T WANT</strong> to track.</p>
+                    <div class="logic-container text-sm text-slate-600">
+                        <span>Exclude parameters that exist in</span>
+                       <label for="exclusion-logic-toggle" class="toggle-label">
+                           <input type="checkbox" id="exclusion-logic-toggle" class="toggle-checkbox" aria-label="Toggle exclusion logic between AND and OR">
+                           <div class="toggle-slider"></div>
+                        </label>
+                        <span>of the negative examples.</span>
+                    </div>
+                    <div id="dont-match-container" class="space-y-4">
+                        <textarea class="tool-textarea" placeholder="Paste the log for a similar, non-target action here..."></textarea>
+                    </div>
+                    <button id="add-dont-match" class="btn-text-link">+ Add Another Negative Example</button>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="text-center pt-8 mt-8 border-t border-slate-200">
+                <div class="flex justify-center items-center gap-4 flex-wrap">
+                    <button id="analyze-btn" class="btn btn-primary">
+                        <span class="step-badge !bg-white !text-[var(--brand-purple)] !w-7 !h-7 !text-base !mr-2">3</span>Find Unique Parameters
+                    </button>
+                    <button id="reset-btn" class="btn btn-secondary">Reset</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <div id="results-wrapper" class="tool-section hidden">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">Analysis Results</h2>
+            <div class="results-tabs">
+                <button class="results-tab active" data-tab="unique">Unique Parameters</button>
+                <button class="results-tab" data-tab="common">Common Parameters</button>
+                <button class="results-tab" data-tab="null">Common Nulls</button>
+                <button class="results-tab" data-tab="ga4-creation">GA4 Event Creation</button>
+                <button class="results-tab" data-tab="custom-definitions">Custom Dimensions</button>
+            </div>
+            
+            <div id="unique-panel" class="tab-panel active"></div>
+            <div id="ga4-creation-panel" class="tab-panel instruction-block"></div>
+            <div id="custom-definitions-panel" class="tab-panel instruction-block"></div>
+            <div id="common-panel" class="tab-panel"></div>
+            <div id="null-panel" class="tab-panel"></div>
+            <div id="error-panel" class="tab-panel"></div>
+        </div>
+    </div>
+</div>
+
+<!-- FIX: Load the dedicated JavaScript file for this tool -->
+<script src="/js/event-analyzer.js" defer></script>
