@@ -3,11 +3,12 @@ layout: "layouts/base.njk"
 ---
 {#
     Developer Notes:
-    This block now handles multiple schema types gracefully.
-    1. It builds the primary 'Article' schema.
-    2. It checks if a page-specific schema (like our FAQ) exists in the front matter.
-    3. It combines both into a single <script> using Google's recommended '@graph' structure.
-    4. This final graph is passed to base.njk to be rendered in the <head>.
+    This is the corrected implementation.
+    1. It builds the primary 'Article' schema as a Nunjucks object.
+    2. It checks for page-specific 'faq_schema' and combines them using '@graph'.
+    3. CRITICAL FIX: It assigns the final JSON string to a top-level Nunjucks variable `schema`.
+    4. Eleventy's data cascade makes this `schema` variable available to the parent `base.njk`
+       layout, which then handles the rendering of the <script> tag in the <head>.
 #}
 {% set articleSchema = {
   "@context": "https://schema.org",
@@ -37,7 +38,7 @@ layout: "layouts/base.njk"
   }
 } %}
 
-{# Check for page-specific schema and combine schemas using @graph #}
+{# Check for page-specific schema and combine schemas using @graph if it exists #}
 {% if faq_schema %}
   {% set combinedSchema = {
     "@context": "https://schema.org",
@@ -48,6 +49,7 @@ layout: "layouts/base.njk"
   } %}
   {% set schema = combinedSchema | dump %}
 {% else %}
+  {# If no FAQ schema, just use the article schema #}
   {% set schema = articleSchema | dump %}
 {% endif %}
 
