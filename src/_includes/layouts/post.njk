@@ -1,59 +1,51 @@
 ---
 layout: "layouts/base.njk"
----
-{#
-    Developer Notes:
-    This is the corrected implementation.
-    1. It builds the primary 'Article' schema as a Nunjucks object.
-    2. It checks for page-specific 'faq_schema' and combines them using '@graph'.
-    3. CRITICAL FIX: It assigns the final JSON string to a top-level Nunjucks variable `schema`.
-    4. Eleventy's data cascade makes this `schema` variable available to the parent `base.njk`
-       layout, which then handles the rendering of the <script> tag in the <head>.
-#}
-{% set articleSchema = {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": title,
-  "datePublished": page.date.toISOString(),
-  "dateModified": last_modified_at | default(page.date.toISOString()),
-  "author": {
-    "@type": "Person",
-    "name": author | default("The GA4 Optimizer Team")
-  },
-  "publisher": {
-      "@type": "Organization",
-      "name": "GA4 Optimizer",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.gaoptimizer.com/icons/ga4-optimizer-logo.png"
+eleventyComputed:
+  schema: |
+    {%- set articleSchema = {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": title,
+      "datePublished": page.date.toISOString(),
+      "dateModified": last_modified_at | default(page.date.toISOString()),
+      "author": {
+        "@type": "Person",
+        "name": author | default("The GA4 Optimizer Team")
+      },
+      "publisher": {
+          "@type": "Organization",
+          "name": "GA4 Optimizer",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.gaoptimizer.com/icons/ga4-optimizer-logo.png"
+          }
+      },
+      "image": {
+          "@type": "ImageObject",
+          "url": "https://www.gaoptimizer.com" + (post_image or thumbnail)
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.gaoptimizer.com" + page.url
       }
-  },
-  "image": {
-      "@type": "ImageObject",
-      "url": "https://www.gaoptimizer.com" + (post_image or thumbnail)
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://www.gaoptimizer.com" + page.url
-  }
-} %}
-
-{# Check for page-specific schema and combine schemas using @graph if it exists #}
-{% if faq_schema %}
-  {% set combinedSchema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      articleSchema,
-      faq_schema | fromJson
-    ]
-  } %}
-  {% set schema = combinedSchema | dump %}
-{% else %}
-  {# If no FAQ schema, just use the article schema #}
-  {% set schema = articleSchema | dump %}
-{% endif %}
-
-
+    } -%}
+    {%- if faq_schema -%}
+      {%- set combinedSchema = {
+        "@context": "https://schema.org",
+        "@graph": [
+          articleSchema,
+          faq_schema | fromJson
+        ]
+      } -%}
+      {{- combinedSchema | dump | safe -}}
+    {%- else -%}
+      {{- articleSchema | dump | safe -}}
+    {%- endif -%}
+---
+{# 
+    NOTE: All schema generation logic has been moved to the front matter above.
+    This template's only job is now to render the page content. 
+#}
 <main class="container">
     <div class="main-content content-page">
         
