@@ -598,10 +598,38 @@ a.cta-button:hover {
     display: flex;
     justify-content: space-between;
     gap: 30px;
+    text-align: left;
 }
 
 .step {
     flex: 1;
+    background-color: var(--bg-light);
+    padding: 25px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+}
+
+.step h3 {
+    color: var(--text-dark);
+}
+
+.step p {
+    color: var(--text-light);
+}
+
+a.step {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+a.step:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    text-decoration: none;
+}
+
+a.step h3, a.step p {
+    color: inherit;
 }
 
 .step-number {
@@ -614,6 +642,7 @@ a.cta-button:hover {
     font-weight: 700;
     font-size: 1.2rem;
     margin: 0 auto 15px auto;
+    text-align: center;
 }
 
 .features-grid {
