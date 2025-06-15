@@ -624,16 +624,41 @@ a.cta-button:hover {
 }
 
 .feature-item {
+    display: block;
     background-color: var(--bg-light);
     padding: 25px;
     border-radius: 6px;
     border: 1px solid var(--border-color);
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-item:hover {
+    text-decoration: none;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.feature-item h3 {
+    color: var(--text-dark);
+}
+
+.feature-item p {
+    color: var(--text-light);
+    margin-bottom: 0;
 }
 
 .feature-item img {
     width: 48px;
     height: 48px;
     margin-bottom: 15px;
+}
+
+.feature-learn-more {
+    display: none; /* Hidden by default on desktop */
+    margin-top: 15px;
+    font-weight: 600;
+    color: var(--brand-purple);
 }
 
 .features-link {
@@ -656,6 +681,14 @@ a.cta-button:hover {
 
     .home-section {
         padding: 40px 20px;
+    }
+    
+    .feature-item p {
+        margin-bottom: 0;
+    }
+
+    .feature-learn-more {
+        display: block; /* Becomes visible on mobile */
     }
 }
 
