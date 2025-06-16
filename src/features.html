@@ -28,6 +28,13 @@ schema: |
         "@type": "Answer",
         "text": "This feature adds one-click buttons for common date ranges and comparison periods (like 'Last 7 Days' or 'Month-over-Month') to the standard GA4 reports, saving you from manually selecting dates in the calendar every time."
       }
+    }, {
+      "@type": "Question",
+      "name": "What is the 'Quick Calculated Metric' feature?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Quick Calculated Metric feature lets you create temporary calculations on-the-fly. In Standard Reports, it adds a new interactive column. In Explorations, it enhances tooltips with calculated rates when you right-click a metric header. This is for quick analysis without needing to edit your GA4 property's saved metrics."
+      }
     }]
   }
 ---
@@ -54,6 +61,7 @@ schema: |
                         <li><a href="#feature-collapsible-panels">10. Collapsible Panels</a></li>
                         <li><a href="#feature-sticky-calculator">11. Sticky Calculator</a></li>
                         <li><a href="#feature-date-range-presets">12. Data Range Presets</a></li>
+                        <li><a href="#feature-calculated-metrics">13. Quick Calculated Metric</a></li>
                     </ul>
                 </div>
             </aside>
@@ -116,6 +124,12 @@ schema: |
                 <section id="feature-date-range-presets">
                     <h2>12. Data Range Presets</h2>
                     <p><strong>Applies to: Standard Reports Only</strong><br>Speeds up your reporting by adding one-click buttons for common date ranges and comparison periods, like "Last 7 Days" or "Month-over-Month."</p>
+                </section>
+                <section id="feature-calculated-metrics">
+                    <h2>13. Quick Calculated Metric</h2>
+                    <p><strong>Applies to: Standard Reports & Explorations</strong><br>Create custom rates and ratios on-the-fly without needing Admin access. Adds a new interactive column to Standard Reports and enhances hover tooltips in Explorations for quick, contextual calculations.</p>
+                    <div class="feature-video-container" data-video-name="QuickCalculatedMetric"><video autoplay loop muted playsinline><source src="/mp4/quick_calculated_metric.mp4" type="video/mp4"></video><div class="play-icon-overlay"></div></div>
+                    <div class="requirement-note"><strong>Note:</strong> These calculations are temporary for your current session and are not saved permanently to your GA4 property.</div>
                 </section>
                 <hr style="margin-top: 40px; border-color: var(--border-color);">
                 <div class="cta-box" style="background-color: var(--bg-light); padding: 25px; border-radius: 8px; text-align: center; margin-top: 30px;">
