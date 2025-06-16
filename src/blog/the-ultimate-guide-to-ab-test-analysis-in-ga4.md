@@ -52,7 +52,7 @@ While this works, it's slow, repetitive, and pulls you out of your workflow ever
 
 ### The Automated Method (The GA4 Optimizer Way)
 
-The **AB Test Segment Comparison** feature in GA4 Optimizer is designed to solve this exact problem. It builds the significance calculator directly into the GA4 interface.
+The **AB Test Segment Comparison** feature in our completely free GA4 Optimizer Chrome Extension is designed to solve this exact problem. It builds the significance calculator directly into the GA4 interface, locally on your computer.
 
 <div class="feature-video-container" data-video-name="ABTestCompare" style="max-width: 700px; margin: 25px auto;">
     <video autoplay loop muted playsinline>
