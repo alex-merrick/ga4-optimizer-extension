@@ -31,8 +31,7 @@ Let's fix all of that.
 
 Instead of manually selecting four different dates, the **Data Range Presets** feature adds one-click buttons directly into the GA4 date picker.
 
-* Simply click **"Last month"**.
-* Then check the "Compare" box and click **"Previous period (Month-over-Month)"**.
+* Simply click **"LMMoM"**.
 
 What took seven clicks now takes two. This works for any common range, including Week-over-Week and Year-over-Year, saving you time on every single report you pull.
 
@@ -52,7 +51,7 @@ You notice that your ad spend went up by 20%, but conversions only went up by 10
 
 Instead of opening a new tab, just open the **Sticky Conversion Calculator**. It's always available on the side of your screen. You can perform quick calculations like conversion rate, cost per click, or return on ad spend without ever interrupting your workflow, allowing you to get deeper insights in real-time.
 
-### Step 5: Perform Quick Math Without Leaving the Page
+### Step 5: Create a Custom Calculated Column
 
 Your Standard Report has Exits Column and Views Column, why can't Google just give us Exit Rate out of those two together? 
 
