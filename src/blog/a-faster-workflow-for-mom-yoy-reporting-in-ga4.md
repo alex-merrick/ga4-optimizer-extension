@@ -58,7 +58,7 @@ Your Standard Report has Exits Column and Views Column, why can't Google just gi
 
 Don't fret, we have Quick Calculated metric feature in GA4 Optimizer to help with this! Once enabed, tou will noticed a column in your report that has a button "Add Calculated Rate" where you can easily selected the metrics that you wish to calculate.  There you go now you can easily look at Exit Rate without having to build a whole PowerBi or Looker Stuidio Dashboard!
 
-![Standard Reports](/img/thumbnails/sticky-headers.png)
+![Standard Reports Quick Calculated Metric Screenshot](/img/thumbnails/standard-report-quick-calculated-metric.png)
 
 ## A Smarter, Not Harder, Approach
 
