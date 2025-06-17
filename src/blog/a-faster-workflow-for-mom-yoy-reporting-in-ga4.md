@@ -8,7 +8,7 @@ description: Stop wasting time with GA4's clunky interface. Learn a faster
   workflow to create insightful Month-over-Month reports with one-click presets,
   sticky headers, and more.
 ---
-It's the first week of the month, and the reporting requests are coming in. "How did our traffic from last month compare to the month before?" "What were the biggest channel changes, year-over-year?" These are basic questions, but answering them in Google Analytics 4 often feels like a chore.
+It's the first week of the month, and the reporting requests are coming in. "How did our traffic from last month compare to the month before?" "What were the biggest channel changes, year-over-year?" These are basic questions, but answering them in Google Analytics 4™ often feels like a chore.
 
 The default interface is powerful but requires a frustrating number of clicks for even simple comparisons. You lose your place scrolling through long reports, and the raw percentage changes often lack the context you need to make smart decisions.
 
@@ -60,4 +60,4 @@ Don't fret, we have Quick Calculated metric feature in GA4 Optimizer to help wit
 
 ### A Smarter, Not Harder, Approach
 
-By combining these four simple features, you can transform your standard reporting process in GA4 from a clunky, multi-minute task into a streamlined, 30-second workflow. This gives you more time to do what's important: analyzing the data, not fighting the interface.
+By combining these five simple features, you can transform your standard reporting process in GA4 from a clunky, multi-minute task into a streamlined, 30-second workflow. This gives you more time to do what's important: analyzing the data, not fighting the interface.
