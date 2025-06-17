@@ -33,7 +33,7 @@ Instead of manually selecting four different dates, the **Data Range Presets** f
 
 * Simply click **"LMMoM"**.
 
-What took seven clicks now takes two. This works for any common range, including Week-over-Week and Year-over-Year, saving you time on every single report you pull.
+What took 3-7 clicks with confusing Comparison option, now takes two. This works for any common range, including Week-over-Week and Year-over-Year, saving you time on every single report you pull.
 
 ### Step 2: Keep Your Headers Visible, Always
 
