@@ -3,7 +3,32 @@ layout: "layouts/base.njk"
 title: "GA4 Optimizer: The Toolkit to Master Google Analytics 4"
 description: "Stop fighting GA4's interface. GA4 Optimizer is a free, 100% private Chrome extension that adds powerful features to help you get insights faster. Safe and secure."
 permalink: "index.html"
-schema: '{"@context":"https://schema.org","@type":"SoftwareApplication","name":"GA4 Optimizer","operatingSystem":"Chrome OS, Windows, macOS","applicationCategory":"BrowserApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type": "Organization","name":"GA4 Optimizer"},"softwareHelp":{"@type":"TechArticle","url":"https://www.gaoptimizer.com/features/"}}'
+schema: |
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "GA4 Optimizer",
+    "operatingSystem": "Chrome OS, Windows, macOS",
+    "applicationCategory": "BrowserApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "@id": "https://www.gaoptimizer.com/#organization"
+    },
+    "softwareHelp": {
+      "@type": "TechArticle",
+      "url": "https://www.gaoptimizer.com/features/",
+      "headline": "GA4 Optimizer Features - Improve GA4 Reporting & Analysis",
+      "author": {
+        "@type": "Organization",
+        "@id": "https://www.gaoptimizer.com/#organization"
+      }
+    }
+  }
 ---
 <main class="container">
     <div class="main-content hero-section">
