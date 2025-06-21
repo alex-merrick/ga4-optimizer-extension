@@ -3,27 +3,7 @@ layout: "layouts/base.njk"
 title: "GA4 Optimizer: The Toolkit to Master Google Analytics 4"
 description: "Stop fighting GA4's interface. GA4 Optimizer is a free, 100% private Chrome extension that adds powerful features to help you get insights faster. Safe and secure."
 permalink: "index.html"
-schema: |
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "GA4 Optimizer",
-    "operatingSystem": "Chrome OS, Windows, macOS",
-    "applicationCategory": "BrowserApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "author": {
-      "@type": "Organization",
-      "name": "GA4 Optimizer"
-    },
-    "softwareHelp": {
-      "@type": "TechArticle",
-      "url": "https://www.gaoptimizer.com/features/"
-    }
-  }
+schema: '{"@context":"https://schema.org","@type":"SoftwareApplication","name":"GA4 Optimizer","operatingSystem":"Chrome OS, Windows, macOS","applicationCategory":"BrowserApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type": "Organization","name":"GA4 Optimizer"},"softwareHelp":{"@type":"TechArticle","url":"https://www.gaoptimizer.com/features/"}}'
 ---
 <main class="container">
     <div class="main-content hero-section">
@@ -32,7 +12,8 @@ schema: |
         
         <div class="feature-video-container hero-video-container" data-video-name="Hero">
             <video autoplay loop muted playsinline>
-                <source src="/mp4/youtube.mp4" type="video/mp4">
+                <sou
+                rce src="/mp4/youtube.mp4" type="video/mp4">
             </video>
             <div class="play-icon-overlay"></div>
             <div class="modal-video-source" data-modal-src="https://www.youtube.com/embed/Dgs9wuBVGks"></div>
