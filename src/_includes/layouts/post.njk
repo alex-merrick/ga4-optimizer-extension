@@ -48,23 +48,32 @@ eleventyComputed:
 #}
 <main class="container">
     <div class="main-content content-page">
-        
-        {# --- Smart Image Selection Logic --- #}
-        {% set desktop_image = post_image or thumbnail %}
-        {% set mobile_image = thumbnail or post_image %}
 
-        {# --- Output Both Images with Specific Classes --- #}
-        {% if desktop_image %}
-            <img src="{{ desktop_image }}" alt="{{ title }}" class="post-banner-image post-banner-desktop">
-        {% endif %}
+        {# NEW: Added a dedicated container for the post header #}
+        <div class="post-header-container">
+            {# Text content is now in its own div for layout control #}
+            <div class="post-header-text">
+                <h1>{{ title }}</h1>
+                <p class="post-meta" style="color: var(--text-light); font-style: italic;">Published on {{ page.date.toDateString() }}</p>
+            </div>
+            
+            {# Image content is now in its own div for layout control #}
+            <div class="post-header-image">
+                {# --- Smart Image Selection Logic --- #}
+                {% set desktop_image = post_image or thumbnail %}
+                {% set mobile_image = thumbnail or post_image %}
 
-        {% if mobile_image %}
-             <img src="{{ mobile_image }}" alt="{{ title }}" class="post-banner-image post-banner-mobile">
-        {% endif %}
+                {# --- Output Both Images with Specific Classes --- #}
+                {% if desktop_image %}
+                    <img src="{{ desktop_image }}" alt="{{ title }}" class="post-banner-image post-banner-desktop">
+                {% endif %}
 
-        <h1>{{ title }}</h1>
-        <p class="post-meta" style="color: var(--text-light); font-style: italic;">Published on {{ page.date.toDateString() }}</p>
-        
+                {% if mobile_image %}
+                    <img src="{{ mobile_image }}" alt="{{ title }}" class="post-banner-image post-banner-mobile">
+                {% endif %}
+            </div>
+        </div>
+
         <article class="post-body">
             {{ content | safe }}
         </article>

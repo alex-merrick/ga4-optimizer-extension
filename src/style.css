@@ -30,6 +30,8 @@ body {
 h1, h2, h3 {
     color: var(--text-dark);
     font-weight: 600;
+    margin-top: 0px;
+    margin-bottom: -10px;
 }
 
 a {
@@ -270,7 +272,7 @@ a.cta-button:hover {
 
 /* Documentation & Privacy Page Styles */
 .content-page h1 {
-    margin-bottom: 30px;
+    margin-bottom: 14px;
     padding-bottom: 15px;
     border-bottom: 1px solid var(--border-color);
 }
@@ -536,6 +538,10 @@ a.cta-button:hover {
     color: var(--text-light);
 }
 
+.post-header-container {
+    margin-bottom: -23px;
+}
+
 @media (max-width: 480px) {
   .cta-box .cta-button {
     display: block;
@@ -591,7 +597,8 @@ a.cta-button:hover {
 
 .section-title {
     font-size: 2rem;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    margin-top: -28px;
 }
 
 .steps-container {
