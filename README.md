@@ -33,4 +33,4 @@ Your privacy is important. GA4 Optimizer does not collect any personal data. For
 
 ## Contact
 
-For questions or feedback, please email [suppoert@gaoptimizer.com](mailto:suppoert@gaoptimizer.com).
+For questions or feedback, please email [support@gaoptimizer.com](mailto:support@gaoptimizer.com).
