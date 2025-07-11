@@ -29,7 +29,7 @@ Get critical context without a single click. Simply hover over cells in your Exp
 
 ## Privacy Policy
 
-Your privacy is important. GA4 Optimizer does not collect any personal data. For full details, please see the [Privacy Policy](privacy_policy.md).
+Your privacy is important. GA4 Optimizer does not collect any personal data. For full details, please see the [Privacy Policy](https://www.gaoptimizer.com/privacy/).
 
 ## Contact
 
