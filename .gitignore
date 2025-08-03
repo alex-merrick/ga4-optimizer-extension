@@ -4,5 +4,8 @@
 # Ignore Node.js dependencies folder
 /node_modules
 
+# Ignore extension build output
+/extension-public
+
 # Optional: Ignore environment variables file if you use one
 .env

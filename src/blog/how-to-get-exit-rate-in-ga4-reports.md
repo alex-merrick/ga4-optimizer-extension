@@ -52,7 +52,7 @@ None of these options are efficient. They disrupt your flow and discourage the k
 
 ## The Solution: Create Calculations On-the-Fly, Anywhere
 
-The **Quick Calculated Metric** feature in our free [GA4 Optimizer Chrome Extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj) is designed to solve this exact problem. It adds the functionality you need directly into the GA4 interface, whether you're in a Standard Report or an Exploration.
+The **Quick Calculated Metric** feature in our free [GA4 Optimizer Chrome Extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_exit_rate_guide) is designed to solve this exact problem. It adds the functionality you need directly into the GA4 interface, whether you're in a Standard Report or an Exploration. **You can now save your Exit Rate calculation to your personal library and choose to auto-apply it in Standard Reports, Explorations, or both.**
 
 ### Method 1: Adding a Column in Standard Reports
 
@@ -64,6 +64,7 @@ This is the most direct fix. The feature adds a new, interactive column directly
     *   Set **Numerator** to `Exits`.
     *   Set **Denominator** to `Views`.
     *   Set **Display Format** to `Percentage`.
+    *   **Optionally, check "Save this calculated rate"** to add it to your library for future use.
 4.  **Click Apply.**
 
 <div class="feature-video-container" data-video-name="QuickCalculatedMetric" style="max-width: 700px; margin: 25px auto;">
@@ -73,15 +74,15 @@ This is the most direct fix. The feature adds a new, interactive column directly
     <div class="play-icon-overlay"></div>
 </div>
 
-Instantly, the new column populates with the **Exit Rate** for every single row, including totals and comparison rows. No exports, no new tabs, no rebuilding reports.
+Instantly, the new column populates with the **Exit Rate** for every single row, including totals and comparison rows. No exports, no new tabs, no rebuilding reports. **If you saved the calculation, it will be available in your settings library and can be set to auto-apply in future reports.**
 
 ### Method 2: Enhancing Tooltips in Explorations
 
-Even in Explorations where you *can* build calculated metrics, doing so permanently isn't always ideal for a quick check. Our feature offers a faster, temporary alternative.
+Even in Explorations where you *can* build calculated metrics, doing so permanently isn't always ideal for a quick check. Our feature offers a faster alternative that can be either temporary or saved for reuse.
 
 1.  **Right-Click the Header:** In your Exploration table, **right-click** on the header of the metric you want to use as your numerator (e.g., `Exits`).
-2.  **Configure:** In the Optimizer menu that appears, choose to create a new calculation. A modal will pop up allowing you to select the **Denominator** (e.g., `Views`) and format.
-3.  **Analyze on Hover:** Now, simply hover over any `Exits` value in the table. The tooltip will automatically show you the calculated **Exit Rate** for that specific row, without you having to add another column to your report.
+2.  **Configure:** In the Optimizer menu that appears, choose to create a new calculation. A modal will pop up allowing you to select the **Denominator** (e.g., `Views`), format, and optionally save the calculation to your library.
+3.  **Analyze on Hover:** Now, simply hover over any `Exits` value in the table. The tooltip will automatically show you the calculated **Exit Rate** for that specific row, without you having to add another column to your report. **All saved metrics set to auto-apply in Explorations will appear automatically if their numerator and denominator are present.**
 
 This lets you perform quick, contextual analysis directly inside your most complex reports.
 
@@ -106,10 +107,10 @@ By using the Quick Calculated Metric to instantly see Exit Rate, you can spend l
 ## **Frequently Asked Questions (FAQ)**
 
 **Q: How do you calculate Exit Rate in a GA4 report?**
-A: Exit Rate is calculated as Exits ÷ Views for a specific page. While GA4 contains these base metrics, it does not provide a ready-made Exit Rate column in its standard reports. To see it, users typically have to export data or build a custom Exploration. A faster method is to use a tool like the GA4 Optimizer extension, which lets you create a 'Quick Calculated Metric' on-the-fly in both Standard Reports and Explorations.
+A: Exit Rate is calculated as Exits ÷ Views for a specific page. While GA4 contains these base metrics, it does not provide a ready-made Exit Rate column in its standard reports. To see it, users typically have to export data or build a custom Exploration. A faster method is to use a tool like the GA4 Optimizer extension, which lets you create a 'Quick Calculated Metric' on-the-fly in both Standard Reports and Explorations. You can save your Exit Rate calculation to your personal library and choose to auto-apply it in future reports.
 
 **Q: How do you find which pages have a high Exit Rate in GA4?**
-A: To find pages with a high Exit Rate, you must first calculate the metric, typically within a 'Pages and screens' report. Since this is not a default metric, you either have to build a custom Exploration report and create a calculated metric for 'Exits / Views', or use a browser extension to add the calculation directly to a standard report. Once calculated, you can sort the report by Exit Rate to identify the top problem pages.
+A: To find pages with a high Exit Rate, you must first calculate the metric, typically within a 'Pages and screens' report. Since this is not a default metric, you either have to build a custom Exploration report and create a calculated metric for 'Exits / Views', or use a browser extension like GA4 Optimizer to add the calculation directly to a standard report. Once calculated, you can sort the report by Exit Rate to identify the top problem pages. The extension also allows you to save this calculation for automatic use in future reports.
 
 **Q: What's the difference between Exit Rate and Bounce Rate in GA4?**
 A: Exit Rate is page-specific: it’s the percentage of times a page was the last one viewed in a session (Exits / Views). A high exit rate on a 'thank you' page is normal, but on a checkout page, it could indicate a problem. Bounce Rate is session-specific: it’s the percentage of sessions that were not 'engaged' (e.g., lasted under 10 seconds, had no conversion, and had fewer than 2 pageviews). It signals that a user arrived and left without meaningful interaction.

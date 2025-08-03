@@ -33,7 +33,7 @@ schema: |
       "name": "What is the 'Quick Calculated Metric' feature?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The Quick Calculated Metric feature lets you create temporary calculations on-the-fly. In Standard Reports, it adds a new interactive column. In Explorations, it enhances tooltips with calculated rates when you right-click a metric header. This is for quick analysis without needing to edit your GA4 property's saved metrics."
+        "text": "The Quick Calculated Metric feature lets you create temporary or saved calculated metrics on-the-fly. In Standard Reports, it adds a new interactive column. In Explorations, it enhances tooltips with calculated rates when you right-click a metric header. You can save metrics to your personal library and choose to auto-apply them."
       }
     }]
   }
@@ -55,20 +55,21 @@ schema: |
                         <li><a href="#feature-percentage-change-highlighter">4. % Change Highlighter</a></li>
                         <li><a href="#feature-cr-change-percentage">5. Δ% Share Change</a></li>
                         <li><a href="#feature-percentage-column-total">6. % of Column Total</a></li>
-                        <li><a href="#feature-auto-detailed-results">7. Auto Detailed Results</a></li>
+                        <li><a href="#feature-auto-detailed-results">7. Detailed Results Shortcut</a></li>
                         <li><a href="#feature-percentage-all-users">8. % of All Users</a></li>
                         <li><a href="#feature-ab-test-segment-comparison">9. AB Test Comparison</a></li>
                         <li><a href="#feature-collapsible-panels">10. Collapsible Panels</a></li>
                         <li><a href="#feature-sticky-calculator">11. Sticky Calculator</a></li>
                         <li><a href="#feature-date-range-presets">12. Data Range Presets</a></li>
                         <li><a href="#feature-calculated-metrics">13. Quick Calculated Metric</a></li>
+                        <li><a href="#feature-linechart-customization">14. Line Chart Color Customization</a></li>
                     </ul>
                 </div>
             </aside>
             <div class="docs-content">
                 <section id="feature-click-to-copy">
                     <h2>1. Click to Copy Cell</h2>
-                    <p><strong>Applies to: Explorations & Standard Reports</strong><br>Quickly copy values from table cells, headers, or dimension labels for easier data export to spreadsheets or presentations.</p>
+                    <p><strong>Applies to: Explorations & Standard Reports</strong><br>Quickly copy values from table cells, headers, or dimension labels for easier data export to spreadsheets or presentations. Configure single, double, and triple-click behaviors in settings.</p>
                     <div class="feature-video-container" data-video-name="ClickToCopy"><video autoplay loop muted playsinline><source src="/mp4/click_to_copy.mp4" type="video/mp4"></video><div class="play-icon-overlay"></div></div>
                 </section>
                 <section id="feature-sticky-header">
@@ -83,11 +84,11 @@ schema: |
                 </section>
                 <section id="feature-percentage-change-highlighter">
                     <h2>4. Percentage Change Highlighter</h2>
-                    <p><strong>Applies to: Standard Reports Only</strong><br>Uses conditional formatting to highlight significant positive or negative trends, helping you spot important changes in your performance metrics.</p>
+                    <p><strong>Applies to: Standard Reports Only (when date comparison is active)</strong><br>Uses conditional formatting to highlight significant positive or negative trends based on user-defined ranges and colors. Configure ranges, colors, and highlight source in settings.</p>
                 </section>
                 <section id="feature-cr-change-percentage">
                     <h2>5. Δ% Share Change (Reports)</h2>
-                    <p><strong>Applies to: Standard Reports Only</strong><br>In comparison mode, this calculates the percentage point change in a metric's share of the total, providing deeper context than the standard % change.</p>
+                    <p><strong>Applies to: Standard Reports Only (when date comparison is active)</strong><br>Calculates and displays the percentage change of the "percentage of total" values directly in the "% change" row, providing deeper context than standard % change.</p>
                 </section>
                 <section id="feature-percentage-column-total">
                     <h2>6. Percentage of Column Total</h2>
@@ -95,20 +96,20 @@ schema: |
                     <div class="feature-video-container" data-video-name="PercentageOfColumn"><video autoplay loop muted playsinline><source src="/mp4/percentage_column_total.mp4" type="video/mp4"></video><div class="play-icon-overlay"></div></div>
                 </section>
                 <section id="feature-auto-detailed-results">
-                    <h2>7. Auto Detailed Results (Beta)</h2>
-                    <p><strong>Applies to: Explorations Only</strong><br>For better data accuracy, this feature automatically attempts to request the most granular data available for your Exploration reports, a key method to reduce data sampling.</p>
+                    <h2>7. Detailed Results Shortcut (Beta)</h2>
+                    <p><strong>Applies to: Explorations Only</strong><br>Manually trigger "More detailed results" (less sampling) in Explorations using a keyboard shortcut for better accuracy. Configure manual or automatic activation modes in settings.</p>
                     <div class="feature-video-container" data-video-name="AutoDetail"><video autoplay loop muted playsinline><source src="/mp4/auto_detail.mp4" type="video/mp4"></video><div class="play-icon-overlay"></div></div>
                 </section>
                 <section id="feature-percentage-all-users">
                     <h2>8. Percentage of All Users</h2>
                     <p><strong>Applies to: Explorations Only</strong><br>Quickly calculate and compare user conversion rates for different segments against the total user base, simplifying funnel and segment performance analysis.</p>
-                    <div class="requirement-note"><strong>Requirement:</strong> The 'All Users' segment must be included in your Exploration table setup.</div>
+                    <div class="requirement-note"><strong>Requirement:</strong> The 'All Users' segment or any segment containing "All users" must be included in your Exploration table setup.</div>
                     <div class="feature-video-container" data-video-name="AllUsersCompare"><video autoplay loop muted playsinline><source src="/mp4/all_users_segment_compare.mp4" type="video/mp4"></video><div class="play-icon-overlay"></div></div>
                 </section>
                 <section id="feature-ab-test-segment-comparison">
                     <h2>9. AB Test Segment Comparison</h2>
                     <p><strong>Applies to: Explorations Only</strong><br>A powerful tool for conversion rate optimization (CRO) that compares metrics between test variations, calculates statistical significance, and checks for sample ratio mismatch (SRM).</p>
-                    <div class="requirement-note"><strong>Requirement:</strong> Segments must be named with `VAR-` prefix, and the control segment must start with `VAR-Control`.</div>
+                    <div class="requirement-note"><strong>Requirement:</strong> Segments must be named with `VAR-` prefix, and the control segment must start with `VAR-Control` (case-sensitive).</div>
                     <div class="feature-video-container" data-video-name="ABTestCompare"><video autoplay loop muted playsinline><source src="/mp4/ab_test_compare.mp4" type="video/mp4"></video><div class="play-icon-overlay"></div></div>
                 </section>
                 <section id="feature-collapsible-panels">
@@ -118,24 +119,28 @@ schema: |
                 </section>
                 <section id="feature-sticky-calculator">
                     <h2>11. Sticky Conversion Calculator</h2>
-                    <p><strong>Applies to: All GA4 Pages</strong><br>A quick-access calculator for common marketing calculations like conversion rate or CPC, available anywhere in the GA4 interface.</p>
+                    <p><strong>Applies to: All Google Analytics 4™ Pages</strong><br>A quick-access calculator for common marketing calculations like conversion rate or CPC, available anywhere in the GA4 interface. Calculate two CRs and compare them with absolute difference and relative uplift.</p>
                     <div class="feature-video-container" data-video-name="StickyCalculator"><video autoplay loop muted playsinline><source src="/mp4/sticky_calculator.mp4" type="video/mp4"></video><div class="play-icon-overlay"></div></div>
                 </section>
                 <section id="feature-date-range-presets">
                     <h2>12. Data Range Presets</h2>
-                    <p><strong>Applies to: Standard Reports Only</strong><br>Speeds up your reporting by adding one-click buttons for common date ranges and comparison periods, like "Last 7 Days" or "Month-over-Month."</p>
+                    <p><strong>Applies to: Standard Reports Only</strong><br>Speeds up your reporting by adding one-click buttons for common date ranges and comparison periods, like "Last 7 Days" or "Month-over-Month." Customize visible presets and their order in settings.</p>
                 </section>
                 <section id="feature-calculated-metrics">
                     <h2>13. Quick Calculated Metric</h2>
-                    <p><strong>Applies to: Standard Reports & Explorations</strong><br>Create custom rates and ratios on-the-fly without needing Admin access. Adds a new interactive column to Standard Reports and enhances hover tooltips in Explorations for quick, contextual calculations.</p>
+                    <p><strong>Applies to: Standard Reports & Explorations</strong><br>Create temporary or saved calculated metrics (e.g., rates, ratios) directly within your reports. You can save calculated rates to your personal library and choose to auto-apply them in Standard Reports, Explorations, or both.</p>
                     <div class="feature-video-container" data-video-name="QuickCalculatedMetric"><video autoplay loop muted playsinline><source src="/mp4/quick_calculated_metric.mp4" type="video/mp4"></video><div class="play-icon-overlay"></div></div>
-                    <div class="requirement-note"><strong>Note:</strong> These calculations are temporary for your current session and are not saved permanently to your GA4 property.</div>
+                    <div class="requirement-note"><strong>Note:</strong> Saved calculated metrics are available for quick access and management in the settings page. Temporary (on-the-fly) calculations are only for your current view and will be cleared when the page reloads.</div>
+                </section>
+                <section id="feature-linechart-customization">
+                    <h2>14. Line Chart Color Customization (Beta)</h2>
+                    <p><strong>Applies to: Standard Reports & Explorations</strong><br>Customize the colors of line charts and add hourly granularity to Standard Reports. Click the palette icon near charts to customize colors, or use the new "Hour" option in the time interval dropdown for detailed hourly analysis.</p>
                 </section>
                 <hr style="margin-top: 40px; border-color: var(--border-color);">
                 <div class="cta-box" style="background-color: var(--bg-light); padding: 25px; border-radius: 8px; text-align: center; margin-top: 30px;">
             <h3 style="margin-top: 0;">Ready to Supercharge Your Workflow?</h3>
             <p>Get all these features and more with our free Chrome Extension.</p>
-            <a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj" class="cta-button" target="_blank" rel="noopener noreferrer">
+            <a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=features_page" class="cta-button" target="_blank" rel="noopener noreferrer">
                 Add GA4 Optimizer to Chrome — It's Free
             </a>
         </div>

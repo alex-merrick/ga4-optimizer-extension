@@ -31,7 +31,7 @@ It's the first week of the month, and the reporting requests are coming in. "How
 
 The default interface is powerful but requires a frustrating number of clicks for even simple comparisons. You lose your place scrolling through long reports, and the raw percentage changes often lack the context you need to make smart decisions.
 
-This guide outlines a faster, more insightful workflow using a few key features from our free [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj).
+This guide outlines a faster, more insightful workflow using a few key features from our free [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_mom_yoy_guide).
 
 ## The Problem: Why Standard GA4 Reporting is Slow
 

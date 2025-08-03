@@ -82,4 +82,4 @@ A: In simple terms, it's the probability that the measured difference between yo
 A: SRM indicates a problem with how users were assigned to your test groups. It can be caused by redirects, tracking bugs, or other technical issues. If the user split isn't what you expected (e.g., 50/50), the entire test result is unreliable, even if it looks significant.
 
 **Q: Where can I learn more about this feature?**
-A: You can install GA4 Optimizer in Chrome Web Store it's free and it comes with detailed documentation! [GA4 Optimizer Chrome Link](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj).
+A: You can install GA4 Optimizer in Chrome Web Store it's free and it comes with detailed documentation! [GA4 Optimizer Chrome Link](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_ab_test_guide).
