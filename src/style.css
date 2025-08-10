@@ -874,3 +874,198 @@ a.step h3, a.step p {
 .post-body a:hover {
     text-decoration-color: var(--brand-purple-dark);
 }
+
+/* --- Uninstall Survey Page Enhancements --- */
+
+/* Ensures the body background covers the full viewport height */
+.survey-page-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 0; /* Override default padding */
+}
+
+/* A simplified header with no navigation */
+.simplified-header {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-white);
+}
+
+/* A centered, focused container for the survey content */
+.survey-container {
+    max-width: 800px;
+    margin: 40px auto;
+    flex-grow: 1;
+}
+
+.survey-container .main-content {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.google-form-container {
+    /* The iframe will now fill the container naturally */
+}
+
+.simplified-footer {
+    background-color: transparent;
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+@media (max-width: 900px) {
+    .survey-container {
+        margin: 20px 15px;
+    }
+}
+/* --- Uninstall Survey Page Enhancements --- */
+
+/* Use a light gray background for the entire page to make the content pop */
+.survey-page-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 0; /* Override default padding for this specific layout */
+    background-color: var(--bg-light); 
+}
+
+/* Ensure the header is a clean, white bar */
+.simplified-header {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-white);
+    flex-shrink: 0;
+}
+
+/* This container will now center the content block on the gray background */
+.survey-container {
+    width: 100%;
+    max-width: 760px; /* Optimal width for readability */
+    margin: 0px auto; /* Vertical and horizontal centering */
+    flex-grow: 1;
+    padding: 0 15px; /* Add padding for smaller screens */
+    box-sizing: border-box;
+}
+
+/* This is the key: style the white content box to look polished */
+.survey-container .main-content {
+    background-color: var(--bg-white);
+    border: 1px solid #dbe1e8; /* A slightly darker border for definition */
+    border-radius: 12px; /* Softer, more modern corners */
+    padding: 40px;
+    box-shadow: 0 8px 35px rgba(90, 99, 120, 0.08); /* A more pronounced, professional shadow */
+}
+
+/* Ensure the footer on this page is clean and simple */
+.simplified-footer {
+    background-color: transparent;
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 30px;
+    flex-shrink: 0;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 800px) {
+    .survey-container {
+        margin: 20px auto;
+    }
+    .survey-container .main-content {
+        padding: 25px;
+    }
+}
+/* --- Uninstall Survey V2 Enhancements --- */
+
+/* Center the content and headline */
+.survey-container .main-content {
+    text-align: center;
+}
+
+/* Make the headline the primary focus */
+.survey-container .main-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* A short, less prominent sub-headline */
+.survey-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* Ensure the Google Form container is ready for its content */
+.google-form-container {
+    margin-top: 15px;
+}
+
+/* Style for the de-emphasized reinstall link at the bottom */
+.reinstall-notice {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.reinstall-notice p {
+    font-size: 0.9em;
+    color: var(--text-light);
+}
+
+@media (max-width: 900px) {
+    .survey-container .main-content h1 {
+        font-size: 2rem;
+    }
+}
+/* --- Uninstall Survey V3 Enhancements --- */
+
+/* Wrapper to crop the Google Form iframe */
+.google-form-wrapper {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden; /* This is the key to cropping */
+    margin-top: 15px;
+}
+
+.google-form-wrapper iframe {
+    display: block; /* Removes any potential whitespace below the iframe */
+    margin-bottom: -60px; /* Pulls the bottom of the iframe up, hiding the Google footer */
+}
+
+/* A styled callout box for the reinstall link */
+.reinstall-callout {
+    margin-top: 30px;
+    padding: 15px 20px;
+    background-color: var(--bg-light);
+    border-left: 4px solid var(--brand-purple);
+    border-radius: 4px;
+    text-align: left;
+}
+
+.reinstall-callout p {
+    margin: 0;
+    font-size: 0.95em;
+    color: var(--text-light);
+}
+
+.reinstall-callout p strong {
+    color: var(--text-dark);
+}
+/* --- Uninstall Survey Mascot Styling --- */
+.survey-mascot {
+    width: 80px;
+    height: auto;
+    display: block;
+    margin: 0 auto 8px; /* Reduced bottom margin from 15px to 8px */
+}
+
+.survey-container .main-content h1 {
+    margin-top: 0; /* Let the mascot's margin handle the spacing */
+    line-height: 33.5px;
+}

@@ -1,29 +1,30 @@
 ---
-layout: "layouts/base.njk"
+layout: "layouts/survey-layout.njk"
 title: "Sorry to see you go! | GA4 Optimizer Feedback"
 description: "Provide feedback on why you are uninstalling the GA4 Optimizer Edge Add-on."
 permalink: "/edge-uninstall-survey/"
 noindex: true
 ---
-<main class="container">
-    <div class="main-content content-page">
+<main class="survey-container">
+    <div class="main-content">
+        <img src="/img/sad-mascot.jpg" alt="GA4 Optimizer Mascot looking sad" class="survey-mascot">
         <h1>Sorry to see you go!</h1>
-        <p>Your feedback is incredibly valuable and helps us improve GA4 Optimizer for everyone. Could you spare a moment to tell us why you're leaving?</p>
-        <p>If you removed the extension by accident, you can <strong><a href="https://microsoftedge.microsoft.com/addons/detail/ga4-optimizer-analysis-t/ejokbgelaaegbgemjjhgppigoclanomh?utm_source=gaoptimizer.com" target="_blank" rel="noopener noreferrer">reinstall it here from the Edge Add-ons Store.</a></strong></p>
-        <hr style="margin: 2rem 0; border-color: var(--border-color);">
-
-        <!-- Centered container for the form -->
-        <div class="google-form-container" style="display: flex; justify-content: center;">
+        <p class="survey-subtitle">Your 30-second feedback helps us build a better tool for everyone.</p>
+        
+        <div class="google-form-wrapper">
             <iframe 
                 src="https://docs.google.com/forms/d/e/1FAIpQLSfC1VyK54alhBTlStB1bPqbyNKD6yA87HiFIuXi5kGJ25avNw/viewform?embedded=true" 
-                width="640" 
-                height="1050" 
+                width="100%" 
+                height="880" 
                 frameborder="0" 
                 marginheight="0" 
-                marginwidth="0" 
-                style="max-width: 100%;">
+                marginwidth="0">
                 Loading…
             </iframe>
+        </div>
+
+        <div class="reinstall-callout">
+            <p>If you removed the add-on by accident, you can <strong><a href="https://microsoftedge.microsoft.com/addons/detail/ga4-optimizer-analysis-t/ejokbgelaaegbgemjjhgppigoclanomh?utm_source=gaoptimizer.com" target="_blank" rel="noopener noreferrer">reinstall it here from the Edge Add-ons Store.</a></strong></p>
         </div>
     </div>
 </main>
