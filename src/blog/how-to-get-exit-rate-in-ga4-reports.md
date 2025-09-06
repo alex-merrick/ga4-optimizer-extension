@@ -28,15 +28,17 @@ faq_schema: >
   }
 layout: layouts/post.njk
 author: Alex Merrick
-title: "Missing Exit Rate in GA4? Here's the 30-Second Fix"
+title: Missing Exit Rate in GA4? Here's the 30-Second Fix
 date: 2025-06-23T00:00:00.000Z
 thumbnail: /img/thumbnails/thumb-exit-rate.jpg
 post_image: /img/thumbnails/banner-exit-rate.jpg
-description: "Frustrated that you can see 'Exits' and 'Views' in a GA4 report but not 'Exit Rate'? Learn how to create custom calculated metrics on-the-fly without leaving the page."
+description: Frustrated that you can see 'Exits' and 'Views' in a GA4 report but
+  not 'Exit Rate'? Learn how to create custom calculated metrics on-the-fly
+  without leaving the page.
 ---
 You've meticulously built a "Pages and screens" report in Google Analytics 4. You add the `Views` metric. You add the `Exits` metric. You scan the table, looking for that one crucial diagnostic number to identify which pages are losing visitors... but it's not there. Where is the **Exit Rate**?
 
-It’s one of the most common frustrations with GA4’s standard reports. The raw ingredients are right in front of you, but the final dish is missing. The official answer usually involves exporting your data to a spreadsheet or building a far more complex Exploration report.
+It’s one of the most common frustrations with GA4’s standard reports. The raw ingredients are right in front of you, but the final dish is missing. The official answer usually involves exporting your data to a spreadsheet or building a far more complex Looker Studio report.
 
 But what if you could get the answer in 30 seconds without ever leaving the report you're already in?
 
@@ -44,9 +46,9 @@ But what if you could get the answer in 30 seconds without ever leaving the repo
 
 In Universal Analytics, Exit Rate was a standard, out-of-the-box metric. In GA4, its absence from default reports forces you down one of three frustrating paths for what should be a simple health check:
 
-1.  **The Spreadsheet Detour:** You export the entire report to Google Sheets or Excel. You create a new column, write the formula `=Exits/Views`, format it as a percentage, and drag it down. It works, but it's slow, manual, and completely outside of your analytics workflow.
-2.  **The Exploration Overkill:** You abandon the simple standard report and build a new Free-form Exploration from scratch. This means re-adding your `Page path` dimension, re-adding your `Views` and `Exits` metrics, and then wrestling with the calculated metrics builder just to define `{{Exits}} / {{Views}}`. It's a five-minute setup for a five-second insight.
-3.  **The "Good Enough" Guess:** You eyeball the `Views` and `Exits` numbers and try to mentally estimate the ratio, promising yourself you'll "do a deep dive later." This often leads to missed insights and opportunities.
+1. **The Spreadsheet Detour:** You export the entire report to Google Sheets or Excel. You create a new column, write the formula `=Exits/Views`, format it as a percentage, and drag it down. It works, but it's slow, manual, and completely outside of your analytics workflow.
+2. **Looker Studio Dashboard:** You abandon the simple standard report and complicate it by attempting to manually build your own dashboard where you calculate Exits/Views. But this is complicated and again take you out of the Google Analytics workflow.
+3. **The "Good Enough" Guess:** You eyeball the `Views` and `Exits` numbers and try to mentally estimate the ratio, promising yourself you'll "do a deep dive later." This often leads to missed insights and opportunities.
 
 None of these options are efficient. They disrupt your flow and discourage the kind of quick, iterative analysis that uncovers real opportunities.
 
@@ -58,14 +60,15 @@ The **Quick Calculated Metric** feature in our free [GA4 Optimizer Chrome Extens
 
 This is the most direct fix. The feature adds a new, interactive column directly to your report table.
 
-1.  **Open Your Report:** Go to any Standard Report that contains your base metrics (e.g., a "Pages and screens" report with `Views` and `Exits`). The extension automatically adds a new, empty column.
-2.  **Add Calculation:** Click the `+ Add calculated rate` button inside the new column's header.
-3.  **Define Your Rate:** A modal pops up.
-    *   Set **Numerator** to `Exits`.
-    *   Set **Denominator** to `Views`.
-    *   Set **Display Format** to `Percentage`.
-    *   **Optionally, check "Save this calculated rate"** to add it to your library for future use.
-4.  **Click Apply.**
+1. **Open Your Report:** Go to any Standard Report that contains your base metrics (e.g., a "Pages and screens" report with `Views` and `Exits`). The extension automatically adds a new, empty column.
+2. **Add Calculation:** Click the `+ Add calculated rate` button inside the new column's header.
+3. **Define Your Rate:** A modal pops up.
+
+   * Set **Numerator** to `Exits`.
+   * Set **Denominator** to `Views`.
+   * Set **Display Format** to `Percentage`.
+   * **Optionally, check "Save this calculated rate"** to add it to your library for future use.
+4. **Click Apply.**
 
 <div class="feature-video-container" data-video-name="QuickCalculatedMetric" style="max-width: 700px; margin: 25px auto;">
     <video autoplay loop muted playsinline>
@@ -80,9 +83,9 @@ Instantly, the new column populates with the **Exit Rate** for every single row,
 
 Even in Explorations where you *can* build calculated metrics, doing so permanently isn't always ideal for a quick check. Our feature offers a faster alternative that can be either temporary or saved for reuse.
 
-1.  **Right-Click the Header:** In your Exploration table, **right-click** on the header of the metric you want to use as your numerator (e.g., `Exits`).
-2.  **Configure:** In the Optimizer menu that appears, choose to create a new calculation. A modal will pop up allowing you to select the **Denominator** (e.g., `Views`), format, and optionally save the calculation to your library.
-3.  **Analyze on Hover:** Now, simply hover over any `Exits` value in the table. The tooltip will automatically show you the calculated **Exit Rate** for that specific row, without you having to add another column to your report. **All saved metrics set to auto-apply in Explorations will appear automatically if their numerator and denominator are present.**
+1. **Right-Click the Header:** In your Exploration table, **right-click** on the header of the metric you want to use as your numerator (e.g., `Exits`).
+2. **Configure:** In the Optimizer menu that appears, choose to create a new calculation. A modal will pop up allowing you to select the **Denominator** (e.g., `Views`), format, and optionally save the calculation to your library.
+3. **Analyze on Hover:** Now, simply hover over any `Exits` value in the table. The tooltip will automatically show you the calculated **Exit Rate** for that specific row, without you having to add another column to your report. **All saved metrics set to auto-apply in Explorations will appear automatically if their numerator and denominator are present.**
 
 This lets you perform quick, contextual analysis directly inside your most complex reports.
 
@@ -90,19 +93,20 @@ This lets you perform quick, contextual analysis directly inside your most compl
 
 Once you have the Exit Rate, the next step is to understand what it's telling you. A "high" exit rate isn't always bad—it depends entirely on the page's purpose.
 
-*   **High Exit Rate is OK here:**
-    *   **Thank You / Confirmation Pages:** A user has just completed a purchase or form. Leaving from this page is expected and normal.
-    *   **Contact Us / Support Pages:** The user found the information they needed (an address, a phone number) and is now leaving.
-    *   **Blog Posts (to a degree):** A user might read an article and leave satisfied. However, a very high exit rate could mean you're failing to guide them to other relevant content.
+* **High Exit Rate is OK here:**
 
-*   **High Exit Rate is a RED FLAG here:**
-    *   **Shopping Cart / Checkout Funnel:** A high exit rate on any step before the final "thank you" page indicates a serious problem. Users are abandoning their purchase due to cost, complexity, or technical issues.
-    *   **Multi-Step Forms:** If users are dropping off in the middle of a sign-up or lead generation form, it's likely too long or asks for confusing information.
-    *   **Key Landing Pages:** If a page designed to drive users deeper into your site has a high exit rate, the call-to-action may be weak or the content might not match the user's expectation from the ad or link they clicked.
+  * **Thank You / Confirmation Pages:** A user has just completed a purchase or form. Leaving from this page is expected and normal.
+  * **Contact Us / Support Pages:** The user found the information they needed (an address, a phone number) and is now leaving.
+  * **Blog Posts (to a degree):** A user might read an article and leave satisfied. However, a very high exit rate could mean you're failing to guide them to other relevant content.
+* **High Exit Rate is a RED FLAG here:**
+
+  * **Shopping Cart / Checkout Funnel:** A high exit rate on any step before the final "thank you" page indicates a serious problem. Users are abandoning their purchase due to cost, complexity, or technical issues.
+  * **Multi-Step Forms:** If users are dropping off in the middle of a sign-up or lead generation form, it's likely too long or asks for confusing information.
+  * **Key Landing Pages:** If a page designed to drive users deeper into your site has a high exit rate, the call-to-action may be weak or the content might not match the user's expectation from the ad or link they clicked.
 
 By using the Quick Calculated Metric to instantly see Exit Rate, you can spend less time wrestling with reports and more time analyzing these user journeys and fixing the leaks that are costing you conversions.
 
----
+- - -
 
 ## **Frequently Asked Questions (FAQ)**
 
