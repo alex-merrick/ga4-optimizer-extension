@@ -47,7 +47,7 @@ But what if you could get the answer in 30 seconds without ever leaving the repo
 In Universal Analytics, Exit Rate was a standard, out-of-the-box metric. In GA4, its absence from default reports forces you down one of three frustrating paths for what should be a simple health check:
 
 1. **The Spreadsheet Detour:** You export the entire report to Google Sheets or Excel. You create a new column, write the formula `=Exits/Views`, format it as a percentage, and drag it down. It works, but it's slow, manual, and completely outside of your analytics workflow.
-2. **Looker Studio Dashboard:** You abandon the simple standard report and complicate it by attempting to manually build your own dashboard where you calculate Exits/Views. But this is complicated and again take you out of the Google Analytics workflow.
+2. **Looker Studio Dashboard:** You can abandon the simple standard report and complicate it by attempting to manually build your own dashboard in Looker Studio where you calculate Exits/Views. But this is complicated and again take you out of the Google Analytics workflow.
 3. **The "Good Enough" Guess:** You eyeball the `Views` and `Exits` numbers and try to mentally estimate the ratio, promising yourself you'll "do a deep dive later." This often leads to missed insights and opportunities.
 
 None of these options are efficient. They disrupt your flow and discourage the kind of quick, iterative analysis that uncovers real opportunities.
