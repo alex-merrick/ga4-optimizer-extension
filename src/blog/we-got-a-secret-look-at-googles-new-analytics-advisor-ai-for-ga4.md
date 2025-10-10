@@ -4,11 +4,8 @@ title: We Got a Secret Look at Google's New "Analytics Advisor" AI for GA4
 date: 2025-10-09T18:14:00.000-05:00
 thumbnail: /img/thumbnails/banner-fpo.jpg
 post_image: /img/thumbnails/thumb-fpo.jpg
-description: If you're like us at GA4 Optimizer, you probably spend more time in
-  Google Analytics than you'd like to admit. We're always digging around,
-  looking for ways to make the platform easier to use. So when a new,
-  unannounced feature called Analytics Advisor (Beta) quietly appeared in our
-  account, we dropped everything to check it out.
+description: When a new, unannounced feature called Analytics Advisor (Beta)
+  quietly appeared in our account, we dropped everything to check it out.
 ---
 If you're like us at GA4 Optimizer, you probably spend more time in Google Analytics than you'd like to admit. We're always digging around, looking for ways to make the platform easier to use. So when a new, unannounced feature called **Analytics Advisor (Beta)** quietly appeared in our account, we dropped everything to check it out.
 
