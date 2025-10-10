@@ -124,4 +124,4 @@ Overall, the Analytics Advisor is a fascinating glimpse into the future of GA4. 
 
 And while we wait for this feature to evolve, you don't have to. Our **GA4 Optimizer Chrome Extension** is already here, built to bridge the gaps in the GA4 interface. From adding "Percentage of Column Total" in one click to creating "Quick Calculated Metrics" on the fly, our goal is to empower you to get to the "why" faster than ever.
 
-**Have you seen the Analytics Advisor in your account? Let us know! And if you want to supercharge your current GA4 workflow, [give GA4 Optimizer a try today](https://www.gaoptimizer.com/).**
+**Have you seen the Analytics Advisor in your account? Go check it out! And if you want to supercharge your current GA4 workflow, [give GA4 Optimizer a try today](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_post_cta).**
