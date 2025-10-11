@@ -28,7 +28,7 @@ faq_schema: >
   }
 layout: layouts/post.njk
 author: Alex Merrick
-title: "Google Analytics Advisor AI Tested: What GA4's New AI Can Do"
+title: "Google Analytics Advisor AI Chatbot Tested: Wha It Can Do"
 date: 2025-10-09T18:14:00.000-05:00
 thumbnail: /img/thumbnails/banner-analytics-advisor.jpg
 post_image: /img/thumbnails/thumb-analytics-advisor.jpg
@@ -150,7 +150,7 @@ For many enterprises, this is a non-starter. The idea that your private analytic
 
 **For Analysts:** Your job is safe. It is not ready for complex segmentation and can't usually answer the crucial "why" behind the data. And for enterprises concerned with data privacy, its current data usage policy makes it a non-starter for sensitive analysis.
 
-Overall, the Analytics Advisor is a fascinating glimpse into the future of GA4. It's a powerful tool for quick simple data pulls and checks, but it's no replacement for a skilled analyst or the powerful, manual control offered by GA4's Explorations.
+Overall, the Analytics Advisor is a fascinating glimpse into the future of GA4.  It seems like it's the next step after Google released the MCP Server but it's far too technical so we're happy to see this UI experience. It's a powerful tool for quick simple data pulls and checks, but it's no replacement for a skilled analyst or the powerful, manual control offered by GA4's Explorations.
 
 And while we wait for this feature to evolve, you don't have to. Our **[GA4 Optimizer Chrome Extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_post_cta)** is already here, built to bridge the gaps in the GA4 interface. From adding "Percentage of Column Total" in one click to creating "Quick Calculated Metrics" on the fly, our goal is to empower you to get to the "why" faster than ever.
 
