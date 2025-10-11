@@ -33,10 +33,10 @@ date: 2025-10-09T18:14:00.000-05:00
 thumbnail: /img/thumbnails/banner-analytics-advisor.jpg
 post_image: /img/thumbnails/thumb-analytics-advisor.jpg
 description: We got early access to Google's unannounced Analytics Advisor AI
-  for GA4. Here's our honest first impressions of what it can and can't do for
-  marketers and analysts.
+  chatbot for GA4. Here's our honest first impressions of what it can and can't
+  do for marketers and analysts.
 ---
-If you're like us at [GA4 Optimizer](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_post_cta), you probably spend more time in Google Analytics than you'd like to admit. We're always looking for ways to make the platform easier to use. So when a new, unannounced feature called **Analytics Advisor (Beta)** quietly appeared in our account we wanted to see see how useful it's going to to be.
+If you're like us at [GA4 Optimizer](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_post_cta), you probably spend more time in Google Analytics than you'd like to admit. We're always looking for ways to make the platform easier to use. So when a new, unannounced feature called **Analytics Advisor (Beta)** chatbot quietly appeared in our account we wanted to see see how useful it's going to to be.
 
 There was nothing online about it. No blog posts, no announcements, just a new AI chatbot sitting inside our GA4 property. Is this the future of analytics? Can it replace a skilled analyst? We had to know.
 
