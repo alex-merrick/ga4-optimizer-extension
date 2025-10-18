@@ -35,6 +35,13 @@ schema: |
         "@type": "Answer",
         "text": "The Quick Calculated Metric feature lets you create temporary or saved calculated metrics on-the-fly. In Standard Reports, it adds a new interactive column. In Explorations, it enhances tooltips with calculated rates when you right-click a metric header. You can save metrics to your personal library and choose to auto-apply them."
       }
+    }, {
+      "@type": "Question",
+      "name": "How does the 'Create Exit Pages Report' feature work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This feature instantly generates a new Standard Report template pre-filled with Exits, Views, and Bounce Rate metrics, using Page Path as the primary dimension. It provides a crucial workaround since the 'Exits' metric is not available in the standard GA4 Report Builder UI. You can access it from the extension popup when on any GA4 property page."
+      }
     }]
   }
 ---
@@ -63,6 +70,8 @@ schema: |
                         <li><a href="#feature-date-range-presets">12. Data Range Presets</a></li>
                         <li><a href="#feature-calculated-metrics">13. Quick Calculated Metric</a></li>
                         <li><a href="#feature-linechart-customization">14. Line Chart Color Customization</a></li>
+                        <li><a href="#feature-fix-shared-links">15. Fix Shared Links</a></li>
+                        <li><a href="#feature-create-exit-report">16. Create Exit Pages Report</a></li>
                     </ul>
                 </div>
             </aside>
@@ -135,6 +144,16 @@ schema: |
                 <section id="feature-linechart-customization">
                     <h2>14. Line Chart Color Customization (Beta)</h2>
                     <p><strong>Applies to: Standard Reports & Explorations</strong><br>Customize the colors of line charts and add hourly granularity to Standard Reports. Click the palette icon near charts to customize colors, or use the new "Hour" option in the time interval dropdown for detailed hourly analysis.</p>
+                </section>
+                <section id="feature-fix-shared-links">
+                    <h2>15. Fix Shared Links</h2>
+                    <p><strong>Applies to: All Google Analytics 4™ Pages</strong><br>Fixes the common problem where shared GA4 links don't work because you're signed into the wrong Google account. When you encounter "Missing permissions" errors, this feature automatically adds a "Try Another Account" button to seamlessly retry the link with your other signed-in Google accounts.</p>
+                    <div class="requirement-note"><strong>When This Helps:</strong> Perfect for when colleagues share GA4 links via email, Slack, or Teams, but you're signed into a personal Google account instead of your work account, or when you have multiple work accounts with different property access levels.</div>
+                </section>
+                <section id="feature-create-exit-report">
+                    <h2>16. Create Exit Pages Report</h2>
+                    <p><strong>Applies to: All Google Analytics 4™ Pages (via Popup)</strong><br>Instantly generates a new Standard Report template pre-filled with <strong>Exits</strong>, <strong>Views</strong>, and <strong>Bounce Rate</strong> metrics, using Page Path as the primary dimension. This feature provides a crucial workaround, as the "Exits" metric is not available in the standard GA4 Report Builder UI.</p>
+                    <div class="requirement-note"><strong>Note:</strong> This feature requires you to have at least Editor Role Access and to be on a page within a GA4 property (i.e., the URL must contain a property ID like "/p123456789/"). The button in the popup will be disabled if you are not on a valid GA4 page.</div>
                 </section>
                 <hr style="margin-top: 40px; border-color: var(--border-color);">
                 <div class="cta-box" style="background-color: var(--bg-light); padding: 25px; border-radius: 8px; text-align: center; margin-top: 30px;">

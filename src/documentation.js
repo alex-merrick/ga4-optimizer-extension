@@ -11,7 +11,31 @@ document.addEventListener('DOMContentLoaded', () => {
             sidebarTitle.addEventListener('click', () => {
                 if (window.innerWidth <= 900) {
                     docsSidebar.classList.toggle('is-open');
-                    sidebarContent.style.maxHeight = docsSidebar.classList.contains('is-open') ? sidebarContent.scrollHeight + 'px' : null;
+                    // Let CSS handle the max-height for better scrolling behavior
+                    if (docsSidebar.classList.contains('is-open')) {
+                        sidebarContent.style.maxHeight = 'calc(100vh - 140px)';
+                        // Check if content is scrollable and add visual indicator
+                        setTimeout(() => {
+                            if (sidebarContent.scrollHeight > sidebarContent.clientHeight) {
+                                sidebarContent.classList.add('has-scroll');
+                                
+                                // Add scroll listener to manage fade indicator
+                                const handleScroll = () => {
+                                    const isAtBottom = sidebarContent.scrollTop + sidebarContent.clientHeight >= sidebarContent.scrollHeight - 5;
+                                    if (isAtBottom) {
+                                        sidebarContent.classList.remove('has-scroll');
+                                    } else {
+                                        sidebarContent.classList.add('has-scroll');
+                                    }
+                                };
+                                
+                                sidebarContent.addEventListener('scroll', handleScroll, { passive: true });
+                            }
+                        }, 100);
+                    } else {
+                        sidebarContent.style.maxHeight = null;
+                        sidebarContent.classList.remove('has-scroll');
+                    }
                 }
             });
 
