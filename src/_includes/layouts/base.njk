@@ -44,9 +44,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% if page.url == '/features/' %}
     <style>
         .docs-layout { display: flex; gap: 40px; margin-top: 20px; }
-        #docs-sidebar { width: 240px; flex-shrink: 0; position: sticky; top: 100px; align-self: flex-start; border: 1px solid var(--border-color); background-color: var(--bg-light); border-radius: 6px; }
+        #docs-sidebar { width: 240px; flex-shrink: 0; position: sticky; top: 100px; align-self: flex-start; border: 1px solid var(--border-color); background-color: var(--bg-light); border-radius: 6px; max-height: calc(100vh - 120px); overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--brand-purple) var(--bg-light); }
         .sidebar-title { font-size: 1.1em; font-weight: 600; color: var(--brand-purple-dark); margin: 0; padding: 12px 15px; border-bottom: 1px solid var(--border-color); }
         .sidebar-content { padding: 8px 12px; }
+        #docs-sidebar::-webkit-scrollbar { width: 8px; }
+        #docs-sidebar::-webkit-scrollbar-track { background: var(--bg-light); border-radius: 4px; }
+        #docs-sidebar::-webkit-scrollbar-thumb { background-color: var(--brand-purple); border-radius: 4px; opacity: 0.6; }
+        #docs-sidebar::-webkit-scrollbar-thumb:hover { opacity: 1; }
+
+        #docs-sidebar::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 15px; background: linear-gradient(transparent, var(--bg-light)); pointer-events: none; opacity: 0; transition: opacity 0.3s ease; border-radius: 0 0 6px 6px; }
+        #docs-sidebar.has-scroll::after { opacity: 1; }
         #docs-sidebar ul { list-style-type: none; padding-left: 0; margin: 0; }
         #docs-sidebar ul li a { display: block; padding: 3px 8px; font-size: 0.9em; color: var(--text-light); text-decoration: none; border-radius: 4px; transition: background-color 0.2s ease, color 0.2s ease; font-weight: 500; }
         #docs-sidebar ul li a:hover { background-color: #e9e6ed; color: var(--brand-purple); }

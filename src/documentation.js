@@ -1,9 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Page-Specific Logic for Documentation Page ---
 
-    // --- Collapsible Docs Sidebar for Mobile ---
+    // --- Desktop & Mobile Sidebar Functionality ---
     const docsSidebar = document.getElementById('docs-sidebar');
     if (docsSidebar) {
+        
+        // --- Desktop Scroll Indicator ---
+        function checkDesktopScrollable() {
+            if (window.innerWidth > 900) {
+                if (docsSidebar.scrollHeight > docsSidebar.clientHeight) {
+                    docsSidebar.classList.add('has-scroll');
+                    
+                    // Add scroll listener for desktop fade indicator
+                    const handleDesktopScroll = () => {
+                        const isAtBottom = docsSidebar.scrollTop + docsSidebar.clientHeight >= docsSidebar.scrollHeight - 5;
+                        if (isAtBottom) {
+                            docsSidebar.classList.remove('has-scroll');
+                        } else {
+                            docsSidebar.classList.add('has-scroll');
+                        }
+                    };
+                    
+                    docsSidebar.addEventListener('scroll', handleDesktopScroll, { passive: true });
+                } else {
+                    docsSidebar.classList.remove('has-scroll');
+                }
+            }
+        }
+        
+        // Check on load and resize
+        checkDesktopScrollable();
+        window.addEventListener('resize', checkDesktopScrollable);
         const sidebarTitle = docsSidebar.querySelector('.sidebar-title');
         const sidebarContent = docsSidebar.querySelector('.sidebar-content');
 
@@ -58,6 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 if(docsSidebar && docsSidebar.classList.contains('is-open')) {
                     docsSidebar.classList.remove('is-open');
                 }
+                checkDesktopScrollable();
+            } else {
+                // Remove desktop scroll indicator on mobile
+                docsSidebar.classList.remove('has-scroll');
             }
         });
     }
