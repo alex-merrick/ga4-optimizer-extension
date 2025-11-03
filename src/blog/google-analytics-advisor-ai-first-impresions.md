@@ -28,7 +28,7 @@ faq_schema: >
   }
 layout: layouts/post.njk
 author: Alex Merrick
-title: "Google Analytics Advisor AI Chatbot Tested: Wha It Can Do"
+title: "Google Analytics Advisor AI Chatbot Tested: What It Can Do"
 date: 2025-10-09T18:14:00.000-05:00
 thumbnail: /img/thumbnails/banner-analytics-advisor.jpg
 post_image: /img/thumbnails/thumb-analytics-advisor.jpg
