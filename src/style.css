@@ -773,7 +773,7 @@ a.step h3, a.step p {
     color: var(--brand-purple);
 }
 .post-banner-image {
-    width: 100%;
+    width: 70%;
     height: auto;
     object-fit: cover;
     border-radius: 8px;
@@ -782,11 +782,11 @@ a.step h3, a.step p {
 }
 
 .post-banner-desktop {
-    aspect-ratio: 2 / 1;
+    aspect-ratio: 3 / 1;
 }
 
 .post-banner-mobile {
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 4 / 2;
     display: none;
 }
 
@@ -796,6 +796,7 @@ a.step h3, a.step p {
     }
     .post-banner-mobile {
         display: block;
+        width: 100%;
     }
 }
 .blog-post-item {
@@ -873,6 +874,41 @@ a.step h3, a.step p {
 
 .post-body a:hover {
     text-decoration-color: var(--brand-purple-dark);
+}
+
+/* Responsive styling for images within blog post content */
+.post-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile-specific adjustments for content images */
+@media (max-width: 768px) {
+    .post-body img {
+        margin: 15px 0;
+        border-radius: 6px;
+        /* Ensure images don't overflow on small screens */
+        width: 100%;
+        max-width: 100%;
+        /* Prevent images from breaking out of container */
+        object-fit: contain;
+        /* Add a subtle background for images with transparency */
+        background-color: var(--bg-light);
+    }
+    
+    /* Special handling for meme-style images that might be wide */
+    .post-body img[src*="drake"] {
+        object-fit: cover;
+        max-height: 300px;
+    }
+    
+    /* Ensure screenshot images maintain readability */
+    .post-body img[src*="solution"] {
+        border: 1px solid var(--border-color);
+    }
 }
 
 /* --- Uninstall Survey Page Enhancements --- */
