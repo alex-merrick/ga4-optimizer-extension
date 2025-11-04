@@ -128,4 +128,38 @@ document.addEventListener('DOMContentLoaded', () => {
             highlightActiveLink();
         }
     }
+
+    // --- Accordion Functionality ---
+    const accordionButtons = document.querySelectorAll('.accordion-button');
+    
+    accordionButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const panel = document.getElementById(button.getAttribute('aria-controls'));
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            
+            // Close all other accordions
+            accordionButtons.forEach(otherButton => {
+                if (otherButton !== button) {
+                    const otherPanel = document.getElementById(otherButton.getAttribute('aria-controls'));
+                    otherButton.setAttribute('aria-expanded', 'false');
+                    otherButton.classList.remove('active');
+                    otherPanel.classList.remove('active');
+                    otherPanel.style.maxHeight = null;
+                }
+            });
+            
+            // Toggle current accordion
+            if (isExpanded) {
+                button.setAttribute('aria-expanded', 'false');
+                button.classList.remove('active');
+                panel.classList.remove('active');
+                panel.style.maxHeight = null;
+            } else {
+                button.setAttribute('aria-expanded', 'true');
+                button.classList.add('active');
+                panel.classList.add('active');
+                panel.style.maxHeight = panel.scrollHeight + 'px';
+            }
+        });
+    });
 });

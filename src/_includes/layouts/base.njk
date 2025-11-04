@@ -15,6 +15,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% if noindex %}
     <meta name="robots" content="noindex">
     {% endif %}
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.gaoptimizer.com{{ page.url }}">
+    <meta property="og:title" content="{{ ogTitle or title }}">
+    <meta property="og:description" content="{{ ogDescription or description }}">
+    <meta property="og:image" content="{{ ogImage or 'https://www.gaoptimizer.com/icons/ga4-optimizer-logo.png' }}">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.gaoptimizer.com{{ page.url }}">
+    <meta property="twitter:title" content="{{ ogTitle or title }}">
+    <meta property="twitter:description" content="{{ ogDescription or description }}">
+    <meta property="twitter:image" content="{{ ogImage or 'https://www.gaoptimizer.com/icons/ga4-optimizer-logo.png' }}">
+    
     <link rel="stylesheet" href="/style.css">
     <link rel="icon" href="/icons/ga4-optimizer-logo.png" type="image/png">
     <link rel="canonical" href="https://www.gaoptimizer.com{{ page.url }}" />
@@ -41,7 +56,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </script>
 
-    {% if page.url == '/features/' %}
+    {% if page.url == '/features/' or page.url == '/documentation/' %}
     <style>
         .docs-layout { display: flex; gap: 40px; margin-top: 20px; }
         #docs-sidebar { width: 240px; flex-shrink: 0; position: sticky; top: 100px; align-self: flex-start; border: 1px solid var(--border-color); background-color: var(--bg-light); border-radius: 6px; max-height: calc(100vh - 120px); overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--brand-purple) var(--bg-light); }
@@ -69,6 +84,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .note strong { color: var(--brand-purple-dark); }
         .requirement-note strong { color: #532e01; }
         .settings-gear-inline { width: 16px; height: 16px; vertical-align: -0.2em; object-fit: contain; margin: 0 2px; filter: grayscale(20%) opacity(85%); }
+        /* Documentation page specific styles */
+        .page-header { display: flex; align-items: center; justify-content: flex-start; border-bottom: 1px solid var(--border-color); padding: 20px 0; margin-bottom: 30px; }
+        .header-icon { width: 40px; height: 40px; margin-right: 15px; }
+        .page-header h1 { margin: 0; font-size: 2.2em; }
+        .purple-strong { color: var(--brand-purple); }
+        .settings-access-note { font-style: italic; color: #6c757d; font-size: 0.95em; margin-top: 5px; display: block; }
+        .settings-gear-inline { display: inline-block; width: 16px; height: 16px; vertical-align: -0.2em; object-fit: contain; margin: 0 2px; filter: grayscale(20%) opacity(85%); }
+        .copy-feedback-example { display: inline-block; background-color: #333333; color: white; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+        .pulsing-warning-emoji { display: inline-flex; align-items: center; justify-content: center; width: 1.4em; height: 1.4em; border-radius: 50%; animation: ga4-optimizer-pulse 1.5s infinite ease-out; position: relative; font-size: inherit; line-height: 1; vertical-align: -0.15em; margin: 0 0.1em; }
+        @keyframes ga4-optimizer-pulse { 0% { transform: scale(1.15); box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.7); } 70% { transform: scale(1.25); box-shadow: 0 0 5px 10px rgba(255, 152, 0, 0); } 100% { transform: scale(1.15); box-shadow: 0 0 0 0 rgba(255, 152, 0, 0); } }
+        kbd { background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 3px; padding: 2px 6px; font-family: monospace; font-size: 12px; color: #495057; }
+        @media (prefers-color-scheme: dark) { kbd { background-color: #2c3034; border-color: #495057; color: #e9ecef; } }
+        .cta-box { background-color: var(--bg-light); padding: 25px; border-radius: 8px; text-align: center; margin-top: 30px; border: 1px solid var(--border-color); }
+        .cta-box h3 { margin-top: 0; color: var(--text-dark); }
+        .other-browsers-link { margin-top: 15px; font-size: 0.9em; color: var(--text-light); }
+        .accordion-container { margin-top: 20px; }
+        .accordion-item { border: 1px solid var(--border-color); border-radius: 4px; margin-bottom: 10px; overflow: hidden; }
+        .accordion-item:last-child { margin-bottom: 0; }
+        .accordion-button { background-color: var(--bg-light); color: var(--brand-purple-dark); cursor: pointer; padding: 15px 20px; width: 100%; text-align: left; border: none; outline: none; font-size: 1.1em; font-weight: 600; transition: background-color 0.3s ease; display: flex; justify-content: space-between; align-items: center; }
+        .accordion-button:hover, .accordion-button.active { background-color: #e9e6ed; }
+        .accordion-button.active { color: var(--brand-purple); }
+        .accordion-button::after { content: '+'; font-size: 1.3em; font-weight: bold; color: var(--brand-purple); transition: transform 0.2s ease-out; margin-left: 10px; }
+        .accordion-button.active::after { content: "–"; }
+        .accordion-panel { padding: 0 20px; background-color: white; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease-out; }
+        .accordion-panel.active { padding: 15px 20px; }
+        .accordion-panel p:first-child, .accordion-panel ul:first-child, .accordion-panel ol:first-child { margin-top: 0; }
+        .accordion-panel p:last-child, .accordion-panel ul:last-child, .accordion-panel ol:last-child { margin-bottom: 0; }
         @media (max-width: 900px) { .docs-layout { flex-direction: column; gap: 0; } #docs-sidebar { width: 100%; position: sticky; top: 70px; height: auto; z-index: 900; overflow-y: visible; margin-bottom: 20px; } .sidebar-title { cursor: pointer; position: relative; background-color: var(--bg-light); } .sidebar-title::after { content: '▾'; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 1.2em; transition: transform 0.3s ease; } #docs-sidebar.is-open .sidebar-title::after { transform: translateY(-50%) rotate(180deg); } .sidebar-content { max-height: 0; overflow: hidden; padding: 0 15px; margin: 0; transition: max-height 0.4s ease-out, padding 0.4s ease-out; background-color: var(--bg-light); border-top: 1px solid var(--border-color); position: relative; } #docs-sidebar.is-open .sidebar-content { padding: 15px; max-height: calc(100vh - 140px); overflow-y: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: var(--brand-purple) transparent; } #docs-sidebar.is-open .sidebar-content::-webkit-scrollbar { width: 6px; } #docs-sidebar.is-open .sidebar-content::-webkit-scrollbar-track { background: transparent; } #docs-sidebar.is-open .sidebar-content::-webkit-scrollbar-thumb { background-color: var(--brand-purple); border-radius: 3px; opacity: 0.7; } #docs-sidebar.is-open .sidebar-content::-webkit-scrollbar-thumb:hover { opacity: 1; } #docs-sidebar.is-open .sidebar-content::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 20px; background: linear-gradient(transparent, var(--bg-light)); pointer-events: none; opacity: 0; transition: opacity 0.3s ease; } #docs-sidebar.is-open .sidebar-content.has-scroll::after { opacity: 1; } #docs-sidebar.is-open .sidebar-title { border-bottom-left-radius: 0; border-bottom-right-radius: 0; } #docs-sidebar ul { margin: 0; } }
     </style>
     {% endif %}
@@ -94,6 +136,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/features/">Features</a></li>
+                <li><a href="/documentation/">Documentation</a></li>
                 <li><a href="/blog/">Blog</a></li>
                 <li><a href="/contact/">Contact</a></li>
                 <li>
@@ -133,7 +176,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="/global.js"></script>
 
     {# Conditionally load the documentation script ONLY on the docs page #}
-    {% if page.url == '/features/' %}
+    {% if page.url == '/features/' or page.url == '/documentation/' %}
     <script src="/documentation.js"></script>
     {% endif %}
 

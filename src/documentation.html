@@ -1,0 +1,497 @@
+---
+layout: "layouts/base.njk"
+title: "GA4 Optimizer Documentation - Complete Feature Guide"
+description: "Complete GA4 Optimizer documentation with step-by-step guides, troubleshooting tips, and feature explanations. Learn click-to-copy, AB test analysis, calculated metrics, sticky headers, and 16 other powerful Google Analytics 4 workflow improvements."
+permalink: "/documentation/"
+eleventyComputed:
+  ogTitle: "{{ title }}"
+  ogDescription: "{{ description }}"
+  ogUrl: "https://www.gaoptimizer.com{{ page.url }}"
+  ogImage: "https://www.gaoptimizer.com/icons/ga4-optimizer-logo.png"
+schema: |
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "How do I configure Click to Copy settings in GA4 Optimizer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Click to Copy settings can be configured by clicking the Settings button in the GA4 Optimizer popup. You can enable/disable single, double, and triple-click behaviors. Single click copies specific lines, double click copies entire cell content, and triple click copies tooltip content including percentages and comparisons."
+      }
+    }, {
+      "@type": "Question",
+      "name": "Why are my AB Test Segment Comparisons not working?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AB Test Segment Comparison requires strict naming conventions. Segments must start with 'VAR-' and the control segment must start with 'VAR-Control' (case-sensitive). Ensure both variant and control segments are visible in your Exploration table and have non-zero values for accurate statistical significance calculations."
+      }
+    }, {
+      "@type": "Question",
+      "name": "How do I use the Detailed Results Shortcut feature?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Detailed Results Shortcut can be triggered using Ctrl+Shift+Q (Windows/Linux) or Command+Shift+Q (Mac) while on an Exploration page. This feature helps reduce data sampling by switching to 'More detailed results' mode. You can configure manual or automatic activation in the extension settings."
+      }
+    }, {
+      "@type": "Question",
+      "name": "What should I do if GA4 Optimizer features are not activating?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "First, ensure you're on the correct page type (Exploration or Standard Report) as features are page-specific. Check that the feature is toggled on in the popup. Try refreshing the GA4 page using the refresh button in the popup or your browser's refresh. If issues persist, check for extension updates."
+      }
+    }, {
+      "@type": "Question",
+      "name": "How do I create and save calculated metrics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In Standard Reports, click the '+ Add calculated rate' button in the new column. In Explorations, right-click a metric header and select 'Create from [Metric Name]'. You can save calculations to your personal library and choose to auto-apply them in Standard Reports, Explorations, or both. All saved metrics are managed from the settings page."
+      }
+    }, {
+      "@type": "Question",
+      "name": "Why am I not seeing percentages or tooltips in Explorations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This usually happens when required elements are scrolled out of view. For 'Percentage of Column Total', ensure the Total row is visible. For 'Percentage of All Users' or 'AB Test Segment Comparison', make sure 'All Users' or 'VAR-Control' columns are visible. The GA4 interface may have also changed - check for extension updates."
+      }
+    }, {
+      "@type": "Question",
+      "name": "How do I fix shared GA4 links that show permission errors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Fix Shared Links feature automatically detects permission errors and adds a 'Try Another Account' button. This systematically tries your other signed-in Google accounts until it finds one with access. The feature works on all GA4 page types and is perfect for when colleagues share links but you're signed into the wrong account."
+      }
+    }, {
+      "@type": "Question",
+      "name": "What keyboard shortcuts are available in GA4 Optimizer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The main keyboard shortcut is Ctrl+Shift+Q (Windows/Linux) or Command+Shift+Q (Mac) for the Detailed Results Shortcut in Explorations. This shortcut can be customized in the extension settings. The shortcut helps trigger 'More detailed results' to reduce data sampling."
+      }
+    }]
+  }
+---
+<main class="container">
+    <div class="main-content content-page">
+        <div class="page-header">
+            <h1>GA4 Optimizer Documentation</h1>
+        </div>
+        <p>GA4 Optimizer aims to solve common analysis needs when using Google Analytics™ 4 interface. This guide
+            explains what each feature does and how to use it. Please note that as Google Analytics 4™ interface changes
+            some of these features may stop working.</p>
+        <p><strong>Quick Access to Settings:</strong> Most features can be toggled on/off from the popup. Features with
+            more detailed configurations (like "Click to Copy" actions or "Data Range Presets" visibility) have a
+            settings option in the popup. Clicking this will open a dedicated settings page.</p>
+        <p><strong>Looking for a Quick Overview?</strong> Visit our <a href="/features/">features page</a> for a concise
+            summary of all capabilities.</p>
+
+        <div class="docs-layout">
+            <aside id="docs-sidebar">
+                <h2 class="sidebar-title">Navigation</h2>
+                <div class="sidebar-content">
+                    <ul>
+                        <li><a href="#features-explained-toc">Features Explained</a>
+                            <ul>
+                                <li><a href="#feature-click-to-copy">1. Click to Copy</a></li>
+                                <li><a href="#feature-sticky-header">2. Sticky Header</a></li>
+                                <li><a href="#feature-highlight-sampling">3. Highlight Sampling</a></li>
+                                <li><a href="#feature-percentage-change-highlighter">4. % Change Highlighter</a></li>
+                                <li><a href="#feature-cr-change-percentage">5. Δ% Share Change</a></li>
+                                <li><a href="#feature-percentage-column-total">6. % of Column Total</a></li>
+                                <li><a href="#feature-auto-detailed-results">7. Detailed Results Shortcut (Beta)</a>
+                                </li>
+                                <li><a href="#feature-percentage-all-users">8. % of All Users</a></li>
+                                <li><a href="#feature-ab-test-segment-comparison">9. AB Test Comparison</a></li>
+                                <li><a href="#feature-collapsible-panels">10. Collapsible Panels</a></li>
+                                <li><a href="#feature-sticky-calculator">11. Sticky Calculator</a></li>
+                                <li><a href="#feature-date-range-presets">12. Data Range Presets</a></li>
+                                <li><a href="#feature-calculated-metrics">13. Quick Calculated Metric</a></li>
+                                <li><a href="#feature-linechart-customization">14. Line Chart Color Customization
+                                        (Beta)</a></li>
+                                <li><a href="#feature-smart-account-switcher">15. Fix Shared Links</a></li>
+                                <li><a href="#feature-create-exit-report">16. Create Exit Pages Report</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#troubleshooting-toc">Troubleshooting</a></li>
+                    </ul>
+                </div>
+            </aside>
+            <div class="docs-content">
+                <h2 id="features-explained-toc">Features Explained</h2>
+
+                <section id="feature-click-to-copy">
+                    <h2>1. Click to Copy Cell</h2>
+                    <p><strong>Applies to: Explorations & Standard Reports</strong><br>Quickly copy values from table
+                        cells, headers, or dimension labels to your clipboard. Detailed click behaviors (single, double,
+                        triple) can be
+                        configured by clicking the <strong>Settings</strong> button in the popup.</p>
+                    <div class="feature-video-container" data-video-name="ClickToCopy"><video autoplay loop muted
+                            playsinline>
+                            <source src="/mp4/click_to_copy.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon-overlay"></div>
+                    </div>
+                    <ul>
+                        <li><strong>Single Click (if enabled):</strong> Copies the text of the specific line you clicked
+                            within a cell.</li>
+                        <li><strong>Double Click (Explorations Only, if enabled):</strong> Copies the entire text
+                            content of the clicked cell or label, automatically adding spaces where lines wrap.</li>
+                        <li><strong>Triple Click (Exploration Data Cells Only, if enabled):</strong> Copies the combined
+                            text content from the hover tooltip.</li>
+                    </ul>
+                    <div class="note">
+                        <strong>Note:</strong> Copying complex multi-line text from Explorations might occasionally miss
+                        or add a space. Manual selection is always an option.
+                    </div>
+                </section>
+
+                <section id="feature-sticky-header">
+                    <h2>2. Sticky Report Header</h2>
+                    <p><strong>Applies to: Standard Reports Only</strong><br>Keeps the header row visible while
+                        scrolling, making it easier to analyze long reports without losing track of metric columns.</p>
+                    <div class="feature-video-container" data-video-name="StickyHeader"><video autoplay loop muted
+                            playsinline>
+                            <source src="/mp4/sticky_header.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon-overlay"></div>
+                    </div>
+                </section>
+
+                <section id="feature-highlight-sampling">
+                    <h2>3. Highlight Sampling</h2>
+                    <p><strong>Applies to: Explorations & Standard Reports</strong><br>Instantly see when your data is
+                        sampled. This feature makes the data quality icon pulse so you're always aware of potential data
+                        inaccuracies.</p>
+                    <div class="feature-video-container" data-video-name="HighlightSampling"><video autoplay loop muted
+                            playsinline>
+                            <source src="/mp4/highlight_sampling.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon-overlay"></div>
+                    </div>
+                </section>
+
+                <section id="feature-percentage-change-highlighter">
+                    <h2>4. Percentage Change Highlighter</h2>
+                    <p><strong>Applies to: Standard Reports Only (when date comparison is active)</strong><br>Uses
+                        conditional formatting to highlight significant positive or negative trends based on
+                        user-defined ranges and colors. Configure ranges, colors, and highlight source in settings.</p>
+                    <div class="feature-video-container" data-video-name="PercentageChangeHighlighter"><video autoplay
+                            loop muted playsinline>
+                            <source src="/mp4/onboarding_demo_report_mom.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon-overlay"></div>
+                    </div>
+                </section>
+
+                <section id="feature-cr-change-percentage">
+                    <h2>5. Δ% Share Change (Reports)</h2>
+                    <p><strong>Applies to: Standard Reports Only (when date comparison is active)</strong><br>Calculates
+                        and displays the percentage change of the "percentage of total" values directly in the "%
+                        change" row, providing deeper context than standard % change.</p>
+                    <div class="note">
+                        <strong>Note:</strong> This feature relies on the presence of the "percent-of-total" spans
+                        (e.g., <code>(XX.XX%)</code>) generated by GA4 in the data rows. If these are missing or GA4
+                        changes their structure, this feature may not work.
+                    </div>
+                </section>
+
+                <section id="feature-percentage-column-total">
+                    <h2>6. Percentage of Column Total</h2>
+                    <p><strong>Applies to: Explorations Only</strong><br>On hover, this instantly calculates each row's
+                        percentage contribution to the column total, ideal for quick contribution analysis.</p>
+                    <div class="feature-video-container" data-video-name="PercentageOfColumn"><video autoplay loop muted
+                            playsinline>
+                            <source src="/mp4/percentage_column_total.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon-overlay"></div>
+                    </div>
+                    <div class="note">
+                        <strong>Note:</strong> If the "Total" row is scrolled out of view, percentages might temporarily
+                        show "Scroll up to capture Column's Total" or be based on the last known total.
+                    </div>
+                </section>
+
+                <section id="feature-auto-detailed-results">
+                    <h2>7. Detailed Results Shortcut (Beta)</h2>
+                    <p><strong>Applies to: Explorations Only</strong><br>Manually trigger "More detailed results" (less
+                        sampling) in Explorations using a keyboard shortcut for better accuracy. Configure manual or
+                        automatic activation modes in settings.</p>
+                    <div class="requirement-note"><strong>Requirement:</strong> This feature must be enabled in the
+                        popup and you must be on an
+                        Exploration page.</div>
+                    <div class="feature-video-container" data-video-name="AutoDetail"><video autoplay loop muted
+                            playsinline>
+                            <source src="/mp4/auto_detail.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon-overlay"></div>
+                    </div>
+                    <ul>
+                        <li><strong>Keyboard Shortcut:</strong> Press <kbd>Ctrl+Shift+Q</kbd> (Windows/Linux) or
+                            <kbd>Command+Shift+Q</kbd> (Mac) while on an Exploration page.</li>
+                        <li><strong>When to Use:</strong> Use this when you see a sampling icon (⚠️) in your
+                            Exploration, indicating that the data is sampled.</li>
+                        <li><strong>What it Does:</strong> Attempts to switch the Exploration to use "More detailed
+                            results" which provides less sampled data.</li>
+                    </ul>
+                </section>
+
+                <section id="feature-percentage-all-users">
+                    <h2>8. Percentage of All Users</h2>
+                    <p><strong>Applies to: Explorations Only</strong><br>Quickly calculate and compare user conversion
+                        rates for different segments against the total user base, simplifying funnel and segment
+                        performance analysis.</p>
+                    <div class="requirement-note"><strong>Requirement:</strong> The 'All Users' segment or any segment
+                        containing "All users" must be included in your Exploration table setup.</div>
+                    <div class="feature-video-container" data-video-name="AllUsersCompare"><video autoplay loop muted
+                            playsinline>
+                            <source src="/mp4/all_users_segment_compare.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon-overlay"></div>
+                    </div>
+                    <div class="note">
+                        <strong>Visibility Requirement:</strong> If the 'All Users' column is scrolled out of view, the
+                        conversion rate might be unavailable or show 'N/A'.
+                    </div>
+                </section>
+
+                <section id="feature-ab-test-segment-comparison">
+                    <h2>9. AB Test Segment Comparison</h2>
+                    <p><strong>Applies to: Explorations Only</strong><br>A powerful tool for conversion rate
+                        optimization (CRO) that compares metrics between test variations, calculates statistical
+                        significance, and checks for sample ratio mismatch (SRM).</p>
+                    <div class="requirement-note"><strong>Requirement:</strong> Segments must be named with `VAR-`
+                        prefix, and the control segment must start with `VAR-Control` (case-sensitive).</div>
+                    <div class="feature-video-container" data-video-name="ABTestCompare"><video autoplay loop muted
+                            playsinline>
+                            <source src="/mp4/ab_test_compare.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon-overlay"></div>
+                    </div>
+                    <h4>How it Works</h4>
+                    <ul>
+                        <li><strong>Automatic Activation:</strong> The moment your Exploration contains correctly named
+                            segments, the feature activates automatically.</li>
+                        <li><strong>At-a-Glance Icons:</strong> The feature places minimalist arrow icons directly
+                            inside the cells of your variant segments.</li>
+                        <li><strong>Visibility Toggle:</strong> A new 'eye' icon appears in the top-right of the GA4
+                            interface.</li>
+                        <li><strong>Detailed Hover Tooltip:</strong> Hovering over any cell provides detailed tooltip
+                            with exact percentage differences and statistical significance.</li>
+                    </ul>
+                </section>
+
+                <section id="feature-collapsible-panels">
+                    <h2>10. Collapsible Panels</h2>
+                    <p><strong>Applies to: Explorations Only</strong><br>Get more space for your data. This adds a
+                        toggle to collapse the "Variables" and "Tab Settings" panels for a less cluttered analysis view.
+                    </p>
+                    <div class="feature-video-container" data-video-name="CollapsiblePanels"><video autoplay loop muted
+                            playsinline>
+                            <source src="/mp4/collapsible_panels.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon-overlay"></div>
+                    </div>
+                    <div class="note">
+                        <strong>Note:</strong> Refresh the page if the button is misplaced or missing.
+                    </div>
+                </section>
+
+                <section id="feature-sticky-calculator">
+                    <h2>11. Sticky Conversion Calculator</h2>
+                    <p><strong>Applies to: All Google Analytics 4™ Pages</strong><br>A quick-access calculator for
+                        common marketing calculations like conversion rate or CPC, available anywhere in the GA4
+                        interface. Calculate two CRs and compare them with absolute difference and relative uplift.</p>
+                    <div class="feature-video-container" data-video-name="StickyCalculator"><video autoplay loop muted
+                            playsinline>
+                            <source src="/mp4/sticky_calculator.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon-overlay"></div>
+                    </div>
+                    <ul>
+                        <li>A calculator icon appears in the bottom-right. Click to open.</li>
+                        <li>Calculate two CRs (CR1, CR2) by entering Conversions and Total.</li>
+                        <li>Compares CR2 vs CR1 (Absolute Difference, Relative Uplift).</li>
+                        <li>Panel header is draggable. Click icon or "X" to close.</li>
+                    </ul>
+                </section>
+
+                <section id="feature-date-range-presets">
+                    <h2>12. Data Range Presets</h2>
+                    <p><strong>Applies to: Standard Reports Only</strong><br>Speeds up your reporting by adding
+                        one-click buttons for common date ranges and comparison periods, like "Last 7 Days" or
+                        "Month-over-Month." Customize visible presets and their order in settings.</p>
+                    <div class="feature-video-container" data-video-name="DateRanges"><video autoplay loop muted
+                            playsinline>
+                            <source src="/mp4/date_ranges.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon-overlay"></div>
+                    </div>
+                    <ul>
+                        <li>Preset buttons appear next to the date picker in Standard Reports.</li>
+                        <li>Clicking a preset applies it and reloads the report.</li>
+                        <li>If many presets are visible, a scrollbar appears in the preset area.</li>
+                        <li>Comparison presets are hidden on Advertising pages.</li>
+                    </ul>
+                </section>
+
+                <section id="feature-calculated-metrics">
+                    <h2>13. Quick Calculated Metric</h2>
+                    <p><strong>Applies to: Standard Reports & Explorations</strong><br>Create temporary or saved
+                        calculated metrics (e.g., rates, ratios) directly within your reports. You can save calculated
+                        rates to your personal library and choose to auto-apply them in Standard Reports, Explorations,
+                        or both.</p>
+                    <div class="feature-video-container" data-video-name="QuickCalculatedMetric"><video autoplay loop
+                            muted playsinline>
+                            <source src="/mp4/calculated_metric.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon-overlay"></div>
+                    </div>
+                    <div class="requirement-note"><strong>Note:</strong> Saved calculated metrics are available for
+                        quick access and management in the settings page. Temporary (on-the-fly) calculations are only
+                        for your current view and will be cleared when the page reloads.</div>
+                </section>
+
+                <section id="feature-linechart-customization">
+                    <h2>14. Line Chart Color Customization (Beta)</h2>
+                    <p><strong>Applies to: Standard Reports & Explorations</strong><br>Customize the colors of line
+                        charts and add hourly granularity to Standard Reports. Click the palette icon near charts to
+                        customize colors, or use the new "Hour" option in the time interval dropdown for detailed hourly
+                        analysis.</p>
+                    <div class="feature-video-container" data-video-name="LineChartCustomization"><video autoplay loop
+                            muted playsinline>
+                            <source src="/mp4/line_chart-customizations.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon-overlay"></div>
+                    </div>
+                    <div class="note">
+                        <strong>Note:</strong> While this feature works in both Standard Reports and Explorations,
+                        Google Analytics' rendering behavior in Standard Reports can sometimes be inconsistent,
+                        especially when a "Total" series is included.
+                    </div>
+                </section>
+
+                <section id="feature-smart-account-switcher">
+                    <h2>15. Fix Shared Links</h2>
+                    <p><strong>Applies to: All Google Analytics 4™ Pages</strong><br>Fixes the common problem where
+                        shared GA4 links don't work because you're signed into the wrong Google account. When you
+                        encounter "Missing permissions" errors, this feature automatically adds a "Try Another Account"
+                        button to seamlessly retry the link with your other signed-in Google accounts.</p>
+                    <div class="requirement-note"><strong>When This Helps:</strong> Perfect for when colleagues share
+                        GA4 links via email, Slack, or Teams, but you're signed into a personal Google account instead
+                        of your work account, or when you have multiple work accounts with different property access
+                        levels.</div>
+                    <ul>
+                        <li><strong>Automatic Detection:</strong> When GA4 displays a "Missing permissions" dialog, the
+                            extension automatically detects it and adds a prominent "Try Another Account" button.</li>
+                        <li><strong>Improved Error Message:</strong> Updates GA4's confusing "You do not have access"
+                            message to a clearer version.</li>
+                        <li><strong>Smart Retry Logic:</strong> The button systematically tries your other Google
+                            accounts until it finds one with access.</li>
+                        <li><strong>Universal Coverage:</strong> Works on all GA4 page types including Standard Reports,
+                            Explorations, Admin pages, and any GA4 property URLs.</li>
+                    </ul>
+                </section>
+
+                <section id="feature-create-exit-report">
+                    <h2>16. Create Exit Pages Report</h2>
+                    <p><strong>Applies to: All Google Analytics 4™ Pages (via Popup)</strong><br>Instantly generates a
+                        new Standard Report template pre-filled with <strong>Exits</strong>, <strong>Views</strong>, and
+                        <strong>Bounce Rate</strong> metrics, using Page Path as the primary dimension. This feature
+                        provides a crucial workaround, as the "Exits" metric is not available in the standard GA4 Report
+                        Builder UI.
+                    </p>
+                    <div class="requirement-note"><strong>Note:</strong> This feature requires you to have at least
+                        Editor Role Access and to be on a page within a GA4 property (i.e., the URL must contain a
+                        property ID like "/p123456789/"). The button in the popup will be disabled if you are not on a
+                        valid GA4 page.</div>
+                    <ul>
+                        <li><strong>How it works:</strong> When you are on any GA4 property page, open the extension
+                            popup, navigate to the "Reports" tab, and click the "Create Exit Pages Report" button.</li>
+                        <li>Your current tab will be redirected to the GA4 "Create a new report" screen, with the
+                            necessary (and normally unavailable) metrics and dimensions already selected for you.</li>
+                        <li>You can then save this report to your library for future use. The Exit Rate column will
+                            automatically appear thanks to the calculated metric.</li>
+                    </ul>
+                </section>
+
+                <h2 id="troubleshooting-toc">Troubleshooting</h2>
+                <div class="accordion-container">
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-1"
+                            id="trouble-button-1">Features not activating</button>
+                        <div class="accordion-panel" id="trouble-panel-1" role="region"
+                            aria-labelledby="trouble-button-1">
+                            <p>Ensure you are on the correct page type (Exploration or Standard Report). Try refreshing
+                                the GA4 page using the button in the popup or your browser's refresh. Double-check the
+                                feature is toggled on in the popup.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-2"
+                            id="trouble-button-2">Percentages/Tooltips missing (Explorations)</button>
+                        <div class="accordion-panel" id="trouble-panel-2" role="region"
+                            aria-labelledby="trouble-button-2">
+                            <p>The GA4 interface might have changed. Check for extension updates or report the issue.
+                                For "Percentage of Column Total", if "Total" row is scrolled out of view, data might be
+                                unavailable. For "Percentage of All Users" or "AB Test Segment Comparison", if 'All
+                                Users' or 'VAR-Control' columns are out of view, data may be unavailable.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-3"
+                            id="trouble-button-3">Click to Copy not working / incorrect text</button>
+                        <div class="accordion-panel" id="trouble-panel-3" role="region"
+                            aria-labelledby="trouble-button-3">
+                            <p>Ensure feature and desired click actions are enabled in settings (by clicking the
+                                <strong>Settings</strong> button in the popup). Complex Exploration tables can be
+                                tricky; manual selection might be needed.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-4"
+                            id="trouble-button-4">AB Test Segment Comparison not working</button>
+                        <div class="accordion-panel" id="trouble-panel-4" role="region"
+                            aria-labelledby="trouble-button-4">
+                            <ul>
+                                <li>Check segment naming: must start with <code>VAR-</code>, control with
+                                    <code>VAR-Control</code> (case-sensitive).</li>
+                                <li>Ensure variant and a matching control segment (same metric) are in the table and
+                                    visible.</li>
+                                <li>Control segment's value must not be zero/non-numeric for count comparison.</li>
+                                <li>Statistical significance requires adequate sample sizes (n > 30).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-5"
+                            id="trouble-button-5">Contact for questions or feedback</button>
+                        <div class="accordion-panel" id="trouble-panel-5" role="region"
+                            aria-labelledby="trouble-button-5">
+                            <p>For questions or feedback, please visit our <strong><a
+                                        href="https://www.gaoptimizer.com/contact/" target="_blank">Contact
+                                        Page</a></strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="margin-top: 40px; border-color: var(--border-color);">
+                <div class="cta-box"
+                    style="background-color: var(--bg-light); padding: 25px; border-radius: 8px; text-align: center; margin-top: 30px;">
+                    <h3 style="margin-top: 0;">Ready to Supercharge Your Workflow?</h3>
+                    <p>Get all these features and more with our free browser extension.</p>
+                    <a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=documentation_page_cta"
+                        class="cta-button" target="_blank" rel="noopener noreferrer">
+                        Add GA4 Optimizer to Chrome — It's Free
+                    </a>
+                    <div class="other-browsers-link" style="margin-top: 15px; font-size: 0.9em;">
+                        Also available for
+                        <a href="https://microsoftedge.microsoft.com/addons/detail/ga4-optimizer-analysis-t/ejokbgelaaegbgemjjhgppigoclanomh?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=documentation_page_cta"
+                            target="_blank" rel="noopener noreferrer">Edge</a> &
+                        <a href="https://addons.mozilla.org/en-US/firefox/addon/ga4-optimizer/?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=documentation_page_cta"
+                            target="_blank" rel="noopener noreferrer">Firefox</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
