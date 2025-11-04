@@ -74,9 +74,18 @@ eleventyComputed:
             </div>
         </div>
 
+        <!-- Social Share Buttons - Top of Post -->
+        {% include "social-share.njk" %}
+
         <article class="post-body">
             {{ content | safe }}
         </article>
+
+        <!-- Social Share Buttons - Bottom of Post -->
+        {% include "social-share.njk" %}
+
+        <!-- Optional: Floating Social Share Sidebar (uncomment to enable) -->
+        {# {% include "social-share-floating.njk" %} #}
 
         <hr style="margin-top: 40px; border-color: var(--border-color);">
 

@@ -1105,3 +1105,149 @@ a.step h3, a.step p {
     margin-top: 0; /* Let the mascot's margin handle the spacing */
     line-height: 33.5px;
 }
+/* 
+Social Share Buttons Styles */
+.social-share-buttons {
+    margin: 30px 0;
+    padding: 25px;
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.social-share-buttons .share-heading {
+    margin: 0 0 20px 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.share-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.share-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    min-width: 100px;
+    justify-content: center;
+}
+
+.share-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+.share-button svg {
+    flex-shrink: 0;
+}
+
+/* Individual platform colors */
+.share-email:hover {
+    background-color: #ea4335;
+    color: white;
+    border-color: #ea4335;
+}
+
+.share-twitter:hover {
+    background-color: #1da1f2;
+    color: white;
+    border-color: #1da1f2;
+}
+
+.share-linkedin:hover {
+    background-color: #0077b5;
+    color: white;
+    border-color: #0077b5;
+}
+
+.share-facebook:hover {
+    background-color: #1877f2;
+    color: white;
+    border-color: #1877f2;
+}
+
+.share-copy:hover {
+    background-color: var(--brand-purple);
+    color: white;
+    border-color: var(--brand-purple);
+}
+
+.share-copy.copied {
+    background-color: #28a745;
+    color: white;
+    border-color: #28a745;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .share-buttons-container {
+        gap: 10px;
+    }
+    
+    .share-button {
+        padding: 8px 12px;
+        font-size: 0.85em;
+        min-width: 80px;
+    }
+    
+    .share-button span {
+        display: none;
+    }
+    
+    .share-button {
+        min-width: 44px;
+        justify-content: center;
+    }
+}
+
+/* Floating share buttons (optional alternative placement) */
+.social-share-floating {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-share-floating .share-button {
+    min-width: 50px;
+    padding: 12px;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.social-share-floating .share-button span {
+    display: none;
+}
+
+.social-share-floating .share-button svg {
+    width: 18px;
+    height: 18px;
+}
+
+@media (max-width: 1024px) {
+    .social-share-floating {
+        display: none;
+    }
+}
