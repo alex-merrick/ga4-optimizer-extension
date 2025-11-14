@@ -58,6 +58,7 @@ eleventyComputed:
             </div>
             
             {# Image content is now in its own div for layout control #}
+            {% if show_hero != false %}
             <div class="post-header-image">
                 {# --- Smart Image Selection Logic --- #}
                 {% set desktop_image = post_image or thumbnail %}
@@ -72,10 +73,13 @@ eleventyComputed:
                     <img src="{{ mobile_image }}" alt="{{ title }}" class="post-banner-image post-banner-mobile">
                 {% endif %}
             </div>
+            {% endif %}
         </div>
 
         <!-- Social Share Buttons - Top of Post -->
+        {% set hideHeading = true %}
         {% include "social-share.njk" %}
+        {% set hideHeading = false %}
 
         <article class="post-body">
             {{ content | safe }}

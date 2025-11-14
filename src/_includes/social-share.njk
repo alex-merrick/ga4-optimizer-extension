@@ -1,6 +1,17 @@
 <!-- Social Share Buttons Component -->
 <div class="social-share-buttons">
+    {% if not hideHeading %}
     <h4 class="share-heading">Share this post</h4>
+    {% endif %}
+    
+    <!-- Copy confirmation toast -->
+    <div id="copy-toast" class="copy-toast">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+        </svg>
+        Link copied to clipboard!
+    </div>
+    
     <div class="share-buttons-container">
         <!-- Email Share -->
         <a href="mailto:?subject={{ title | urlencode }}&body=I thought you might find this article interesting: https://www.gaoptimizer.com{{ page.url }}" 
@@ -62,21 +73,41 @@
     </div>
 </div>
 
+<style>
+.copy-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background-color: #2d3748;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.copy-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.copy-toast svg {
+    fill: #48bb78;
+}
+</style>
+
 <script>
 function copyToClipboard(url) {
     navigator.clipboard.writeText(url).then(function() {
-        // Update button text temporarily
-        const button = event.target.closest('.share-copy');
-        const textSpan = button.querySelector('.copy-text');
-        const originalText = textSpan.textContent;
-        
-        textSpan.textContent = 'Copied!';
-        button.classList.add('copied');
-        
-        setTimeout(function() {
-            textSpan.textContent = originalText;
-            button.classList.remove('copied');
-        }, 2000);
+        showCopyToast();
     }).catch(function(err) {
         console.error('Could not copy text: ', err);
         // Fallback for older browsers
@@ -86,18 +117,16 @@ function copyToClipboard(url) {
         textArea.select();
         document.execCommand('copy');
         document.body.removeChild(textArea);
-        
-        const button = event.target.closest('.share-copy');
-        const textSpan = button.querySelector('.copy-text');
-        const originalText = textSpan.textContent;
-        
-        textSpan.textContent = 'Copied!';
-        button.classList.add('copied');
-        
-        setTimeout(function() {
-            textSpan.textContent = originalText;
-            button.classList.remove('copied');
-        }, 2000);
+        showCopyToast();
     });
+}
+
+function showCopyToast() {
+    const toast = document.getElementById('copy-toast');
+    toast.classList.add('show');
+    
+    setTimeout(function() {
+        toast.classList.remove('show');
+    }, 3000);
 }
 </script>
