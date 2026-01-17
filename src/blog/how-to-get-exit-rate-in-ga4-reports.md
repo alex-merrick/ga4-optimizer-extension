@@ -46,8 +46,8 @@ But what if you could get the answer in 30 seconds without ever leaving the repo
 
 In Universal Analytics, Exit Rate was a standard, out-of-the-box metric. In GA4, Google has made it significantly harder to access exit data:
 
-1. **Standard Reports:** The `Exits` metric is completely unavailable in Standard Reports. You can't even add it manually.
-2. **Explorations Only:** The `Exits` metric is only available in Explorations, but even there, you have to manually manually export and calculated Exit Rate inside of Google Sheets or Excel spreadsheet.
+1. **Standard Reports:** The `Exits` metric is completely unavailable in Standard Reports. You can't even add it manually. (Unless thrrough workaround below)
+2. **Explorations Only:** The `Exits` metric is only available in Explorations, but even there, you have to manually manually export and calculate the Exit Rate inside of Google Sheets or Excel spreadsheet.
 3. **Looker Studio Dead End:** Even Google's own Looker Studio doesn't allow the "Exits" metric to be used.
 
 The result? Most users either give up on exit analysis entirely or get stuck in a tedious workflow of building Explorations, exporting to spreadsheets, and manually calculating rates.
@@ -64,9 +64,11 @@ This is the most direct solution for exit analysis. Instead of fighting with GA4
 2. **One-Click Setup:** Click the "Create Exit Pages Report" button. Your current tab will be redirected to the GA4 "Create a new report" screen.
 3. **Pre-Configured Template:** The report template comes pre-filled with **Exits**, **Views**, and **Bounce Rate** metrics, using **Page Path** as the primary dimension.
 4. **Save and Use:** You can then save this report to your library for future use. The Exit Rate column will automatically appear thanks to the calculated metric functionality.
-5. **Activate in Reports Collection:** Once Saved, you can hit "Back" link in the top left corner which will bring you to your Reports Library. Here you can Choose one of the collections like "Business objectives" edit it and then drag your new Exit Rate Report into it. Once saved, you will see this new report show up in your GA4 Reports.
+5. **Activate in Reports Collection:** Once Saved, it will bring you to your Reports Library. Here you can Choose one of the collections like "Business objectives" edit it and then drag your new Exit Rate Report into it. Once saved, you will see this new report show up in your GA4 Reports under the collection into which you dragge Exit Rate Report into.
 
 This method is perfect because it gives you a dedicated exit analysis report that you can save, share, and revisit regularly. It's especially valuable since the "Exits" metric is normally hidden from the standard GA4 Report Builder UI.
+
+<img src="/img/exit-rate-standard-reports.jpg" alt="GA4 Standard Reports showing the Exits Rate through GA4 Optimizer" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; margin: 20px 0;" loading="lazy" />
 
 ### Alternative Method: Enhancing Tooltips in Explorations
 
@@ -81,7 +83,7 @@ This method works well for quick analysis within existing Explorations, but for 
 
 ## What to Look For: Interpreting Exit Rate
 
-Once you have the Exit Rate, the next step is to understand what it's telling you. A "high" exit rate isn't always bad—it depends entirely on the page's purpose.
+Once you have the Exit Rate, the next step is to understand what it's telling you. A "high" exit rate isn't always bad, it depends entirely on the page's purpose.
 
 * **High Exit Rate is OK here:**
 
@@ -91,7 +93,7 @@ Once you have the Exit Rate, the next step is to understand what it's telling yo
 * **High Exit Rate is a RED FLAG here:**
 
   * **Shopping Cart / Checkout Funnel:** A high exit rate on any step before the final "thank you" page indicates a serious problem. Users are abandoning their purchase due to cost, complexity, or technical issues.
-  * **Multi-Step Forms:** If users are dropping off in the middle of a sign-up or lead generation form, it's likely too long or asks for confusing information.
+  * **Multi-Step Forms:** If users are dropping off in the middle of a sign-up or lead generation form, it's likely too long or asks for confusing information or the traffic that is being sent there is not proper.
   * **Key Landing Pages:** If a page designed to drive users deeper into your site has a high exit rate, the call-to-action may be weak or the content might not match the user's expectation from the ad or link they clicked.
 
 By using the Exit Rate that comes from our Quick Calculated Metric, you can spend less time wrestling with reports and more time analyzing these user journeys and fixing the leaks that are costing you conversions.
