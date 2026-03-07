@@ -276,10 +276,21 @@ a.cta-button:hover {
     border-bottom: 1px solid var(--border-color);
     margin-top: -23px;
 }
+.content-page h2 {
+    font-size: 1.8rem;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+.content-page h2 + p {
+    margin-top: 10px;
+}
 .content-page h3 {
     font-size: 1.5rem;
-    margin-top: 40px;
+    margin-top: 25px;
     margin-bottom: 15px;
+}
+.content-page h2 + p + h3 {
+    margin-top: 20px;
 }
 .content-page ul {
     list-style-type: disc;
@@ -773,7 +784,7 @@ a.step h3, a.step p {
     color: var(--brand-purple);
 }
 .post-banner-image {
-    width: 70%;
+    width: 100%;
     height: auto;
     object-fit: cover;
     border-radius: 8px;
