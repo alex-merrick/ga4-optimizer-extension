@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Image Zoom Functionality --- (Removed for simplicity)
+
     // --- NEW: Video Modal Logic ---
 
     const videoContainers = document.querySelectorAll('.feature-video-container');

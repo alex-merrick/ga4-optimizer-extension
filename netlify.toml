@@ -3,7 +3,8 @@
 [build]
   # FIX: Change the command from "npm run start" to "npm run build"
   # This tells Netlify to run the finite build process, not the infinite development server.
-  command = "npm run build" 
+  # Also ensure devDependencies are installed since Eleventy is a devDependency
+  command = "npm ci --include=dev && npm run build" 
   publish = "_site"
 
 # --- SEO Redirect Rules ---

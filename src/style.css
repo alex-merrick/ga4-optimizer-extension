@@ -379,6 +379,9 @@ a.cta-button:hover {
 }
 
 
+/* --- Clickable Image Styles --- (Removed for simplicity) */
+
+
 /* --- Mobile Navigation Styles --- */
 .nav-toggle {
     display: none;
@@ -793,7 +796,8 @@ a.step h3, a.step p {
 }
 
 .post-banner-desktop {
-    aspect-ratio: 3 / 1;
+    aspect-ratio: 2.5 / 1;
+    max-height: 300px;
 }
 
 .post-banner-mobile {
