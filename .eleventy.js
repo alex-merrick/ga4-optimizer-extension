@@ -16,6 +16,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/CNAME");
     eleventyConfig.addPassthroughCopy("src/BingSiteAuth.xml");
     eleventyConfig.addPassthroughCopy("src/robots.txt");
+    eleventyConfig.addPassthroughCopy("src/.nojekyll");
     eleventyConfig.addPassthroughCopy("src/admin");
 
     // --- Watch Target ---

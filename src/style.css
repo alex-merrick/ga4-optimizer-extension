@@ -309,8 +309,22 @@ a.cta-button:hover {
     color: #525c5c;
     border-top: 1px solid var(--border-color);
 }
-.site-footer a { color: var(--text-light); }
-.site-footer span { margin: 0 10px; }
+.site-footer a { 
+    color: var(--text-light);
+    display: inline-block;
+    padding: 12px 8px;
+    min-height: 48px;
+    line-height: 24px;
+    text-decoration: underline;
+}
+.site-footer a:hover {
+    color: var(--brand-purple);
+}
+.site-footer span { 
+    margin: 0 4px;
+    display: inline-block;
+    vertical-align: middle;
+}
 
 
 /* --- Video Modal Styles --- */
