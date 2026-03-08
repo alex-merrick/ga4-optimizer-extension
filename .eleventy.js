@@ -27,6 +27,11 @@ module.exports = function(eleventyConfig) {
         return JSON.parse(jsonString);
     });
     
+    // --- Current Year Filter ---
+    eleventyConfig.addFilter("currentYear", function () {
+        return new Date().getFullYear();
+    });
+    
     // --- Markdown-It Customization for External Links ---
     const markdownLib = markdownIt({
         html: true,
