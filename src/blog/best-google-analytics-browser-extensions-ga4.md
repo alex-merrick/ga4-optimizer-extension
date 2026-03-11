@@ -55,7 +55,7 @@ These extensions enhance your day-to-day experience working in the GA4 interface
 
 **Best for:** Marketers, Analysts, and Agencies that utilize the Google Analytics interface
 
-If you miss the workflow hacks that older extensions used to provide, GA4 Optimizer is the ultimate power-user toolkit. Built specifically to fix the daily frustrations of the GA4 interface, it's currently the most comprehensive UI enhancement tool on the Chrome Web Store.It fundamentally improves how you use the GA4 interface.
+If you miss the workflow hacks that older extensions used to provide, GA4 Optimizer is the ultimate power-user toolkit. Built specifically to fix the daily frustrations of the GA4 interface, it's currently the most comprehensive UI enhancement tool on the Chrome Web Store. It fundamentally improves how you use the GA4 interface.
 
 **Key Features:**
 
@@ -71,7 +71,7 @@ If you miss the workflow hacks that older extensions used to provide, GA4 Optimi
 
 **Best for:** Content Marketers & SEOs
 
-Ever navigate a pages and screens report in GA4 and wish you could just click on the URLs in the report? Or view a live webpage and jump straight to its analytics? GA4 Page Opener enables you to do exactly this.
+Ever navigate a pages and screens report in GA4 and wish you could just click on the URLs in the report? GA4 Page Opener enables you to do exactly this.
 
 **Key Features:**
 
@@ -197,9 +197,9 @@ Google Tag Assistant is a perfect to watch Google analytics and Google Ads event
 
 ## Choosing the Right Google Analytics Browser Extension
 
-The best Google Analytics browser extension for you depends on your role. If you spend most of your time in the GA4 interface analyzing reports, start with GA4 Optimizer. If you're a developer implementing tracking, the debugging extensions like Adswerve dataLayer Inspector+ and Omnibug are essential.
+The best Google Analytics browser extension for you depends on your role. If you spend most of your time in the GA4 interface analyzing reports, or adminstrating the property start with GA4 Optimizer. If you're a developer implementing tracking, the debugging extensions like Adswerve dataLayer Inspector+ and Omnibug are essential.
 
-The good news? All of these extensions are free and can be used together. Many analytics professionals install 3-4 of these tools to cover both reporting and debugging needs.
+All of these extensions are free and can be used together. Many analytics professionals install 3-4 of these tools to cover both reporting and debugging needs.
 
 - - -
 
