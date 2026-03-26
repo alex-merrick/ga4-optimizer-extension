@@ -39,6 +39,9 @@ If you loved Da Vinci Tools for Universal Analytics, this is the perfect modern 
 
 *GA4 Optimizer is an independent software tool and is not developed, affiliated with, or endorsed by Google. Google Analytics™ is a trademark of Google LLC.
 
+⚠️ This repository does NOT contain the GA4 Optimizer extension source code.
+
+This GitHub repository is used only to host the public website, documentation, and related assets for the GA4 Optimizer browser extension, which is a proprietary, closed-source product.
 
 ## Privacy Policy
 
