@@ -27,3 +27,13 @@
   to = "/:slug/"
   status = 301
   conditions = {path = "!/\\.html$|/\\.xml$|/\\.txt$|/\\.png$|/\\.jpg$|/\\.svg$|/\\.mp4$|/\\.js$|/\\.css$"}
+
+# --- Security Headers ---
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
