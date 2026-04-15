@@ -25,9 +25,11 @@ title: How to Properly Analyze A/B Test Results in GA4
 date: 2025-06-08T00:00:00.000Z
 thumbnail: /img/thumbnails/thumb-ab-test.jpg
 post_image: /img/thumbnails/banner-ab-test.jpg
-description: Struggling to validate your A/B test results in GA4? Learn the
-  manual method for checking statistical significance and discover how to
-  automate the entire process in one click.
+description: "Struggling to validate your A/B test results in GA4? Learn the manual method for checking statistical significance and discover how to automate the entire process in one click."
+tags:
+  - post
+  - ga4
+  - ab-testing
 ---
 So, your A/B test has finished collecting data. You've dutifully created an Exploration report in Google Analytics 4, comparing your control against your new variation. You see a lift in conversions—but can you trust it? Is it a real win or just random statistical noise?
 

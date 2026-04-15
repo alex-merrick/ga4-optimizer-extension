@@ -32,9 +32,11 @@ title: Missing Exit Rate in GA4? Here's the 30-Second Fix
 date: 2025-06-23T00:00:00.000Z
 thumbnail: /img/thumbnails/thumb-exit-rate.jpg
 post_image: /img/thumbnails/banner-exit-rate.jpg
-description: Frustrated that you can see 'Exits' and 'Views' in a GA4 report but
-  not 'Exit Rate'? Learn how to create custom calculated metrics on-the-fly
-  without leaving the page.
+description: "Frustrated that you can see 'Exits' and 'Views' in a GA4 report but not 'Exit Rate'? Learn how to create custom calculated metrics on-the-fly without leaving the page."
+tags:
+  - post
+  - ga4
+  - reporting
 ---
 You're trying to build a "Pages and screens" report in Google Analytics 4. You add the `Views` metric easily enough. But when you try to add the `Exits` metric... it's nowhere to be found in Standard Reports. And even if you could find it, there's still no **Exit Rate** calculation available.
 

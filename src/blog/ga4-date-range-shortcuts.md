@@ -26,6 +26,10 @@ thumbnail: /img/thumbnails/thumb-ga4-date-presets.jpg
 post_image: /img/thumbnails/banner-ga4-date-presets.jpg
 show_hero: false
 description: "GA4 added 'This Month' presets but removed a key comparison feature. Learn how to get 1-click date ranges and true day-of-week aligned Year-over-Year comparisons back."
+tags:
+  - post
+  - ga4
+  - reporting
 ---
 Google Analytics 4 silently recently rolled out an update with a few new date presets like "This month" and "Last month." But what they gave in convenience, they took away in accuracy. In the very same update, they quietly removed the ability to do a true, day-of-week aligned year-over-year comparison, a feature that was essential for anyone who needs their reports to be accurate.
 
