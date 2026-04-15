@@ -10,18 +10,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
+    <title>{{ title }} | GA4 Optimizer</title>
     <meta name="description" content="{{ description }}">
     {% if noindex %}
     <meta name="robots" content="noindex">
     {% endif %}
     
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="{{ 'article' if author else 'website' }}">
     <meta property="og:url" content="https://www.gaoptimizer.com{{ page.url }}">
     <meta property="og:title" content="{{ ogTitle or title }}">
     <meta property="og:description" content="{{ ogDescription or description }}">
     <meta property="og:image" content="{{ ogImage or ('https://www.gaoptimizer.com' + (post_image or thumbnail or '/icons/ga4-optimizer-logo.png')) }}">
+    {% if author %}
+    <meta property="article:published_time" content="{{ page.date.toISOString() }}">
+    <meta property="article:modified_time" content="{{ last_modified_at or page.date.toISOString() }}">
+    <meta property="article:author" content="{{ author }}">
+    {% endif %}
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">

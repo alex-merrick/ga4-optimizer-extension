@@ -7,7 +7,7 @@ eleventyComputed:
       "@type": "BlogPosting",
       "headline": title,
       "datePublished": page.date.toISOString(),
-      "dateModified": last_modified_at | default(page.date.toISOString()),
+      "dateModified": last_modified_at if last_modified_at else page.date.toISOString(),
       "author": {
         "@type": "Person",
         "name": author | default("The GA4 Optimizer Team")
