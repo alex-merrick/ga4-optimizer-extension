@@ -31,6 +31,19 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addFilter("currentYear", function () {
         return new Date().getFullYear();
     });
+
+    // --- Date Format Filter ---
+    // Usage: {{ someDate | date("MMMM d, yyyy") }}
+    eleventyConfig.addFilter("date", function (value, format) {
+        const d = new Date(value);
+        if (isNaN(d)) return value;
+        const months = ["January","February","March","April","May","June",
+                        "July","August","September","October","November","December"];
+        return format
+            .replace("MMMM", months[d.getUTCMonth()])
+            .replace("d", d.getUTCDate())
+            .replace("yyyy", d.getUTCFullYear());
+    });
     
     // --- Markdown-It Customization for External Links ---
     const markdownLib = markdownIt({
@@ -55,10 +68,22 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.setLibrary("md", markdownLib);
 
     // --- Custom Collection for Blog Posts ---
+    // Posts with a `publishDate` in the future are excluded at build time.
+    // Schedule a daily Netlify build so queued posts go live on their designated day.
     eleventyConfig.addCollection("posts", function(collectionApi) {
-        return collectionApi.getFilteredByGlob("src/blog/*.md").sort(function(a, b) {
-            return b.date - a.date; // Sort posts by date, newest first
-        });
+        const now = new Date();
+        return collectionApi.getFilteredByGlob("src/blog/*.md")
+            .filter(function(post) {
+                const publishDate = post.data.publishDate
+                    ? new Date(post.data.publishDate)
+                    : post.date;
+                return publishDate <= now;
+            })
+            .sort(function(a, b) {
+                const dateA = a.data.publishDate ? new Date(a.data.publishDate) : a.date;
+                const dateB = b.data.publishDate ? new Date(b.data.publishDate) : b.date;
+                return dateB - dateA; // newest first
+            });
     });
 
     // --- Base Configuration ---

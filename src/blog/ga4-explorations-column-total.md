@@ -29,11 +29,11 @@ faq_schema: >
 layout: layouts/post.njk
 author: Alex Merrick
 title: "How to See Percentage of Column Total in GA4 Freeform Explorations"
-date: 2026-04-20T08:00:00.000-05:00
-last_modified_at: 2026-04-20T08:00:00.000-05:00
+date: 2026-04-14T08:00:00.000-05:00
+publishDate: 2026-04-14T08:00:00.000-05:00
+last_modified_at: 2026-04-14T08:00:00.000-05:00
 thumbnail: /img/thumbnails/thumb-percentage.png
 post_image: /img/thumbnails/banner-percentage.png
-ogImage: https://www.gaoptimizer.com/img/thumbnails/banner-percentage.png
 description: "GA4 Freeform Explorations don't show percentage of column total by default. Learn the manual workaround and how to get instant in-table percentages without exporting your data."
 ---
 

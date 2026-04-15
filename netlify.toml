@@ -6,6 +6,7 @@
   # Also ensure devDependencies are installed since Eleventy is a devDependency
   command = "npm ci --include=dev && npm run build" 
   publish = "_site"
+  functions = "netlify/functions"
 
 # --- SEO Redirect Rules ---
 

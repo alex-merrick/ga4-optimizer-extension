@@ -21,14 +21,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta property="og:url" content="https://www.gaoptimizer.com{{ page.url }}">
     <meta property="og:title" content="{{ ogTitle or title }}">
     <meta property="og:description" content="{{ ogDescription or description }}">
-    <meta property="og:image" content="{{ ogImage or 'https://www.gaoptimizer.com/icons/ga4-optimizer-logo.png' }}">
+    <meta property="og:image" content="{{ ogImage or ('https://www.gaoptimizer.com' + (post_image or thumbnail or '/icons/ga4-optimizer-logo.png')) }}">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.gaoptimizer.com{{ page.url }}">
     <meta property="twitter:title" content="{{ ogTitle or title }}">
     <meta property="twitter:description" content="{{ ogDescription or description }}">
-    <meta property="twitter:image" content="{{ ogImage or 'https://www.gaoptimizer.com/icons/ga4-optimizer-logo.png' }}">
+    <meta property="twitter:image" content="{{ ogImage or ('https://www.gaoptimizer.com' + (post_image or thumbnail or '/icons/ga4-optimizer-logo.png')) }}">
     
     <link rel="stylesheet" href="/style.css">
     <link rel="icon" href="/icons/ga4-optimizer-logo.png" type="image/png">
