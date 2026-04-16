@@ -1,8 +1,7 @@
 ---
 layout: "layouts/base.njk"
 title: "GA4 Optimizer Features - Improve GA4 Reporting & Analysis"
-description: "Explore the features of GA4 Optimizer. Improve data analysis, speed up reporting, and simplify segment
-comparisons with our tools for Google Analytics 4."
+description: "Explore all 18 features of GA4 Optimizer. Improve data analysis, speed up reporting, and simplify segment comparisons with our tools for Google Analytics 4."
 permalink: "/features/"
 schema: |
   {
@@ -24,12 +23,34 @@ schema: |
       }
     }, {
       "@type": "Question",
-      "name": "How do Data Range Presets speed up reporting?",
+      "name": "How do Date Range Presets speed up reporting?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "This feature adds one-click buttons for common date ranges and comparison periods (like 'Last 7 Days' or 'Month-over-Month') to the standard GA4 reports, saving you from manually selecting dates in the calendar every time."
+        "text": "This feature adds one-click buttons for common date ranges and comparison periods (like 'Last 7 Days' or 'Month-over-Month') to the standard GA4 reports, saving you from manually selecting dates in the calendar every time. It also includes a Compare button with three modes: vs. Previous Period, vs. Last Year, and vs. Last Year (Day of Week Aligned) for accurate year-over-year comparisons."
       }
     }, {
+      "@type": "Question",
+      "name": "What is the Exploration View Enhancer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Exploration View Enhancer is a suite of three tools for Freeform Explorations: Collapsible Panels to hide the Variables and Tab Settings panels for more screen space; Maximize View (Shift+M shortcut) to instantly set 500 rows and 20 column groups; and Pagination Controls with a floating bar and keyboard shortcuts (Alt+arrows) to navigate large datasets without opening the Settings panel."
+      }
+    }, {
+      "@type": "Question",
+      "name": "How do I copy custom dimensions between GA4 properties?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the Custom Definitions Copy/Paste feature on the Admin > Custom definitions page. Click the Copy button on the source property, then navigate to the destination property and click Paste. It supports custom dimensions, custom metrics, and calculated metrics, automatically skips duplicates, and shows real-time progress. Requires Editor or Administrator role on both properties."
+      }
+    }, {
+      "@type": "Question",
+      "name": "How does the 500 Rows per Page feature work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This feature adds a 500 option to the Rows per page dropdown in Standard Reports, which normally maxes out at 250. Enable it in the popup under the Reports tab, then open any Standard Report, scroll to the bottom, and select 500 from the dropdown. Ideal for large reports where you need the full picture without paginating."
+      }
+    }]
+  }
       "@type": "Question",
       "name": "What is the 'Quick Calculated Metric' feature?",
       "acceptedAnswer": {
@@ -70,13 +91,15 @@ schema: |
                         <li><a href="#feature-auto-detailed-results">7. Detailed Results Shortcut</a></li>
                         <li><a href="#feature-percentage-all-users">8. % of All Users</a></li>
                         <li><a href="#feature-ab-test-segment-comparison">9. AB Test Comparison</a></li>
-                        <li><a href="#feature-collapsible-panels">10. Collapsible Panels</a></li>
+                        <li><a href="#feature-exploration-view-enhancer">10. Exploration View Enhancer</a></li>
                         <li><a href="#feature-sticky-calculator">11. Sticky Calculator</a></li>
-                        <li><a href="#feature-date-range-presets">12. Data Range Presets</a></li>
+                        <li><a href="#feature-date-range-presets">12. Date Range Presets</a></li>
                         <li><a href="#feature-calculated-metrics">13. Quick Calculated Metric</a></li>
                         <li><a href="#feature-linechart-customization">14. Line Chart Color Customization</a></li>
                         <li><a href="#feature-fix-shared-links">15. Fix Shared Links</a></li>
                         <li><a href="#feature-create-exit-report">16. Create Exit Pages Report</a></li>
+                        <li><a href="#feature-custom-definitions">17. Custom Definitions Copy/Paste</a></li>
+                        <li><a href="#feature-500-rows">18. 500 Rows per Page</a></li>
                     </ul>
                 </div>
             </aside>
@@ -179,11 +202,14 @@ schema: |
                         <div class="play-icon-overlay"></div>
                     </div>
                 </section>
-                <section id="feature-collapsible-panels">
-                    <h2>10. Collapsible Panels</h2>
-                    <p><strong>Applies to: Explorations Only</strong><br>Get more space for your data. This adds a
-                        toggle to collapse the "Variables" and "Tab Settings" panels for a less cluttered analysis view.
-                    </p>
+                <section id="feature-exploration-view-enhancer">
+                    <h2>10. Exploration View Enhancer</h2>
+                    <p><strong>Applies to: Freeform Explorations Only</strong><br>A suite of three tools to maximize your productivity in GA4 Freeform Explorations.</p>
+                    <ul>
+                        <li><strong>Collapsible Panels:</strong> Toggle buttons to collapse/expand the "Variables" and "Tab Settings" panels, giving you maximum screen real estate for your data table.</li>
+                        <li><strong>Maximize View:</strong> One click (or <kbd>Shift+M</kbd>) sets "Show rows" to 500 and "Show column groups" to 20 instantly. Supports auto-maximize on load. Hover over truncated exploration tabs to see their full names.</li>
+                        <li><strong>Pagination Controls:</strong> A floating pagination bar at the bottom of your table lets you navigate large datasets with Next/Previous buttons or keyboard shortcuts (<kbd>Alt+→</kbd> / <kbd>Alt+←</kbd> / <kbd>Alt+Home</kbd> / <kbd>Alt+End</kbd>) — no more opening the Settings panel to change rows.</li>
+                    </ul>
                     <div class="feature-video-container" data-video-name="CollapsiblePanels"><video autoplay loop muted
                             playsinline>
                             <source src="/mp4/collapsible_panels.mp4" type="video/mp4">
@@ -204,10 +230,10 @@ schema: |
                     </div>
                 </section>
                 <section id="feature-date-range-presets">
-                    <h2>12. Data Range Presets</h2>
+                    <h2>12. Date Range Presets</h2>
                     <p><strong>Applies to: Standard Reports Only</strong><br>Speeds up your reporting by adding
                         one-click buttons for common date ranges and comparison periods, like "Last 7 Days" or
-                        "Month-over-Month." Customize visible presets and their order in settings.</p>
+                        "Month-over-Month." Includes a Compare button with three modes: vs. Previous Period, vs. Last Year, and vs. Last Year (Day of Week Aligned) for accurate year-over-year analysis. Customize visible presets and their order in settings.</p>
                 </section>
                 <section id="feature-calculated-metrics">
                     <h2>13. Quick Calculated Metric</h2>
@@ -254,6 +280,26 @@ schema: |
                         Editor Role Access and to be on a page within a GA4 property (i.e., the URL must contain a
                         property ID like "/p123456789/"). The button in the popup will be disabled if you are not on a
                         valid GA4 page.</div>
+                </section>
+                <section id="feature-custom-definitions">
+                    <h2>17. Custom Definitions Copy/Paste</h2>
+                    <p><strong>Applies to: GA4 Admin &gt; Custom Definitions Page Only</strong><br>Copy custom dimensions, custom metrics, and calculated metrics between GA4 properties. Perfect for setting up new properties, migrating configurations, or maintaining consistency across multiple properties.</p>
+                    <div class="requirement-note"><strong>Requirements:</strong> Must have Editor or Administrator role on both properties. Must be on the Admin &gt; Custom definitions page in GA4.</div>
+                    <ul>
+                        <li><strong>Smart Duplicate Prevention:</strong> Automatically skips items that already exist in the destination property.</li>
+                        <li><strong>Multi-Type Clipboard:</strong> Copy dimensions, metrics, and calculated metrics separately — the system remembers all of them.</li>
+                        <li><strong>Progress Tracking:</strong> Shows real-time progress with the option to cancel long operations.</li>
+                        <li><strong>Handles Large Datasets:</strong> Works with hundreds of items across multiple pages.</li>
+                    </ul>
+                </section>
+                <section id="feature-500-rows">
+                    <h2>18. 500 Rows per Page</h2>
+                    <p><strong>Applies to: Standard Reports Only</strong><br>GA4's "Rows per page" dropdown maxes out at 250 by default. This feature adds a 500 option so you can see twice as many rows without paginating — ideal for large reports where you need the full picture at a glance.</p>
+                    <ul>
+                        <li>Enable in the popup under the Reports tab, then open any Standard Report.</li>
+                        <li>Scroll to the bottom and select 500 from the Rows per page dropdown.</li>
+                        <li>A confirmation toast reminds you that larger row counts may slow the page slightly.</li>
+                    </ul>
                 </section>
                 <hr style="margin-top: 40px; border-color: var(--border-color);">
                 <div class="cta-box"

@@ -1,7 +1,7 @@
 ---
 layout: "layouts/base.njk"
 title: "GA4 Optimizer Documentation - Complete Feature Guide"
-description: "Complete GA4 Optimizer documentation with step-by-step guides, troubleshooting tips, and feature explanations. Learn click-to-copy, AB test analysis, calculated metrics, sticky headers, and 16 other powerful Google Analytics 4 workflow improvements."
+description: "Complete GA4 Optimizer documentation with step-by-step guides, troubleshooting tips, and feature explanations. Learn click-to-copy, AB test analysis, calculated metrics, sticky headers, and 18 powerful Google Analytics 4 workflow improvements."
 permalink: "/documentation/"
 eleventyComputed:
   ogTitle: "{{ title }}"
@@ -66,7 +66,21 @@ schema: |
       "name": "What keyboard shortcuts are available in GA4 Optimizer?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The main keyboard shortcut is Ctrl+Shift+Q (Windows/Linux) or Command+Shift+Q (Mac) for the Detailed Results Shortcut in Explorations. This shortcut can be customized in the extension settings. The shortcut helps trigger 'More detailed results' to reduce data sampling."
+        "text": "GA4 Optimizer includes several keyboard shortcuts: Ctrl+Shift+Q (Windows/Linux) or Command+Shift+Q (Mac) for the Detailed Results Shortcut in Explorations. Shift+M to instantly maximize your Exploration view (sets 500 rows and 20 column groups). Alt+Right Arrow / Alt+Left Arrow to navigate pages in Explorations. Alt+Home to jump to the first page, Alt+End to jump to the last page. All shortcuts are disabled when typing in input fields to avoid conflicts."
+      }
+    }, {
+      "@type": "Question",
+      "name": "How do I copy custom dimensions between GA4 properties?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the Custom Definitions Copy/Paste feature. Go to Admin > Custom definitions in your source property, click the 'Copy' button added by GA4 Optimizer, then navigate to the same page in your destination property and click 'Paste'. The feature supports custom dimensions, custom metrics, and calculated metrics. It automatically skips duplicates and shows real-time progress. Requires Editor or Administrator role on both properties."
+      }
+    }, {
+      "@type": "Question",
+      "name": "How do I see 500 rows per page in GA4 Standard Reports?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enable the '500 Rows per Page' feature in the GA4 Optimizer popup under the Reports tab. Then open any Standard Report, scroll to the bottom, and click the 'Rows per page' dropdown — a new 500 option with the GA4 Optimizer icon will appear. Select it and the page reloads with 500 rows. Note that larger row counts may slow the page slightly as GA4 processes more data."
       }
     }]
   }
@@ -80,7 +94,7 @@ schema: |
             explains what each feature does and how to use it. Please note that as Google Analytics 4™ interface changes
             some of these features may stop working.</p>
         <p><strong>Quick Access to Settings:</strong> Most features can be toggled on/off from the popup. Features with
-            more detailed configurations (like "Click to Copy" actions or "Data Range Presets" visibility) have a
+            more detailed configurations (like "Click to Copy" actions or "Date Range Presets" visibility) have a
             settings option in the popup. Clicking this will open a dedicated settings page.</p>
         <p><strong>Looking for a Quick Overview?</strong> Visit our <a href="/features/">features page</a> for a concise
             summary of all capabilities.</p>
@@ -98,18 +112,24 @@ schema: |
                                 <li><a href="#feature-percentage-change-highlighter">4. % Change Highlighter</a></li>
                                 <li><a href="#feature-cr-change-percentage">5. Δ% Share Change</a></li>
                                 <li><a href="#feature-percentage-column-total">6. % of Column Total</a></li>
-                                <li><a href="#feature-auto-detailed-results">7. Detailed Results Shortcut (Beta)</a>
-                                </li>
+                                <li><a href="#feature-auto-detailed-results">7. Detailed Results Shortcut (Beta)</a></li>
                                 <li><a href="#feature-percentage-all-users">8. % of All Users</a></li>
                                 <li><a href="#feature-ab-test-segment-comparison">9. AB Test Comparison</a></li>
-                                <li><a href="#feature-collapsible-panels">10. Collapsible Panels</a></li>
+                                <li><a href="#feature-exploration-view-enhancer">10. Exploration View Enhancer</a>
+                                    <ul>
+                                        <li><a href="#feature-collapsible-panels">10a. Collapsible Panels</a></li>
+                                        <li><a href="#feature-maximize-view">10b. Maximize View</a></li>
+                                        <li><a href="#feature-pagination-controls">10c. Pagination Controls</a></li>
+                                    </ul>
+                                </li>
                                 <li><a href="#feature-sticky-calculator">11. Sticky Calculator</a></li>
-                                <li><a href="#feature-date-range-presets">12. Data Range Presets</a></li>
+                                <li><a href="#feature-date-range-presets">12. Date Range Presets</a></li>
                                 <li><a href="#feature-calculated-metrics">13. Quick Calculated Metric</a></li>
-                                <li><a href="#feature-linechart-customization">14. Line Chart Color Customization
-                                        (Beta)</a></li>
+                                <li><a href="#feature-linechart-customization">14. Line Chart Color Customization (Beta)</a></li>
                                 <li><a href="#feature-smart-account-switcher">15. Fix Shared Links</a></li>
                                 <li><a href="#feature-create-exit-report">16. Create Exit Pages Report</a></li>
+                                <li><a href="#feature-custom-definitions">17. Custom Definitions Copy/Paste</a></li>
+                                <li><a href="#feature-500-rows">18. 500 Rows per Page</a></li>
                             </ul>
                         </li>
                         <li><a href="#troubleshooting-toc">Troubleshooting</a></li>
@@ -153,6 +173,10 @@ schema: |
                         </video>
                         <div class="play-icon-overlay"></div>
                     </div>
+                    <ul>
+                        <li>When scrolling down a long table in a Standard Report it's hard to know which metric you're looking at. This feature keeps the header row fixed at the top.</li>
+                        <li><strong>NEW:</strong> The search box and pagination controls are now sticky to the bottom when scrolling for easy access. There is an option in the settings to turn this off if needed.</li>
+                    </ul>
                 </section>
 
                 <section id="feature-highlight-sampling">
@@ -278,20 +302,58 @@ schema: |
                     </ul>
                 </section>
 
-                <section id="feature-collapsible-panels">
-                    <h2>10. Collapsible Panels</h2>
-                    <p><strong>Applies to: Explorations Only</strong><br>Get more space for your data. This adds a
-                        toggle to collapse the "Variables" and "Tab Settings" panels for a less cluttered analysis view.
-                    </p>
-                    <div class="feature-video-container" data-video-name="CollapsiblePanels"><video autoplay loop muted
-                            playsinline>
-                            <source src="/mp4/collapsible_panels.mp4" type="video/mp4">
-                        </video>
-                        <div class="play-icon-overlay"></div>
-                    </div>
-                    <div class="note">
-                        <strong>Note:</strong> Refresh the page if the button is misplaced or missing.
-                    </div>
+                <section id="feature-exploration-view-enhancer">
+                    <h2>10. Exploration View Enhancer</h2>
+                    <p><strong>Applies to: Freeform Explorations Only</strong><br>A comprehensive suite of tools designed to maximize your productivity when working with GA4 Freeform Explorations. Combines three powerful sub-features: Collapsible Panels for screen real estate, Maximize View for instant data density optimization, and Pagination Controls for effortless navigation through large datasets. Additionally, hover over exploration tabs to see full tab names when they're truncated.</p>
+
+                    <section id="feature-collapsible-panels">
+                        <h3>10a. Collapsible Panels</h3>
+                        <p>Adds toggle buttons to collapse/expand the "Variables" and "Tab Settings" panels in Explorations, giving you maximum screen real estate for your data table.</p>
+                        <div class="feature-video-container" data-video-name="CollapsiblePanels"><video autoplay loop muted
+                                playsinline>
+                                <source src="/mp4/collapsible_panels.mp4" type="video/mp4">
+                            </video>
+                            <div class="play-icon-overlay"></div>
+                        </div>
+                        <ul>
+                            <li>Chevron buttons appear on the left side of the Exploration table to minimize/expand the Variables and Settings panels.</li>
+                            <li>Collapsed panels stay collapsed as you navigate between Explorations (optional setting).</li>
+                            <li>Provides more horizontal space for viewing wide tables with many columns.</li>
+                        </ul>
+                        <div class="note"><strong>Tip:</strong> If the buttons are misplaced or missing after a GA4 update, try refreshing the page.</div>
+                    </section>
+
+                    <section id="feature-maximize-view">
+                        <h3>10b. Maximize View</h3>
+                        <p>Instantly optimize your Exploration view to display the maximum amount of data with a single click or keyboard shortcut. Automatically sets "Show rows" to 500 and "Show column groups" to 20.</p>
+                        <ul>
+                            <li><strong>One-Click Activation:</strong> Click the "Maximize View" button that appears in your Exploration interface.</li>
+                            <li><strong>Keyboard Shortcut:</strong> Press <kbd>Shift+M</kbd> to instantly maximize your view.</li>
+                            <li><strong>Smart Panel Handling:</strong> If the Settings panel is collapsed, Maximize View automatically expands it, applies the changes, and optionally re-collapses it.</li>
+                            <li><strong>Auto-Maximize Option:</strong> Enable "Auto-maximize on load" to automatically apply Maximize View whenever you open a Freeform Exploration.</li>
+                            <li><strong>Tab Tooltips:</strong> Hover over exploration tabs to see full tab names when they're truncated.</li>
+                        </ul>
+                        <div class="note"><strong>Availability:</strong> This feature only works on Freeform Explorations. Other exploration techniques (Funnel, Path, Cohort, etc.) are not supported.</div>
+                    </section>
+
+                    <section id="feature-pagination-controls">
+                        <h3>10c. Pagination Controls</h3>
+                        <p>Navigate through large datasets effortlessly with an intelligent pagination system that overlays intuitive controls on your Exploration canvas.</p>
+                        <ul>
+                            <li><strong>Floating Pagination Bar:</strong> A sleek pagination bar appears at the bottom-center of your Exploration table, showing your current position (e.g., "Rows 1-500") with navigation controls.</li>
+                            <li><strong>Next / Previous Buttons:</strong> Advance or return through row sets without opening the Settings panel.</li>
+                            <li><strong>Rows Per Page Dropdown:</strong> Quickly change how many rows to display (10, 25, 50, 100, 250, or 500).</li>
+                            <li><strong>Keyboard Shortcuts:</strong>
+                                <ul>
+                                    <li><kbd>Alt+→</kbd>: Navigate to next page</li>
+                                    <li><kbd>Alt+←</kbd>: Navigate to previous page</li>
+                                    <li><kbd>Alt+Home</kbd>: Jump to first page</li>
+                                    <li><kbd>Alt+End</kbd>: Jump to last page (when detectable)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="note"><strong>Availability:</strong> This feature only works on Freeform Explorations. Other exploration techniques (Funnel, Path, Cohort, etc.) are not supported.</div>
+                    </section>
                 </section>
 
                 <section id="feature-sticky-calculator">
@@ -314,10 +376,8 @@ schema: |
                 </section>
 
                 <section id="feature-date-range-presets">
-                    <h2>12. Data Range Presets</h2>
-                    <p><strong>Applies to: Standard Reports Only</strong><br>Speeds up your reporting by adding
-                        one-click buttons for common date ranges and comparison periods, like "Last 7 Days" or
-                        "Month-over-Month." Customize visible presets and their order in settings.</p>
+                    <h2>12. Date Range Presets</h2>
+                    <p><strong>Applies to: Standard Reports Only</strong><br>Adds quick-select buttons for common date ranges (e.g., 7D, 30D, LM) and comparisons (e.g., LM MoM), plus a powerful Compare button with three comparison modes for instant, accurate date comparisons. Customize visible presets and their order by clicking the <strong>Settings</strong> button in the popup, or by clicking the gear icon next to the presets on the GA4 page.</p>
                     <div class="feature-video-container" data-video-name="DateRanges"><video autoplay loop muted
                             playsinline>
                             <source src="/mp4/date_ranges.mp4" type="video/mp4">
@@ -329,24 +389,51 @@ schema: |
                         <li>Clicking a preset applies it and reloads the report.</li>
                         <li>If many presets are visible, a scrollbar appears in the preset area.</li>
                         <li>Comparison presets are hidden on Advertising pages.</li>
+                        <li><strong>Compare Button — Three Powerful Modes:</strong> A dedicated Compare button appears alongside the presets with three distinct comparison modes:
+                            <ul>
+                                <li><strong>Click (no modifiers):</strong> Applies "vs. Previous Period" comparison with weekday alignment for accurate period-to-period analysis.</li>
+                                <li><strong>Shift + Click:</strong> Applies "vs. Last Year" comparison using exact calendar dates for simple year-over-year analysis.</li>
+                                <li><strong>Ctrl + Shift + Click (Cmd + Shift on Mac):</strong> Applies "vs. Last Year (Day of Week Aligned)" for the most accurate year-over-year comparison that accounts for weekday shifts.</li>
+                                <li><strong>Smart Override:</strong> Clicking with any modifier key instantly switches to that comparison mode, even if another is already active.</li>
+                                <li><strong>Toggle Off:</strong> Clicking the same mode again removes the comparison entirely.</li>
+                            </ul>
+                        </li>
                     </ul>
+                    <div class="note">
+                        <strong>Why Weekday Alignment Matters:</strong> When comparing periods year-over-year, calendar dates don't always align with weekdays. For example, Jan 15–21, 2024 runs Monday–Sunday, but Jan 15–21, 2023 runs Sunday–Saturday. This misalignment can skew metrics that vary by day of week. The "Day of Week Aligned" mode automatically adjusts the comparison period so weekdays match perfectly.
+                    </div>
+                    <div class="note">
+                        <strong>Tip:</strong> Hover over the Compare button to see all three modes at a glance. As you hold modifier keys (Shift, Ctrl/Cmd), the tooltip updates to show exactly what will happen when you click.
+                    </div>
                 </section>
 
                 <section id="feature-calculated-metrics">
                     <h2>13. Quick Calculated Metric</h2>
-                    <p><strong>Applies to: Standard Reports & Explorations</strong><br>Create temporary or saved
-                        calculated metrics (e.g., rates, ratios) directly within your reports. You can save calculated
-                        rates to your personal library and choose to auto-apply them in Standard Reports, Explorations,
-                        or both.</p>
+                    <p><strong>Applies to: Standard Reports & Explorations (Table Visualization)</strong><br>Create calculated metrics (rates, ratios) directly in your reports without using GA4 Admin settings. Save to your library for reuse across reports. <strong>NEW:</strong> Right-click segment headers in Freeform Explorations to compare all metrics across segments instantly!</p>
+                    <div class="note"><strong>Note:</strong> In Explorations, this feature only works with Freeform technique using Table visualization. It will not activate in other exploration types (Funnel, Path, etc.) or visualizations (Line chart, Bar chart, etc.).</div>
                     <div class="feature-video-container" data-video-name="QuickCalculatedMetric"><video autoplay loop
                             muted playsinline>
                             <source src="/mp4/calculated_metric.mp4" type="video/mp4">
                         </video>
                         <div class="play-icon-overlay"></div>
                     </div>
-                    <div class="requirement-note"><strong>Note:</strong> Saved calculated metrics are available for
-                        quick access and management in the settings page. Temporary (on-the-fly) calculations are only
-                        for your current view and will be cleared when the page reloads.</div>
+                    <h4>In Standard Reports</h4>
+                    <p>Adds a new column to your report table for calculated rates.</p>
+                    <ul>
+                        <li>Click <strong>+ Add calculated rate</strong> in the new column header.</li>
+                        <li>Select numerator and denominator metrics from dropdowns.</li>
+                        <li>Choose display format (Percentage or Decimal).</li>
+                        <li>Optionally save to library and set auto-apply preferences.</li>
+                        <li>Use the pencil icon to edit, plus (+) icon to add more columns. Manage saved rates in Settings → Global Features.</li>
+                    </ul>
+                    <h4>In Freeform Explorations (Table Only)</h4>
+                    <p>Calculated rates appear in hover tooltips. Create them by right-clicking metric or segment headers.</p>
+                    <ul>
+                        <li><strong>Metric-Based Calculations</strong> — Best for conversion rates, engagement rates (e.g., Conversions ÷ Sessions): Right-click a metric header, select "Create from '[Metric Name]'...", choose denominator and format.</li>
+                        <li><strong>Segment-Based Calculations (NEW)</strong> — Best for segment penetration, cohort analysis (e.g., Mobile Users ÷ All Users): Right-click a segment header, select "Create rate from '[Segment Name]'...", choose denominator segment. Calculation applies to all metrics in that segment.</li>
+                        <li>Saved metrics auto-apply when their numerator and denominator are present. Manage all saved calculations in Settings → Global Features.</li>
+                    </ul>
+                    <div class="note"><strong>Note:</strong> Saved calculated metrics are available for quick access and management in the settings page. Temporary (on-the-fly) calculations are only for your current view and will be cleared when the page reloads.</div>
                 </section>
 
                 <section id="feature-linechart-customization">
@@ -370,23 +457,21 @@ schema: |
 
                 <section id="feature-smart-account-switcher">
                     <h2>15. Fix Shared Links</h2>
-                    <p><strong>Applies to: All Google Analytics 4™ Pages</strong><br>Fixes the common problem where
-                        shared GA4 links don't work because you're signed into the wrong Google account. When you
-                        encounter "Missing permissions" errors, this feature automatically adds a "Try Another Account"
-                        button to seamlessly retry the link with your other signed-in Google accounts.</p>
-                    <div class="requirement-note"><strong>When This Helps:</strong> Perfect for when colleagues share
-                        GA4 links via email, Slack, or Teams, but you're signed into a personal Google account instead
-                        of your work account, or when you have multiple work accounts with different property access
-                        levels.</div>
+                    <p><strong>Applies to: All Google Analytics 4™ Pages</strong><br>Shared GA4 links often open with a "Missing permissions" error or are redirected to the welcome page — not because you don't have access, but because the link opened under the wrong Google account. This feature detects that situation and automatically finds the right account for you.</p>
+                    <div class="requirement-note"><strong>When This Helps:</strong> A colleague sends you a GA4 link, but you're signed into your personal Google account instead of your work one, or you have multiple work accounts with different property access.</div>
+                    <h4>How it Works</h4>
                     <ul>
-                        <li><strong>Automatic Detection:</strong> When GA4 displays a "Missing permissions" dialog, the
-                            extension automatically detects it and adds a prominent "Try Another Account" button.</li>
-                        <li><strong>Improved Error Message:</strong> Updates GA4's confusing "You do not have access"
-                            message to a clearer version.</li>
-                        <li><strong>Smart Retry Logic:</strong> The button systematically tries your other Google
-                            accounts until it finds one with access.</li>
-                        <li><strong>Universal Coverage:</strong> Works on all GA4 page types including Standard Reports,
-                            Explorations, Admin pages, and any GA4 property URLs.</li>
+                        <li>When GA4 shows a "Missing permissions" error or redirects to the Welcome to Google Analytics page, the extension detects it automatically.</li>
+                        <li>It allows you to scan all your signed-in Google accounts to find which one has access.</li>
+                        <li>Once it finds an account with access, it opens the previously attempted link under that account.</li>
+                        <li>Share the extension with your stakeholders to prevent them from complaining that they can't access your links!</li>
+                    </ul>
+                    <h4>Smart Share Link Button</h4>
+                    <p>This feature also adds a "Copy smart share link" button to the GA4 Optimizer toolbar on Standard Reports, Advertising, and Explorations pages.</p>
+                    <ul>
+                        <li><strong>Auto-Cleans the URL:</strong> Automatically strips the <code>?authuser=</code> parameter that GA4 adds to URLs, which can force recipients into the wrong Google account and cause instant "Missing permissions" errors.</li>
+                        <li><strong>Includes a Helpful Note:</strong> Along with the clean URL, the clipboard text includes a short professional note with a link to the extension, giving your client an instant lifeline if they get stuck.</li>
+                        <li><strong>Exploration Workflows:</strong> If an Exploration hasn't been shared natively yet, the button first triggers GA4's native share flow, then copies the clean URL and note to your clipboard.</li>
                     </ul>
                 </section>
 
@@ -410,6 +495,55 @@ schema: |
                         <li>You can then save this report to your library for future use. The Exit Rate column will
                             automatically appear thanks to the calculated metric.</li>
                     </ul>
+                </section>
+
+                <section id="feature-custom-definitions">
+                    <h2>17. Custom Definitions Copy/Paste</h2>
+                    <p><strong>Applies to: GA4 Admin &gt; Custom Definitions Page Only</strong><br>Copy custom dimensions, custom metrics, and calculated metrics between GA4 properties. Perfect for setting up new properties, migrating configurations, or maintaining consistency across multiple properties.</p>
+                    <div class="requirement-note"><strong>Requirements:</strong> Must have Editor or Administrator role on both properties. Must be on the Admin &gt; Custom definitions page in GA4.</div>
+                    <h4>How to Use</h4>
+                    <ul>
+                        <li><strong>Copy from Source Property:</strong>
+                            <ul>
+                                <li>Go to Admin &gt; Custom definitions in your source property.</li>
+                                <li>Click the tab for what you want to copy (Custom dimensions, Custom metrics, or Calculated metrics).</li>
+                                <li>Click the "Copy [Type]" button with the GA4 Optimizer logo.</li>
+                                <li>Wait for "Copy completed successfully" message.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Paste to Destination Property:</strong>
+                            <ul>
+                                <li>Go to Admin &gt; Custom definitions in your destination property.</li>
+                                <li>Click the matching tab for what you copied.</li>
+                                <li>Click "Paste [Type]" button (shows how many items are available).</li>
+                                <li>Review what will be created and click "Continue".</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li><strong>Smart Duplicate Prevention:</strong> Automatically skips items that already exist.</li>
+                        <li><strong>Multi-Type Clipboard:</strong> Copy dimensions, metrics, and calculated metrics separately — the system remembers all of them.</li>
+                        <li><strong>Progress Tracking:</strong> Shows real-time progress with option to cancel long operations.</li>
+                        <li><strong>Handles Large Datasets:</strong> Works with hundreds of items across multiple pages.</li>
+                    </ul>
+                    <div class="note">
+                        <strong>Important Notes:</strong> Calculated Metrics — only name and formula are copied; you'll need to set formatting (currency, percentage, etc.) manually. Works within your GA4 property's limits (Standard: 50 each, GA4 360: 125+ each). GA4 creates new API names automatically in the destination property.
+                    </div>
+                </section>
+
+                <section id="feature-500-rows">
+                    <h2>18. 500 Rows per Page</h2>
+                    <p><strong>Applies to: Standard Reports Only</strong><br>GA4's "Rows per page" dropdown maxes out at 250 by default. This feature adds a 500 option so you can see twice as many rows without paginating — ideal for large reports where you need the full picture at a glance.</p>
+                    <ul>
+                        <li>Open any Standard Report and scroll to the bottom of the table.</li>
+                        <li>Click the Rows per page dropdown — you'll see a new 500 option with the GA4 Optimizer icon next to it.</li>
+                        <li>Select it. The page reloads with 500 rows displayed.</li>
+                        <li>A confirmation toast appears at the bottom of the screen reminding you that larger row counts may slow the page down.</li>
+                    </ul>
+                    <div class="note">
+                        <strong>Performance note:</strong> Loading 500 rows asks GA4 to process significantly more data than the default 10. On reports with many metrics or complex filters, the page may take a singnificantly longer to load and may even result in unresponsive page. There is a good reason why Google did not  want this option accessible by default but we're making it accessible for power users.
+                    </div>
                 </section>
 
                 <h2 id="troubleshooting-toc">Troubleshooting</h2>
@@ -451,12 +585,100 @@ schema: |
                         <div class="accordion-panel" id="trouble-panel-4" role="region"
                             aria-labelledby="trouble-button-4">
                             <ul>
-                                <li>Check segment naming: must start with <code>VAR-</code>, control with
-                                    <code>VAR-Control</code> (case-sensitive).</li>
-                                <li>Ensure variant and a matching control segment (same metric) are in the table and
-                                    visible.</li>
+                                <li>Verify exploration type: This feature only works in Freeform Explorations with Table visualization.</li>
+                                <li>Check segment naming: must start with <code>VAR-</code>, control with <code>VAR-Control</code> (case-sensitive).</li>
+                                <li>Ensure variant and a matching control segment (same metric) are in the table and visible.</li>
                                 <li>Control segment's value must not be zero/non-numeric for count comparison.</li>
-                                <li>Statistical significance requires adequate sample sizes (n > 30).</li>
+                                <li>For Δ%Shr comparison, both variant and control cells need valid, non-zero column totals.</li>
+                                <li>Statistical significance requires column totals to be visible for all variants and sample sizes to be adequate (n &gt; 30).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-6"
+                            id="trouble-button-6">Maximize View not working</button>
+                        <div class="accordion-panel" id="trouble-panel-6" role="region"
+                            aria-labelledby="trouble-button-6">
+                            <ul>
+                                <li><strong>General:</strong> Ensure you are on a Freeform Exploration page. This feature does not work on other exploration techniques (Funnel, Path, Cohort, etc.) or Standard Reports.</li>
+                                <li><strong>Master Toggle:</strong> Check that "Maximize View" is enabled in the popup. Individual sub-features (Collapsible Panels, Maximize View, Pagination) also have their own toggles in the settings page.</li>
+                                <li><strong>Collapsible Panels:</strong> If the chevron buttons are misplaced or missing, try refreshing the GA4 page.</li>
+                                <li><strong>Maximize View:</strong> If the button doesn't appear or <kbd>Shift+M</kbd> doesn't work, ensure the feature is enabled and you're on a Freeform Exploration.</li>
+                                <li><strong>Pagination:</strong> If the pagination bar doesn't appear, verify you're on a Freeform Exploration, ensure the Settings panel is expanded, and check that pagination is enabled in settings.</li>
+                                <li><strong>Pagination Buttons Disabled:</strong> If pagination buttons are grayed out, expand the Settings panel — pagination requires access to GA4's "Start row" and "Show rows" inputs.</li>
+                                <li><strong>Keyboard Shortcuts Not Working:</strong> Ensure you're not typing in an input field when pressing shortcuts.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-7"
+                            id="trouble-button-7">Date Range Presets not appearing or working correctly</button>
+                        <div class="accordion-panel" id="trouble-panel-7" role="region"
+                            aria-labelledby="trouble-button-7">
+                            <ul>
+                                <li>Ensure you are on a Standard Report page. Try refreshing the GA4 page.</li>
+                                <li>Check the feature is enabled and configured in settings (by clicking the <strong>Settings</strong> button in the popup).</li>
+                                <li>Visual overlaps with sticky header might occur; try toggling sticky header or refresh.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-8"
+                            id="trouble-button-8">Quick Calculated Metric not working</button>
+                        <div class="accordion-panel" id="trouble-panel-8" role="region"
+                            aria-labelledby="trouble-button-8">
+                            <ul>
+                                <li><strong>In Standard Reports:</strong> The feature adds a new column. If it's not there, refresh the page. Both the numerator and denominator metrics must be present as columns in the report.</li>
+                                <li><strong>In Explorations:</strong> Verify you're using Freeform technique with Table visualization. The feature will not work in other exploration types or visualizations. It works via right-clicking a metric header. Both the numerator and denominator metric columns must be present in your Exploration table for the same segment.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-9"
+                            id="trouble-button-9">Line Chart Colors not applying correctly</button>
+                        <div class="accordion-panel" id="trouble-panel-9" role="region"
+                            aria-labelledby="trouble-button-9">
+                            <p>This can happen in Standard Reports due to how GA4 renders its charts. GA4's code can sometimes override the custom colors after a moment, most commonly when a "Total" line is included. The feature works most reliably in Explorations. If colors don't apply, try refreshing the page or toggling the "Total" series off in the GA4 report settings.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-10"
+                            id="trouble-button-10">Fix Shared Links not working</button>
+                        <div class="accordion-panel" id="trouble-panel-10" role="region"
+                            aria-labelledby="trouble-button-10">
+                            <ul>
+                                <li>Ensure the feature is enabled in the popup (Global tab).</li>
+                                <li>The scan only triggers when GA4 shows a "Missing permissions" error. If you already have access, nothing will appear — that's expected.</li>
+                                <li>If the scan ran but found no matching account, none of your currently signed-in Google accounts have access to that property. Use the "Log in to another account" link in the dialog to add the right account.</li>
+                                <li>If the dialog appeared but the scan didn't start automatically, try refreshing the page and opening the shared link again.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-11"
+                            id="trouble-button-11">Custom Definitions Copy/Paste not working</button>
+                        <div class="accordion-panel" id="trouble-panel-11" role="region"
+                            aria-labelledby="trouble-button-11">
+                            <ul>
+                                <li><strong>Buttons not appearing:</strong> Ensure you're on the Admin &gt; Custom definitions page in GA4. The feature only works on this specific admin page.</li>
+                                <li><strong>Copy operation fails:</strong> Verify you have Editor or Administrator role on the source property and that there are items to copy on the current tab.</li>
+                                <li><strong>Paste button disabled:</strong> Make sure you're on the correct tab for the data you copied. The paste button only enables when there's matching data for the current tab.</li>
+                                <li><strong>Paste operation interrupted:</strong> If your computer locks or the browser becomes inactive, look for a recovery modal when you return. You can resume, start over, or cancel.</li>
+                                <li><strong>Large datasets timing out:</strong> For properties with 50+ items, the operation may take several minutes. The system automatically prevents computer sleep on supported browsers.</li>
+                                <li><strong>Storage quota errors:</strong> The system automatically switches to local storage for large datasets. Clear your browser's extension data if issues persist.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-12"
+                            id="trouble-button-12">500 Rows per Page not showing in dropdown</button>
+                        <div class="accordion-panel" id="trouble-panel-12" role="region"
+                            aria-labelledby="trouble-button-12">
+                            <ul>
+                                <li><strong>Feature not enabled:</strong> Check that "500 Rows per Page" is toggled on in the popup under the Reports tab.</li>
+                                <li><strong>Wrong page type:</strong> This feature only works on Standard Reports. It will not appear in Explorations, Admin pages, or the GA4 home screen.</li>
+                                <li><strong>Option not visible after enabling:</strong> Close and reopen the dropdown. The option is injected when the dropdown opens, so it won't appear in a dropdown that was already open when you enabled the feature.</li>
+                                <li><strong>Page loaded slowly:</strong> On slow connections, the option may take a moment to appear. Close and reopen the dropdown if it's missing.</li>
                             </ul>
                         </div>
                     </div>
