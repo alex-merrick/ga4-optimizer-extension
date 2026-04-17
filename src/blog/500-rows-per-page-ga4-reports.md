@@ -74,9 +74,7 @@ Because Google Analytics does not officially support a 500-row view, you need to
 
 First, expect a noticeable delay. When you select 500 rows, the page will likely take a few extra seconds to load. You may also notice scrolling becomes slightly less responsive depending on your machine. This is normal behavior when pushing the interface past its intended limits.
 
-Second, do not use this feature when running date comparisons. If you attempt to load 500 rows while comparing month-over-month or year-over-year data, GA4 is forced to calculate and render thousands of individual data points and percentage changes simultaneously. Doing this will almost certainly make the page unstable, cause the table to become unresponsive, or crash your browser tab entirely. 
-
-If you need to use date comparisons, stick to the default 250 rows or fewer.
+Second, do not use this feature when running date comparisons. If you attempt to load 500 rows while comparing month-over-month or year-over-year data, GA4 is forced to calculate and render thousands of individual data points and percentage changes simultaneously. Doing this will almost certainly make the page unstable, cause the table to become unresponsive. However, we enabled this option as power users  are willing to wait a bit longer to see 500 rows at once.
 
 ## Stop Clicking Next Page
 
