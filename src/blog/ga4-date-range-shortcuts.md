@@ -23,7 +23,7 @@ layout: layouts/post.njk
 title: "Fixing GA4's Clunky Date Picker: 1-Click Presets & Accurate Day-of-Week YoY"
 date: 2025-11-12T10:00:00.000Z
 thumbnail: /img/thumbnails/thumb-ga4-date-presets.jpg
-post_image: /img/thumbnails/banner-ga4-date-presets.jpg
+post_image: /img/thumbnails/thumb-ga4-date-presets.jpg
 show_hero: false
 description: "GA4 added 'This Month' presets but removed a key comparison feature. Learn how to get 1-click date ranges and true day-of-week aligned Year-over-Year comparisons back."
 tags:
