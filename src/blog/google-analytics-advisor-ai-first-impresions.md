@@ -30,6 +30,7 @@ layout: layouts/post.njk
 author: Alex Merrick
 title: "Google Analytics Advisor AI Chatbot Tested: What It Can Do"
 date: 2025-10-09T18:14:00.000-05:00
+publishDate: 2025-10-09T18:14:00.000-05:00
 thumbnail: /img/thumbnails/banner-analytics-advisor.jpg
 post_image: /img/thumbnails/thumb-analytics-advisor.jpg
 description: "We got early access to Google's unannounced Analytics Advisor AI chatbot feature for GA4. Here's our honest first impressions of what it can and can't do for marketers and analysts."

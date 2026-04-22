@@ -37,6 +37,7 @@ layout: layouts/post.njk
 author: Alex Merrick
 title: "How to Share Reports & Explorations in GA4 (And Fix Broken Links)"
 date: 2026-03-17T10:04:00.000-05:00
+publishDate: 2026-03-17T10:04:00.000-05:00
 thumbnail: /img/thumbnails/thumb-share-reports.jpg
 post_image: /img/thumbnails/banner-share-reports.jpg
 description: Learn the exact steps to share Standard Reports and Explorations in GA4. Plus, discover why your shared links keep breaking and how to fix the "Missing permissions" error instantly.

@@ -30,6 +30,7 @@ layout: layouts/post.njk
 author: Alex Merrick
 title: Missing Exit Rate in GA4? Here's the 30-Second Fix
 date: 2025-06-23T00:00:00.000Z
+publishDate: 2025-06-23T00:00:00.000Z
 thumbnail: /img/thumbnails/thumb-exit-rate.jpg
 post_image: /img/thumbnails/banner-exit-rate.jpg
 description: "Frustrated that you can see 'Exits' and 'Views' in a GA4 report but not 'Exit Rate'? Learn how to create custom calculated metrics on-the-fly without leaving the page."

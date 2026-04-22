@@ -23,6 +23,7 @@ layout: layouts/post.njk
 author: Alex Merrick
 title: How to Properly Analyze A/B Test Results in GA4
 date: 2025-06-08T00:00:00.000Z
+publishDate: 2025-06-08T00:00:00.000Z
 thumbnail: /img/thumbnails/thumb-ab-test.jpg
 post_image: /img/thumbnails/banner-ab-test.jpg
 description: "Struggling to validate your A/B test results in GA4? Learn the manual method for checking statistical significance and discover how to automate the entire process in one click."

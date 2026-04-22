@@ -22,6 +22,7 @@ faq_schema: >
 layout: layouts/post.njk
 title: "Fixing GA4's Clunky Date Picker: 1-Click Presets & Accurate Day-of-Week YoY"
 date: 2025-11-12T10:00:00.000Z
+publishDate: 2025-11-12T10:00:00.000Z
 thumbnail: /img/thumbnails/thumb-ga4-date-presets.jpg
 post_image: /img/thumbnails/thumb-ga4-date-presets.jpg
 show_hero: false

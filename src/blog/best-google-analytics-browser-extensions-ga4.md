@@ -42,6 +42,7 @@ tags:
   - browser-extensions
 author: Alex Merrick
 date: 2026-03-06T00:00:00.000Z
+publishDate: 2026-03-06T00:00:00.000Z
 thumbnail: /img/thumbnails/thumb-extensions.jpg
 post_image: /img/thumbnails/banner-extensions.jpg
 eleventyComputed:

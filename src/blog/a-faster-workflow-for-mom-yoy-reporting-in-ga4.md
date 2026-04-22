@@ -22,6 +22,7 @@ faq_schema: >
 layout: layouts/post.njk
 title: A Faster Workflow for MoM & YoY Reporting in GA4
 date: 2025-06-16T18:39:00.000Z
+publishDate: 2025-06-16T18:39:00.000Z
 thumbnail: /img/thumbnails/thumb-monthly-rep.jpg
 post_image: /img/thumbnails/banner-monthly-rep.jpg
 description: "Stop wasting time with GA4's clunky interface. Learn a faster workflow to create insightful Month-over-Month reports with one-click presets, on-the-fly calculated metric, and more."
