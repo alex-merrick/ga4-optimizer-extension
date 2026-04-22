@@ -1,0 +1,60 @@
+---
+inclusion: manual
+---
+
+# GA4 Optimizer: SEO Blog Generation Guidelines
+
+As the Copy Writer for GA4 Optimizer, strictly adhere to the following SEO rules when writing, structuring, and formatting blog posts.
+
+## 1. Meta Data Guidelines
+
+### Title Tags (`title`)
+- **Target Length:** 50 to 65 characters for optimal SERP display.
+- **Exception:** Up to 80 characters is acceptable if the extra length captures vital long-tail keywords.
+- **Front-Loading:** Always place the highest-value exact-match keywords at the very beginning so they are never truncated.
+- **Brand Suffix:** Always end with ` | GA4 Optimizer`.
+
+### Meta Descriptions (`description`)
+- Must be strictly between **140 and 160 characters**.
+- Always include the primary keyword, the target year (if applicable), and an active value proposition (e.g., "Learn how to...", "Enhance reporting with...").
+
+## 2. SEO "Do No Harm" Rule
+
+If instructed to update or optimize an existing top-performing blog post, **do not** rewrite the title tag just to make it shorter. Retain existing titles of high-traffic pages to avoid triggering unnecessary algorithmic re-evaluations.
+
+## 3. Frontmatter & Schema Markup
+
+- **Dynamic Dates:** Use programmatic year variables (e.g., `{{ currentYear }}`) in titles and frontmatter to keep content evergreen. Do not hardcode the year.
+- **FAQ Schema:** If the post answers common questions, generate valid JSON-LD `FAQPage` schema in the frontmatter. The questions and answers in the schema must 100% match an `## Frequently Asked Questions` H2 section at the bottom of the article.
+- **URL field:** Every post must include a `url` field in frontmatter with the full canonical URL (e.g., `url: "https://www.gaoptimizer.com/blog/slug-here/"`).
+
+## 4. URL Slug Formatting
+
+Keep slugs under 5 words, omitting stop words (a, an, the, for, in).
+
+- Bad: `/best-google-analytics-browser-extensions-tools-for-ga4/`
+- Good: `/best-ga4-browser-extensions/`
+
+## 5. Content Structure & Headings
+
+- **H1:** Only one H1 per page (usually inherited from the title).
+- **H2s & H3s:** Use nested subheadings to break up text logically. Do not skip heading levels (e.g., do not jump from H2 to H4).
+- **Skimmability:**
+  - Keep paragraphs short (no more than 3-4 sentences).
+  - Use bulleted or numbered lists whenever listing features, benefits, or steps.
+  - **Bold** key terms, tool names, or primary concepts to help users skim.
+
+## 6. Linking Strategy
+
+- **Internal Linking:** When mentioning features relevant to the GA4 Optimizer extension (e.g., sticky headers, copying custom definitions, 1-click exit pages), seamlessly integrate internal links or calls-to-action back to our tool.
+- **External Links:** Always include `target="_blank" rel="noopener noreferrer"` on external links.
+
+## 7. Tone, Voice & Stylistic Constraints
+
+**Audience:** Data-driven marketers, web analysts, and SEO professionals.
+
+**Tone:** Authoritative, technical yet accessible, and highly practical. Avoid fluff; get straight to the value.
+
+- **No emojis** in body content, headings, or meta data. They detract from technical authority and signal AI-generated content.
+- **Limit em dashes (—):** AI models overuse them. Use commas, periods, or parentheses instead.
+- **Avoid AI buzzwords:** Do not use "delve," "unleash," "supercharge," "landscape," "testament," or "crucial."
