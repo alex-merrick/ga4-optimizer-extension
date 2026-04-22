@@ -35,6 +35,7 @@ last_modified_at: 2026-04-21T09:00:00.000-05:00
 thumbnail: /img/thumbnails/thumb-ua-sunset.png
 post_image: /img/thumbnails/banner-ua-sunset.png
 description: "Feeling frustrated by the GA4 interface? We break down 4 essential features from Universal Analytics that are missing in GA4 and show you how to get them back today."
+url: "https://www.gaoptimizer.com/blog/ga4-vs-universal-analytics/"
 tags:
   - post
   - ga4

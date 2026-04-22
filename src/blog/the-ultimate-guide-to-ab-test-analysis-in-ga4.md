@@ -27,6 +27,7 @@ publishDate: 2025-06-08T00:00:00.000Z
 thumbnail: /img/thumbnails/thumb-ab-test.jpg
 post_image: /img/thumbnails/banner-ab-test.jpg
 description: "Struggling to validate your A/B test results in GA4? Learn the manual method for checking statistical significance and discover how to automate the entire process in one click."
+url: "https://www.gaoptimizer.com/blog/the-ultimate-guide-to-ab-test-analysis-in-ga4/"
 tags:
   - post
   - ga4

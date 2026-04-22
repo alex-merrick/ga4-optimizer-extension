@@ -35,6 +35,7 @@ last_modified_at: 2026-04-28T09:00:00.000-05:00
 thumbnail: /img/thumbnails/thumb-sampling.jpg
 post_image: /img/thumbnails/banner-sampling.jpg
 description: "Is your GA4 Exploration showing a yellow warning icon? Learn why GA4 samples your data and how to force detailed, accurate results with a simple shortcut."
+url: "https://www.gaoptimizer.com/blog/ga4-sampling-fix/"
 tags:
   - post
   - ga4

@@ -35,6 +35,7 @@ last_modified_at: 2026-04-14T08:00:00.000-05:00
 thumbnail: /img/thumbnails/thumb-percentage.png
 post_image: /img/thumbnails/banner-percentage.png
 description: "GA4 Freeform Explorations don't show percentage of column total by default. Learn the manual workaround and how to get instant in-table percentages without exporting your data."
+url: "https://www.gaoptimizer.com/blog/ga4-explorations-column-total/"
 tags:
   - post
   - ga4

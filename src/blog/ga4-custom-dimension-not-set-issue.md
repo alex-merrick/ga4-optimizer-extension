@@ -35,6 +35,7 @@ last_modified_at: 2026-04-30T09:00:00.000-05:00
 thumbnail: /img/thumbnails/thumb-not-set.jpg
 post_image: /img/thumbnails/banner-not-set.jpg
 description: "Sending perfect event data from GTM but seeing (not set) in your GA4 reports? Learn the three most common causes for this error and how to fix your custom dimensions."
+url: "https://www.gaoptimizer.com/blog/ga4-custom-dimension-not-set-issue/"
 tags:
   - post
   - ga4

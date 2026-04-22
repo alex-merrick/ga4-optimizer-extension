@@ -34,6 +34,7 @@ publishDate: 2025-06-23T00:00:00.000Z
 thumbnail: /img/thumbnails/thumb-exit-rate.jpg
 post_image: /img/thumbnails/banner-exit-rate.jpg
 description: "Frustrated that you can see 'Exits' and 'Views' in a GA4 report but not 'Exit Rate'? Learn how to create custom calculated metrics on-the-fly without leaving the page."
+url: "https://www.gaoptimizer.com/blog/how-to-get-exit-rate-in-ga4-reports/"
 tags:
   - post
   - ga4

@@ -35,6 +35,7 @@ last_modified_at: 2026-04-16T08:00:00.000-05:00
 thumbnail: /img/thumbnails/thumb-rows-limit.png
 post_image: /img/thumbnails/banner-rows-limit.png
 description: "Frustrated by the 250-row limit in GA4 standard reports? Learn how to unlock up to 500 rows per page with a simple browser extension workaround, plus important stability warnings."
+url: "https://www.gaoptimizer.com/blog/500-rows-per-page-ga4-reports/"
 tags:
   - post
   - ga4

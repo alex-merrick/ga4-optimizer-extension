@@ -27,6 +27,7 @@ thumbnail: /img/thumbnails/thumb-ga4-date-presets.jpg
 post_image: /img/thumbnails/thumb-ga4-date-presets.jpg
 show_hero: false
 description: "GA4 added 'This Month' presets but removed a key comparison feature. Learn how to get 1-click date ranges and true day-of-week aligned Year-over-Year comparisons back."
+url: "https://www.gaoptimizer.com/blog/ga4-date-range-shortcuts/"
 tags:
   - post
   - ga4

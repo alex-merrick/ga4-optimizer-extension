@@ -35,6 +35,7 @@ last_modified_at: 2026-04-23T09:00:00.000-05:00
 thumbnail: /img/thumbnails/thumb-copy-dimensions.jpg
 post_image: /img/thumbnails/copy-dimensions.jpg
 description: "Save hours of manual work. Learn how to copy and paste all your custom dimensions, metrics, and calculated metrics between GA4 properties in just a few clicks."
+url: "https://www.gaoptimizer.com/blog/copy-custom-dimensions-definitions/"
 tags:
   - post
   - ga4
