@@ -124,7 +124,7 @@ GA4 Fixer is another option available in the UI enhancement category. For GTM an
 
 * **GTM Integration:** Allows you to create GA4 custom dimensions straight from your Google Tag Manager workspace.
 * **UA Style Templates:** Links out to their builder site to help you create standard reports that resemble classic Universal Analytics layouts.
-* **Sticky Headers:** Keeps the top menu and date range visible as you scroll down the page. Please note that if you are using this alongside GA4 Optimizer, you may need to disable one of the sticky header toggles to ensure your reporting experience remains smooth.
+* **Sticky Headers:** Keeps the metric headers visible as you scroll down the page in standard reports. Please note that if you are using this alongside GA4 Optimizer, you may need to disable one of the sticky header toggles to ensure your reporting experience remains smooth.
 
 - - -
 
