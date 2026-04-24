@@ -114,13 +114,25 @@ Clean data starts with clean tracking links. The Google Analytics UTM Builder is
 * Allows you to save presets for frequently used campaign tags.
 * Includes built-in link shortening (like Bitly).
 
+### 5. [GA4 Fixer](https://chromewebstore.google.com/detail/ga4-fixer/diiaealnihhapbcgmkcbkapbbmfggemc?hl=en-US&utm_source=gaoptimizer.com)
+
+**Best for:** Google Tag Manager and GA4 Admins
+
+GA4 Fixer is another option available in the UI enhancement category. For GTM and GA4 admins, it offers a convenient way to create GA4 custom dimensions directly from the GTM interface. Additionally, the extension provides links to their side project at ga4builder. If you enter your property ID there, you can copy standard report templates that resemble the old Universal Analytics layout directly into your own property.
+
+**Key Features:**
+
+* **GTM Integration:** Allows you to create GA4 custom dimensions straight from your Google Tag Manager workspace.
+* **UA Style Templates:** Links out to their builder site to help you create standard reports that resemble classic Universal Analytics layouts.
+* **Sticky Headers:** Keeps the top menu and date range visible as you scroll down the page. Please note that if you are using this alongside GA4 Optimizer, you may need to disable one of the sticky header toggles to ensure your reporting experience remains smooth.
+
 - - -
 
 ## Debugging & Troubleshooting
 
 These extensions help developers and analysts verify tracking implementations, debug tags, and ensure data quality.
 
-### 5. [Adswerve - dataLayer Inspector+](https://chromewebstore.google.com/detail/adswerve-datalayer-inspec/kmcbdogdandhihllalknlcjfpdjcleom?hl=en-US&utm_source=gaoptimizer.com)
+### 6. [Adswerve - dataLayer Inspector+](https://chromewebstore.google.com/detail/adswerve-datalayer-inspec/kmcbdogdandhihllalknlcjfpdjcleom?hl=en-US&utm_source=gaoptimizer.com)
 
 **Best for:** Deep Data Layer Debugging
 
@@ -134,7 +146,7 @@ When it comes to troubleshooting your tracking implementation, the Adswerve data
 
 - - -
 
-### 6. [Omnibug](https://chromewebstore.google.com/detail/omnibug/bknpehncffejahipecakbfkomebjmokl?hl=en-US&utm_source=gaoptimizer.com)
+### 7. [Omnibug](https://chromewebstore.google.com/detail/omnibug/bknpehncffejahipecakbfkomebjmokl?hl=en-US&utm_source=gaoptimizer.com)
 
 **Best for:** Multi-Platform Tag Auditing
 
@@ -148,7 +160,7 @@ Omnibug is an incredibly reliable extension that decodes the network requests se
 
 - - -
 
-### 7. [Analytics Debugger](https://chromewebstore.google.com/detail/analytics-debugger/ilnpmccnfdjdjjikgkefkcegefikecdc?hl=en-US&utm_source=gaoptimizer.com)
+### 8. [Analytics Debugger](https://chromewebstore.google.com/detail/analytics-debugger/ilnpmccnfdjdjjikgkefkcegefikecdc?hl=en-US&utm_source=gaoptimizer.com)
 
 **Best for:** Advanced GA4 Troubleshooting
 
@@ -162,7 +174,7 @@ Created by David Vallejo, Analytics Debugger is a heavy-hitter for technical ana
 
 - - -
 
-### 8. [Datalayer Checker](https://chromewebstore.google.com/detail/datalayer-checker/ffljdddodmkedhkcjhpmdajhjdbkogke?hl=en-US&utm_source=gaoptimizer.com)
+### 9. [Datalayer Checker](https://chromewebstore.google.com/detail/datalayer-checker/ffljdddodmkedhkcjhpmdajhjdbkogke?hl=en-US&utm_source=gaoptimizer.com)
 
 **Best for:** Non-Technical Marketers
 
@@ -176,7 +188,7 @@ If you find the browser console intimidating, Datalayer Checker is the perfect a
 
 - - -
 
-### 9. [Google Analytics Debugger](https://chromewebstore.google.com/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna?hl=en-US&utm_source=gaoptimizer.com)
+### 10. [Google Analytics Debugger](https://chromewebstore.google.com/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna?hl=en-US&utm_source=gaoptimizer.com)
 
 **Best for:** Simple GA4 Event Monitoring
 
@@ -190,7 +202,7 @@ Google Analytics Debugger is a straightforward, official extension from Google t
 
 - - -
 
-### 10. [Google Tag Assistant](https://chromewebstore.google.com/detail/tag-assistant/kejbdjndbnbjgmefkgdddjlbokphdefk?hl=en-US&utm_source=gaoptimizer.com)
+### 11. [Google Tag Assistant](https://chromewebstore.google.com/detail/tag-assistant/kejbdjndbnbjgmefkgdddjlbokphdefk?hl=en-US&utm_source=gaoptimizer.com)
 
 **Best for:** Non-technical GA4 & GTM Debugging
 
