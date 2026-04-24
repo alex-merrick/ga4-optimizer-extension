@@ -5,8 +5,9 @@ pagination:
   size: 10
   alias: paginatedPosts
   reverse: false
-permalink: "{% if pagination.pageNumber == 0 %}/blog/{% else %}/blog/{{ pagination.pageNumber + 1 }}/{% endif %}"
-title: "{% if pagination.pageNumber == 0 %}Blog{% else %}Blog - Page {{ pagination.pageNumber + 1 }}{% endif %} | GA4 Optimizer"
+permalink: "/blog/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}"
+eleventyComputed:
+  title: "{% if pagination.pageNumber == 0 %}Blog | GA4 Optimizer{% else %}Blog - Page {{ pagination.pageNumber + 1 }} | GA4 Optimizer{% endif %}"
 description: "Tips, tricks, and guides for making Google Analytics 4 easier to use and more powerful."
 ---
 <main class="container">
