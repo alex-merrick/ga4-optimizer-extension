@@ -51,7 +51,7 @@ eleventyComputed:
   title: "Best Google Analytics Browser Extension Tools for GA4 ({{ currentYear }} Guide)"
   description: "The 10 best Google Analytics browser extensions for GA4 in {{ currentYear }}. Enhance reporting, debug tracking, and boost productivity with these essential Chrome tools."
 ---
-We've compiled the definitive list of the 10+ best Chrome extensions built specifically for Google Analytics 4. From UI enhancements that fix GA4's clunky interface to powerful debugging tools for developers and GA4 admins, these extensions are actively maintained and fully compatible with GA4 in {{ "" | currentYear }}.
+We've compiled the definitive list of the 10+ best Chrome extensions built specifically for Google Analytics 4. From UI enhancements that fix GA4's clunky interface to powerful debugging tools for developers and GA4 admins, these extensions are fully compatible with GA4 in {{ "" | currentYear }}.
 
 - - -
 
