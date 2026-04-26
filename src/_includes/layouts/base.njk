@@ -175,9 +175,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="modal-content">
             <button class="modal-close-button">×</button>
             <div class="video-wrapper">
-                <!-- Iframe will be used for YouTube links, video tag for local files -->
-                <iframe id="modalVideoPlayer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <video id="modalVideoPlayerLocal" controls style="display:none; width:100%; height:auto;"></video>
+                <video id="modalVideoPlayer" controls autoplay playsinline aria-label="Feature demonstration video"></video>
             </div>
         </div>
     </div>
@@ -197,7 +195,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="/global.js"></script>
 
     {# Conditionally load the documentation script ONLY on the docs page #}
-    {% if page.url == '/features/' or page.url == '/documentation/' %}
+    {% if page.url == '/features/' or page.url == '/documentation/' or (tags and 'post' in tags) %}
     <script src="/documentation.js"></script>
     {% endif %}
 
