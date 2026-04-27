@@ -75,7 +75,18 @@ If you miss the workflow hacks that older extensions used to provide, GA4 Optimi
 
 - - -
 
-### 2. [GA4 Page Opener](https://chromewebstore.google.com/detail/ga4-page-opener/kgaacoanfacaccjggmigijlkdldjffgo?hl=en-US&utm_source=gaoptimizer.com)
+### 2. [GA4 Fixer](https://chromewebstore.google.com/detail/ga4-fixer/diiaealnihhapbcgmkcbkapbbmfggemc?hl=en-US&utm_source=gaoptimizer.com)
+
+**Best for:** Google Tag Manager and GA4 Admins
+
+GA4 Fixer is another option available in the UI enhancement category. For GTM and GA4 admins, it offers a convenient way to create GA4 custom dimensions directly from the GTM interface. Additionally, the extension provides links to their side project at ga4builder. If you enter your property ID there, you can copy standard report templates that resemble the old Universal Analytics layout directly into your own property.
+**Key Features:**
+
+* **GTM Integration:** Allows you to create GA4 custom dimensions straight from your Google Tag Manager workspace.
+* **UA Style Templates:** Links out to their builder site to help you create standard reports that resemble classic Universal Analytics layouts.
+* **Sticky Headers:** Keeps the metric headers visible as you scroll down the page in standard reports. Please note that if you are using this alongside GA4 Optimizer, you may need to disable one of the sticky header toggles to ensure your reporting experience remains smooth.
+
+### 3. [GA4 Page Opener](https://chromewebstore.google.com/detail/ga4-page-opener/kgaacoanfacaccjggmigijlkdldjffgo?hl=en-US&utm_source=gaoptimizer.com)
 
 **Best for:** Content Marketers & SEOs
 
@@ -88,7 +99,7 @@ Ever navigate a pages and screens report in GA4 and wish you could just click on
 
 - - -
 
-### 3. [Analytics Dark Mode](https://chromewebstore.google.com/detail/analytics-dark-mode/lpfbehkefagkloemkmkgmomoaoilkkln?hl=en-US&utm_source=gaoptimizer.com)
+### 4. [Analytics Dark Mode](https://chromewebstore.google.com/detail/analytics-dark-mode/lpfbehkefagkloemkmkgmomoaoilkkln?hl=en-US&utm_source=gaoptimizer.com)
 
 **Best for:** Late-Night Reporting Sessions
 
@@ -102,7 +113,7 @@ Let's face it: staring at the bright white GA4 interface for 8 hours a day cause
 
 - - -
 
-### 4. [Google Analytics UTM Builder](https://chromewebstore.google.com/detail/google-analytics-utm-buil/gaidpiakchgkapdgbnoglpnbccdepnpk?hl=en-US&utm_source=gaoptimizer.com)
+### 5. [Google Analytics UTM Builder](https://chromewebstore.google.com/detail/google-analytics-utm-buil/gaidpiakchgkapdgbnoglpnbccdepnpk?hl=en-US&utm_source=gaoptimizer.com)
 
 **Best for:** Marketers
 
@@ -113,18 +124,6 @@ Clean data starts with clean tracking links. The Google Analytics UTM Builder is
 * Auto-populates the current URL.
 * Allows you to save presets for frequently used campaign tags.
 * Includes built-in link shortening (like Bitly).
-
-### 5. [GA4 Fixer](https://chromewebstore.google.com/detail/ga4-fixer/diiaealnihhapbcgmkcbkapbbmfggemc?hl=en-US&utm_source=gaoptimizer.com)
-
-**Best for:** Google Tag Manager and GA4 Admins
-
-GA4 Fixer is another option available in the UI enhancement category. For GTM and GA4 admins, it offers a convenient way to create GA4 custom dimensions directly from the GTM interface. Additionally, the extension provides links to their side project at ga4builder. If you enter your property ID there, you can copy standard report templates that resemble the old Universal Analytics layout directly into your own property.
-
-**Key Features:**
-
-* **GTM Integration:** Allows you to create GA4 custom dimensions straight from your Google Tag Manager workspace.
-* **UA Style Templates:** Links out to their builder site to help you create standard reports that resemble classic Universal Analytics layouts.
-* **Sticky Headers:** Keeps the metric headers visible as you scroll down the page in standard reports. Please note that if you are using this alongside GA4 Optimizer, you may need to disable one of the sticky header toggles to ensure your reporting experience remains smooth.
 
 - - -
 
