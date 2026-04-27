@@ -37,14 +37,16 @@ So, your A/B test has finished collecting data. You've dutifully created an Expl
 
 Answering this question is one of the most critical—and frustrating—parts of conversion rate optimization (CRO). In this guide, we'll walk you through how to properly analyze your A/B test results, first the manual way, and then the easy, automated way.
 
-## The Challenge: What GA4 Doesn't Tell You
+## What GA4 Doesn't Tell You About A/B Tests
 
 The standard GA4 interface presents two major challenges for analyzing test results:
 
 * **No Built-in Significance Calculator:** GA4 shows you user and conversion counts, but it won't tell you the statistical significance (or "confidence level") of your results. A 10% lift is meaningless if there's only a 60% chance it's a real effect.
 * **No Sample Ratio Mismatch (SRM) Check:** A valid A/B test should have a roughly equal number of users in the control and variation groups. If the split is skewed (e.g., 60/40), your test may be fundamentally flawed, and the results are untrustworthy. GA4 does not warn you about this.
 
-### The Manual Method (The Hard Way)
+## How to Analyze A/B Test Results in GA4
+
+### Method 1: The Manual Method
 
 To validate your results without a dedicated tool, you need to use an external calculator.
 
@@ -55,7 +57,7 @@ To validate your results without a dedicated tool, you need to use an external c
 
 While this works, it's slow, repetitive, and pulls you out of your workflow every single time you need to check a result.
 
-### The Automated Method (The GA4 Optimizer Way)
+### Method 2: The Automated Method with GA4 Optimizer
 
 The **AB Test Segment Comparison** feature in our completely free GA4 Optimizer Chrome Extension is designed to solve this exact problem. It builds the significance calculator directly into the GA4 interface, locally on your computer.
 
@@ -77,13 +79,16 @@ This turns a half hour data-exporting task into a 5-second glance, allowing you 
 
 - - -
 
-## **Frequently Asked Questions (FAQ)**
+## Frequently Asked Questions
 
-**Q: What is statistical significance?**
-A: In simple terms, it's the probability that the measured difference between your control and variation is not due to random chance. A 95% significance level means there is a 95% chance that the result is real and repeatable.
+### What is statistical significance?
 
-**Q: Why is a Sample Ratio Mismatch (SRM) bad?**
-A: SRM indicates a problem with how users were assigned to your test groups. It can be caused by redirects, tracking bugs, or other technical issues. If the user split isn't what you expected (e.g., 50/50), the entire test result is unreliable, even if it looks significant.
+In simple terms, it's the probability that the measured difference between your control and variation is not due to random chance. A 95% significance level means there is a 95% chance that the result is real and repeatable.
 
-**Q: Where can I learn more about this feature?**
-A: You can install GA4 Optimizer in Chrome Web Store it's free and it comes with detailed documentation! [GA4 Optimizer Chrome Link](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_ab_test_guide).
+### Why is a Sample Ratio Mismatch (SRM) bad?
+
+SRM indicates a problem with how users were assigned to your test groups. It can be caused by redirects, tracking bugs, or other technical issues. If the user split isn't what you expected (e.g., 50/50), the entire test result is unreliable, even if it looks significant.
+
+### Where can I learn more about this feature?
+
+You can install GA4 Optimizer in Chrome Web Store it's free and it comes with detailed documentation! [GA4 Optimizer Chrome Link](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_ab_test_guide).

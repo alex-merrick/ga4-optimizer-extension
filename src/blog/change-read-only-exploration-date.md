@@ -53,7 +53,11 @@ We wanted to address this roadblock with our own solution. The **Date Range Over
 
 When a colleague sends you a link to a helpful Funnel or Free Form exploration, you usually want to apply it to your own reporting periods. By default, GA4 forces you to duplicate the entire report. You cannot even ask the original creator to grant you editor permissions, as that is not natively possible.
 
+### Why GA4 Locks Shared Exploration Dates
+
 Duplicating reports clutters your workspace rapidly. It is easy to confuse which version is the source of truth. Analysts need a way to dynamically adjust the timeframe on the fly without altering the source report.
+
+### The Confusing "Make a Copy" Message
 
 If you do try to change the date range, clicking it pops up a message: "To edit this exploration, first make a personal copy by clicking the icon." This message is confusing because we aren't trying to edit the report. We just want to see that report in a different time period.
 
@@ -62,6 +66,8 @@ If you do try to change the date range, clicking it pops up a message: "To edit 
 ## How to Change Dates on Read-Only GA4 Explorations
 
 Our Date Range Override feature modifies the interface and provides you the option to change it. This allows you to query Google Analytics for the exact dates you need. The original report remains completely untouched for the owner.
+
+### Step-by-Step Instructions
 
 Here is how you can edit locked dates using the extension:
 
@@ -82,15 +88,19 @@ Here is how you can edit locked dates using the extension:
 
 5. **Apply and reload:** Click Apply. The page will reload and fetch fresh data for your chosen range.
 
+### Visual Confirmation of Active Override
+
 Once active, the date label turns purple to signal that an override is in place. You can instantly revert to the original dates by clicking the **Clear** button.
 
 ## Works Across All Exploration Techniques
 
 The override feature is highly versatile and applies to all standard GA4 exploration types. Whether you are analyzing user drops in a Funnel exploration, tracking navigation in a Path exploration, or checking audience segments in a Cohort report, the tool handles the date manipulation seamlessly.
 
+### Export Considerations
+
 If you need to export your findings, the exported CSV will contain the correct data values for your new date range. Please note that the "Date Comparison" column header in the exported file will still display the original text label due to GA4 native formatting limits. The extension will provide a quick warning prompt to remind you of this before the export begins. The values you extract are still going to be for the date range you selected.
 
-## More Ways to Improve Google Analytics 4
+## Additional GA4 Optimization Features
 
 Unlocking dates is just one way we fix the Google Analytics interface. GA4 Optimizer includes several other tools designed to save you time and reduce reporting friction. 
 
@@ -100,11 +110,14 @@ For example, if you have ever sent a colleague a GA4 report link only to have th
 
 ## Frequently Asked Questions
 
-**Why can't I change the date range on a shared GA4 exploration?**  
+### Why can't I change the date range on a shared GA4 exploration?
+
 When a user shares a Google Analytics 4 exploration in read-only mode, the platform natively locks the date range to the original settings. You must either duplicate the report or use a browser extension to override the locked dates.
 
-**How do I edit dates on a read-only GA4 report?**  
+### How do I edit dates on a read-only GA4 report?
+
 You can install the GA4 Optimizer browser extension to unlock the date selector. It adds a direct Edit Date button below the locked variables, allowing you to fetch fresh data for any timeframe.
 
-**Does changing the date range modify the original shared GA4 exploration?**  
+### Does changing the date range modify the original shared GA4 exploration?
+
 No. Using a date range override only fetches new data for your current browser session. It does not alter the original report for the owner or other viewers.

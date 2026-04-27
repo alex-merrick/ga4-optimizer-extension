@@ -1,5 +1,10 @@
 /* --- GA4 Optimizer Professional Website Styles --- */
 
+/* Universal box-sizing reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 /* :root variables for easy theme management */
 :root {
     --brand-purple: #8A229B;
@@ -11,6 +16,12 @@
     --border-color: #e9ecef;
 }
 
+/* Prevent horizontal overflow at the root level */
+html {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 /* Base & Typography */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -19,11 +30,15 @@ body {
     margin: 0;
     padding-top: 80px; /* Space for the fixed header */
     line-height: 1.7;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 h1, h2, h3 {
@@ -197,6 +212,8 @@ a.cta-button:hover {
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
     margin-top: 20px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 /* Homepage Hero Section */
@@ -935,6 +952,143 @@ a.step h3, a.step p {
     }
 }
 
+/* --- Recommended Articles Section --- */
+.recommended-articles {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
+    /* Prevent overflow beyond the parent content box */
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.recommended-articles__heading {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+}
+
+.recommended-articles__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.recommended-articles__item {
+    display: flex;
+    min-width: 0; /* prevent grid blowout */
+}
+
+.recommended-articles__card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    width: 100%;
+    min-width: 0; /* prevent grid blowout */
+    box-sizing: border-box;
+}
+
+.recommended-articles__card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    text-decoration: none;
+    color: inherit;
+}
+
+.recommended-articles__thumb-wrap {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-color: var(--bg-light);
+    flex-shrink: 0;
+}
+
+.recommended-articles__thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.recommended-articles__card:hover .recommended-articles__thumb {
+    transform: scale(1.04);
+}
+
+.recommended-articles__body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.recommended-articles__date {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin: 0 0 6px;
+    font-style: italic;
+}
+
+.recommended-articles__title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 8px;
+    line-height: 1.4;
+}
+
+.recommended-articles__desc {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin: 0 0 12px;
+    line-height: 1.5;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.recommended-articles__read-more {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--brand-purple);
+    margin-top: auto;
+}
+
+.recommended-articles__card:hover .recommended-articles__read-more {
+    color: var(--brand-purple-dark);
+}
+
+@media (max-width: 768px) {
+    .recommended-articles__list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .recommended-articles__list {
+        grid-template-columns: 1fr;
+    }
+
+    .recommended-articles__heading {
+        font-size: 1.2rem;
+    }
+}
+
 /* --- Accessibility & UX Fixes --- */
 
 /* 
@@ -1281,7 +1435,7 @@ Social Share Buttons Styles */
     .share-button {
         padding: 8px 12px;
         font-size: 0.85em;
-        min-width: 80px;
+        min-width: 0;
     }
     
     .share-button span {

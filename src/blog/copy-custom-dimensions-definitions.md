@@ -48,7 +48,7 @@ This process is slow, repetitive, and dangerously prone to typos that can corrup
 
 But what if you could migrate your entire configuration in about 60 seconds? Here is how to do it.
 
-## The Problem: GA4 Has No "Clone" Feature
+## Why GA4 Has No Native "Clone" Feature
 
 In a perfect world, the GA4 Admin panel would have a button to "Clone property configuration" or "Export custom definitions". It does not. The only native method for copying your setup to a new property is painfully manual:
 
@@ -61,7 +61,7 @@ In a perfect world, the GA4 Admin panel would have a button to "Clone property c
 
 For a property with 50+ definitions, this is an hour of mind-numbing work where a single typo in an event parameter name can lead to missing data.
 
-## The Fix: One-Click Copy & Paste for Custom Definitions
+## How to Copy & Paste Custom Definitions in One Click
 
 This workflow is exactly why we built the **Custom Definitions Copy/Paste** feature into the free [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_copy_paste_definitions). It adds the copy and paste buttons that should have been in GA4 from the start.
 
@@ -99,13 +99,16 @@ Get this feature and a dozen other workflow enhancements by installing the free 
 
 ***
 
-## Frequently Asked Questions (FAQ)
+## Frequently Asked Questions
 
-**Q: Is there a built-in way to copy custom dimensions in GA4?**
-A: No, Google Analytics 4 does not have a native feature to copy, clone, or export custom dimensions, metrics, or calculated metrics from one property to another. The process must be done manually, one definition at a time.
+### Is there a built-in way to copy custom dimensions in GA4?
 
-**Q: How do you copy custom definitions between GA4 properties?**
-A: The fastest method is to use the GA4 Optimizer browser extension. It adds 'Copy' and 'Paste' buttons directly to the Admin > Custom definitions page, allowing you to migrate dozens of definitions in just a few clicks while automatically preventing duplicates.
+No, Google Analytics 4 does not have a native feature to copy, clone, or export custom dimensions, metrics, or calculated metrics from one property to another. The process must be done manually, one definition at a time.
 
-**Q: What permissions do I need to copy custom dimensions in GA4?**
-A: To create or edit custom definitions, you must have an Editor or Administrator role on the Google Analytics 4 property. This is required for both the manual method and when using automated tools like the GA4 Optimizer extension.
+### How do you copy custom definitions between GA4 properties?
+
+The fastest method is to use the GA4 Optimizer browser extension. It adds 'Copy' and 'Paste' buttons directly to the Admin > Custom definitions page, allowing you to migrate dozens of definitions in just a few clicks while automatically preventing duplicates.
+
+### What permissions do I need to copy custom dimensions in GA4?
+
+To create or edit custom definitions, you must have an Editor or Administrator role on the Google Analytics 4 property. This is required for both the manual method and when using automated tools like the GA4 Optimizer extension.

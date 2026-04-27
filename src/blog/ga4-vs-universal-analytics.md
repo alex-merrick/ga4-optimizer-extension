@@ -48,7 +48,7 @@ Simple questions that once took seconds to answer now require building complex e
 
 The good news is you do not have to live with these frustrations. Here are four of the most-missed features from Universal Analytics and how you can bring them back to GA4.
 
-### 1. The Missing Metric: Exit Rate
+## 1. The Missing Metric: Exit Rate
 
 In Universal Analytics, **Exit Rate** was a fundamental metric in the "All Pages" report. It told you the percentage of time a specific page was the last one in a session. It was the fastest way to identify leaks in your conversion funnel or find pages that failed to guide users to the next step.
 
@@ -56,7 +56,7 @@ In GA4, this metric is gone. The raw "Exits" metric is hidden away in Exploratio
 
 **The Fix:** The [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_ua_vs_ga4) adds a **"Create Exit Pages Report"** feature. In one click, it generates a pre-configured report template with the hidden Exits metric and automatically calculates the Exit Rate for you, right inside the GA4 interface.
 
-### 2. The UI Downgrade: No Sticky Table Headers
+## 2. The UI Downgrade: No Sticky Table Headers
 
 This is one of the most common interface complaints. When scrolling through a long report in Universal Analytics, the table header would "stick" to the top of the screen. You always knew which column represented which metric.
 
@@ -64,7 +64,7 @@ In GA4, the header disappears the moment you scroll down. When you are 50 rows d
 
 **The Fix:** GA4 Optimizer includes a **"Sticky Report Header"** feature. It does exactly what you expect: it locks the header row in place as well as move the search panel and pagination controls to the bottom in all Standard Reports, so you never lose context while you scroll.
 
-### 3. The Analysis Blocker: No Percentage of Column Total
+## 3. The Analysis Blocker: No Percentage of Column Total
 
 In both Universal Analytics and GA4's Standard Reports, you can see the percentage of total traffic a row represents. But when you move to GA4's custom **Freeform Explorations** to do serious analysis, this critical piece of context vanishes. A landing page with 10,000 users is meaningless without knowing if that is 5% or 50% of your total traffic.
 
@@ -72,7 +72,7 @@ Again, the only native solution is to export your data to a spreadsheet.
 
 **The Fix:** GA4 Optimizer's **"Percentage of Column Total"** feature automatically calculates and injects this percentage directly into your Exploration tables. It appears right next to the raw number and on hover, giving you instant context without breaking your workflow.
 
-### 4. The Inaccuracy Problem: Flawed Year-over-Year Comparisons
+## 4. The Inaccuracy Problem: Flawed Year-over-Year Comparisons
 
 Comparing date ranges in Universal Analytics was straightforward. In GA4, not only does it take more clicks, but the default Year-over-Year comparison is fundamentally flawed.
 
@@ -88,13 +88,16 @@ Install the free [GA4 Optimizer extension](https://chromewebstore.google.com/det
 
 ***
 
-## Frequently Asked Questions (FAQ)
+## Frequently Asked Questions
 
-**Q: Why are so many features from Universal Analytics missing in GA4?**
-A: The transition from a session-based data model (Universal Analytics) to an event-based model (GA4) required a complete platform rebuild. In this process, Google prioritized the new data collection architecture, and many quality-of-life interface features and standard metrics from the old platform were not carried over.
+### Why are so many features from Universal Analytics missing in GA4?
 
-**Q: How can I calculate Exit Rate in GA4?**
-A: Natively, you must build a custom Exploration report with 'Exits' and 'Views' as metrics, export the data to a spreadsheet, and manually calculate the rate (Exits / Views). A faster method is to use the GA4 Optimizer extension, which has a one-click 'Create Exit Pages Report' feature that builds the report and calculates the rate for you.
+The transition from a session-based data model (Universal Analytics) to an event-based model (GA4) required a complete platform rebuild. In this process, Google prioritized the new data collection architecture, and many quality-of-life interface features and standard metrics from the old platform were not carried over.
 
-**Q: How can I make the GA4 interface easier to use?**
-A: The most effective way is to use a browser extension designed to fix its workflow gaps. The GA4 Optimizer extension adds back missing features like Exit Rate, sticky table headers, and column percentages, and it streamlines tedious tasks like date comparisons to make the interface more efficient and user-friendly.
+### How can I calculate Exit Rate in GA4?
+
+Natively, you must build a custom Exploration report with 'Exits' and 'Views' as metrics, export the data to a spreadsheet, and manually calculate the rate (Exits / Views). A faster method is to use the GA4 Optimizer extension, which has a one-click 'Create Exit Pages Report' feature that builds the report and calculates the rate for you.
+
+### How can I make the GA4 interface easier to use?
+
+The most effective way is to use a browser extension designed to fix its workflow gaps. The GA4 Optimizer extension adds back missing features like Exit Rate, sticky table headers, and column percentages, and it streamlines tedious tasks like date comparisons to make the interface more efficient and user-friendly.

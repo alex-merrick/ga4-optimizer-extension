@@ -54,9 +54,11 @@ By default, the GA4 standard report interface lets you choose between 10, 25, 50
 
 The traditional workaround is exporting your report to Google Sheets or Excel. But exporting takes you out of the platform. If you realize you need to adjust a filter or add a secondary dimension, you have to start the export process all over again.
 
-## Unlocking 500 Rows per Page
+## How to Unlock 500 Rows per Page in GA4
 
 To keep analysts in their workflow, we built a 500-row override directly into the [GA4 Optimizer](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_500_rows) browser extension. This feature seamlessly injects a new option into the native GA4 interface.
+
+### Step-by-Step Instructions
 
 Here is how to use it:
 
@@ -67,15 +69,19 @@ Here is how to use it:
 
 The page will reload and display double the maximum amount of data natively allowed by Google.
 
-## Important Warnings Regarding Speed and Stability
+## Important Warnings: Speed and Stability
 
 While seeing 500 rows is incredibly useful, there is a reason Google capped the limit at 250. Rendering this much data in the browser takes a significant toll on your computer hardware and GA4's processing capabilities. 
 
 Because Google Analytics does not officially support a 500-row view, you need to keep two major caveats in mind before using it.
 
-First, expect a noticeable delay. When you select 500 rows, the page will likely take a few extra seconds to load. You may also notice scrolling becomes slightly less responsive depending on your machine. This is normal behavior when pushing the interface past its intended limits.
+### Expect Slower Load Times
 
-Second, do not use this feature when running date comparisons. If you attempt to load 500 rows while comparing month-over-month or year-over-year data, GA4 is forced to calculate and render thousands of individual data points and percentage changes simultaneously. Doing this will almost certainly make the page unstable, cause the table to become unresponsive. However, we enabled this option as power users  are willing to wait a bit longer to see 500 rows at once.
+When you select 500 rows, the page will likely take a few extra seconds to load. You may also notice scrolling becomes slightly less responsive depending on your machine. This is normal behavior when pushing the interface past its intended limits.
+
+### Avoid Using Date Comparisons with 500 Rows
+
+If you attempt to load 500 rows while comparing month-over-month or year-over-year data, GA4 is forced to calculate and render thousands of individual data points and percentage changes simultaneously. Doing this will almost certainly make the page unstable, cause the table to become unresponsive. However, we enabled this option as power users are willing to wait a bit longer to see 500 rows at once.
 
 ## Stop Clicking Next Page
 
@@ -85,13 +91,16 @@ You can access this feature today, along with sticky table headers and on-the-fl
 
 ***
 
-## Frequently Asked Questions (FAQ)
+## Frequently Asked Questions
 
-**Q: How do I show more than 250 rows in GA4 standard reports?**
-A: By default, Google Analytics 4 limits standard reports to 250 rows per page. To view up to 500 rows, you can use the free GA4 Optimizer browser extension, which adds a 500-row option directly to the native rows per page dropdown menu.
+### How do I show more than 250 rows in GA4 standard reports?
 
-**Q: Why does my GA4 report freeze or slow down when showing 500 rows?**
-A: Google does not officially support rendering 500 rows in a standard report. Forcing the browser to load and display this much data requires significant memory. If you use date comparisons while viewing 500 rows, the page will likely become unstable or crash.
+By default, Google Analytics 4 limits standard reports to 250 rows per page. To view up to 500 rows, you can use the free GA4 Optimizer browser extension, which adds a 500-row option directly to the native rows per page dropdown menu.
 
-**Q: Does the 500 rows per page limit work in GA4 Explorations?**
-A: No, the 500 rows per page dropdown addition is specifically designed for Standard Reports. For GA4 Explorations, you can use the Maximize View feature to instantly optimize the table density.
+### Why does my GA4 report freeze or slow down when showing 500 rows?
+
+Google does not officially support rendering 500 rows in a standard report. Forcing the browser to load and display this much data requires significant memory. If you use date comparisons while viewing 500 rows, the page will likely become unstable or crash.
+
+### Does the 500 rows per page limit work in GA4 Explorations?
+
+No, the 500 rows per page dropdown addition is specifically designed for Standard Reports. For GA4 Explorations, you can use the Maximize View feature to instantly optimize the table density.

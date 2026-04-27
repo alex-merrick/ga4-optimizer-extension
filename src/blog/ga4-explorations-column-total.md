@@ -88,13 +88,16 @@ You can get this feature, along with 15 other workflow improvements, by installi
 
 ***
 
-## Frequently Asked Questions (FAQ)
+## Frequently Asked Questions
 
-**Q: How do I see the percentage of column total in GA4 Explorations?**
-A: By default, Google Analytics 4 does not show column percentages in Freeform Explorations. You must export the data to a spreadsheet to calculate it manually, or use the [GA4 Optimizer](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_column_total) browser extension to see the percentages automatically directly in your report table.
+### How do I see the percentage of column total in GA4 Explorations?
 
-**Q: Does GA4 have a percent of total metric?**
-A: GA4 standard reports show a basic percentage of total under the main metrics. However, this feature is completely missing in Explorations, meaning you cannot natively see the percentage contribution of a specific row without exporting the data.
+By default, Google Analytics 4 does not show column percentages in Freeform Explorations. You must export the data to a spreadsheet to calculate it manually, or use the [GA4 Optimizer](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_column_total) browser extension to see the percentages automatically directly in your report table.
 
-**Q: Why are my percentages not showing up with the extension installed?**
-A: This specific feature only works in Freeform Explorations that use the Table visualization. It will not activate if you are using a Funnel, Path, or Cohort exploration. Additionally, ensure the "Total" row is visible on your screen so the extension can perform the calculation.
+### Does GA4 have a percent of total metric?
+
+GA4 standard reports show a basic percentage of total under the main metrics. However, this feature is completely missing in Explorations, meaning you cannot natively see the percentage contribution of a specific row without exporting the data.
+
+### Why are my percentages not showing up with the extension installed?
+
+This specific feature only works in Freeform Explorations that use the Table visualization. It will not activate if you are using a Funnel, Path, or Cohort exploration. Additionally, ensure the "Total" row is visible on your screen so the extension can perform the calculation.

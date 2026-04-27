@@ -72,7 +72,7 @@ If you notice the yellow warning icon, you can force Google Analytics to process
 
 The page will reload. It will take a few seconds longer to process, but the icon should turn into a green checkmark indicating the report is now based on 100% of your available data.
 
-## The Problem with the Native Workflow
+## Limitations of the Native Sampling Fix
 
 While the native fix works, it creates two distinct workflow problems for daily GA4 users.
 
@@ -80,7 +80,7 @@ First, the warning icon is incredibly easy to miss. It is small, static, and tuc
 
 Second, if you change a dimension, alter a date range, or apply a new segment, GA4 will often quietly revert back to "Faster results" to save processing power. You are then forced to repeat the multi-click process of opening the panel and requesting detailed results all over again.
 
-## The Faster Fix: Highlighting and Shortcuts
+## A Faster Fix: Sampling Highlights and Keyboard Shortcuts
 
 To solve these exact frustrations, we built two specific features into the free [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_sampled_data) to handle data sampling automatically.
 
@@ -106,13 +106,16 @@ By paying close attention to the data quality icon and forcing GA4 to provide mo
 
 ***
 
-## Frequently Asked Questions (FAQ)
+## Frequently Asked Questions
 
-**Q: What does the yellow warning icon mean in GA4 Explorations?**
-A: The yellow warning icon in the top right corner of a GA4 Exploration means your report is based on sampled data. Google Analytics is using a small portion of your data to estimate the total results, which means the numbers you are looking at are not 100% accurate.
+### What does the yellow warning icon mean in GA4 Explorations?
 
-**Q: How do you fix sampled data in GA4?**
-A: To fix sampled data natively, click the data quality icon in the top right of your Exploration, select 'More detailed results', and click apply. For a faster workflow, you can use the GA4 Optimizer browser extension and press Ctrl+Shift+Q to instantly reload the report with detailed results.
+The yellow warning icon in the top right corner of a GA4 Exploration means your report is based on sampled data. Google Analytics is using a small portion of your data to estimate the total results, which means the numbers you are looking at are not 100% accurate.
 
-**Q: Why does GA4 sample data?**
-A: GA4 samples data to reduce processing time and server load. When you request a complex Exploration over a long date range, or apply multiple high-cardinality dimensions, GA4 defaults to 'Faster results' to load the table quickly at the cost of total accuracy.
+### How do you fix sampled data in GA4?
+
+To fix sampled data natively, click the data quality icon in the top right of your Exploration, select 'More detailed results', and click apply. For a faster workflow, you can use the GA4 Optimizer browser extension and press Ctrl+Shift+Q to instantly reload the report with detailed results.
+
+### Why does GA4 sample data?
+
+GA4 samples data to reduce processing time and server load. When you request a complex Exploration over a long date range, or apply multiple high-cardinality dimensions, GA4 defaults to 'Faster results' to load the table quickly at the cost of total accuracy.

@@ -56,7 +56,8 @@ Google Analytics 4 is strictly case-sensitive. The event parameter name you type
 
 If you set up a parameter in GTM called `Author_Name` (with capital letters), but you register the event parameter in GA4 as `author_name` (all lowercase), the systems will not communicate. GA4 treats these as two entirely different data points. Because the exact lowercase parameter does not exist in the incoming data stream, GA4 leaves your custom dimension column blank, which outputs as "(not set)".
 
-**The Fix:**
+### How to Fix a Case-Sensitivity Mismatch
+
 Open your GA4 Admin panel, go to Custom definitions, and check the "Event parameter" column. Compare this exactly to the parameter name configured in your GTM tag. If there is a typo, capitalization difference, or an accidental space, you must edit the GA4 custom definition to match GTM perfectly.
 
 ## Reason 2: The Parameter Is Not Attached to Every Event
@@ -67,7 +68,8 @@ Let us say you successfully set up a parameter called `pricing_tier` and attach 
 
 However, if you build a Freeform Exploration and add "Event name" and your new "Pricing Tier" custom dimension to the report, you will see "(not set)" next to events like `page_view`, `session_start`, and `user_engagement`. Why? Because those specific events were never programmed to carry the `pricing_tier` parameter. GA4 has to put something in those rows, so it defaults to "(not set)".
 
-**The Fix:**
+### How to Fix the Missing Parameter Issue
+
 If you only want to see the parameter data, you need to filter your report. Add a filter to your Exploration where "Event name" exactly matches the specific event that carries your parameter (in this case, `generate_lead`). The "(not set)" rows will immediately disappear.
 
 ## Reason 3: You Are Looking at Historical Data
@@ -78,10 +80,11 @@ When you register a new custom dimension in the GA4 Admin panel, it acts as a st
 
 If you register a custom dimension on a Wednesday, but set your report's date range to look at the last 30 days, GA4 will display "(not set)" for all the data collected before that Wednesday. Furthermore, it takes GA4 standard processing time (usually 24 to 48 hours) for newly registered dimension data to fully populate in the interface.
 
-**The Fix:**
+### How to Fix the Historical Data Issue
+
 Adjust your report's date range to start on the day after you registered the custom dimension. If you just registered it today, you will simply have to wait until tomorrow to see the data populate accurately.
 
-## The Agency Problem: Repeating the Same Mistakes
+## How to Prevent (not set) Errors at Scale
 
 Reason 1 (typos and case mismatches) is the most frustrating error because it is entirely human. If you manage analytics for multiple clients or a portfolio of websites, setting up custom dimensions involves a tedious workflow. Every time you roll out a tracking strategy, you have to manually type out the exact same parameters across five, ten, or twenty different GA4 properties.
 
@@ -98,3 +101,19 @@ The extension transfers the dimension names, the exact event parameters, and the
 Seeing "(not set)" in your reports is a headache, but it is highly solvable. By checking for case-sensitivity, filtering your reports for the correct events, and understanding GA4 processing timelines, you can clean up your analysis quickly.
 
 To ensure you never make a data-entry typo during setup again, install the [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_not_set) for free and automate your custom dimension workflow today.
+
+---
+
+## Frequently Asked Questions
+
+### Why is my GA4 custom dimension showing as (not set)?
+
+A custom dimension shows as (not set) when GA4 cannot find matching data for that specific row. This usually happens due to a case-sensitivity mismatch between GTM and GA4, looking at historical data before the dimension was registered, or including events in your report that do not carry that specific parameter.
+
+### Is Google Analytics 4 case sensitive for event parameters?
+
+Yes, GA4 is strictly case-sensitive. If you send an event parameter from Google Tag Manager as 'Author_Name' but register it in the GA4 Admin panel as 'author_name', GA4 will not match them. The data will be ignored, and your custom dimension will show as (not set).
+
+### Are GA4 custom dimensions retroactive?
+
+No, GA4 custom dimensions are not retroactive. They only begin collecting and processing data from the exact moment you register them in the Admin interface. Any data collected prior to registration will appear as (not set) in your reports.

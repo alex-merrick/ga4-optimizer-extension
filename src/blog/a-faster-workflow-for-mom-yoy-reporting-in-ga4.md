@@ -38,7 +38,7 @@ The default interface is powerful but requires a frustrating number of clicks fo
 
 This guide outlines a faster, more insightful workflow using a few key features from our free [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_mom_yoy_guide).
 
-## The Problem: Why Standard GA4 Reporting is Slow
+## Why Standard GA4 Reporting is Slow
 
 Out of the box, a typical Month-over-Month (MoM) comparison involves several frustrating steps:
 
@@ -49,7 +49,7 @@ Out of the box, a typical Month-over-Month (MoM) comparison involves several fru
 
 Let's fix all of that.
 
-## The Solution: The GA4 Optimizer Workflow
+## A Faster GA4 Reporting Workflow with GA4 Optimizer
 
 ### Step 1: Get Your Comparison in Two Clicks
 
@@ -86,10 +86,12 @@ Instead of opening a new tab, just pop open the **Sticky Conversion Calculator**
 By combining these five simple features, you can transform your standard reporting process in GA4 from a clunky, multi-minute task into a streamlined, 30-second workflow. This gives you more time to do what's important: analyzing the data, not fighting the interface.
 
 ---
-## **Frequently Asked Questions (FAQ)**
+## Frequently Asked Questions
 
-**Q: How do I do a Month-over-Month (MoM) comparison in GA4?**
-A: To do a MoM comparison in GA4, you typically navigate to a report, open the date range selector, choose your month, and then manually select the 'compare' option to select the previous period. For a faster workflow, the GA4 Optimizer extension adds one-click presets like 'LMMoM' (Last Month over Month) to complete this in two clicks instead of seven.
+### How do I do a Month-over-Month (MoM) comparison in GA4?
 
-**Q: Can you create custom calculated metrics directly in GA4 reports?**
-A: Standard GA4 reports do not allow you to create custom calculated metrics on the fly; this typically requires creating a custom exploration or using a separate tool. However, the GA4 Optimizer extension adds a 'Quick Calculated Metric' feature that lets you create temporary calculations, like Exit Rate from Views and Exits, directly within the standard reporting interface for quick analysis.
+To do a MoM comparison in GA4, you typically navigate to a report, open the date range selector, choose your month, and then manually select the 'compare' option to select the previous period. For a faster workflow, the GA4 Optimizer extension adds one-click presets like 'LMMoM' (Last Month over Month) to complete this in two clicks instead of seven.
+
+### Can you create custom calculated metrics directly in GA4 reports?
+
+Standard GA4 reports do not allow you to create custom calculated metrics on the fly; this typically requires creating a custom exploration or using a separate tool. However, the GA4 Optimizer extension adds a 'Quick Calculated Metric' feature that lets you create temporary calculations, like Exit Rate from Views and Exits, directly within the standard reporting interface for quick analysis.

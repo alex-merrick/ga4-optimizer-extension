@@ -1,0 +1,72 @@
+{# Recommended Articles Component
+   Displays up to 3 random posts, excluding the current page.
+   Relies on collections.posts being available in the template context.
+#}
+
+{%- set otherPosts = [] -%}
+{%- for post in collections.posts -%}
+    {%- if post.url !== page.url -%}
+        {%- set otherPosts = (otherPosts.concat([post])) -%}
+    {%- endif -%}
+{%- endfor -%}
+
+{# Shuffle: use the post URL length + index as a lightweight pseudo-random seed #}
+{%- set seed = page.url | length -%}
+{%- set shuffled = [] -%}
+{%- set total = otherPosts | length -%}
+
+{%- if total > 0 -%}
+    {# Build a shuffled index list using a simple LCG-style offset #}
+    {%- set step = 3 -%}
+    {%- set picked = [] -%}
+    {%- set idx = (seed % total) -%}
+
+    {%- for i in range(0, total) -%}
+        {%- set idx = ((idx + step) % total) -%}
+        {%- if not (idx in picked) -%}
+            {%- set picked = (picked.concat([idx])) -%}
+        {%- endif -%}
+    {%- endfor -%}
+
+    {# Collect up to 3 articles using the shuffled indices #}
+    {%- set recommendedPosts = [] -%}
+    {%- for i in picked -%}
+        {%- if recommendedPosts | length < 3 -%}
+            {%- set recommendedPosts = (recommendedPosts.concat([otherPosts[i]])) -%}
+        {%- endif -%}
+    {%- endfor -%}
+
+    {%- if recommendedPosts | length > 0 -%}
+    <section class="recommended-articles" aria-label="Recommended articles">
+        <h3 class="recommended-articles__heading">You Might Also Like</h3>
+        <ul class="recommended-articles__list">
+            {%- for post in recommendedPosts -%}
+            <li class="recommended-articles__item">
+                <a href="{{ post.url }}" class="recommended-articles__card">
+                    {%- if post.data.thumbnail -%}
+                    <div class="recommended-articles__thumb-wrap">
+                        <img
+                            src="{{ post.data.thumbnail }}"
+                            alt="{{ post.data.title }}"
+                            class="recommended-articles__thumb"
+                            loading="lazy"
+                            width="280"
+                            height="157"
+                        >
+                    </div>
+                    {%- endif -%}
+                    <div class="recommended-articles__body">
+                        <p class="recommended-articles__date">
+                            {{ (post.data.publishDate or post.date) | date("MMMM d, yyyy") }}
+                        </p>
+                        <h4 class="recommended-articles__title">{{ post.data.title }}</h4>
+                        <p class="recommended-articles__desc">{{ post.data.description }}</p>
+                        <span class="recommended-articles__read-more" aria-hidden="true">Read article &rarr;</span>
+                    </div>
+                </a>
+            </li>
+            {%- endfor -%}
+        </ul>
+    </section>
+    {%- endif -%}
+{%- endif -%}

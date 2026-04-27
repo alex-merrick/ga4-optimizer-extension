@@ -138,14 +138,18 @@ Sharing data should be the easiest part of your job. By adding [GA4 Optimizer](h
 
 ## Frequently Asked Questions
 
-**Q: Why does GA4 say 'You do not have access to the account or property' when I know I do?**
-A: It's possible that you might really not have access and may need to request it. However, in our experience, this error usually occurs when you are logged into multiple Google accounts. GA4 is trying to open the link with your default account (often a personal one) instead of the account that has the correct permissions. The GA4 Optimizer extension fixes this by letting you instantly retry the link with your other accounts.
+### Why does GA4 say 'You do not have access to the account or property' when I know I do?
 
-**Q: How do I fix a shared GA4 report link that isn't working?**
-A: The fastest and easiest solution is to use the free GA4 Optimizer browser extension. It adds a 'Scan Logged-in Accounts' button to the error message or provision page, which lets you pick from your logged-in Google accounts to re-open the report that wasn't loading for you.
+It's possible that you might really not have access and may need to request it. However, in our experience, this error usually occurs when you are logged into multiple Google accounts. GA4 is trying to open the link with your default account (often a personal one) instead of the account that has the correct permissions. The GA4 Optimizer extension fixes this by letting you instantly retry the link with your other accounts.
 
-**Q: How do I share a Standard report in Google Analytics 4 (GA4)?**
-A: To share a Standard report, navigate to it, click the 'Share this report' icon in the top-right corner, and select 'Copy Link'. You can also just copy the URL from your browser. Be aware that colleagues may still encounter the multi-account permissions error.
+### How do I fix a shared GA4 report link that isn't working?
 
-**Q: How do I share an Exploration report in Google Analytics 4 (GA4)?**
-A: To share an Exploration report, first click the 'Share Exploration' icon in the top right to make it read-only for others. Then, you can copy the URL from your browser to share the link. Recommending a tool like GA4 Optimizer can help your colleagues avoid permission errors.
+The fastest and easiest solution is to use the free GA4 Optimizer browser extension. It adds a 'Scan Logged-in Accounts' button to the error message or provision page, which lets you pick from your logged-in Google accounts to re-open the report that wasn't loading for you.
+
+### How do I share a Standard report in Google Analytics 4 (GA4)?
+
+To share a Standard report, navigate to it, click the 'Share this report' icon in the top-right corner, and select 'Copy Link'. You can also just copy the URL from your browser. Be aware that colleagues may still encounter the multi-account permissions error.
+
+### How do I share an Exploration report in Google Analytics 4 (GA4)?
+
+To share an Exploration report, first click the 'Share Exploration' icon in the top right to make it read-only for others. Then, you can copy the URL from your browser to share the link. Recommending a tool like GA4 Optimizer can help your colleagues avoid permission errors.

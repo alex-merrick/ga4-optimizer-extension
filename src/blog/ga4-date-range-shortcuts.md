@@ -43,7 +43,7 @@ To make matters worse, even the new presets are stuck in GA4's notoriously clunk
 
 This is exactly why we updated the GA4 Optimizer extension. We don't just solve one of these problems; we fix both. We've restored the critical day-of-week aligned YoY comparison and put it, along with every other preset, right behind a single click.
 
-## The Problem: A Few Steps Forward, One Big Step Back
+## Why GA4's New Date Presets Still Fall Short
 
 The new native presets are helpful, but they don't solve the core usability problem. The GA4 date picker is still a workflow killer. Applying a "Last Month" view still takes three clicks. Adding a simple comparison takes another couple clicks.
 
@@ -53,7 +53,7 @@ The bigger issue, of course, is the lack of robust date comparison options. Comp
 
 For serious analysis, you need to compare Monday to Monday, not the 15th to the 15th.
 
-## The Solution: We Didn't Just Add Presets, We Added Precision
+## One-Click Date Presets with Day-of-Week Precision
 
 This is exactly why we updated the **Data Range Presets** feature in our [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_date_presets). We don't just give you one-click access to presets; we give you precise control over your comparisons.
 
@@ -74,10 +74,12 @@ Google's update is a good start, but it doesn't solve the fundamental workflow i
 The [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_date_presets) was designed to fix these exact frustrations. We give you the speed you need with one-click presets and the accuracy you can trust with powerful, aligned comparisons.
 
 ---
-## **Frequently Asked Questions (FAQ)**
+## Frequently Asked Questions
 
-**Q: What new date presets did Google add to GA4?**
-A: Google Analytics 4 recently added several new date range presets including 'This Month', 'Last Month', and 'Quarter to Date'. These presets help users avoid manually selecting dates in the calendar picker, though they still require multiple clicks to apply and remove comparisons.
+### What new date presets did Google add to GA4?
 
-**Q: Why is day-of-week alignment important for year-over-year comparisons?**
-A: Day-of-week alignment ensures you're comparing like days to like days. Without it, you might compare weekend traffic to weekday traffic, which can skew metrics and lead to incorrect conclusions. For accurate year-over-year analysis, Monday should be compared to Monday, not just the 15th to the 15th.
+Google Analytics 4 recently added several new date range presets including 'This Month', 'Last Month', and 'Quarter to Date'. These presets help users avoid manually selecting dates in the calendar picker, though they still require multiple clicks to apply and remove comparisons.
+
+### Why is day-of-week alignment important for year-over-year comparisons?
+
+Day-of-week alignment ensures you're comparing like days to like days. Without it, you might compare weekend traffic to weekday traffic, which can skew metrics and lead to incorrect conclusions. For accurate year-over-year analysis, Monday should be compared to Monday, not just the 15th to the 15th.

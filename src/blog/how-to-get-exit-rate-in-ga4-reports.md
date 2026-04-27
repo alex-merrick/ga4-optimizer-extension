@@ -104,13 +104,16 @@ By using the Exit Rate that comes from our Quick Calculated Metric, you can spen
 
 - - -
 
-## **Frequently Asked Questions (FAQ)**
+## Frequently Asked Questions
 
-**Q: How do you calculate Exit Rate in a GA4 report?**
-A: Exit Rate is calculated as Exits ÷ Views for a specific page. However, Google has hidden the "Exits" metric from Standard Reports entirely, making it only available in Explorations. The fastest solution is to use the GA4 Optimizer extension's "Create Exit Pages Report" feature, which generates a pre-configured report template with Exits, Views, and automatic Exit Rate calculations. This bypasses Google's restrictions and gives you a dedicated exit analysis report you can save and reuse.
+### How do you calculate Exit Rate in a GA4 report?
 
-**Q: How do you find which pages have a high Exit Rate in GA4?**
-A: The easiest way is to use the GA4 Optimizer extension's "Create Exit Pages Report" feature, which generates a pre-configured report with Page Path as the dimension and automatic Exit Rate calculations. Once you have this report, you can sort by Exit Rate to identify your highest-exit pages. Since Google doesn't allow the "Exits" metric in standard reports, this one-click template is the fastest way to get the analysis you need.
+Exit Rate is calculated as Exits ÷ Views for a specific page. However, Google has hidden the "Exits" metric from Standard Reports entirely, making it only available in Explorations. The fastest solution is to use the GA4 Optimizer extension's "Create Exit Pages Report" feature, which generates a pre-configured report template with Exits, Views, and automatic Exit Rate calculations. This bypasses Google's restrictions and gives you a dedicated exit analysis report you can save and reuse.
 
-**Q: What's the difference between Exit Rate and Bounce Rate in GA4?**
-A: Exit Rate is page-specific: it’s the percentage of times a page was the last one viewed in a session (Exits / Views). A high exit rate on a 'thank you' page is normal, but on a checkout page, it could indicate a problem. Bounce Rate is session-specific: it’s the percentage of sessions that were not 'engaged' (e.g., lasted under 10 seconds, had no conversion, and had fewer than 2 pageviews). It signals that a user arrived and left without meaningful interaction.
+### How do you find which pages have a high Exit Rate in GA4?
+
+The easiest way is to use the GA4 Optimizer extension's "Create Exit Pages Report" feature, which generates a pre-configured report with Page Path as the dimension and automatic Exit Rate calculations. Once you have this report, you can sort by Exit Rate to identify your highest-exit pages. Since Google doesn't allow the "Exits" metric in standard reports, this one-click template is the fastest way to get the analysis you need.
+
+### What's the difference between Exit Rate and Bounce Rate in GA4?
+
+Exit Rate is page-specific: it’s the percentage of times a page was the last one viewed in a session (Exits / Views). A high exit rate on a 'thank you' page is normal, but on a checkout page, it could indicate a problem. Bounce Rate is session-specific: it’s the percentage of sessions that were not 'engaged' (e.g., lasted under 10 seconds, had no conversion, and had fewer than 2 pageviews). It signals that a user arrived and left without meaningful interaction.
