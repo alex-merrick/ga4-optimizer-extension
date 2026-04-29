@@ -112,6 +112,11 @@ A: When a user shares...
 
 - **Internal Linking:** When mentioning features relevant to the GA4 Optimizer extension (e.g., sticky headers, copying custom definitions, 1-click exit pages), seamlessly integrate internal links or calls-to-action back to our tool.
 - **External Links:** Always include `target="_blank" rel="noopener noreferrer"` on external links.
+- **UTM Tagging:** Every link to the GA4 Optimizer Chrome Web Store listing must include UTM parameters. Use the following pattern:
+  ```
+  ?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_[post_slug]
+  ```
+  Where `[post_slug]` is a short identifier for the post (e.g., `blog_task_assistant`, `blog_exit_rate_guide`, `blog_500_rows`). This applies to Chrome, Edge, and Firefox store links alike.
 
 ## 7. Tone, Voice & Stylistic Constraints
 
