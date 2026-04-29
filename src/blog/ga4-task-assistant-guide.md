@@ -39,7 +39,7 @@ thumbnail: /img/thumbnails/thumb-ga4-tasks.jpg
 post_image: /img/thumbnails/banner-ga4-tasks.jpg
 eleventyComputed:
   currentYear: "{{ '' | currentYear }}"
-  title: "GA4 Task Assistant: Complete Setup Guide | GA4 Optimizer"
+  title: "GA4 Task Assistant: Complete Setup Guide"
   description: "Learn how to use the new Google Analytics 4 Task Assistant in {{ currentYear }}. Track your setup progress, fix data issues, and enhance your reporting."
 ---
 Google Analytics just released a highly requested feature to help marketers and analysts navigate complex property configurations. The new **Task Assistant** acts as a centralized dashboard to track your setup progress and ensure your Google Analytics 4 property is collecting accurate data.
