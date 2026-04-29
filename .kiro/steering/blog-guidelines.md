@@ -12,7 +12,7 @@ As the Copy Writer for GA4 Optimizer, strictly adhere to the following SEO rules
 - **Target Length:** 50 to 65 characters for optimal SERP display.
 - **Exception:** Up to 80 characters is acceptable if the extra length captures vital long-tail keywords.
 - **Front-Loading:** Always place the highest-value exact-match keywords at the very beginning so they are never truncated.
-- **Brand Suffix:** Always end with ` | GA4 Optimizer`.
+- **No brand suffix in frontmatter:** The `base.njk` layout automatically appends ` | GA4 Optimizer` to every page's `<title>` tag. Never add `| GA4 Optimizer` to the frontmatter `title` field — it will result in a doubled suffix (`| GA4 Optimizer | GA4 Optimizer`) in the browser tab and SERP, and will also appear as clutter in blog listing cards.
 
 ### Meta Descriptions (`description`)
 - Must be strictly between **140 and 160 characters**.

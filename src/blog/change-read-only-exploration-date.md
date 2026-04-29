@@ -40,7 +40,7 @@ thumbnail: /img/thumbnails/thumb-change-date.jpg
 post_image: /img/thumbnails/banner-change-date.jpg
 eleventyComputed:
   currentYear: "{{ '' | currentYear }}"
-  title: "Change Read-Only GA4 Exploration Dates | GA4 Optimizer"
+  title: "Change Read-Only GA4 Exploration Dates"
   description: "Learn how to change date ranges on read-only shared GA4 explorations in {{ currentYear }}. Edit locked dates easily without requesting edit access from the owner."
 ---
 Sharing explorations in Google Analytics 4 is a great way to distribute insights across your team. However, the platform comes with a highly frustrating limitation. When someone shares an exploration with you, the date range is permanently locked. You can view the data, but you cannot adjust the timeframe to match your specific analysis needs.
