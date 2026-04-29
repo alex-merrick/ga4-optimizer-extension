@@ -33,8 +33,8 @@ tags:
   - ga4
   - updates
 author: Alex Merrick
-date: 2026-04-29T00:00:00.000Z
-publishDate: 2026-04-29T00:00:00.000Z
+date: 2026-04-27T00:00:00.000Z
+publishDate: 2026-04-27T00:00:00.000Z
 thumbnail: /img/thumbnails/thumb-ga4-tasks.jpg
 post_image: /img/thumbnails/banner-ga4-tasks.jpg
 eleventyComputed:
