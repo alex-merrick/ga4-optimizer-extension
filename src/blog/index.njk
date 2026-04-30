@@ -7,8 +7,8 @@ pagination:
   reverse: false
 permalink: "/blog/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}"
 eleventyComputed:
-  title: "{% if pagination.pageNumber == 0 %}Blog | GA4 Optimizer{% else %}Blog - Page {{ pagination.pageNumber + 1 }} | GA4 Optimizer{% endif %}"
-description: "Tips, tricks, and guides for making Google Analytics 4 easier to use and more powerful."
+  title: "{% if pagination.pageNumber == 0 %}Blog{% else %}Blog - Page {{ pagination.pageNumber + 1 }}{% endif %}"
+  description: "{% if pagination.pageNumber == 0 %}Tips, tricks, and guides for making Google Analytics 4 easier to use and more powerful.{% else %}Page {{ pagination.pageNumber + 1 }} of the GA4 Optimizer blog. Practical guides on solving common GA4 frustrations and getting more from your data.{% endif %}"
 ---
 <main class="container">
     <div class="main-content content-page">
@@ -36,7 +36,7 @@ description: "Tips, tricks, and guides for making Google Analytics 4 easier to u
                             <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
                             <p><em>Published on {{ (post.data.publishDate or post.date) | date("MMMM d, yyyy") }}</em></p>
                             <p>{{ post.data.description }}</p>
-                            <p><a href="{{ post.url }}" style="font-weight: 600;">Read more...</a></p>
+                            <p><a href="{{ post.url }}" style="font-weight: 600;" aria-label="Read more about {{ post.data.title }}">Read more &rarr;</a></p>
                         </div>
 
                     </div>
