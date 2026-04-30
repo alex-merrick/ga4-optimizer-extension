@@ -22,6 +22,12 @@
   to = "/features/"
   status = 301 # Permanent Redirect
 
+# Rule 3: Redirect old blog slug (indexed in Google, broken internal link) to correct URL
+[[redirects]]
+  from = "/blog/copy-custom-definitions-ga4/"
+  to = "/blog/copy-custom-dimensions-definitions/"
+  status = 301 # Permanent Redirect
+
 # Rule 3: Enforce Trailing Slashes sitewide for consistency
 [[redirects]]
   from = "/:slug"
