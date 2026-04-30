@@ -1,0 +1,36 @@
+# GA4 Optimizer
+
+> GA4 Optimizer is a free browser extension for Chrome, Edge, and Firefox that enhances the Google Analytics 4 interface. It adds missing features, fixes daily workflow frustrations, and helps analysts and marketers get insights faster — without ever collecting or transmitting user data.
+
+## Core Pages
+
+- [Home](https://www.gaoptimizer.com/): Overview of GA4 Optimizer, key features, and install links for Chrome, Edge, and Firefox.
+- [Features](https://www.gaoptimizer.com/features/): Detailed descriptions of all 18 features including A/B test analysis, date range presets, sticky headers, custom definitions copy/paste, exit pages report, and more.
+- [Documentation](https://www.gaoptimizer.com/documentation/): Step-by-step usage guides, keyboard shortcuts, configuration options, and troubleshooting for every feature.
+- [Blog](https://www.gaoptimizer.com/blog/): Practical guides on solving common GA4 frustrations and getting more from Google Analytics 4.
+- [Privacy Policy](https://www.gaoptimizer.com/privacy/): Full explanation of the extension's zero-data-collection architecture. No analytics data is ever stored, transmitted, or accessed.
+- [Contact](https://www.gaoptimizer.com/contact/): Support and feedback form.
+
+## Blog Posts
+
+- [Best Google Analytics Browser Extensions for GA4](https://www.gaoptimizer.com/blog/best-google-analytics-browser-extensions-ga4/): The 10 best Chrome extensions for GA4 covering UI enhancements, debugging tools, and productivity boosters.
+- [How to Fix Sampled Data in GA4 Explorations](https://www.gaoptimizer.com/blog/ga4-sampling-fix/): Why GA4 samples Exploration data, how to identify it with the yellow warning icon, and how to force accurate unsampled results.
+- [How to Share Reports & Explorations in GA4 (And Fix Broken Links)](https://www.gaoptimizer.com/blog/ga4-missing-permissions-error-share-report-links/): Step-by-step guide to sharing Standard Reports and Explorations, plus how to fix the "Missing permissions" error caused by multi-account Google logins.
+- [Change Read-Only GA4 Exploration Dates](https://www.gaoptimizer.com/blog/change-read-only-exploration-date/): How to override locked date ranges on shared read-only GA4 explorations without duplicating the report.
+- [Missing Exit Rate in GA4? Here's the 30-Second Fix](https://www.gaoptimizer.com/blog/how-to-get-exit-rate-in-ga4-reports/): Why GA4 hides the Exits metric, and two methods to get Exit Rate back — including a one-click report template.
+- [How to Copy & Paste Custom Dimensions Between GA4 Properties](https://www.gaoptimizer.com/blog/copy-custom-dimensions-definitions/): How to migrate custom dimensions, metrics, and calculated metrics across GA4 properties in seconds instead of hours.
+- [Why Your GA4 Event Parameters Are Showing as (not set)](https://www.gaoptimizer.com/blog/ga4-custom-dimension-not-set-issue/): The three root causes of (not set) in GA4 custom dimensions — case sensitivity, event scope, and retroactivity — with fixes for each.
+- [How to See Percentage of Column Total in GA4 Freeform Explorations](https://www.gaoptimizer.com/blog/ga4-explorations-column-total/): Why GA4 Explorations omit percentage of total, and how to get it injected automatically without exporting to a spreadsheet.
+- [Universal Analytics vs. GA4: 4 Missing Features & How to Get Them Back](https://www.gaoptimizer.com/blog/ga4-vs-universal-analytics/): Exit Rate, sticky headers, column percentages, and accurate YoY comparisons — four UA features missing from GA4 and how to restore them.
+- [How to Properly Analyze A/B Test Results in GA4](https://www.gaoptimizer.com/blog/the-ultimate-guide-to-ab-test-analysis-in-ga4/): Manual and automated methods for calculating statistical significance and detecting sample ratio mismatch (SRM) inside GA4 Explorations.
+- [Fixing GA4's Clunky Date Picker: 1-Click Presets & Accurate Day-of-Week YoY](https://www.gaoptimizer.com/blog/ga4-date-range-shortcuts/): How to replace GA4's slow date picker with one-click presets and restore true day-of-week aligned year-over-year comparisons.
+- [A Faster Workflow for MoM & YoY Reporting in GA4](https://www.gaoptimizer.com/blog/a-faster-workflow-for-mom-yoy-reporting-in-ga4/): A five-step workflow using date presets, sticky headers, calculated metrics, and percentage highlighters to speed up monthly reporting.
+- [Increasing GA4 250 Row Limit up to 500](https://www.gaoptimizer.com/blog/500-rows-per-page-ga4-reports/): How to unlock 500 rows per page in GA4 Standard Reports and the stability caveats to be aware of.
+- [Google Analytics Advisor AI Chatbot Tested: What It Can Do](https://www.gaoptimizer.com/blog/google-analytics-advisor-ai-first-impresions/): Honest first impressions of Google's unannounced Analytics Advisor AI feature — what it handles well and where it falls short for analysts.
+- [GA4 Task Assistant: Complete Setup Guide](https://www.gaoptimizer.com/blog/ga4-task-assistant-guide/): How to use GA4's new Task Assistant dashboard to track property setup progress, fix data issues, and connect Google Ads.
+
+## Extension Install Links
+
+- [Chrome Web Store](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj)
+- [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/ga4-optimizer-analysis-t/ejokbgelaaegbgemjjhgppigoclanomh)
+- [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/ga4-optimizer/)

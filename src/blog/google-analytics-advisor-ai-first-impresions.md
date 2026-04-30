@@ -48,6 +48,8 @@ We decided to put it through its paces with a few real-world questions we ask ev
 
 - - -
 
+## Putting Analytics Advisor to the Test
+
 ### Test 1: The Everyday Traffic Question
 
 We started with a simple, everyday marketing question.

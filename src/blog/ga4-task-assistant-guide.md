@@ -89,7 +89,7 @@ The final category serves as an active troubleshooting hub. It helps you identif
 
 Once you complete your setup using the Task Assistant, you will likely spend most of your time in standard reports and explorations. The native interface still has some frustrating limitations, but you can easily fix them with the [GA4 Optimizer browser extension](https://chromewebstore.google.com/detail/ga4-optimizer-power-tools/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_task_assistant).
 
-Our free extension adds massive productivity boosts directly to the Google Analytics interface. You can automatically fix shared read-only dates, keep your table columns visible with **sticky headers**, and even [copy custom definitions](https://www.gaoptimizer.com/blog/copy-custom-definitions-ga4/) across your fully configured properties with a single click.
+Our free extension adds massive productivity boosts directly to the Google Analytics interface. You can automatically fix shared read-only dates, keep your table columns visible with **sticky headers**, and even [copy custom definitions](https://www.gaoptimizer.com/blog/copy-custom-dimensions-definitions/) across your fully configured properties with a single click.
 
 For more technical details on the Tasks rollout, you can review the official [Google Support documentation](https://support.google.com/analytics/answer/16888318) on the update.
 
