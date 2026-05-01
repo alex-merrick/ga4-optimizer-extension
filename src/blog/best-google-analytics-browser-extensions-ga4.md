@@ -72,7 +72,7 @@ If you miss the workflow hacks that older extensions used to provide, GA4 Optimi
 * **Custom Definitions Copy/Paste:** Effortlessly migrate custom dimensions and metrics between different GA4 properties in one click (a massive time-saver for agency analysts).
 * **1-Click Exit Pages Report:** GA4 notoriously hides the "Exits" metric. This extension adds a button to instantly generate a pre-configured Exit Pages report.
 * **On-the-fly Custom Calculated Metrics:** Create and save custom rates like 'Exit Rate' or 'Conversion Rate' directly within your Standard Reports and Explorations.
-* **A/B Test Segment Comparison:** Automatically calculates Statistical Significance for your A/B test segments right inside Freeform Explorations.
+* **A/B Test Segment Comparison:** Automatically calculates Statistical Significance for your A/B test segments right inside Freeform Explorations. [See how to analyze A/B test results in GA4 →](https://www.gaoptimizer.com/blog/the-ultimate-guide-to-ab-test-analysis-in-ga4/)
 * **Date Range Presets & Comparisons:** Adds 1-click preset buttons (e.g., Last 7 Days, YoY matching Day of Week) directly to the UI.
 
 - - -

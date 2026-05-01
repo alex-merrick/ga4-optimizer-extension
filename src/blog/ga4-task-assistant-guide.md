@@ -91,7 +91,7 @@ Once you complete your setup using the Task Assistant, you will likely spend mos
 
 Our free extension adds massive productivity boosts directly to the Google Analytics interface. You can automatically fix shared read-only dates, keep your table columns visible with **sticky headers**, and even [copy custom definitions](https://www.gaoptimizer.com/blog/copy-custom-dimensions-definitions/) across your fully configured properties with a single click.
 
-For more technical details on the Tasks rollout, you can review the official [Google Support documentation](https://support.google.com/analytics/answer/16888318) on the update.
+For more technical details on the Tasks rollout, you can review the official [Google Support documentation](https://support.google.com/analytics/answer/16888318) on the update. Google has also been rolling out other native GA4 improvements — if you're curious how their new AI features stack up, check out our [hands-on review of the Analytics Advisor AI chatbot](https://www.gaoptimizer.com/blog/google-analytics-advisor-ai-first-impresions/).
 
 - - -
 

@@ -1,15 +1,17 @@
 // Import the markdown-it library at the top
 const markdownIt = require("markdown-it");
+const CleanCSS = require("clean-css");
+const { minify } = require("terser");
+const fs = require("fs");
+const path = require("path");
 
 module.exports = function(eleventyConfig) {
     // --- Asset and File Copying ---
-    eleventyConfig.addPassthroughCopy("src/style.css");
-    eleventyConfig.addPassthroughCopy("src/global.js");
-    eleventyConfig.addPassthroughCopy("src/documentation.js");
+    // CSS and JS are handled via transforms below for minification.
+    // All other assets are passed through as-is.
     eleventyConfig.addPassthroughCopy("src/icons");
     eleventyConfig.addPassthroughCopy("src/mp4");
     eleventyConfig.addPassthroughCopy("src/img");
-    // FIX: Add passthrough for the new JavaScript directory
     eleventyConfig.addPassthroughCopy("src/js");
 
     // Other root files
@@ -20,8 +22,43 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/.nojekyll");
     eleventyConfig.addPassthroughCopy("src/admin");
 
-    // --- Watch Target ---
+    // --- Watch Targets ---
     eleventyConfig.addWatchTarget("./src/style.css");
+    eleventyConfig.addWatchTarget("./src/global.js");
+    eleventyConfig.addWatchTarget("./src/documentation.js");
+
+    // --- CSS Minification ---
+    // Reads style.css, minifies it, and writes to _site/style.css at build time.
+    eleventyConfig.on("eleventy.after", async function({ dir }) {
+        const cssSource = path.join("src", "style.css");
+        const cssDest = path.join(dir.output, "style.css");
+        const raw = fs.readFileSync(cssSource, "utf8");
+        const result = new CleanCSS({ level: 2 }).minify(raw);
+        if (result.errors.length) {
+            console.warn("[clean-css] Errors:", result.errors);
+        }
+        fs.mkdirSync(path.dirname(cssDest), { recursive: true });
+        fs.writeFileSync(cssDest, result.styles);
+        const saved = ((1 - result.styles.length / raw.length) * 100).toFixed(1);
+        console.log(`[minify] style.css: ${raw.length} → ${result.styles.length} bytes (${saved}% smaller)`);
+    });
+
+    // --- JS Minification ---
+    // Minifies global.js and documentation.js into _site/ at build time.
+    eleventyConfig.on("eleventy.after", async function({ dir }) {
+        const jsFiles = ["global.js", "documentation.js"];
+        for (const file of jsFiles) {
+            const jsSource = path.join("src", file);
+            const jsDest = path.join(dir.output, file);
+            if (!fs.existsSync(jsSource)) continue;
+            const raw = fs.readFileSync(jsSource, "utf8");
+            const result = await minify(raw, { compress: true, mangle: true });
+            fs.mkdirSync(path.dirname(jsDest), { recursive: true });
+            fs.writeFileSync(jsDest, result.code);
+            const saved = ((1 - result.code.length / raw.length) * 100).toFixed(1);
+            console.log(`[minify] ${file}: ${raw.length} → ${result.code.length} bytes (${saved}% smaller)`);
+        }
+    });
 
     // --- Custom Filter Definition ---
     eleventyConfig.addFilter("fromJson", function (jsonString) {

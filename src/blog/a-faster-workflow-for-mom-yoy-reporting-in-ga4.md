@@ -85,6 +85,8 @@ Instead of opening a new tab, just pop open the **Sticky Conversion Calculator**
 
 By combining these five simple features, you can transform your standard reporting process in GA4 from a clunky, multi-minute task into a streamlined, 30-second workflow. This gives you more time to do what's important: analyzing the data, not fighting the interface.
 
+If you run A/B tests alongside your regular reporting, the extension also includes an [AB Test Segment Comparison](https://www.gaoptimizer.com/blog/the-ultimate-guide-to-ab-test-analysis-in-ga4/) feature that calculates statistical significance directly inside your Explorations — no external calculator needed.
+
 ---
 ## Frequently Asked Questions
 

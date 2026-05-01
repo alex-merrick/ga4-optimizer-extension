@@ -13,6 +13,8 @@
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
     "@netlify/functions": "^5.2.0",
-    "markdown-it": "^14.1.0"
+    "clean-css": "^5.3.3",
+    "markdown-it": "^14.1.0",
+    "terser": "^5.46.2"
   }
 }

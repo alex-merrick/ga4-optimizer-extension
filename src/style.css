@@ -1091,6 +1091,19 @@ a.step h3, a.step p {
 
 /* --- Accessibility & UX Fixes --- */
 
+/* Visually hidden text — readable by screen readers and crawlers, invisible to users */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* 
   * FIX: Add an underline to links within article content to ensure they are 
   * distinguishable without relying on color alone. This resolves the Lighthouse
