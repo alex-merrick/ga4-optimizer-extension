@@ -111,7 +111,6 @@ Let's face it: staring at the bright white GA4 interface for 8 hours a day cause
 
 * Inverts the blinding white UI into a high-contrast dark mode.
 * Does not interfere with chart colors or data readability.
-* Easy toggle on/off switch.
 
 - - -
 
@@ -221,6 +220,7 @@ The best Google Analytics browser extension for you depends on your role. If you
 
 All of these extensions are free and can be used together. Many analytics professionals install 3-4 of these tools to cover both reporting and debugging needs.
 
+Just as the GA4 related extensions above fix workflow gaps in Google Analytics, there is an entirely separate ecosystem of tools designed to fix the Google Tag Manager inneficiens. If you spend a significant amount of time working in GTM, be sure to check out our companion guide on the [Best Google Tag Manager Chrome Extensions](/blog/best-google-tag-manager-extensions/). 
 - - -
 
 ## Frequently Asked Questions
