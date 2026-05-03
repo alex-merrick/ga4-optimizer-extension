@@ -74,21 +74,9 @@ If you miss the workflow hacks that older extensions used to provide, GA4 Optimi
 * **On-the-fly Custom Calculated Metrics:** Create and save custom rates like 'Exit Rate' or 'Conversion Rate' directly within your Standard Reports and Explorations.
 * **A/B Test Segment Comparison:** Automatically calculates Statistical Significance for your A/B test segments right inside Freeform Explorations. [See how to analyze A/B test results in GA4 →](https://www.gaoptimizer.com/blog/the-ultimate-guide-to-ab-test-analysis-in-ga4/)
 * **Date Range Presets & Comparisons:** Adds 1-click preset buttons (e.g., Last 7 Days, YoY matching Day of Week) directly to the UI.
-
 - - -
 
-### 2. [GA4 Fixer](https://chromewebstore.google.com/detail/ga4-fixer/diiaealnihhapbcgmkcbkapbbmfggemc?hl=en-US&utm_source=gaoptimizer.com)
-
-**Best for:** Google Tag Manager and GA4 Admins
-
-GA4 Fixer is another option available in the UI enhancement category. For GTM and GA4 admins, it offers a convenient way to create GA4 custom dimensions directly from the GTM interface. Additionally, the extension provides links to their side project at ga4builder. If you enter your property ID there, you can copy standard report templates that resemble the old Universal Analytics layout directly into your own property.
-**Key Features:**
-
-* **GTM Integration:** Allows you to create GA4 custom dimensions straight from your Google Tag Manager workspace.
-* **UA Style Templates:** Links out to their builder site to help you create standard reports that resemble classic Universal Analytics layouts.
-* **Sticky Headers:** Keeps the metric headers visible as you scroll down the page in standard reports. Please note that if you are using this alongside GA4 Optimizer, you may need to disable one of the sticky header toggles to ensure your reporting experience remains smooth.
-
-### 3. [GA4 Page Opener](https://chromewebstore.google.com/detail/ga4-page-opener/kgaacoanfacaccjggmigijlkdldjffgo?hl=en-US&utm_source=gaoptimizer.com)
+### 2. [GA4 Page Opener](https://chromewebstore.google.com/detail/ga4-page-opener/kgaacoanfacaccjggmigijlkdldjffgo?hl=en-US&utm_source=gaoptimizer.com)
 
 **Best for:** Content Marketers & SEOs
 
@@ -98,6 +86,18 @@ Ever navigate a pages and screens report in GA4 and wish you could just click on
 
 * The GA4 Page Opener allows landing page URLs to be clickable directly from reports. 
 * Allows users to map domain URLs with Property Names and IDs in GA4, streamlining navigation between live pages and data.
+- - -
+
+### 3. [GA4 Fixer](https://chromewebstore.google.com/detail/ga4-fixer/diiaealnihhapbcgmkcbkapbbmfggemc?hl=en-US&utm_source=gaoptimizer.com)
+
+**Best for:** Google Tag Manager and GA4 Admins
+
+GA4 Fixer is another option available in the UI enhancement category. For GTM and GA4 admins, it offers a convenient way to create GA4 custom dimensions directly from the GTM interface. Additionally, the extension provides links to their side project at ga4builder. If you enter your property ID there, you can copy standard report templates that resemble the old Universal Analytics layout directly into your own property.
+**Key Features:**
+
+* **GTM Integration:** Allows you to create GA4 custom dimensions straight from your Google Tag Manager workspace.
+* **UA Style Templates:** Links out to their builder site to help you create standard reports that resemble classic Universal Analytics layouts.
+* **Sticky Headers:** Keeps the metric headers visible as you scroll down the page in standard reports. Please note that if you are using this alongside GA4 Optimizer, you may need to disable one of the sticky header toggles to ensure your reporting experience remains smooth.
 
 - - -
 
