@@ -1,7 +1,7 @@
 ---
 layout: "layouts/base.njk"
 title: "Features - Improve GA4 Reporting & Analysis"
-description: "Explore all 18 features of GA4 Optimizer. Improve data analysis, speed up reporting, and simplify segment comparisons with our tools for Google Analytics 4."
+description: "Explore all 19 features of GA4 Optimizer. Improve data analysis, speed up reporting, and simplify segment comparisons with our tools for Google Analytics 4."
 permalink: "/features/"
 schema: |
   {
@@ -63,6 +63,13 @@ schema: |
         "@type": "Answer",
         "text": "This feature instantly generates a new Standard Report template pre-filled with Exits, Views, and Bounce Rate metrics, using Page Path as the primary dimension. It provides a crucial workaround since the 'Exits' metric is not available in the standard GA4 Report Builder UI. You can access it from the extension popup when on any GA4 property page."
       }
+    }, {
+      "@type": "Question",
+      "name": "What is the Date Range Override feature?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Date Range Override lets you change the date range on read-only shared Explorations — something GA4 normally locks. An 'Edit Date' button appears in the Variables panel, letting you pick any start and end date and reload the data. The override is session-only and never modifies the original shared report. It also supports comparison date ranges if the original Exploration had one active."
+      }
     }]
   }
 ---
@@ -99,6 +106,7 @@ schema: |
                         <li><a href="#feature-create-exit-report">16. Create Exit Pages Report</a></li>
                         <li><a href="#feature-custom-definitions">17. Custom Definitions Copy/Paste</a></li>
                         <li><a href="#feature-500-rows">18. 500 Rows per Page</a></li>
+                        <li><a href="#feature-date-range-override">19. Date Range Override</a></li>
                     </ul>
                 </div>
             </aside>
@@ -299,6 +307,24 @@ schema: |
                         <li>Scroll to the bottom and select 500 from the Rows per page dropdown.</li>
                         <li>A confirmation toast reminds you that larger row counts may slow the page slightly.</li>
                     </ul>
+                </section>
+                <section id="feature-date-range-override">
+                    <h2>19. Date Range Override <span class="new-badge">NEW</span></h2>
+                    <p><strong>Applies to: Read-Only Shared Explorations</strong><br>When someone shares a read-only Exploration with you, GA4 locks the date range. Date Range Override breaks that restriction — letting you query any time period you need without asking the owner to re-share.</p>
+                    <ul>
+                        <li>An <strong>Edit Date</strong> button appears below the date range in the Variables panel of any read-only Exploration.</li>
+                        <li>Pick your new start and end dates, hit <strong>Apply &amp; Reload</strong>, and GA4 fetches fresh data for your chosen range.</li>
+                        <li>The date label turns purple to signal an override is active, and a <strong>Clear</strong> button lets you instantly revert to the original dates.</li>
+                        <li>Works across all Exploration types: Free Form, Funnel, Path, Segment Overlap, Cohort, and more.</li>
+                        <li>If the shared Exploration already has a comparison date range active, the modal shows a second set of fields so you can update both ranges in one step.</li>
+                    </ul>
+                    <div class="requirement-note"><strong>Session only:</strong> The override persists for your current browser session on that tab. Clicking Clear or closing the tab removes it. The original shared report is never modified.</div>
+                    <div class="feature-video-container" data-video-name="DateRangeOverride"><video autoplay loop muted
+                            playsinline>
+                            <source src="/mp4/change_shared_exploration_date.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon-overlay"></div>
+                    </div>
                 </section>
                 <hr style="margin-top: 40px; border-color: var(--border-color);">
                 <div class="cta-box"

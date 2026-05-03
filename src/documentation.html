@@ -1,7 +1,7 @@
 ---
 layout: "layouts/base.njk"
 title: "Documentation - Complete GA4 Feature Guide"
-description: "Complete GA4 Optimizer documentation with step-by-step guides, troubleshooting tips, and feature explanations. Learn click-to-copy, AB test analysis, calculated metrics, sticky headers, and 18 powerful Google Analytics 4 workflow improvements."
+description: "Complete GA4 Optimizer documentation with step-by-step guides, troubleshooting tips, and feature explanations. Learn click-to-copy, AB test analysis, calculated metrics, sticky headers, and 19 powerful Google Analytics 4 workflow improvements."
 permalink: "/documentation/"
 eleventyComputed:
   ogTitle: "{{ title }}"
@@ -82,6 +82,13 @@ schema: |
         "@type": "Answer",
         "text": "Enable the '500 Rows per Page' feature in the GA4 Optimizer popup under the Reports tab. Then open any Standard Report, scroll to the bottom, and click the 'Rows per page' dropdown — a new 500 option with the GA4 Optimizer icon will appear. Select it and the page reloads with 500 rows. Note that larger row counts may slow the page slightly as GA4 processes more data."
       }
+    }, {
+      "@type": "Question",
+      "name": "How does Date Range Override work on read-only Explorations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Date Range Override adds an 'Edit Date' button to the Variables panel of any read-only shared Exploration. Click it, choose your new start and end dates, and hit Apply & Reload. GA4 fetches fresh data for your chosen range. The date label turns purple to show an override is active, and a Clear button reverts to the original dates. The override is session-only — the original shared report is never modified. If the Exploration has a comparison date range, the modal shows a second set of fields so you can update both in one step."
+      }
     }]
   }
 ---
@@ -130,6 +137,7 @@ schema: |
                                 <li><a href="#feature-create-exit-report">16. Create Exit Pages Report</a></li>
                                 <li><a href="#feature-custom-definitions">17. Custom Definitions Copy/Paste</a></li>
                                 <li><a href="#feature-500-rows">18. 500 Rows per Page</a></li>
+                                <li><a href="#feature-date-range-override">19. Date Range Override</a></li>
                             </ul>
                         </li>
                         <li><a href="#troubleshooting-toc">Troubleshooting</a></li>
@@ -546,6 +554,31 @@ schema: |
                     </div>
                 </section>
 
+                <section id="feature-date-range-override">
+                    <h2>19. Date Range Override <span class="new-badge">NEW</span></h2>
+                    <p><strong>Applies to: Read-Only Shared Explorations</strong><br>When someone shares a read-only Exploration with you, GA4 locks the date range — you can see the data, but you can't change the time period. Date Range Override breaks that restriction, letting you query any date range you need without asking the owner to re-share.</p>
+                    <div class="feature-video-container" data-video-name="DateRangeOverride"><video autoplay loop muted
+                            playsinline>
+                            <source src="/mp4/change_shared_exploration_date.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon-overlay"></div>
+                    </div>
+                    <ul>
+                        <li>On any read-only Exploration, an <strong>Edit Date</strong> button appears below the date range in the Variables panel.</li>
+                        <li>Click it, pick your new start and end dates, and hit <strong>Apply &amp; Reload</strong>. The page reloads and GA4 fetches fresh data for your chosen range.</li>
+                        <li>The date label turns purple to signal that an override is active, and a <strong>Clear</strong> button appears so you can instantly revert to the original dates.</li>
+                        <li>Works on all Exploration types: Free Form, Funnel, Path, Segment Overlap, Cohort, and more.</li>
+                    </ul>
+                    <h3>Comparison Date Range</h3>
+                    <p>If the shared Exploration already has a date comparison active (e.g., "Compare: Mar 27 – Apr 9, 2026"), the Edit Date modal automatically shows a second set of fields for the comparison period. Change both ranges in one step and reload once.</p>
+                    <div class="note">
+                        <strong>Export note:</strong> When exporting a report with an active comparison override, the Date Comparison column header in the exported file will still show the original read-only dates. The data values themselves are accurate for your overridden range. GA4 Optimizer will remind you of this with a confirmation prompt before the export proceeds.
+                    </div>
+                    <div class="note">
+                        <strong>How long does the override last?</strong> The override persists for your current browser session on that tab. Clicking Clear or closing the tab removes it. The original shared report is never modified.
+                    </div>
+                </section>
+
                 <h2 id="troubleshooting-toc">Troubleshooting</h2>
                 <div class="accordion-container">
                     <div class="accordion-item">
@@ -679,6 +712,21 @@ schema: |
                                 <li><strong>Wrong page type:</strong> This feature only works on Standard Reports. It will not appear in Explorations, Admin pages, or the GA4 home screen.</li>
                                 <li><strong>Option not visible after enabling:</strong> Close and reopen the dropdown. The option is injected when the dropdown opens, so it won't appear in a dropdown that was already open when you enabled the feature.</li>
                                 <li><strong>Page loaded slowly:</strong> On slow connections, the option may take a moment to appear. Close and reopen the dropdown if it's missing.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-13"
+                            id="trouble-button-13">Date Range Override not working</button>
+                        <div class="accordion-panel" id="trouble-panel-13" role="region"
+                            aria-labelledby="trouble-button-13">
+                            <ul>
+                                <li><strong>Edit Date button not appearing:</strong> This feature only activates on read-only shared Explorations. If you own the Exploration or have edit access, the button will not appear — use GA4's native date picker instead.</li>
+                                <li><strong>Override not applying after reload:</strong> Ensure you clicked "Apply &amp; Reload" rather than just closing the modal. The page must reload for the new date range to take effect.</li>
+                                <li><strong>Purple date label not showing:</strong> Try refreshing the page. If the label still doesn't turn purple, the override may not have been saved correctly — open the modal and apply again.</li>
+                                <li><strong>Comparison fields not appearing in the modal:</strong> The second set of date fields only appears if the original shared Exploration already has a comparison date range active. If there's no comparison in the original, the modal will only show the primary date range fields.</li>
+                                <li><strong>Override disappears after closing the tab:</strong> This is expected behavior. The override is session-only and does not persist across tabs or browser sessions. Re-apply it when you reopen the link.</li>
+                                <li><strong>Export shows wrong comparison header:</strong> This is a known GA4 limitation. The data values are correct for your overridden range, but the column header in the export reflects the original read-only dates. GA4 Optimizer will warn you about this before the export proceeds.</li>
                             </ul>
                         </div>
                     </div>
