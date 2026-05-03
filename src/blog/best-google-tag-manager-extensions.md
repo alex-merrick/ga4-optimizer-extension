@@ -165,12 +165,11 @@ Your GTM container likely holds more than just Google tags. Omnibug decodes the 
 
 **Best for:** Complex GTM Preview Sessions
 
-If you have ever tried to test cross-domain tracking or complex user flows in GTM Preview Mode, you know the debug connection can easily drop when a link opens in a new tab. This official Google extension fixes that.
+Tag Assistant helps you install and troubleshoot your Google tags, including Google Analytics, Google Ads, Tag Manager and more. When clicked, the extension displays the Google tags found on the page in a side-panel. Just navigate to any page, and Tag Assistant will tell you which tags are present.
 
 **Key Features:**
-* Acts as a bridge to keep GTM Preview Mode connected across multiple tabs.
-* Essential for troubleshooting complex redirect chains.
-* Runs silently in the background.
+* Official Google tool for debugging see which GTM containers are firing.
+* Easily watch which Google Ads and Google Analytics tags and events are firing
 
 - - -
 
