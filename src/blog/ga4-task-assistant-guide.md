@@ -68,7 +68,7 @@ Finding the new dashboard is straightforward once you have the correct permissio
 The Task Assistant dashboard groups your required actions into six distinct categories. You can click any task to expand it and begin the setup process, or collapse it to skip it for later. 
 
 ### 1. Get Started
-This section focuses on the foundation of your analytics setup. It ensures you are collecting data properly and helps you decide how that data appears in your reports. Tasks here include turning on **Google signals**, setting up **key events**, creating audiences, enabling enhanced measurement, and confirming privacy settings.
+This section focuses on the foundation of your analytics setup. It ensures you are collecting data properly and helps you decide how that data appears in your reports. Tasks here include setting up **data collection**, turning on **Google signals**, setting up **key events**, creating audiences, enabling enhanced measurement, and confirming privacy settings.
 
 ### 2. Connect Your Accounts
 Linking external platforms provides a unified view of your performance. The primary action in this category is linking your GA4 property to **Google Ads**, which allows you to view ad cost data and campaign performance alongside user behavior.
