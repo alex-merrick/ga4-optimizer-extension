@@ -43,7 +43,7 @@ faq_schema: >
       "name": "When is the Google Tag Manager 2026 update being released?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The GTM update was announced ahead of Google Marketing Live on May 21, 2026. The upgrade is opt-in and will be rolled out to containers individually. You will be prompted to upgrade each container and can preview, test, and roll back at any time."
+        "text": "Details were shared with partners and media ahead of the official announcement at Google Marketing Live on May 21, 2026. The upgrade is opt-in and will be rolled out to containers individually. You will be prompted to upgrade each container and can preview, test, and roll back at any time."
       }
     }]
   }
@@ -63,7 +63,7 @@ tags:
   - google-tag
 ---
 
-Google Tag Manager is about to receive its most significant update in years. Announced ahead of Google Marketing Live 2026 on May 21st, GTM containers will effectively become Google Tags, merging two product lines that have always been closely related under the hood. The update introduces Destinations, centralized Google Tag settings, a visual event builder, and a dual-ID deployment model.
+Google Tag Manager is about to receive its most significant update in years. Revealed to partners and media ahead of the official announcement at Google Marketing Live 2026 on May 21st, GTM containers will effectively become Google Tags, merging two product lines that have always been closely related under the hood. The update introduces Destinations, centralized Google Tag settings, a visual event builder, and a dual-ID deployment model.
 
 The news was first shared by [Simo Ahava](https://www.linkedin.com/in/simoahava/), one of the most respected voices in the tagging and analytics community, who provided early details on what this architectural shift means for practitioners.
 
@@ -168,7 +168,7 @@ One detail Simo Ahava [added in a follow-up comment](https://www.linkedin.com/po
 How the container behaves depends on which ID is used in the snippet:
 
 - **Deployed with the GTM container ID:** Functions as a fully capable GTM container with access to all tag, trigger, and variable features.
-- **Deployed with the product ID:** Limited to deploying Google product tags only. No custom HTML, no third-party pixels, no advanced trigger logic.
+- **Deployed with the product ID:** Limited to deploying Google's tags only.
 
 This distinction matters for governance. In organizations where there are concerns about GTM misuse, deploying with the product ID effectively locks the container down to Google-only functionality. For most practitioners who want full flexibility, deploying with the GTM container ID is the obvious choice.
 
@@ -216,4 +216,4 @@ The visual event builder is a new GTM feature announced at Google Marketing Live
 
 ### When is the Google Tag Manager 2026 update being released?
 
-The GTM update was announced to media and partners ahead of Google Marketing Live on May 21, 2026. The upgrade is opt-in and will be rolled out to containers individually, we will know more details after May 21st. You will be prompted to upgrade each container and can preview, test, and roll back at any time.
+Details were shared with partners and media ahead of the official announcement at Google Marketing Live on May 21, 2026. The upgrade is opt-in and will be rolled out to containers individually. You will be prompted to upgrade each container and can preview, test, and roll back at any time.
