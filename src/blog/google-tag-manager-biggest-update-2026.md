@@ -50,9 +50,9 @@ faq_schema: >
 layout: layouts/post.njk
 author: Alex Merrick
 title: "Google Tag Manager Update 2026: GTM Containers Become Google Tags"
-date: 2026-05-08T09:00:00.000-05:00
-publishDate: 2026-05-08T09:00:00.000-05:00
-last_modified_at: 2026-05-08T10:00:00.000-05:00
+date: 2026-05-07T09:00:00.000-05:00
+publishDate: 2026-05-07T09:00:00.000-05:00
+last_modified_at: 2026-05-07T10:00:00.000-05:00
 thumbnail: /img/thumbnails/thumb-gtm-upgrade.jpg
 post_image: /img/thumbnails/banner-gtm-upgrade.jpg
 description: "Google Tag Manager is merging with Google Tag in 2026. GTM containers become Google Tags with new Destinations, centralized settings, a visual event builder, and dual container IDs. Full breakdown of the Google Marketing Live announcement."
