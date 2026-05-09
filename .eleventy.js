@@ -98,7 +98,7 @@ module.exports = function(eleventyConfig) {
         const hrefValue = tokens[idx].attrGet('href');
         if (hrefValue && hrefValue.startsWith('http')) {
             tokens[idx].attrPush(['target', '_blank']);
-            tokens[idx].attrPush(['rel', 'noopener noreferrer']);
+            tokens[idx].attrPush(['rel', 'noopener']);
         }
         return defaultRender(tokens, idx, options, env, self);
     };

@@ -71,7 +71,7 @@ Our Date Range Override feature modifies the interface and provides you the opti
 
 Here is how you can edit locked dates using the extension:
 
-1. **<a href="https://chromewebstore.google.com/detail/ga4-optimizer-tools-for-g/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_extensions_list" target="_blank" rel="noopener noreferrer">Install GA4 Optimizer</a>:** Add our free browser extension to Chrome, Edge, or Firefox.
+1. **<a href="https://chromewebstore.google.com/detail/ga4-optimizer-tools-for-g/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_extensions_list" target="_blank" rel="noopener">Install GA4 Optimizer</a>:** Add our free browser extension to Chrome, Edge, or Firefox.
 2. **Open your shared report:** Navigate to the read-only exploration in GA4.
 3. **Click Edit Date:** Look below the locked date range in the Variables panel for the new **Edit Date** button.
 
