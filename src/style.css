@@ -496,6 +496,7 @@ a.cta-button:hover {
     }
     .main-content {
         padding: 20px;
+        padding-right: 55px; /* Prevent Hotjar feedback button from overlapping text */
         margin-top: 15px;
     }
     .hero-section {
