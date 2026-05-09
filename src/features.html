@@ -1,7 +1,7 @@
 ---
 layout: "layouts/base.njk"
 title: "Features - Improve GA4 Reporting & Analysis"
-description: "Explore all 19 features of GA4 Optimizer. Improve data analysis, speed up reporting, and simplify segment comparisons with our tools for Google Analytics 4."
+description: "Explore all 21 features of GA4 Optimizer. Improve data analysis, speed up reporting, and simplify segment comparisons with our tools for Google Analytics 4."
 permalink: "/features/"
 schema: |
   {
@@ -70,6 +70,20 @@ schema: |
         "@type": "Answer",
         "text": "Date Range Override lets you change the date range on read-only shared Explorations — something GA4 normally locks. An 'Edit Date' button appears in the Variables panel, letting you pick any start and end date and reload the data. The override is session-only and never modifies the original shared report. It also supports comparison date ranges if the original Exploration had one active."
       }
+    }, {
+      "@type": "Question",
+      "name": "What is the Advanced Table Filter feature?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Advanced Table Filter brings back Universal Analytics-style filtering to GA4 Standard Reports. You can set conditions like 'Views > 10,000' or 'Page path contains /shop' and GA4 returns only matching rows. Combine multiple conditions with AND logic. Look for the 'Advanced' button in the table controls bar next to Search and Rows per page."
+      }
+    }, {
+      "@type": "Question",
+      "name": "How do Annotations in Explorations work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GA4 strips annotations from Explorations, but this feature brings them back. Colored dots appear on line chart x-axes at annotation dates, and a toolbar button opens a full scrollable list. Annotations are color-coded to match your GA4 Standard Reports colors, and you can assign custom labels to each color in Settings."
+      }
     }]
   }
 ---
@@ -107,6 +121,8 @@ schema: |
                         <li><a href="#feature-custom-definitions">17. Custom Definitions Copy/Paste</a></li>
                         <li><a href="#feature-500-rows">18. 500 Rows per Page</a></li>
                         <li><a href="#feature-date-range-override">19. Date Range Override</a></li>
+                        <li><a href="#feature-advanced-table-filter">20. Advanced Table Filter</a></li>
+                        <li><a href="#feature-annotations">21. Annotations in Explorations</a></li>
                     </ul>
                 </div>
             </aside>
@@ -322,6 +338,29 @@ schema: |
                         </video>
                         <div class="play-icon-overlay"></div>
                     </div>
+                </section>
+                <section id="feature-advanced-table-filter">
+                    <h2>20. Advanced Table Filter (Beta)</h2>
+                    <p><strong>Applies to: Standard Reports Only</strong><br>Brings back Universal Analytics-style advanced filtering to GA4 Standard Reports. Set conditions like "Views > 10,000" or "Page path contains /shop" and GA4 returns only the rows that match. Combine multiple conditions with AND logic for precise data slicing.</p>
+                    <ul>
+                        <li><strong>Where to find it:</strong> Look for the "Advanced" button in the table controls bar, next to Search and Rows per page.</li>
+                        <li><strong>Metric filters:</strong> Filter by count metrics (Views, Active users, Events, Key events, Revenue) using greater than, less than, or equals.</li>
+                        <li><strong>Dimension filters:</strong> Filter by dimensions (Page path, Event name, Source/medium) using contains, exactly matches, begins with, ends with, regex, and negated versions.</li>
+                        <li><strong>Multiple conditions:</strong> Stack as many rules as you need. They combine with AND logic.</li>
+                        <li><strong>Smart value handling:</strong> Revenue metrics auto-convert to the correct internal format. Rate metrics accept percentage values directly.</li>
+                    </ul>
+                    <div class="note"><strong>Good to know:</strong> Active filter chips appear above the table showing your conditions at a glance. Click the X on any chip to remove that condition instantly.</div>
+                </section>
+                <section id="feature-annotations">
+                    <h2>21. Annotations in Explorations (Beta) - <span class="new-badge">NEW</span></h2>
+                    <p><strong>Applies to: Explorations (all techniques)</strong><br>GA4 shows annotations on Standard Report line charts but strips them from Explorations. This feature brings your annotations back so you always have context for data spikes and drops.</p>
+                    <ul>
+                        <li><strong>Line chart dots:</strong> Colored dots appear along the x-axis at dates where annotations exist. Hover to see the title and description.</li>
+                        <li><strong>Toolbar button:</strong> An Annotations icon in the GA4 Optimizer toolbar opens a scrollable list of all annotations for the property, sorted newest first.</li>
+                        <li><strong>Color-coded:</strong> Each annotation uses the same color you assigned in GA4's Standard Reports.</li>
+                        <li><strong>Custom color labels:</strong> In Settings, give each of the six annotation colors a label (e.g., "GTM Updates", "Campaigns", "Incidents").</li>
+                        <li><strong>Same-date grouping:</strong> Multiple annotations on the same date appear as a single dot with all entries listed in the tooltip.</li>
+                    </ul>
                 </section>
                 <hr style="margin-top: 40px; border-color: var(--border-color);">
                 <div class="cta-box"

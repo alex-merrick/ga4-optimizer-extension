@@ -1,7 +1,7 @@
 ---
 layout: "layouts/base.njk"
 title: "Documentation - Complete GA4 Feature Guide"
-description: "Complete GA4 Optimizer documentation with step-by-step guides, troubleshooting tips, and feature explanations. Learn click-to-copy, AB test analysis, calculated metrics, sticky headers, and 19 powerful Google Analytics 4 workflow improvements."
+description: "Complete GA4 Optimizer documentation with step-by-step guides, troubleshooting tips, and feature explanations. Learn click-to-copy, AB test analysis, calculated metrics, sticky headers, and 21 powerful Google Analytics 4 workflow improvements."
 permalink: "/documentation/"
 eleventyComputed:
   ogTitle: "{{ title }}"
@@ -138,6 +138,8 @@ schema: |
                                 <li><a href="#feature-custom-definitions">17. Custom Definitions Copy/Paste</a></li>
                                 <li><a href="#feature-500-rows">18. 500 Rows per Page</a></li>
                                 <li><a href="#feature-date-range-override">19. Date Range Override</a></li>
+                                <li><a href="#feature-advanced-table-filter">20. Advanced Table Filter</a></li>
+                                <li><a href="#feature-annotations">21. Annotations in Explorations</a></li>
                             </ul>
                         </li>
                         <li><a href="#troubleshooting-toc">Troubleshooting</a></li>
@@ -576,6 +578,36 @@ schema: |
                     </div>
                     <div class="note">
                         <strong>How long does the override last?</strong> The override persists for your current browser session on that tab. Clicking Clear or closing the tab removes it. The original shared report is never modified.
+                    </div>
+                </section>
+
+                <section id="feature-advanced-table-filter">
+                    <h2>20. Advanced Table Filter (Beta)</h2>
+                    <p><strong>Applies to: Standard Reports Only</strong><br>Brings back Universal Analytics-style advanced filtering to GA4 Standard Reports. Set conditions like "Views > 10,000" or "Page path contains /shop" and GA4 returns only the rows that match. Combine multiple conditions with AND logic for precise data slicing.</p>
+                    <ul>
+                        <li><strong>Where to find it:</strong> Look for the "Advanced" button in the table controls bar, next to Search and Rows per page.</li>
+                        <li><strong>Metric filters:</strong> Filter by count metrics (Views, Active users, Events, Key events, Revenue, etc.) using greater than, less than, or equals.</li>
+                        <li><strong>Dimension filters:</strong> Filter by dimensions (Page path, Event name, Source/medium, etc.) using contains, exactly matches, begins with, ends with, regex, and their negated versions.</li>
+                        <li><strong>Multiple conditions:</strong> Stack as many rules as you need. They combine with AND logic.</li>
+                        <li><strong>Smart value handling:</strong> Revenue metrics automatically convert to the correct internal format. Rate metrics (bounce rate, CTR, conversion rate) accept percentage values directly. Type "20" for 20%.</li>
+                    </ul>
+                    <div class="note">
+                        <strong>Good to know:</strong> Some derived metrics (averages, per-user ratios) may not support filtering on certain reports. If a filter fails, you'll see an error message suggesting alternatives. Active filter chips appear above the table showing your conditions at a glance. Click the X on any chip to remove that condition instantly.
+                    </div>
+                </section>
+
+                <section id="feature-annotations">
+                    <h2>21. Annotations in Explorations (Beta) <span class="new-badge">NEW</span></h2>
+                    <p><strong>Applies to: Explorations (all techniques)</strong><br>GA4 shows annotations on Standard Report line charts but completely strips them from Explorations. This feature brings your annotations back so you always have context for data spikes and drops, regardless of which report type you're using.</p>
+                    <ul>
+                        <li><strong>Line chart dots:</strong> On Explorations with a line chart, colored dots appear along the x-axis at the dates where annotations exist. Hover a dot to see the annotation title and description.</li>
+                        <li><strong>Toolbar button:</strong> On any Exploration (table, funnel, path, cohort, etc.), an Annotations icon appears in the GA4 Optimizer toolbar. Click it to open a scrollable list of all annotations for the property, sorted newest first.</li>
+                        <li><strong>Color-coded:</strong> Each annotation uses the same color you assigned in GA4's Standard Reports. The color appears on the chart dots, in the hover tooltip, and as a left-border accent in the full list.</li>
+                        <li><strong>Color labels:</strong> In Settings (Explorations tab), you can give each of the six annotation colors a custom label (e.g., "GTM Updates", "Campaigns", "Incidents"). These labels show up when hovering color indicators and next to dates in the full list.</li>
+                        <li><strong>Same-date grouping:</strong> If multiple annotations share the same date, they appear as a single dot. The hover tooltip lists all of them with a separator between each entry.</li>
+                    </ul>
+                    <div class="note">
+                        <strong>First load:</strong> Annotations load after GA4 makes its first API request on the page (which provides the authentication context). If you navigate directly to an Exploration and don't see dots immediately, hover the chart or wait a few seconds for the data to arrive.
                     </div>
                 </section>
 
