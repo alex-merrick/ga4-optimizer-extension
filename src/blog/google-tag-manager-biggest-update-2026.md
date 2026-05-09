@@ -65,7 +65,7 @@ tags:
 
 Google Tag Manager is about to receive its most significant update in years. Revealed to partners and media ahead of the official announcement at Google Marketing Live 2026 on May 21st, GTM containers will effectively become Google Tags, merging two product lines that have always been closely related under the hood. The update introduces Destinations, centralized Google Tag settings, a visual event builder, and a dual-ID deployment model.
 
-The news was first shared by [Simo Ahava](https://www.linkedin.com/in/simoahava/), one of the most respected voices in the tagging and analytics community, who provided early details on what this architectural shift means for practitioners.
+The news was first shared by [Simo Ahava](https://www.simoahava.com/), one of the most respected voices in the tagging and analytics community, who provided early details on what this architectural shift means for practitioners.
 
 Here is a breakdown of what is changing, what is not, and how it affects your day-to-day GTM workflow.
 
