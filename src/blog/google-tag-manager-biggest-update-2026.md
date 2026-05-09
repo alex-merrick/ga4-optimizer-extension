@@ -86,7 +86,7 @@ Before diving into the details, here are three critical clarifications directly 
 1. **GTM will NOT start collecting data automatically.** Upgrading your container does not cause it to send hits to GA4, Google Ads, or Floodlight without your explicit configuration.
 2. **You do NOT have to use Google products with GTM.** Non-Google tags and custom implementations remain fully supported.
 3. **GTM will keep working as before.** Nothing changes unless you opt into the upgrade.
-![Google Analytics 4 Task Assistant Dashboard](/img/whats-new-in-gtm-2026.jpg)
+![Google Tag manager Upgrade explanation slide](/img/whats-new-in-gtm-2026.jpg)
 ---
 
 ## What Are GTM Destinations?
