@@ -66,11 +66,11 @@ eleventyComputed:
 
                 {# --- Output Both Images with Specific Classes --- #}
                 {% if desktop_image %}
-                    <img src="{{ desktop_image }}" alt="{{ title }}" class="post-banner-image post-banner-desktop">
+                    <img src="{{ desktop_image }}" alt="{{ title }}" class="post-banner-image post-banner-desktop" width="1120" height="560">
                 {% endif %}
 
                 {% if mobile_image %}
-                    <img src="{{ mobile_image }}" alt="{{ title }}" class="post-banner-image post-banner-mobile">
+                    <img src="{{ mobile_image }}" alt="{{ title }}" class="post-banner-image post-banner-mobile" width="600" height="400">
                 {% endif %}
             </div>
             {% endif %}

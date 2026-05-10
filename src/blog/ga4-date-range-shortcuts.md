@@ -37,7 +37,7 @@ Google Analytics 4 silently recently rolled out an update with a few new date pr
 
 This quiet removal is a major is a slight step backward for data integrity. Without it, you could be comparing a high-traffic Monday from this year to a low-traffic Sunday from last year, all while the report acts like it's an apples-to-apples comparison. This fundamental flaw leads to skewed data, flawed insights, and bad business decisions.
 
-![GA4 native date picker showing new presets like This Month, Last Month, and Quarter to Date](/img/new-date-picker.jpg)
+<img src="/img/new-date-picker.jpg" alt="GA4 native date picker showing new presets like This Month, Last Month, and Quarter to Date" width="515" height="668">
 
 To make matters worse, even the new presets are stuck in GA4's notoriously clunky interface. It still takes at least three clicks to apply a date range and another three just to turn off a comparison. The workflow is now not only less accurate, but it remains painfully slow.
 
@@ -57,7 +57,7 @@ For serious analysis, you need to compare Monday to Monday, not the 15th to the 
 
 This is exactly why we updated the **Data Range Presets** feature in our [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_date_presets). We don't just give you one-click access to presets; we give you precise control over your comparisons.
 
-![GA4 Optimizer Date Range Presets feature showing one-click buttons for date ranges and comparisons](/img/date-preset-feature-ga4-optimizer.jpg)
+<img src="/img/date-preset-feature-ga4-optimizer.jpg" alt="GA4 Optimizer Date Range Presets feature showing one-click buttons for date ranges and comparisons" width="671" height="240">
 
 Our feature places a simple row of buttons next to the date picker, turning a 5-click hassle into a single click. But the real power is in our smart **Compare** button, which acts as a powerful toggle with three distinct modes:
 

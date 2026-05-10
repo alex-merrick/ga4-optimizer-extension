@@ -125,11 +125,11 @@ If your colleague clicks a broken link, having this extension installed means th
 
 When GA4 throws a "Missing Permissions" error, or redirects the user to the "Welcome to Google Analytics" provision page, our extension intercepts it. It instantly provides a **"Scan Logged-in Accounts"** overlay which quickly scans the accounts the user has and allows them to re-attempt that link with one of their other logged-in accounts.
 
-![GA4 Optimizer banner button options](/img/missing-permissions-solution-ga4-optimizer.jpg)
+<img src="/img/missing-permissions-solution-ga4-optimizer.jpg" alt="GA4 Optimizer banner button options" width="555" height="332">
 
 Once the accounts are scanned, the user can simply choose the account they know for sure has access. **No more going back and forth with your client or colleague. No more having to troubleshoot the user's access.**
 
-![GA4 Optimizer Missing Permission Solution](/img/missing-permissions-solution-ga4-optimizer-2.jpg)
+<img src="/img/missing-permissions-solution-ga4-optimizer-2.jpg" alt="GA4 Optimizer Missing Permission Solution" width="587" height="409">
 
 ### Stop Fighting the GA4 Interface
 Sharing data should be the easiest part of your job. By adding [GA4 Optimizer](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_share_reports) to your browser, you not only fix shared links, but you gain access to 15+ other features like 1-click Exit Pages reports, sticky table headers, and custom calculated metrics. 

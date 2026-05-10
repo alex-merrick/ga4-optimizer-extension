@@ -72,7 +72,7 @@ This is the most direct solution for exit analysis. Instead of fighting with GA4
 
 This method is perfect because it gives you a dedicated exit analysis report that you can save, share, and revisit regularly. It's especially valuable since the "Exits" metric is normally hidden from the standard GA4 Report Builder UI.
 
-<img src="/img/exit-rate-standard-reports.jpg" alt="GA4 Standard Reports showing the Exits Rate through GA4 Optimizer" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; margin: 20px 0;" loading="lazy" />
+<img src="/img/exit-rate-standard-reports.jpg" alt="GA4 Standard Reports showing the Exits Rate through GA4 Optimizer" width="1668" height="1086" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; margin: 20px 0;" loading="lazy" />
 
 ### Alternative Method: Enhancing Tooltips in Explorations
 

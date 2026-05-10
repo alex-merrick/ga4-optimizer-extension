@@ -12,7 +12,7 @@ eleventyComputed:
 ---
 <main class="container">
     <div class="main-content content-page">
-        <h1>GA4 Optimizer Blog</h1>
+        <h1>GA4 Optimizer Blog – Google Analytics 4 Tips & Guides</h1>
         <p>Actionable advice on solving common GA4 frustrations and getting more from your data.</p>
         
         <hr style="border-color: var(--border-color); margin-bottom: 40px;">
@@ -26,7 +26,7 @@ eleventyComputed:
                         {%- if post.data.thumbnail -%}
                         <div class="blog-post-thumbnail-container">
                             <a href="{{ post.url }}">
-                                <img src="{{ post.data.thumbnail }}" alt="{{ post.data.title }}" class="blog-list-thumbnail">
+                                <img src="{{ post.data.thumbnail }}" alt="{{ post.data.title }}" class="blog-list-thumbnail" width="600" height="400">
                             </a>
                         </div>
                         {%- endif -%}

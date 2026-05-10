@@ -61,7 +61,7 @@ Finding the new dashboard is straightforward once you have the correct permissio
 3. Look at the bottom of the left-hand navigation menu.
 4. Click the **Tasks** button located just above the Admin gear icon.
 
-![Google Analytics 4 Task Assistant Dashboard](/img/google-analytics-tasks-admin.jpeg)
+<img src="/img/google-analytics-tasks-admin.jpeg" alt="Google Analytics 4 Task Assistant Dashboard" width="1655" height="924">
 
 ## Understanding the Task Categories
 

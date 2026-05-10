@@ -61,7 +61,7 @@ Duplicating reports clutters your workspace rapidly. It is easy to confuse which
 
 If you do try to change the date range, clicking it pops up a message: "To edit this exploration, first make a personal copy by clicking the icon." This message is confusing because we aren't trying to edit the report. We just want to see that report in a different time period.
 
-![GA4 exploration read-only copy message](/img/ga4-to-edit-make-a-copy.jpeg)
+<img src="/img/ga4-to-edit-make-a-copy.jpeg" alt="GA4 exploration read-only copy message" width="567" height="236">
 
 ## How to Change Dates on Read-Only GA4 Explorations
 
@@ -75,7 +75,7 @@ Here is how you can edit locked dates using the extension:
 2. **Open your shared report:** Navigate to the read-only exploration in GA4.
 3. **Click Edit Date:** Look below the locked date range in the Variables panel for the new **Edit Date** button.
 
-![GA4 Optimizer Edit date button](/img/ga4-optimizer-edit-date-range-timeline.jpeg)
+<img src="/img/ga4-optimizer-edit-date-range-timeline.jpeg" alt="GA4 Optimizer Edit date button" width="331" height="274">
 
 4. **Select new timeframes:** Choose your preferred start and end dates. If the report has an active comparison, you can edit the comparison dates here as well.
 
