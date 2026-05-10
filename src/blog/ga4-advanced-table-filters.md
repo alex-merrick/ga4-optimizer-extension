@@ -40,7 +40,7 @@ thumbnail: /img/thumbnails/thumb-adv-filter.jpg
 post_image: /img/thumbnails/banner-adv-filter.jpg
 eleventyComputed:
   currentYear: "{{ '' | currentYear }}"
-  title: "How to Add Advanced Filters to GA4 Standard Reports"
+  title: "How to Filter GA4 Standard Reports Beyond the Search Bar"
   description: "Learn how to bring back Universal Analytics style advanced table filters to your GA4 standard reports in {{ currentYear }}. Filter metrics and dimensions easily."
 ---
 
