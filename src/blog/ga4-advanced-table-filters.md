@@ -60,6 +60,13 @@ To solve this common reporting headache, we created the Advanced Table Filter fe
 4. **Set Your Conditions**: Choose your dimension or metric, select a condition, and enter your target value.
 5. **Apply the Filter**: The table will update to show only the rows that match your exact criteria.
 
+<div class="feature-video-container" data-video-name="AdvancedFiltersGA4Reports" style="max-width: 700px; margin: 25px 0;">
+    <video autoplay loop muted playsinline>
+        <source src="/mp4/ga4-reports-advanced-filters-crop.mp4" type="video/mp4">
+    </video>
+    <div class="play-icon-overlay"></div>
+</div>
+
 ### Dimension Filtering Options
 
 Our tool allows you to filter dimensions like **Page path**, **Event name**, or **Source/medium** using flexible matching rules. Available dimension conditions include:
@@ -79,6 +86,8 @@ Rate metrics like bounce rate or conversion rate accept percentage values direct
 The real power of advanced filtering comes from stacking rules. You can combine multiple conditions using AND logic to narrow down large datasets. For example, you can create a rule where "Views > 5,000 AND Page path contains /shop" to isolate high-traffic product pages.
 
 Active filter chips appear directly above the report table showing your current conditions at a glance. If you need to broaden your data view, simply click the X on any chip to remove that specific condition instantly.
+
+For even more control over large datasets, you can also [increase the row limit to 500 rows per page](/blog/500-rows-per-page-ga4-reports/) to see more data at once alongside your active filters.
 
 ## Frequently Asked Questions
 
