@@ -90,7 +90,7 @@ Reason 1 (typos and case mismatches) is the most frustrating error because it is
 
 A single capitalization error during this manual data entry will trigger the "(not set)" issue and corrupt your client reporting.
 
-This workflow gap is exactly why we built the **Custom Definitions Copy/Paste** tool into the [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_not_set).
+This workflow gap is exactly why we built the [Custom Definitions Copy/Paste](/blog/copy-custom-dimensions-definitions/) tool into the [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_not_set).
 
 When you install the free extension, it adds "Copy" and "Paste" buttons directly to your GA4 Custom definitions page. You can set up your custom dimensions flawlessly on a single test property, click Copy, and then instantly paste those exact configurations into every other property you manage. 
 

@@ -84,7 +84,9 @@ For the extension to run this calculation, the "Total" row needs to be visible o
 
 Context is everything in data analysis. The percentage of column total is one of the most basic pieces of context you can have in a GA4 Freeform Exploration, and Google simply left it out. By adding it back directly into your table, you can spot top performers, identify traffic distribution, and make decisions without ever opening a spreadsheet.
 
-You can get this feature, along with 15 other workflow improvements, by installing the [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_column_total) from the Chrome Web Store. It's completely free.
+You can get this feature, along with 20 other workflow improvements, by installing the [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_column_total) from the Chrome Web Store. It's completely free.
+
+If you're working with shared read-only Explorations, you may also run into locked date ranges. Our [Date Range Override](/blog/change-read-only-exploration-date/) lets you change dates on those reports without duplicating them. And if your Exploration is showing sampled data (the yellow warning icon), check out our guide on [fixing sampled data in GA4](/blog/ga4-sampling-fix/) to make sure your percentages are based on accurate numbers.
 
 ***
 

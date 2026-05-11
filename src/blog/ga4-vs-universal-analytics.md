@@ -54,7 +54,7 @@ In Universal Analytics, **Exit Rate** was a fundamental metric in the "All Pages
 
 In GA4, this metric is gone. The raw "Exits" metric is hidden away in Explorations, and the calculated "Exit Rate" is nowhere to be found. The official workaround involves building an exploration, exporting the data to Google Sheets, and manually dividing Exits by Views.
 
-**The Fix:** The [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_ua_vs_ga4) adds a **"Create Exit Pages Report"** feature. In one click, it generates a pre-configured report template with the hidden Exits metric and automatically calculates the Exit Rate for you, right inside the GA4 interface.
+**The Fix:** The [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_ua_vs_ga4) adds a **"Create Exit Pages Report"** feature. In one click, it generates a pre-configured report template with the hidden Exits metric and automatically calculates the Exit Rate for you, right inside the GA4 interface. Read our full walkthrough on [getting Exit Rate in GA4 reports](/blog/how-to-get-exit-rate-in-ga4-reports/).
 
 ## 2. The UI Downgrade: No Sticky Table Headers
 
@@ -70,7 +70,7 @@ In both Universal Analytics and GA4's Standard Reports, you can see the percenta
 
 Again, the only native solution is to export your data to a spreadsheet.
 
-**The Fix:** GA4 Optimizer's **"Percentage of Column Total"** feature automatically calculates and injects this percentage directly into your Exploration tables. It appears right next to the raw number and on hover, giving you instant context without breaking your workflow.
+**The Fix:** GA4 Optimizer's **"Percentage of Column Total"** feature automatically calculates and injects this percentage directly into your Exploration tables. It appears right next to the raw number and on hover, giving you instant context without breaking your workflow. See our [full guide to column total percentages](/blog/ga4-explorations-column-total/) for details.
 
 ## 4. The Inaccuracy Problem: Flawed Year-over-Year Comparisons
 
@@ -78,7 +78,7 @@ Comparing date ranges in Universal Analytics was straightforward. In GA4, not on
 
 GA4 compares the same calendar dates (e.g., April 1st-7th, 2026 vs. April 1st-7th, 2025). But dates do not align with days of the week year over year. This means GA4 might compare a high-traffic Monday from this year to a low-traffic Sunday from last year, skewing your data and leading to incorrect conclusions.
 
-**The Fix:** The **"Date Range Presets"** feature in GA4 Optimizer adds a powerful comparison button. With a simple key combination (`Ctrl/Cmd + Shift + Click`), you can run a true **Year-over-Year comparison with Day of Week Alignment**, ensuring you are always comparing Monday to Monday for the most accurate insights.
+**The Fix:** The **"Date Range Presets"** feature in GA4 Optimizer adds a powerful comparison button. With a simple key combination (`Ctrl/Cmd + Shift + Click`), you can run a true **Year-over-Year comparison with Day of Week Alignment**, ensuring you are always comparing Monday to Monday for the most accurate insights. Learn more in our [deep dive on GA4 date range presets](/blog/ga4-date-range-shortcuts/).
 
 ## Make GA4 Work For You, Not Against You
 

@@ -97,6 +97,8 @@ Manually configuring GA4 properties is a drain on your most valuable resource: t
 
 Get this feature and a dozen other workflow enhancements by installing the free [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_copy_paste_definitions) from the Chrome Web Store.
 
+Once your new property is configured, you can put those custom dimensions to work immediately. If you notice a dimension showing "(not set)" values, our guide on [fixing the custom dimension (not set) issue](/blog/ga4-custom-dimension-not-set-issue/) explains why it happens and how to resolve it.
+
 ***
 
 ## Frequently Asked Questions

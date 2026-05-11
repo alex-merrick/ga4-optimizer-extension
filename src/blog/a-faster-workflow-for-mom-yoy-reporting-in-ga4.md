@@ -53,7 +53,7 @@ Let's fix all of that.
 
 ### Step 1: Get Your Comparison in Two Clicks
 
-Instead of manually selecting four different dates, the **Data Range Presets** feature adds one-click buttons directly into the GA4 date picker.
+Instead of manually selecting four different dates, the **Data Range Presets** feature adds one-click buttons directly into the GA4 date picker. For a deep dive into how this works, including the day-of-week aligned YoY comparison mode, see our [full guide to GA4 date range presets](/blog/ga4-date-range-shortcuts/).
 
 *   Simply open the date picker and click **"LMMoM"** (Last Month over Month).
 
@@ -67,7 +67,7 @@ Once your report loads, activate the **Sticky Report Header**. As you scroll dow
 
 Your standard report has a 'Views' column and an 'Exits' column, but no 'Exit Rate'. Instead of exporting this data, you can create it directly in the report.
 
-The **Quick Calculated Metric** feature in GA4 Optimizer adds a new column with an "Add Calculated Rate" button. Simply click it, select 'Exits' as your numerator and 'Views' as your denominator, and instantly you have an 'Exit Rate' column right where you need it. This allows you to get deeper insights without ever leaving the page.
+The **Quick Calculated Metric** feature in GA4 Optimizer adds a new column with an "Add Calculated Rate" button. Simply click it, select 'Exits' as your numerator and 'Views' as your denominator, and instantly you have an 'Exit Rate' column right where you need it. For a full walkthrough of this specific use case, see our guide on [getting Exit Rate in GA4 reports](/blog/how-to-get-exit-rate-in-ga4-reports/). This allows you to get deeper insights without ever leaving the page.
 
 ### Step 4: Instantly Spot What Matters
 
@@ -85,7 +85,9 @@ Instead of opening a new tab, just pop open the **Sticky Conversion Calculator**
 
 By combining these five simple features, you can transform your standard reporting process in GA4 from a clunky, multi-minute task into a streamlined, 30-second workflow. This gives you more time to do what's important: analyzing the data, not fighting the interface.
 
-If you run A/B tests alongside your regular reporting, the extension also includes an [AB Test Segment Comparison](https://www.gaoptimizer.com/blog/the-ultimate-guide-to-ab-test-analysis-in-ga4/) feature that calculates statistical significance directly inside your Explorations — no external calculator needed.
+Need to drill into specific rows? The [Advanced Table Filter](/blog/ga4-advanced-table-filters/) lets you set conditions like "Views > 10,000" directly in Standard Reports, so you can slice your MoM data without exporting to a spreadsheet. And if your report has hundreds of rows, you can [increase the row limit to 500](/blog/500-rows-per-page-ga4-reports/) to see everything on one page.
+
+If you run A/B tests alongside your regular reporting, the extension also includes an [AB Test Segment Comparison](https://www.gaoptimizer.com/blog/the-ultimate-guide-to-ab-test-analysis-in-ga4/) feature that calculates statistical significance directly inside your Explorations, no external calculator needed.
 
 ---
 ## Frequently Asked Questions

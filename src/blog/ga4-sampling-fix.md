@@ -104,6 +104,8 @@ Accurate reporting is the foundation of good analysis. If you rely on GA4's defa
 
 By paying close attention to the data quality icon and forcing GA4 to provide more detailed results, you can ensure your numbers are always correct. And if you want to make that process foolproof and instant, install the free [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_sampled_data) today to get the Highlight Sampling and keyboard shortcut features added directly to your browser.
 
+Accurate data is especially important when running calculations on top of your Exploration numbers. If you use the [Percentage of Column Total](/blog/ga4-explorations-column-total/) feature or rely on [A/B test significance calculations](/blog/the-ultimate-guide-to-ab-test-analysis-in-ga4/) in your Explorations, sampled data will produce misleading results. Always fix sampling first.
+
 ***
 
 ## Frequently Asked Questions

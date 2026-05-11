@@ -83,11 +83,15 @@ When you select 500 rows, the page will likely take a few extra seconds to load.
 
 If you attempt to load 500 rows while comparing month-over-month or year-over-year data, GA4 is forced to calculate and render thousands of individual data points and percentage changes simultaneously. Doing this will almost certainly make the page unstable, cause the table to become unresponsive. However, we enabled this option as power users are willing to wait a bit longer to see 500 rows at once.
 
+For a smoother experience with date comparisons, consider using [1-click date range presets](/blog/ga4-date-range-shortcuts/) at the default row count, where the Percentage Change Highlighter can flag significant trends without the stability risk.
+
 ## Stop Clicking Next Page
 
 When used carefully for single-date-range analysis, the 500-row limit increase is a massive time saver for scanning large datasets without exporting. 
 
-You can access this feature today, along with sticky table headers and on-the-fly calculated metrics, by installing the free [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_500_rows) from the Chrome Web Store.
+You can access this feature today, along with [sticky table headers](/documentation/#feature-sticky-header) and [on-the-fly calculated metrics](/blog/how-to-get-exit-rate-in-ga4-reports/), by installing the free [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_500_rows) from the Chrome Web Store.
+
+If you need to narrow down those 500 rows to a specific subset, the [Advanced Table Filter](/blog/ga4-advanced-table-filters/) lets you set conditions like "Views > 1,000" or "Page path contains /shop" directly in the report without exporting.
 
 ***
 

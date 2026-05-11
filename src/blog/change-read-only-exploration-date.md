@@ -104,7 +104,7 @@ If you need to export your findings, the exported CSV will contain the correct d
 
 Unlocking dates is just one way we fix the Google Analytics interface. GA4 Optimizer includes several other tools designed to save you time and reduce reporting friction. 
 
-For example, if you have ever sent a colleague a GA4 report link only to have them hit a "Missing permissions" error, our [Smart Share Link fix](https://www.gaoptimizer.com/blog/ga4-missing-permissions-error-share-report-links/) handles that automatically. You can also keep your table columns visible with sticky headers, copy custom dimension definitions between properties, or generate an exit pages report with a single click.
+For example, if you have ever sent a colleague a GA4 report link only to have them hit a "Missing permissions" error, our [Smart Share Link fix](https://www.gaoptimizer.com/blog/ga4-missing-permissions-error-share-report-links/) handles that automatically. You can also keep your table columns visible with sticky headers, [copy custom dimension definitions between properties](/blog/copy-custom-dimensions-definitions/), or generate an [exit pages report](/blog/how-to-get-exit-rate-in-ga4-reports/) with a single click.
 
 - - -
 

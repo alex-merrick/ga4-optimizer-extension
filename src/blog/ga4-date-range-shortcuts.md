@@ -73,6 +73,10 @@ Google's update is a good start, but it doesn't solve the fundamental workflow i
 
 The [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_date_presets) was designed to fix these exact frustrations. We give you the speed you need with one-click presets and the accuracy you can trust with powerful, aligned comparisons.
 
+Once your comparison is applied, pair it with the [Percentage Change Highlighter](/blog/a-faster-workflow-for-mom-yoy-reporting-in-ga4/) to instantly spot the biggest swings in your report using conditional formatting. Green for wins, red for drops. No more scanning dozens of rows to find what matters.
+
+If you're working with shared Explorations rather than Standard Reports, note that GA4 locks the date range on read-only reports. Our [Date Range Override](/blog/change-read-only-exploration-date/) feature lets you change dates on those locked Explorations without duplicating them.
+
 ---
 ## Frequently Asked Questions
 

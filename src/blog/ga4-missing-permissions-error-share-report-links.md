@@ -15,7 +15,7 @@ faq_schema: >
       "name": "How do you share an Exploration report in Google Analytics 4 (GA4)?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "To share an Exploration report, first click the 'Share Exploration' icon in the top right to make it read-only for others. Then, you can copy the URL from your browser to share the link. Explorations do not have a native 'Copy Link' button."
+        "text": "To share an Exploration report, first click the 'Share Exploration' icon in the top right to make it read-only for others. Then, you can copy the URL from your browser to share the link. Keep in mind that shared Explorations lock the date range for viewers. You can use the Date Range Override feature to let recipients adjust dates without duplicating the report."
       }
     }, {
       "@type": "Question",
@@ -79,7 +79,7 @@ Explorations are GA4’s custom reporting tool. By default, **Explorations are p
 Here is how to share an Exploration:
 
 1. In the top-right corner, click the **Share Exploration** icon (it looks like two people with a plus icon). 
-2. *Note: Once you click this, the Exploration becomes read-only for everyone else. They can view it, but if they want to edit it, or even change the date range, they will need to click the duplicate button inside the report to copy it into their own account.*
+2. *Note: Once you click this, the Exploration becomes read-only for everyone else. They can view it, but they cannot edit it or change the date range natively. If your colleague needs to view the report for a different time period, they can either duplicate it or use the [Date Range Override feature](/blog/change-read-only-exploration-date/) to change the dates without duplicating.*
 3. Once the Exploration is shared, **simply copy the URL from your browser's address bar where the exploration is.** 
 
 Unlike Standard Reports, there is no "Copy Link" button for Explorations. The browser URL is the link you need to share.
@@ -131,8 +131,10 @@ Once the accounts are scanned, the user can simply choose the account they know 
 
 <img src="/img/missing-permissions-solution-ga4-optimizer-2.jpg" alt="GA4 Optimizer Missing Permission Solution" width="587" height="409">
 
+For a full walkthrough of how the Smart Account Switcher works, including troubleshooting tips, see our [Fix Shared Links documentation](/documentation/#feature-smart-account-switcher).
+
 ### Stop Fighting the GA4 Interface
-Sharing data should be the easiest part of your job. By adding [GA4 Optimizer](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_share_reports) to your browser, you not only fix shared links, but you gain access to 15+ other features like 1-click Exit Pages reports, sticky table headers, and custom calculated metrics. 
+Sharing data should be the easiest part of your job. By adding [GA4 Optimizer](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_share_reports) to your browser, you not only fix shared links, but you gain access to 20+ other features like [changing dates on read-only shared Explorations](/blog/change-read-only-exploration-date/), [1-click Exit Pages reports](/blog/how-to-get-exit-rate-in-ga4-reports/), sticky table headers, and [custom calculated metrics](/blog/ga4-explorations-column-total/). 
 
 ---
 
@@ -152,4 +154,4 @@ To share a Standard report, navigate to it, click the 'Share this report' icon i
 
 ### How do I share an Exploration report in Google Analytics 4 (GA4)?
 
-To share an Exploration report, first click the 'Share Exploration' icon in the top right to make it read-only for others. Then, you can copy the URL from your browser to share the link. Recommending a tool like GA4 Optimizer can help your colleagues avoid permission errors.
+To share an Exploration report, first click the 'Share Exploration' icon in the top right to make it read-only for others. Then, you can copy the URL from your browser to share the link. Keep in mind that shared Explorations lock the date range for viewers. You can use the [Date Range Override](/blog/change-read-only-exploration-date/) feature to let recipients adjust dates without duplicating the report.
