@@ -80,7 +80,7 @@ Here is how you can edit locked dates using the extension:
 4. **Select new timeframes:** Choose your preferred start and end dates. If the report has an active comparison, you can edit the comparison dates here as well.
 
 <div class="feature-video-container" data-video-name="ChangeSharedExplorationDate" style="max-width: 700px; margin: 25px 0;">
-    <video autoplay loop muted playsinline>
+    <video autoplay loop muted playsinline aria-label="Demo of Date Range Override changing dates on a read-only shared GA4 Exploration">
         <source src="/mp4/change_shared_exploration_date.mp4" type="video/mp4">
     </video>
     <div class="play-icon-overlay"></div>

@@ -61,7 +61,7 @@ To solve this common reporting headache, we created the Advanced Table Filter fe
 5. **Apply the Filter**: The table will update to show only the rows that match your exact criteria.
 
 <div class="feature-video-container" data-video-name="AdvancedFiltersGA4Reports" style="max-width: 700px; margin: 25px 0;">
-    <video autoplay loop muted playsinline>
+    <video autoplay loop muted playsinline aria-label="Demo of Advanced Table Filter applying metric and dimension conditions to GA4 Standard Reports">
         <source src="/mp4/ga4-reports-advanced-filters-crop.mp4" type="video/mp4">
     </video>
     <div class="play-icon-overlay"></div>
