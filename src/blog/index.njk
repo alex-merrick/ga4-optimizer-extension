@@ -7,7 +7,7 @@ pagination:
   reverse: false
 permalink: "/blog/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}"
 eleventyComputed:
-  title: "{% if pagination.pageNumber == 0 %}Blog{% else %}Blog - Page {{ pagination.pageNumber + 1 }}{% endif %}"
+  title: "{% if pagination.pageNumber == 0 %}Blog – Google Analytics 4 Tips & Guides{% else %}Blog - Page {{ pagination.pageNumber + 1 }}{% endif %}"
   description: "{% if pagination.pageNumber == 0 %}Tips, tricks, and guides for making Google Analytics 4 easier to use and more powerful.{% else %}Page {{ pagination.pageNumber + 1 }} of the GA4 Optimizer blog. Practical guides on solving common GA4 frustrations and getting more from your data.{% endif %}"
 ---
 <main class="container">
