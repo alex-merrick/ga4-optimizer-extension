@@ -180,6 +180,8 @@ This distinction matters for governance. In organizations where there are concer
 
 For most teams, the smart move is to wait for the dust to settle. Let early adopters surface edge cases, then upgrade a low-risk container first to test the new flow. Once you are comfortable with how Destinations and centralized settings behave, roll it out across your remaining properties.
 
+While you wait, make sure your GTM toolkit is up to date. We maintain a list of the [12 best Google Tag Manager browser extensions](/blog/best-google-tag-manager-extensions/) that are fully functional in 2026, including tools for debugging the dataLayer, copying tags between containers, and validating server-side setups.
+
 If your containers rely heavily on multiple Google Tags with unique per-tag settings, take extra care during migration to verify that the centralized defaults do not override critical configurations.
 
 ---

@@ -49,6 +49,8 @@ Adding the right browser extensions to your workflow transforms GTM from a tedio
 
 Many older tracking extensions broke when Google updated Chrome to Manifest V3, but a new class of powerful tools has emerged. Here are the 12 best Google Tag Manager extensions that are actively maintained and fully functional in 2026, broken down by workflow, debugging, and pixel validation.
 
+**Related:** If you missed it, Google is announcing the [biggest GTM update in years](/blog/google-tag-manager-biggest-update-2026/) at Google Marketing Live 2026. GTM containers are becoming Google Tags with new Destinations, centralized settings, and a visual event builder.
+
 - - -
 
 ## GTM Interface and Workflow Enhancers
