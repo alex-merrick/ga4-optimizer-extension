@@ -48,6 +48,8 @@ If you have hundreds of active campaigns or thousands of pages, this limit force
 
 Here is how you can bypass this limitation and view up to 500 rows per page directly inside the GA4 interface.
 
+![500 rows per page option in GA4 Standard Reports](/img/rows-per-page.jpg)
+
 ## The Problem with GA4's 250 Row Limit
 
 By default, the GA4 standard report interface lets you choose between 10, 25, 50, 100, or 250 rows per page. While 250 rows might sound like enough for a quick glance, it falls short for deep analysis. Paginating through data makes it difficult to quickly scan for anomalies or compare a mid-tier performer on page three to a top performer on page one.

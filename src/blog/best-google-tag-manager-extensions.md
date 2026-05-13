@@ -136,7 +136,7 @@ Created by David Vallejo, Analytics Debugger is an absolute powerhouse. Since Go
 * Simplifies ecommerce debugging significantly.
 
 - - -
-### 7. [Consent Mode Monitor](https://chromewebstore.google.com/detail/consent-mode-monitor-free/gjglpjpmnnhdiidpgganadnjefjdnogb) (by [MeasureMinds](https://measuremindsgroup.com/))
+### 7. [Consent Mode Monitor](https://chromewebstore.google.com/detail/consent-mode-monitor-free/gjglpjpmnnhdiidpgganadnjefjdnogb) (by [MeasureMinds](https://measuremindsgroup.com/check-if-consent-mode-is-enabled))
 
 **Best for:** 1-Click Compliance Scanning & Auditing
 

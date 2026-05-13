@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.setAttribute('aria-expanded', 'true');
                 button.classList.add('active');
                 panel.classList.add('active');
-                panel.style.maxHeight = panel.scrollHeight + 'px';
+                panel.style.maxHeight = (panel.scrollHeight + 40) + 'px';
             }
         });
     });

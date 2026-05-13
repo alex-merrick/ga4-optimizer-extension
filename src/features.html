@@ -1,7 +1,7 @@
 ---
 layout: "layouts/base.njk"
-title: "Features - Improve GA4 Reporting & Analysis"
-description: "Explore all 21 features of GA4 Optimizer. Improve data analysis, speed up reporting, and simplify segment comparisons with our tools for Google Analytics 4."
+title: "GA4 Optimizer Features - 20+ Tools to Fix GA4 Reporting"
+description: "Explore all features of GA4 Optimizer. Advanced table filters, date range presets, A/B test analysis, annotations in explorations, and more. Free Chrome, Edge, and Firefox extension."
 permalink: "/features/"
 schema: |
   {
@@ -68,7 +68,7 @@ schema: |
       "name": "What is the Date Range Override feature?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Date Range Override lets you change the date range on read-only shared Explorations — something GA4 normally locks. An 'Edit Date' button appears in the Variables panel, letting you pick any start and end date and reload the data. The override is session-only and never modifies the original shared report. It also supports comparison date ranges if the original Exploration had one active."
+        "text": "Date Range Override lets you change the date range on read-only shared Explorations that GA4 normally locks. An 'Edit Date' button appears in the Variables panel, letting you pick any start and end date and reload the data. The override is session-only and never modifies the original shared report. It also supports comparison date ranges if the original Exploration had one active."
       }
     }, {
       "@type": "Question",
@@ -88,306 +88,478 @@ schema: |
   }
 ---
 <main class="container">
-    <div class="main-content content-page">
-        <h1>GA4 Optimizer Features</h1>
-        <p>GA4 Optimizer aims to solve common challenges in the Google Analytics™ 4 interface. This guide explains how
-            each feature can improve your daily analysis, reporting, and insight-gathering tasks.</p>
-        <p><strong>Quick Access to Settings:</strong> Most features can be toggled on/off from the extension popup.
-            Features with more detailed configurations have a settings <img src="/icons/cog-16x17.png"
-                alt="Settings icon" class="settings-gear-inline" width="16" height="17"> button next to their toggle in the popup.</p>
-        <p><strong>Need More Detail?</strong> Check out our <a href="/documentation/">complete documentation</a> for in-depth explanations, troubleshooting guides, and step-by-step instructions.</p>
 
-        <div class="docs-layout">
-            <aside id="docs-sidebar">
-                <p class="sidebar-title">Navigation</p>
-                <div class="sidebar-content">
-                    <ul>
-                        <li><a href="#feature-click-to-copy">1. Click to Copy</a></li>
-                        <li><a href="#feature-sticky-header">2. Sticky Header</a></li>
-                        <li><a href="#feature-highlight-sampling">3. Highlight Sampling</a></li>
-                        <li><a href="#feature-percentage-change-highlighter">4. % Change Highlighter</a></li>
-                        <li><a href="#feature-cr-change-percentage">5. Δ% Share Change</a></li>
-                        <li><a href="#feature-percentage-column-total">6. % of Column Total</a></li>
-                        <li><a href="#feature-auto-detailed-results">7. Detailed Results Shortcut</a></li>
-                        <li><a href="#feature-percentage-all-users">8. % of All Users</a></li>
-                        <li><a href="#feature-ab-test-segment-comparison">9. AB Test Comparison</a></li>
-                        <li><a href="#feature-exploration-view-enhancer">10. Exploration View Enhancer</a></li>
-                        <li><a href="#feature-sticky-calculator">11. Sticky Calculator</a></li>
-                        <li><a href="#feature-date-range-presets">12. Date Range Presets</a></li>
-                        <li><a href="#feature-calculated-metrics">13. Quick Calculated Metric</a></li>
-                        <li><a href="#feature-linechart-customization">14. Line Chart Color Customization</a></li>
-                        <li><a href="#feature-fix-shared-links">15. Fix Shared Links</a></li>
-                        <li><a href="#feature-create-exit-report">16. Create Exit Pages Report</a></li>
-                        <li><a href="#feature-custom-definitions">17. Custom Definitions Copy/Paste</a></li>
-                        <li><a href="#feature-500-rows">18. 500 Rows per Page</a></li>
-                        <li><a href="#feature-date-range-override">19. Date Range Override</a></li>
-                        <li><a href="#feature-advanced-table-filter">20. Advanced Table Filter</a></li>
-                        <li><a href="#feature-annotations">21. Annotations in Explorations</a></li>
-                    </ul>
+    <!-- Hero Section -->
+    <section class="hero-section" style="padding: 40px 20px 30px;">
+        <img src="/img/spark-looks-down-transparent.png" alt="Spark, the GA4 Optimizer mascot" width="120" height="120" style="display: block; margin: 0 auto -8px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));">
+        <h1 style="margin-bottom: 15px;">Browser Extension That Makes GA4 Usable Again.</h1>
+        <p class="subtitle">Stop wasting time on repetitive clicks, broken links, and missing features. GA4 Optimizer gives you the tools Google left out, so you can get answers in seconds instead of minutes. 100% free and private.</p>
+        <a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=features_page_hero"
+            class="cta-button" target="_blank" rel="noopener">
+            Add GA4 Optimizer to Chrome - It's Free
+        </a>
+        <div class="other-browsers-link" style="margin-top: 15px; font-size: 0.9em;">
+            Also available for
+            <a href="https://microsoftedge.microsoft.com/addons/detail/ga4-optimizer-analysis-t/ejokbgelaaegbgemjjhgppigoclanomh?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=features_page_hero"
+                target="_blank" rel="noopener">Edge</a> &
+            <a href="https://addons.mozilla.org/en-US/firefox/addon/ga4-optimizer/?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=features_page_hero"
+                target="_blank" rel="noopener">Firefox</a>
+        </div>
+    </section>
+
+    <!-- 4 Big Wins -->
+    <section class="home-section">
+        <h2 class="section-title">Why You'll Love GA4 Optimizer</h2>
+        <div class="carousel-wrapper">
+            <button class="carousel-arrow carousel-arrow-left" aria-label="Scroll left" data-carousel="value-props-grid">&#8249;</button>
+            <div class="features-grid" id="value-props-grid">
+            <div class="feature-item">
+                <img src="/icons/rewind.png" alt="" width="48" height="48">
+                <h3>Bring Back UA Features</h3>
+                <p>Advanced Table Filters, Exit Pages reports, and the workflows Google removed.</p>
+            </div>
+            <div class="feature-item">
+                <img src="/icons/link.png" alt="" width="48" height="48">
+                <h3>Fix Shared Links</h3>
+                <p>No more "Missing Permissions" errors on links from colleagues.</p>
+            </div>
+            <div class="feature-item">
+                <img src="/icons/calendar.png" alt="" width="48" height="48">
+                <h3>Instant Date Controls</h3>
+                <p>Override locked dates and add 1-click comparison periods.</p>
+            </div>
+            <div class="feature-item">
+                <img src="/icons/padlock.png" alt="" width="48" height="48">
+                <h3>100% Private</h3>
+                <p>Runs locally in your browser. No data ever leaves your machine.</p>
+            </div>
+        </div>
+            <button class="carousel-arrow carousel-arrow-right" aria-label="Scroll right" data-carousel="value-props-grid">&#8250;</button>
+        </div>
+        <style>
+        /* --- Desktop: 4 Big Wins (Airy, No Borders) --- */
+        #value-props-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        #value-props-grid .feature-item { background: transparent; border: none; box-shadow: none; padding: 10px 15px; }
+        #value-props-grid .feature-item:hover { box-shadow: none; transform: translateY(-3px); }
+        #value-props-grid img { filter: brightness(0) saturate(100%) invert(18%) sepia(80%) saturate(3000%) hue-rotate(280deg) brightness(0.85); }
+        /* --- Desktop: Workflow Personas (2x2 Grid) --- */
+        .steps-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        /* --- Carousel shared --- */
+        .carousel-wrapper { position: relative; }
+        .carousel-arrow { display: none; }
+        /* --- Tablet Adjustments --- */
+        @media (max-width: 1024px) {
+            #value-props-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        /* --- Native CSS Carousels for Mobile --- */
+        @media (max-width: 768px) {
+            .hero-section img[src*="spark"] { margin-bottom: -3px !important; }
+            #value-props-grid { display: flex; flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding-bottom: 15px; -ms-overflow-style: none; scrollbar-width: none; scroll-behavior: smooth; }
+            #value-props-grid::-webkit-scrollbar { display: none; }
+            #value-props-grid .feature-item { flex: 0 0 85%; scroll-snap-align: center; background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: 6px; padding: 25px; }
+            .steps-container { display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding-bottom: 15px; -ms-overflow-style: none; scrollbar-width: none; scroll-behavior: smooth; }
+            .steps-container::-webkit-scrollbar { display: none; }
+            .steps-container .step { flex: 0 0 85%; scroll-snap-align: center; min-width: 85%; }
+            .carousel-arrow { display: flex; align-items: center; justify-content: center; position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 50%; background: var(--bg-white); border: 1px solid var(--border-color); box-shadow: 0 2px 6px rgba(0,0,0,0.1); cursor: pointer; z-index: 2; font-size: 1.1rem; color: var(--text-dark); }
+            .carousel-arrow:active { background: var(--bg-light); }
+            .carousel-arrow-left { left: 8px; }
+            .carousel-arrow-right { right: 8px; }
+        }
+        </style>
+    </section>
+
+    <!-- Use Cases / Personas -->
+    <section class="home-section">
+        <h2 class="section-title">Built for Your Workflow</h2>
+        <div class="carousel-wrapper">
+            <button class="carousel-arrow carousel-arrow-left" aria-label="Scroll left" data-carousel="workflow-carousel">&#8249;</button>
+            <div class="steps-container" id="workflow-carousel">
+            <div class="step">
+                <img src="/icons/report.png" alt="" width="48" height="48" style="filter: brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(500%) hue-rotate(170deg) brightness(0.9); margin-bottom: 10px;">
+                <h3>Data Analysts</h3>
+                <p>Spend less time wrestling with the interface and more time finding insights. Get automatic statistical significance on A/B tests, bypass sampling with one shortcut, and extract data without exporting to spreadsheets first.</p>
+            </div>
+            <div class="step">
+                <img src="/icons/dollar.png" alt="" width="48" height="48" style="filter: brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(500%) hue-rotate(170deg) brightness(0.9); margin-bottom: 10px;">
+                <h3>Digital Marketers</h3>
+                <p>Spot campaign performance shifts the moment they happen. Percentage change highlighters and a sticky calculator let you compare conversion rates without leaving the report.</p>
+            </div>
+            <div class="step">
+                <img src="/icons/seo.png" alt="" width="48" height="48" style="filter: brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(500%) hue-rotate(170deg) brightness(0.9); margin-bottom: 10px;">
+                <h3>SEO Professionals</h3>
+                <p>Find underperforming landing pages in seconds. Filter by page path, see exit rates at a glance, and use the same efficient workflows you relied on in Universal Analytics.</p>
+            </div>
+            <div class="step">
+                <img src="/icons/agency.png" alt="" width="48" height="48" style="filter: brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(500%) hue-rotate(170deg) brightness(0.9); margin-bottom: 10px;">
+                <h3>Agencies</h3>
+                <p>Set up new client properties in minutes instead of hours. Copy custom dimensions, metrics, and calculated metrics between properties with one click, no manual re-creation needed.</p>
+            </div>
+        </div>
+            <button class="carousel-arrow carousel-arrow-right" aria-label="Scroll right" data-carousel="workflow-carousel">&#8250;</button>
+        </div>
+    </section>
+
+    <!-- Vertical Tab Feature Showcase -->
+    <style>
+    .tab-showcase { display: flex; gap: 0; align-items: stretch; min-height: 420px; }
+    .tab-showcase-nav { display: flex; flex-direction: column; flex-shrink: 0; width: 240px; border-right: 1px solid var(--border-color); }
+    .tab-showcase-nav button { display: block; width: 100%; padding: 14px 20px; border: none; background: none; text-align: left; font-size: 0.95rem; font-weight: 500; color: var(--text-light); cursor: pointer; border-left: 3px solid transparent; transition: all 0.2s ease; }
+    .tab-showcase-nav button:hover { background-color: var(--bg-light); color: var(--text-dark); }
+    .tab-showcase-nav button.active { background-color: var(--bg-light); color: var(--brand-purple); border-left-color: var(--brand-purple); font-weight: 600; }
+    .tab-showcase-content { flex: 1; padding: 25px 30px; position: relative; overflow: hidden; }
+    .tab-showcase-panel { position: absolute; visibility: hidden; height: 0; overflow: hidden; opacity: 0; }
+    .tab-showcase-panel.active { position: relative; visibility: visible; height: auto; overflow: visible; opacity: 1; animation: tabFadeIn 0.3s ease; }
+    .tab-showcase-panel h3 { margin-top: 0; margin-bottom: 10px; font-size: 1.3rem; }
+    .tab-showcase-panel p { margin-top: 0; }
+    .tab-showcase-panel .feature-video-container { max-width: 720px; margin: 20px 0 0; }
+    @keyframes tabFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 900px) {
+        .tab-showcase { flex-direction: column; min-height: auto; }
+        .tab-showcase-nav { width: 100%; flex-direction: row; overflow-x: auto; border-right: none; border-bottom: 1px solid var(--border-color); -webkit-overflow-scrolling: touch; -ms-overflow-style: none; scrollbar-width: none; position: relative; }
+        .tab-showcase-nav::-webkit-scrollbar { display: none; }
+        .tab-showcase-nav button { white-space: nowrap; border-left: none; border-bottom: 3px solid transparent; padding: 12px 16px; font-size: 0.85rem; }
+        .tab-showcase-nav button.active { border-left-color: transparent; border-bottom-color: var(--brand-purple); }
+        .tab-showcase-content { padding: 20px 15px; }
+        .tab-showcase-panel .feature-video-container { max-width: 100%; }
+        .tab-showcase { position: relative; }
+        .tab-showcase::after { content: ''; position: absolute; top: 0; right: 0; width: 40px; height: 48px; background: linear-gradient(to right, transparent, var(--bg-white)); pointer-events: none; z-index: 1; }
+    }
+    </style>
+
+    <!-- Feature Block 1: Reporting & Analysis Enhancements -->
+    <section class="home-section" style="text-align: left; padding: 40px 0;">
+        <h2 class="section-title" style="text-align: center; padding: 0 20px;">Reporting & Analysis Enhancements</h2>
+        <div class="tab-showcase" data-tab-group="reporting">
+            <nav class="tab-showcase-nav" aria-label="Reporting features">
+                <button class="active" data-tab="reporting-filters">Advanced Table Filters</button>
+                <button data-tab="reporting-highlighter">% Change Highlighter</button>
+                <button data-tab="reporting-share">Δ% Share Change</button>
+                <button data-tab="reporting-calc">Quick Calculated Metric</button>
+                <button data-tab="reporting-presets">Date Range Presets</button>
+                <button data-tab="reporting-exit">Exit Pages Report</button>
+                <button data-tab="reporting-rows">500 Rows per Page</button>
+            </nav>
+            <div class="tab-showcase-content">
+                <div class="tab-showcase-panel active" id="reporting-filters">
+                    <h3>Advanced Table Filters</h3>
+                    <p>Instantly narrow thousands of rows to the exact data you need. Set conditions like "Views > 10,000" or "Page path contains /shop" and only matching rows appear. No more scrolling or manual searching.</p>
+                    <p><a href="/blog/ga4-advanced-table-filters/">Learn how to use Advanced Table Filters</a></p>
+                    <div class="feature-video-container" data-video-name="GA4ReportsAdvancedFilters"><video autoplay loop muted playsinline aria-label="Demo of Advanced Table Filter">
+                        <source src="/mp4/ga4-reports-advanced-filters-crop.mp4" type="video/mp4">
+                    </video><div class="play-icon-overlay"></div></div>
                 </div>
-            </aside>
-            <div class="docs-content">
-                <section id="feature-click-to-copy">
-                    <h2>1. Click to Copy Cell</h2>
-                    <p><strong>Applies to: Explorations & Standard Reports</strong><br>Quickly copy values from table
-                        cells, headers, or dimension labels for easier data export to spreadsheets or presentations.
-                        Configure single, double, and triple-click behaviors in settings.</p>
-                    <div class="feature-video-container" data-video-name="ClickToCopy"><video autoplay loop muted
-                            playsinline aria-label="Demo of Click to Copy feature copying cell values from GA4 tables to clipboard">
-                            <source src="/mp4/click_to_copy.mp4" type="video/mp4">
-                        </video>
-                        <div class="play-icon-overlay"></div>
-                    </div>
-                </section>
-                <section id="feature-sticky-header">
-                    <h2>2. Sticky Report Header</h2>
-                    <p><strong>Applies to: Standard Reports Only</strong><br>Keeps the header row visible while
-                        scrolling, making it easier to analyze long reports without losing track of metric columns.</p>
-                    <div class="feature-video-container" data-video-name="StickyHeader"><video autoplay loop muted
-                            playsinline aria-label="Demo of Sticky Header keeping report column headers visible while scrolling">
-                            <source src="/mp4/sticky_header.mp4" type="video/mp4">
-                        </video>
-                        <div class="play-icon-overlay"></div>
-                    </div>
-                </section>
-                <section id="feature-highlight-sampling">
-                    <h2>3. Highlight Sampling</h2>
-                    <p><strong>Applies to: Explorations & Standard Reports</strong><br>Instantly see when your data is
-                        sampled. This feature makes the data quality icon pulse so you're always aware of potential data
-                        inaccuracies.</p>
-                    <div class="feature-video-container" data-video-name="HighlightSampling"><video autoplay loop muted
-                            playsinline aria-label="Demo of Highlight Sampling making the data quality icon pulse when data is sampled">
-                            <source src="/mp4/highlight_sampling.mp4" type="video/mp4">
-                        </video>
-                        <div class="play-icon-overlay"></div>
-                    </div>
-                </section>
-                <section id="feature-percentage-change-highlighter">
-                    <h2>4. Percentage Change Highlighter</h2>
-                    <p><strong>Applies to: Standard Reports Only (when date comparison is active)</strong><br>Uses
-                        conditional formatting to highlight significant positive or negative trends based on
-                        user-defined ranges and colors. Configure ranges, colors, and highlight source in settings.</p>
-                </section>
-                <section id="feature-cr-change-percentage">
-                    <h2>5. Δ% Share Change (Reports)</h2>
-                    <p><strong>Applies to: Standard Reports Only (when date comparison is active)</strong><br>Calculates
-                        and displays the percentage change of the "percentage of total" values directly in the "%
-                        change" row, providing deeper context than standard % change.</p>
-                </section>
-                <section id="feature-percentage-column-total">
-                    <h2>6. Percentage of Column Total</h2>
-                    <p><strong>Applies to: Explorations Only</strong><br>On hover, this instantly calculates each row's
-                        percentage contribution to the column total, ideal for quick contribution analysis.</p>
-                    <div class="feature-video-container" data-video-name="PercentageOfColumn"><video autoplay loop muted
-                            playsinline aria-label="Demo of Percentage of Column Total showing each row's contribution on hover in GA4 Explorations">
-                            <source src="/mp4/percentage_column_total.mp4" type="video/mp4">
-                        </video>
-                        <div class="play-icon-overlay"></div>
-                    </div>
-                </section>
-                <section id="feature-auto-detailed-results">
-                    <h2>7. Detailed Results Shortcut (Beta)</h2>
-                    <p><strong>Applies to: Explorations Only</strong><br>Manually trigger "More detailed results" (less
-                        sampling) in Explorations using a keyboard shortcut for better accuracy. Configure manual or
-                        automatic activation modes in settings.</p>
-                    <div class="feature-video-container" data-video-name="AutoDetail"><video autoplay loop muted
-                            playsinline aria-label="Demo of Detailed Results Shortcut reducing data sampling in GA4 Explorations via keyboard shortcut">
-                            <source src="/mp4/auto_detail.mp4" type="video/mp4">
-                        </video>
-                        <div class="play-icon-overlay"></div>
-                    </div>
-                </section>
-                <section id="feature-percentage-all-users">
-                    <h2>8. Percentage of All Users</h2>
-                    <p><strong>Applies to: Explorations Only</strong><br>Quickly calculate and compare user conversion
-                        rates for different segments against the total user base, simplifying funnel and segment
-                        performance analysis.</p>
-                    <div class="requirement-note"><strong>Requirement:</strong> The 'All Users' segment or any segment
-                        containing "All users" must be included in your Exploration table setup.</div>
-                    <div class="feature-video-container" data-video-name="AllUsersCompare"><video autoplay loop muted
-                            playsinline aria-label="Demo of Percentage of All Users comparing segment conversion rates against total user base">
-                            <source src="/mp4/all_users_segment_compare.mp4" type="video/mp4">
-                        </video>
-                        <div class="play-icon-overlay"></div>
-                    </div>
-                </section>
-                <section id="feature-ab-test-segment-comparison">
-                    <h2>9. AB Test Segment Comparison</h2>
-                    <p><strong>Applies to: Explorations Only</strong><br>A powerful tool for conversion rate
-                        optimization (CRO) that compares metrics between test variations, calculates statistical
-                        significance, and checks for sample ratio mismatch (SRM).</p>
-                    <div class="requirement-note"><strong>Requirement:</strong> Segments must be named with `VAR-`
-                        prefix, and the control segment must start with `VAR-Control` (case-sensitive).</div>
-                    <div class="feature-video-container" data-video-name="ABTestCompare"><video autoplay loop muted
-                            playsinline aria-label="Demo of AB Test Segment Comparison showing statistical significance and uplift between test variants">
-                            <source src="/mp4/ab_test_compare.mp4" type="video/mp4">
-                        </video>
-                        <div class="play-icon-overlay"></div>
-                    </div>
-                </section>
-                <section id="feature-exploration-view-enhancer">
-                    <h2>10. Exploration View Enhancer</h2>
-                    <p><strong>Applies to: Freeform Explorations Only</strong><br>A suite of three tools to maximize your productivity in GA4 Freeform Explorations.</p>
-                    <ul>
-                        <li><strong>Collapsible Panels:</strong> Toggle buttons to collapse/expand the "Variables" and "Tab Settings" panels, giving you maximum screen real estate for your data table.</li>
-                        <li><strong>Maximize View:</strong> One click (or <kbd>Shift+M</kbd>) sets "Show rows" to 500 and "Show column groups" to 20 instantly. Supports auto-maximize on load. Hover over truncated exploration tabs to see their full names.</li>
-                        <li><strong>Pagination Controls:</strong> A floating pagination bar at the bottom of your table lets you navigate large datasets with Next/Previous buttons or keyboard shortcuts (<kbd>Alt+→</kbd> / <kbd>Alt+←</kbd> / <kbd>Alt+Home</kbd> / <kbd>Alt+End</kbd>) — no more opening the Settings panel to change rows.</li>
-                    </ul>
-                    <div class="feature-video-container" data-video-name="CollapsiblePanels"><video autoplay loop muted
-                            playsinline aria-label="Demo of Collapsible Panels toggling Variables and Tab Settings panels to maximize table space">
-                            <source src="/mp4/collapsible_panels.mp4" type="video/mp4">
-                        </video>
-                        <div class="play-icon-overlay"></div>
-                    </div>
-                </section>
-                <section id="feature-sticky-calculator">
-                    <h2>11. Sticky Conversion Calculator</h2>
-                    <p><strong>Applies to: All Google Analytics 4™ Pages</strong><br>A quick-access calculator for
-                        common marketing calculations like conversion rate or CPC, available anywhere in the GA4
-                        interface. Calculate two CRs and compare them with absolute difference and relative uplift.</p>
-                    <div class="feature-video-container" data-video-name="StickyCalculator"><video autoplay loop muted
-                            playsinline aria-label="Demo of Sticky Conversion Calculator computing and comparing conversion rates in GA4">
-                            <source src="/mp4/sticky_calculator.mp4" type="video/mp4">
-                        </video>
-                        <div class="play-icon-overlay"></div>
-                    </div>
-                </section>
-                <section id="feature-date-range-presets">
-                    <h2>12. Date Range Presets</h2>
-                    <p><strong>Applies to: Standard Reports Only</strong><br>Speeds up your reporting by adding
-                        one-click buttons for common date ranges and comparison periods, like "Last 7 Days" or
-                        "Month-over-Month." Includes a Compare button with three modes: vs. Previous Period, vs. Last Year, and vs. Last Year (Day of Week Aligned) for accurate year-over-year analysis. Customize visible presets and their order in settings.</p>
-                </section>
-                <section id="feature-calculated-metrics">
-                    <h2>13. Quick Calculated Metric</h2>
-                    <p><strong>Applies to: Standard Reports & Explorations</strong><br>Create temporary or saved
-                        calculated metrics (e.g., rates, ratios) directly within your reports. You can save calculated
-                        rates to your personal library and choose to auto-apply them in Standard Reports, Explorations,
-                        or both.</p>
-                    <div class="feature-video-container" data-video-name="QuickCalculatedMetric"><video autoplay loop
-                            muted playsinline aria-label="Demo of Quick Calculated Metric creating custom rate columns directly in GA4 reports">
-                            <source src="/mp4/quick_calculated_metric.mp4" type="video/mp4">
-                        </video>
-                        <div class="play-icon-overlay"></div>
-                    </div>
-                    <div class="requirement-note"><strong>Note:</strong> Saved calculated metrics are available for
-                        quick access and management in the settings page. Temporary (on-the-fly) calculations are only
-                        for your current view and will be cleared when the page reloads.</div>
-                </section>
-                <section id="feature-linechart-customization">
-                    <h2>14. Line Chart Color Customization (Beta)</h2>
-                    <p><strong>Applies to: Standard Reports & Explorations</strong><br>Customize the colors of line
-                        charts and add hourly granularity to Standard Reports. Click the palette icon near charts to
-                        customize colors, or use the new "Hour" option in the time interval dropdown for detailed hourly
-                        analysis.</p>
-                </section>
-                <section id="feature-fix-shared-links">
-                    <h2>15. Fix Shared Links</h2>
-                    <p><strong>Applies to: All Google Analytics 4™ Pages</strong><br>Fixes the common problem where
-                        shared GA4 links don't work because you're signed into the wrong Google account. When you
-                        encounter "Missing permissions" errors, this feature automatically adds a "Try Another Account"
-                        button to seamlessly retry the link with your other signed-in Google accounts.</p>
-                    <div class="requirement-note"><strong>When This Helps:</strong> Perfect for when colleagues share
-                        GA4 links via email, Slack, or Teams, but you're signed into a personal Google account instead
-                        of your work account, or when you have multiple work accounts with different property access
-                        levels.</div>
-                </section>
-                <section id="feature-create-exit-report">
-                    <h2>16. Create Exit Pages Report</h2>
-                    <p><strong>Applies to: All Google Analytics 4™ Pages (via Popup)</strong><br>Instantly generates a
-                        new Standard Report template pre-filled with <strong>Exits</strong>, <strong>Views</strong>, and
-                        <strong>Bounce Rate</strong> metrics, using Page Path as the primary dimension. This feature
-                        provides a crucial workaround, as the "Exits" metric is not available in the standard GA4 Report
-                        Builder UI.</p>
-                    <div class="requirement-note"><strong>Note:</strong> This feature requires you to have at least
-                        Editor Role Access and to be on a page within a GA4 property (i.e., the URL must contain a
-                        property ID like "/p123456789/"). The button in the popup will be disabled if you are not on a
-                        valid GA4 page.</div>
-                </section>
-                <section id="feature-custom-definitions">
-                    <h2>17. Custom Definitions Copy/Paste</h2>
-                    <p><strong>Applies to: GA4 Admin &gt; Custom Definitions Page Only</strong><br>Copy custom dimensions, custom metrics, and calculated metrics between GA4 properties. Perfect for setting up new properties, migrating configurations, or maintaining consistency across multiple properties.</p>
-                    <div class="requirement-note"><strong>Requirements:</strong> Must have Editor or Administrator role on both properties. Must be on the Admin &gt; Custom definitions page in GA4.</div>
-                    <ul>
-                        <li><strong>Smart Duplicate Prevention:</strong> Automatically skips items that already exist in the destination property.</li>
-                        <li><strong>Multi-Type Clipboard:</strong> Copy dimensions, metrics, and calculated metrics separately — the system remembers all of them.</li>
-                        <li><strong>Progress Tracking:</strong> Shows real-time progress with the option to cancel long operations.</li>
-                        <li><strong>Handles Large Datasets:</strong> Works with hundreds of items across multiple pages.</li>
-                    </ul>
-                </section>
-                <section id="feature-500-rows">
-                    <h2>18. 500 Rows per Page</h2>
-                    <p><strong>Applies to: Standard Reports Only</strong><br>GA4's "Rows per page" dropdown maxes out at 250 by default. This feature adds a 500 option so you can see twice as many rows without paginating — ideal for large reports where you need the full picture at a glance.</p>
-                    <ul>
-                        <li>Enable in the popup under the Reports tab, then open any Standard Report.</li>
-                        <li>Scroll to the bottom and select 500 from the Rows per page dropdown.</li>
-                        <li>A confirmation toast reminds you that larger row counts may slow the page slightly.</li>
-                    </ul>
-                </section>
-                <section id="feature-date-range-override">
-                    <h2>19. Date Range Override - <span class="new-badge">NEW</span></h2>
-                    <p><strong>Applies to: Read-Only Shared Explorations</strong><br>When someone shares a read-only Exploration with you, GA4 locks the date range. Date Range Override breaks that restriction — letting you query any time period you need without asking the owner to re-share.</p>
-                    <ul>
-                        <li>An <strong>Edit Date</strong> button appears below the date range in the Variables panel of any read-only Exploration.</li>
-                        <li>Pick your new start and end dates, hit <strong>Apply &amp; Reload</strong>, and GA4 fetches fresh data for your chosen range.</li>
-                    </ul>
-                    <div class="requirement-note"><strong>Session only:</strong> The override persists for your current browser session on that tab. Clicking Clear or closing the tab removes it. The original shared report is never modified.</div>
-                    <div class="feature-video-container" data-video-name="DateRangeOverride"><video autoplay loop muted
-                            playsinline aria-label="Demo of Date Range Override changing dates on read-only shared GA4 Explorations">
-                            <source src="/mp4/change_shared_exploration_date.mp4" type="video/mp4">
-                        </video>
-                        <div class="play-icon-overlay"></div>
-                    </div>
-                </section>
-                <section id="feature-advanced-table-filter">
-                    <h2>20. Advanced Table Filter (Beta)</h2>
-                    <p><strong>Applies to: Standard Reports Only</strong><br>Brings back Universal Analytics-style advanced filtering to GA4 Standard Reports. Set conditions like "Views > 10,000" or "Page path contains /shop" and GA4 returns only the rows that match. Combine multiple conditions with AND logic for precise data slicing.</p>
-                    <ul>
-                        <li><strong>Where to find it:</strong> Look for the "Advanced" button in the table controls bar, next to Search and Rows per page.</li>
-                        <li><strong>Metric filters:</strong> Filter by count metrics (Views, Active users, Events, Key events, Revenue) using greater than, less than, or equals.</li>
-                        <li><strong>Dimension filters:</strong> Filter by dimensions (Page path, Event name, Source/medium) using contains, exactly matches, begins with, ends with, regex, and negated versions.</li>
-                        <li><strong>Multiple conditions:</strong> Stack as many rules as you need. They combine with AND logic.</li>
-                        <li><strong>Smart value handling:</strong> Revenue metrics auto-convert to the correct internal format. Rate metrics accept percentage values directly.</li>
-                    </ul>
-                    <div class="feature-video-container" data-video-name="GA4ReportsAdvancedFilters"><video autoplay loop muted
-                            playsinline aria-label="Demo of Advanced Table Filter applying metric and dimension conditions to GA4 Standard Reports">
-                            <source src="/mp4/ga4-reports-advanced-filters-crop.mp4" type="video/mp4">
-                        </video>
-                        <div class="play-icon-overlay"></div>
-                    </div>
-                    <div class="note"><strong>Good to know:</strong> Active filter chips appear above the table showing your conditions at a glance. Click the X on any chip to remove that condition instantly.</div>
-                </section>
-                <section id="feature-annotations">
-                    <h2>21. Annotations in Explorations (Beta) - <span class="new-badge">NEW</span></h2>
-                    <p><strong>Applies to: Explorations (all techniques)</strong><br>GA4 shows annotations on Standard Report line charts but strips them from Explorations. This feature brings your annotations back so you always have context for data spikes and drops.</p>
-                    <ul>
-                        <li><strong>Line chart dots:</strong> Colored dots appear along the x-axis at dates where annotations exist. Hover to see the title and description.</li>
-                        <li><strong>Toolbar button:</strong> An Annotations icon in the GA4 Optimizer toolbar opens a scrollable list of all annotations for the property, sorted newest first.</li>
-                        <li><strong>Color-coded:</strong> Each annotation uses the same color you assigned in GA4's Standard Reports.</li>
-                        <li><strong>Custom color labels:</strong> In Settings, give each of the six annotation colors a label (e.g., "GTM Updates", "Campaigns", "Incidents").</li>
-                        <li><strong>Same-date grouping:</strong> Multiple annotations on the same date appear as a single dot with all entries listed in the tooltip.</li>
-                    </ul>
-                </section>
-                <hr style="margin-top: 40px; border-color: var(--border-color);">
-                <div class="cta-box"
-                    style="background-color: var(--bg-light); padding: 25px; border-radius: 8px; text-align: center; margin-top: 30px;">
-                    <h3 style="margin-top: 0;">Ready to Supercharge Your Workflow?</h3>
-                    <p>Get all these features and more with our free browser extension.</p>
-                    <a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=features_page_cta"
-                        class="cta-button" target="_blank" rel="noopener">
-                        Add GA4 Optimizer to Chrome — It's Free
-                    </a>
-                    <div class="other-browsers-link" style="margin-top: 15px; font-size: 0.9em;">
-                        Also available for
-                        <a href="https://microsoftedge.microsoft.com/addons/detail/ga4-optimizer-analysis-t/ejokbgelaaegbgemjjhgppigoclanomh?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=features_page_cta"
-                            target="_blank" rel="noopener">Edge</a> &
-                        <a href="https://addons.mozilla.org/en-US/firefox/addon/ga4-optimizer/?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=features_page_cta"
-                            target="_blank" rel="noopener">Firefox</a>
-                    </div>
+                <div class="tab-showcase-panel" id="reporting-highlighter">
+                    <h3>Percentage Change Highlighter</h3>
+                    <p>Spot the metrics that need your attention at a glance. Color-coded formatting makes significant increases and drops impossible to miss during weekly reviews. Customize thresholds and colors to match your reporting standards.</p>
+                    <div class="feature-video-container" data-video-name="PercentageChangeHighlighter"><video autoplay loop muted playsinline aria-label="Demo of Percentage Change Highlighter">
+                        <source src="/mp4/onboarding_demo_report_mom.mp4" type="video/mp4">
+                    </video><div class="play-icon-overlay"></div></div>
+                </div>
+                <div class="tab-showcase-panel" id="reporting-share">
+                    <h3>Δ% Share Change</h3>
+                    <p>Understand not just what changed, but whether a channel is gaining or losing its share of the total. Essential for budget allocation decisions and spotting emerging trends before they become obvious.</p>
+                    <div class="feature-video-container" data-video-name="ShareChange"><video autoplay loop muted playsinline aria-label="Demo of Δ% Share Change">
+                        <source src="/mp4/onboarding_demo_report_mom.mp4" type="video/mp4">
+                    </video><div class="play-icon-overlay"></div></div>
+                </div>
+                <div class="tab-showcase-panel" id="reporting-calc">
+                    <h3>Quick Calculated Metric</h3>
+                    <p>Build rate columns like conversions/sessions directly in your report. No Admin access required, no waiting on your analytics team to configure it. Save your favorites for instant reuse.</p>
+                    <div class="feature-video-container" data-video-name="QuickCalculatedMetric"><video autoplay loop muted playsinline aria-label="Demo of Quick Calculated Metric">
+                        <source src="/mp4/quick_calculated_metric.mp4" type="video/mp4">
+                    </video><div class="play-icon-overlay"></div></div>
+                </div>
+                <div class="tab-showcase-panel" id="reporting-presets">
+                    <h3>Date Range Presets</h3>
+                    <p>Stop clicking through the calendar picker every single time. One-click buttons for Last 7 Days, Month-over-Month, Year-over-Year, and more. Includes a Compare button with three modes for accurate period-over-period analysis.</p>
+                    <p><a href="/blog/ga4-date-range-shortcuts/">See all available date presets</a></p>
+                    <div class="feature-video-container" data-video-name="DateRangePresets"><video autoplay loop muted playsinline aria-label="Demo of Date Range Presets">
+                        <source src="/mp4/date_ranges.mp4" type="video/mp4">
+                    </video><div class="play-icon-overlay"></div></div>
+                </div>
+                <div class="tab-showcase-panel" id="reporting-exit">
+                    <h3>Exit Pages Report</h3>
+                    <p>GA4 removed the Exits metric from the Report Builder UI, but your data still has it. This feature instantly generates a Standard Report pre-filled with Exits, Views, and Bounce Rate so you can find where users are dropping off without building a custom Exploration.</p>
+                    <p><a href="/blog/how-to-get-exit-rate-in-ga4-reports/">Full guide to exit rate in GA4</a></p>
+                    <img src="/img/exit-rate-standard-reports.jpg" alt="Exit Pages Report showing Exits metric in GA4 Standard Reports" width="1668" height="1086" style="width: 100%; max-width: 720px; height: auto; border-radius: 8px; margin-top: 20px; border: 1px solid var(--border-color);">
+                </div>
+                <div class="tab-showcase-panel" id="reporting-rows">
+                    <h3>500 Rows per Page</h3>
+                    <p>See the full picture without paginating. GA4 caps you at 250 rows; this doubles it so you can scan all your pages, events, or campaigns at once. Ideal for large reports where you need everything visible.</p>
+                    <p><a href="/blog/500-rows-per-page-ga4-reports/">Read the full guide</a></p>
+                    <img src="/img/rows-per-page.jpg" alt="500 Rows per Page option in GA4 Standard Reports dropdown" width="597" height="401" style="width: 100%; max-width: 720px; height: auto; border-radius: 8px; margin-top: 20px; border: 1px solid var(--border-color);">
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Feature Block 2: Exploration Power Tools -->
+    <section class="home-section" style="text-align: left; padding: 40px 0;">
+        <h2 class="section-title" style="text-align: center; padding: 0 20px;">Exploration Power Tools</h2>
+        <div class="tab-showcase" data-tab-group="explorations">
+            <nav class="tab-showcase-nav" aria-label="Exploration features">
+                <button class="active" data-tab="exp-annotations">Annotations</button>
+                <button data-tab="exp-enhancer">View Enhancer</button>
+                <button data-tab="exp-column">% of Column Total</button>
+                <button data-tab="exp-detail">Detailed Results Shortcut</button>
+                <button data-tab="exp-abtest">AB Test Comparison</button>
+                <button data-tab="exp-dateoverride">Date Range Override</button>
+                <button data-tab="exp-linechart">Line Chart Customization</button>
+            </nav>
+            <div class="tab-showcase-content">
+                <div class="tab-showcase-panel active" id="exp-annotations">
+                    <h3>Annotations in Explorations</h3>
+                    <p>Finally understand why a metric spiked or dropped. Colored dots on your line charts show the annotations GA4 normally hides in Explorations. Hover for details, or open the full list from the toolbar.</p>
+                    <p><a href="/blog/ga4-annotations-explorations/">Learn more about annotations</a></p>
+                    <div class="feature-video-container" data-video-name="AnnotationsExplorations"><video autoplay loop muted playsinline aria-label="Demo of Annotations in Explorations">
+                        <source src="/mp4/ga4-annotations-in-explorations.mp4" type="video/mp4">
+                    </video><div class="play-icon-overlay"></div></div>
+                </div>
+                <div class="tab-showcase-panel" id="exp-enhancer">
+                    <h3>Exploration View Enhancer</h3>
+                    <p>Reclaim your screen space. Collapse side panels, jump to 500 rows with Shift+M, and navigate pages with keyboard shortcuts instead of digging through settings. Auto-maximize on load is also available.</p>
+                    <div class="feature-video-container" data-video-name="CollapsiblePanels"><video autoplay loop muted playsinline aria-label="Demo of Collapsible Panels">
+                        <source src="/mp4/collapsible_panels.mp4" type="video/mp4">
+                    </video><div class="play-icon-overlay"></div></div>
+                </div>
+                <div class="tab-showcase-panel" id="exp-column">
+                    <h3>% of Column Total</h3>
+                    <p>Instantly see how much each row contributes to the total on hover. No calculator or export needed. Perfect for quick contribution analysis during stakeholder meetings.</p>
+                    <p><a href="/blog/ga4-explorations-column-total/">Learn more about % of Column Total</a></p>
+                    <div class="feature-video-container" data-video-name="PercentageOfColumn"><video autoplay loop muted playsinline aria-label="Demo of Percentage of Column Total">
+                        <source src="/mp4/percentage_column_total.mp4" type="video/mp4">
+                    </video><div class="play-icon-overlay"></div></div>
+                </div>
+                <div class="tab-showcase-panel" id="exp-detail">
+                    <h3>Detailed Results Shortcut</h3>
+                    <p>Get more accurate data with one keyboard shortcut. Reduces sampling so your numbers actually reflect reality. No more wondering if that dip is real or just a sampling artifact.</p>
+                    <div class="feature-video-container" data-video-name="AutoDetail"><video autoplay loop muted playsinline aria-label="Demo of Detailed Results Shortcut">
+                        <source src="/mp4/auto_detail.mp4" type="video/mp4">
+                    </video><div class="play-icon-overlay"></div></div>
+                </div>
+                <div class="tab-showcase-panel" id="exp-abtest">
+                    <h3>AB Test Comparison</h3>
+                    <p>Know whether your test results are real. Automatic statistical significance and sample ratio mismatch checks save you from acting on noise. Just name your segments with the VAR- prefix and the math is done for you.</p>
+                    <p><a href="/blog/the-ultimate-guide-to-ab-test-analysis-in-ga4/">Read the full A/B testing guide</a></p>
+                    <div class="feature-video-container" data-video-name="ABTestCompare"><video autoplay loop muted playsinline aria-label="Demo of AB Test Comparison">
+                        <source src="/mp4/ab_test_compare.mp4" type="video/mp4">
+                    </video><div class="play-icon-overlay"></div></div>
+                </div>
+                <div class="tab-showcase-panel" id="exp-dateoverride">
+                    <h3>Date Range Override</h3>
+                    <p>Analyze any time period on shared Explorations without waiting for the owner to update the dates for you. Pick your dates, hit Apply, and GA4 fetches fresh data. Session-only, never modifies the original.</p>
+                    <p><a href="/blog/change-read-only-exploration-date/">See how Date Range Override works</a></p>
+                    <div class="feature-video-container" data-video-name="DateRangeOverride"><video autoplay loop muted playsinline aria-label="Demo of Date Range Override">
+                        <source src="/mp4/change_shared_exploration_date.mp4" type="video/mp4">
+                    </video><div class="play-icon-overlay"></div></div>
+                </div>
+                <div class="tab-showcase-panel" id="exp-linechart">
+                    <h3>Line Chart Color Customization</h3>
+                    <p>Make your charts presentation-ready. GA4 Exploration line charts default to all blue, making it difficult to differentiate elements. Override this instantly with custom colors so you can easily spot what you're looking for.</p>
+                    <div class="feature-video-container" data-video-name="LineChartCustomization"><video autoplay loop muted playsinline aria-label="Demo of Line Chart Color Customization">
+                        <source src="/mp4/line_chart-customizations.mp4" type="video/mp4">
+                    </video><div class="play-icon-overlay"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Block 3: Workflow & UI Fixes -->
+    <section class="home-section" style="text-align: left; padding: 40px 0;">
+        <h2 class="section-title" style="text-align: center; padding: 0 20px;">Workflow & UI Fixes</h2>
+        <div class="tab-showcase" data-tab-group="workflow">
+            <nav class="tab-showcase-nav" aria-label="Workflow features">
+                <button class="active" data-tab="wf-links">Fix Shared Links</button>
+                <button data-tab="wf-copy">Click to Copy</button>
+                <button data-tab="wf-sticky">Sticky Header</button>
+                <button data-tab="wf-sampling">Highlight Sampling</button>
+                <button data-tab="wf-definitions">Custom Definitions Copy/Paste</button>
+                <button data-tab="wf-calculator">Sticky Calculator</button>
+            </nav>
+            <div class="tab-showcase-content">
+                <div class="tab-showcase-panel active" id="wf-links">
+                    <h3>Fix Shared Links</h3>
+                    <p>Google's multiaccount system complicates sharing report links. We put together a fix: when a colleague sends a GA4 link and you get a permissions error, a "Try Another Account" button appears automatically so you can switch accounts in one click. No more dead-end error pages.</p>
+                    <p><a href="/blog/ga4-missing-permissions-error-share-report-links/">Learn how to share reports</a></p>
+                    <img src="/img/missing-permissions-solution-ga4-optimizer-2.jpg" alt="Fix Shared Links showing Try Another Account button in GA4" width="587" height="409" style="width: 100%; max-width: 720px; height: auto; border-radius: 8px; margin-top: 20px; border: 1px solid var(--border-color);">
+                </div>
+                <div class="tab-showcase-panel" id="wf-copy">
+                    <h3>Click to Copy</h3>
+                    <p>Stop retyping values into spreadsheets. Click any cell, header, or label and it's on your clipboard instantly. Configure single, double, and triple-click behaviors to match your workflow.</p>
+                    <div class="feature-video-container" data-video-name="ClickToCopy"><video autoplay loop muted playsinline aria-label="Demo of Click to Copy">
+                        <source src="/mp4/click_to_copy.mp4" type="video/mp4">
+                    </video><div class="play-icon-overlay"></div></div>
+                </div>
+                <div class="tab-showcase-panel" id="wf-sticky">
+                    <h3>Sticky Header</h3>
+                    <p>Never lose track of which column you're reading. Headers stay pinned as you scroll through long reports. No need to constantly scroll back and forth.</p>
+                    <div class="feature-video-container" data-video-name="StickyHeader"><video autoplay loop muted playsinline aria-label="Demo of Sticky Header">
+                        <source src="/mp4/sticky_header.mp4" type="video/mp4">
+                    </video><div class="play-icon-overlay"></div></div>
+                </div>
+                <div class="tab-showcase-panel" id="wf-sampling">
+                    <h3>Highlight Sampling</h3>
+                    <p>Know when your data is unreliable before you make decisions on it. A pulsing icon alerts you the moment sampling kicks in, so you never present inaccurate numbers to stakeholders.</p>
+                    <div class="feature-video-container" data-video-name="HighlightSampling"><video autoplay loop muted playsinline aria-label="Demo of Highlight Sampling">
+                        <source src="/mp4/highlight_sampling.mp4" type="video/mp4">
+                    </video><div class="play-icon-overlay"></div></div>
+                </div>
+                <div class="tab-showcase-panel" id="wf-definitions">
+                    <h3>Custom Definitions Copy/Paste</h3>
+                    <p>Setting up a new property? Copy all your dimensions, metrics, and calculated metrics from an existing one in seconds instead of recreating them manually. Automatically skips duplicates and shows real-time progress.</p>
+                    <p><a href="/blog/copy-custom-dimensions-definitions/">Learn more about copying definitions</a></p>
+                    <img src="/img/copy-paste-dimensions-ga4.png" alt="Custom Definitions Copy/Paste interface in GA4 Admin" width="599" height="546" style="width: 100%; max-width: 720px; height: auto; border-radius: 8px; margin-top: 20px; border: 1px solid var(--border-color);">
+                </div>
+                <div class="tab-showcase-panel" id="wf-calculator">
+                    <h3>Sticky Calculator</h3>
+                    <p>Compare conversion rates without switching tabs. A floating calculator is always available on any GA4 page. Calculate two CRs and instantly see the absolute difference and relative uplift.</p>
+                    <div class="feature-video-container" data-video-name="StickyCalculator"><video autoplay loop muted playsinline aria-label="Demo of Sticky Calculator">
+                        <source src="/mp4/sticky_calculator.mp4" type="video/mp4">
+                    </video><div class="play-icon-overlay"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="home-section" style="text-align: left;">
+        <h2 class="section-title" style="text-align: center;">Frequently Asked Questions</h2>
+        <div class="accordion-container">
+            <div class="accordion-item">
+                <button class="accordion-button" aria-expanded="false" aria-controls="faq-1">What is the 'Click to Copy Cell' feature?</button>
+                <div class="accordion-panel" id="faq-1">
+                    <p>The Click to Copy feature allows you to quickly copy values from table cells, headers, or dimension labels in both Explorations and Standard Reports, making it easier to export data to spreadsheets or presentations.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button" aria-expanded="false" aria-controls="faq-2">How does the 'AB Test Segment Comparison' feature work?</button>
+                <div class="accordion-panel" id="faq-2">
+                    <p>This is a powerful tool for conversion rate optimization (CRO) that compares metrics between test variations in your Exploration reports. It automatically calculates statistical significance and checks for sample ratio mismatch (SRM) to validate your test results. Segments must be named with a <code>VAR-</code> prefix for it to work.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button" aria-expanded="false" aria-controls="faq-3">How do Date Range Presets speed up reporting?</button>
+                <div class="accordion-panel" id="faq-3">
+                    <p>This feature adds one-click buttons for common date ranges and comparison periods (like "Last 7 Days" or "Month-over-Month") to the standard GA4 reports, saving you from manually selecting dates in the calendar every time. It also includes a Compare button with three modes: vs. Previous Period, vs. Last Year, and vs. Last Year (Day of Week Aligned) for accurate year-over-year comparisons.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button" aria-expanded="false" aria-controls="faq-4">What is the Exploration View Enhancer?</button>
+                <div class="accordion-panel" id="faq-4">
+                    <p>The Exploration View Enhancer is a suite of three tools for Freeform Explorations: Collapsible Panels to hide the Variables and Tab Settings panels for more screen space; Maximize View (Shift+M shortcut) to instantly set 500 rows and 20 column groups; and Pagination Controls with a floating bar and keyboard shortcuts (Alt+arrows) to navigate large datasets without opening the Settings panel.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button" aria-expanded="false" aria-controls="faq-5">How do I copy custom dimensions between GA4 properties?</button>
+                <div class="accordion-panel" id="faq-5">
+                    <p>Use the Custom Definitions Copy/Paste feature on the Admin > Custom definitions page. Click the Copy button on the source property, then navigate to the destination property and click Paste. It supports custom dimensions, custom metrics, and calculated metrics, automatically skips duplicates, and shows real-time progress. Requires Editor or Administrator role on both properties.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button" aria-expanded="false" aria-controls="faq-6">How does the 500 Rows per Page feature work?</button>
+                <div class="accordion-panel" id="faq-6">
+                    <p>This feature adds a 500 option to the Rows per page dropdown in Standard Reports, which normally maxes out at 250. Enable it in the popup under the Reports tab, then open any Standard Report, scroll to the bottom, and select 500 from the dropdown. Ideal for large reports where you need the full picture without paginating.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button" aria-expanded="false" aria-controls="faq-7">What is the 'Quick Calculated Metric' feature?</button>
+                <div class="accordion-panel" id="faq-7">
+                    <p>The Quick Calculated Metric feature lets you create temporary or saved calculated metrics on-the-fly. In Standard Reports, it adds a new interactive column. In Explorations, it enhances tooltips with calculated rates when you right-click a metric header. You can save metrics to your personal library and choose to auto-apply them.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button" aria-expanded="false" aria-controls="faq-8">How does the 'Create Exit Pages Report' feature work?</button>
+                <div class="accordion-panel" id="faq-8">
+                    <p>This feature instantly generates a new Standard Report template pre-filled with Exits, Views, and Bounce Rate metrics, using Page Path as the primary dimension. It provides a crucial workaround since the "Exits" metric is not available in the standard GA4 Report Builder UI. You can access it from the extension popup when on any GA4 property page.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button" aria-expanded="false" aria-controls="faq-9">What is the Date Range Override feature?</button>
+                <div class="accordion-panel" id="faq-9">
+                    <p>Date Range Override lets you change the date range on read-only shared Explorations that GA4 normally locks. An "Edit Date" button appears in the Variables panel, letting you pick any start and end date and reload the data. The override is session-only and never modifies the original shared report. It also supports comparison date ranges if the original Exploration had one active.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button" aria-expanded="false" aria-controls="faq-10">What is the Advanced Table Filter feature?</button>
+                <div class="accordion-panel" id="faq-10">
+                    <p>Advanced Table Filter brings back Universal Analytics-style filtering to GA4 Standard Reports. You can set conditions like "Views > 10,000" or "Page path contains /shop" and GA4 returns only matching rows. Combine multiple conditions with AND logic. Look for the "Advanced" button in the table controls bar next to Search and Rows per page.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button" aria-expanded="false" aria-controls="faq-11">How do Annotations in Explorations work?</button>
+                <div class="accordion-panel" id="faq-11">
+                    <p>GA4 strips annotations from Explorations, but this feature brings them back. Colored dots appear on line chart x-axes at annotation dates, and a toolbar button opens a full scrollable list. Annotations are color-coded to match your GA4 Standard Reports colors, and you can assign custom labels to each color in Settings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & CTA Footer -->
+    <div class="cta-box"
+        style="background-color: #aa53c418; padding: 30px; border-radius: 8px; text-align: center; margin-top: 40px; margin-bottom: 40px;">
+        <h3 style="margin-top: 0;">Ready to Get More Done in GA4?</h3>
+        <p>Join hundreds of marketers and analysts who spend less time clicking and more time finding insights. Your data never leaves your browser. No servers, no tracking, just a better Google Analytics.</p>
+        <a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=features_page_cta"
+            class="cta-button" target="_blank" rel="noopener">
+            Add GA4 Optimizer to Chrome
+        </a>
+        <div class="other-browsers-link" style="margin-top: 15px; font-size: 0.9em;">
+            Also available for
+            <a href="https://microsoftedge.microsoft.com/addons/detail/ga4-optimizer-analysis-t/ejokbgelaaegbgemjjhgppigoclanomh?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=features_page_cta"
+                target="_blank" rel="noopener">Edge</a> &
+            <a href="https://addons.mozilla.org/en-US/firefox/addon/ga4-optimizer/?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=features_page_cta"
+                target="_blank" rel="noopener">Firefox</a>
+        </div>
     </div>
+
+    <script>
+    (function() {
+        // Tab showcase logic
+        document.querySelectorAll('.tab-showcase').forEach(function(showcase) {
+            var buttons = showcase.querySelectorAll('.tab-showcase-nav button');
+            var panels = showcase.querySelectorAll('.tab-showcase-panel');
+
+            buttons.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var targetId = btn.getAttribute('data-tab');
+
+                    buttons.forEach(function(b) { b.classList.remove('active'); });
+                    panels.forEach(function(p) { p.classList.remove('active'); });
+
+                    btn.classList.add('active');
+                    var panel = document.getElementById(targetId);
+                    if (panel) {
+                        panel.classList.add('active');
+
+                        showcase.querySelectorAll('video').forEach(function(v) {
+                            v.pause();
+                        });
+                        var activeVideo = panel.querySelector('video');
+                        if (activeVideo) {
+                            activeVideo.load();
+                            activeVideo.play();
+                        }
+                    }
+                });
+            });
+        });
+
+        // Carousel arrow logic
+        document.querySelectorAll('.carousel-arrow').forEach(function(arrow) {
+            arrow.addEventListener('click', function() {
+                var targetId = arrow.getAttribute('data-carousel');
+                var container = document.getElementById(targetId);
+                if (!container) return;
+                var scrollAmount = container.offsetWidth * 0.85;
+                if (arrow.classList.contains('carousel-arrow-left')) {
+                    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                } else {
+                    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            });
+        });
+    })();
+    </script>
 
     <script type="application/ld+json">
     [

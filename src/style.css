@@ -262,7 +262,7 @@ a.cta-button:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.7);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -492,7 +492,8 @@ a.cta-button:hover {
         transform: translateY(0);
     }
     .brand-logo .brand-name {
-        display: none;
+        display: inline;
+        font-size: 1.2rem;
     }
     .main-content {
         padding: 20px;
@@ -635,7 +636,7 @@ a.cta-button:hover {
 .home-section {
     background-color: var(--bg-white);
     padding: 50px 40px;
-    margin-top: 40px;
+    margin-top: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
     text-align: center;
