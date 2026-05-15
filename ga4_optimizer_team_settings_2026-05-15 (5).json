@@ -1,0 +1,76 @@
+{
+  "ga4o_team_sync_version": "1.0",
+  "last_updated": "2026-05-15T03:39:49.923Z",
+  "global": {
+    "ga4oCalculatedMetricsLibrary": [
+      {
+        "autoApplyExploration": true,
+        "autoApplyStandard": true,
+        "denominatorMetric": "Views",
+        "format": "percent",
+        "id": "cd867380-2cc5-44d6-b534-a9b787c5c001",
+        "name": "Exits / Views",
+        "numeratorMetric": "Exits",
+        "type": "metric"
+      },
+      {
+        "autoApplyExploration": true,
+        "autoApplyStandard": false,
+        "denominatorSegment": "US - Opened any top nav drawer dropdown (excluding acct)",
+        "format": "percent",
+        "id": "6b8f09ff-020c-435c-99ee-ed6953e49a69",
+        "name": "US - Opened any nav drawer then clicked link / US - Opened any top nav drawer dropdown (excluding acct)",
+        "numeratorSegment": "US - Opened any nav drawer then clicked link",
+        "type": "segment"
+      },
+      {
+        "autoApplyExploration": true,
+        "autoApplyStandard": true,
+        "denominatorMetric": "Total users",
+        "format": "decimal",
+        "id": "7f252bdf-2640-4cae-86e1-e33c5a83e2a0",
+        "name": "Sessions / Total users",
+        "numeratorMetric": "Sessions",
+        "type": "metric"
+      }
+    ],
+    "ga4oPchCustomRanges": [
+      {
+        "color": "#15803D",
+        "descriptionKey": "pch_values_threshold_desc",
+        "from": 20,
+        "id": "strongPositive",
+        "titleKey": "pch_strong_positive_title",
+        "to": "POSITIVE_INFINITY"
+      },
+      {
+        "color": "#B91C1C",
+        "descriptionKey": "pch_values_negative_threshold_desc",
+        "from": "NEGATIVE_INFINITY",
+        "id": "strongNegative",
+        "titleKey": "pch_strong_negative_title",
+        "to": -20
+      },
+      {
+        "color": "#EF4444",
+        "descriptionKey": "pch_values_between_thresholds_desc",
+        "from": -19.99,
+        "id": "subtleNegative",
+        "titleKey": "pch_subtle_negative_title",
+        "to": -10
+      },
+      {
+        "color": "#22C55E",
+        "descriptionKey": "pch_values_between_thresholds_desc",
+        "from": 10,
+        "id": "subtlePositive",
+        "titleKey": "pch_subtle_positive_title",
+        "to": 19.99
+      }
+    ]
+  },
+  "scoped": {
+    "accounts": {},
+    "properties": {}
+  }
+}
