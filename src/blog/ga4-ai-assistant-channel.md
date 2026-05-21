@@ -35,8 +35,6 @@ thumbnail: /img/thumbnails/thumb-ai-traffic.jpg
 post_image: /img/thumbnails/banner-ai-traffic.jpg
 description: "Learn how to track AI chatbot traffic from ChatGPT and Claude using the new GA4 AI Assistant default channel group in {{ currentYear }}. Fix missing data."
 url: "https://www.gaoptimizer.com/blog/ga4-ai-assistant-channel/"
-eleventyComputed:
-  currentYear: "{{ '' | currentYear }}"
 tags:
   - post
   - ga4

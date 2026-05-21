@@ -1,7 +1,7 @@
 ---
 layout: "layouts/base.njk"
-title: "GA4 Optimizer Features - 20+ Tools to Fix GA4 Reporting"
-description: "Explore all features of GA4 Optimizer. Advanced table filters, date range presets, A/B test analysis, annotations in explorations, and more. Free Chrome, Edge, and Firefox extension."
+title: "GA4 Optimizer Features - 24 Tools to Fix GA4 Reporting"
+description: "Explore all features of GA4 Optimizer. Advanced table filters, date range presets, A/B test analysis, data dictionary, annotations in explorations, and more. Free Chrome, Edge, and Firefox extension."
 permalink: "/features/"
 schema: |
   {
@@ -83,6 +83,27 @@ schema: |
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "GA4 strips annotations from Explorations, but this feature brings them back. Colored dots appear on line chart x-axes at annotation dates, and a toolbar button opens a full scrollable list. Annotations are color-coded to match your GA4 Standard Reports colors, and you can assign custom labels to each color in Settings."
+      }
+    }, {
+      "@type": "Question",
+      "name": "How does Team Sync & Sharing work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Team Sync lets you export your GA4 Optimizer configuration (Calculated Metrics, Annotation Labels, PCH Ranges) as a JSON file or shareable code. Teammates import via paste, file upload, or a hosted URL that auto-syncs on startup. No backend or accounts needed. Everything stays local unless you explicitly export or connect a URL you control."
+      }
+    }, {
+      "@type": "Question",
+      "name": "What is the Data Dictionary feature?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Data Dictionary surfaces your tracking plan definitions as hover tooltips directly inside GA4. Info icons appear next to event names, dimensions, and metrics in reports, explorations, and dimension pickers. It ships with 80+ standard GA4 definitions, supports CSV import and Google Sheets auto-sync, and uses a scope cascade (Property > Account > Global) for team governance."
+      }
+    }, {
+      "@type": "Question",
+      "name": "How does Exact Numbers on Hover work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GA4 abbreviates large numbers on the Home screen (e.g., '24K', '2.4M'). This feature adds a purple dashed underline to hoverable numbers. On hover, the full exact value appears (e.g., '24,390'). It reads data GA4 already fetched from its API, so no extra network requests are made."
       }
     }]
   }
@@ -177,12 +198,12 @@ schema: |
             <div class="step">
                 <img src="/icons/report.png" alt="" width="48" height="48" style="filter: brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(500%) hue-rotate(170deg) brightness(0.9); margin-bottom: 10px;">
                 <h3>Data Analysts</h3>
-                <p>Spend less time wrestling with the interface and more time finding insights. Get automatic statistical significance on A/B tests, bypass sampling with one shortcut, and extract data without exporting to spreadsheets first.</p>
+                <p>Spend less time wrestling with the interface and more time finding insights. Get automatic statistical significance on A/B tests, bypass sampling with one shortcut, and extract data without exporting to spreadsheets first. Document every custom event and dimension in the built-in Data Dictionary so reports are self-explanatory to stakeholders.</p>
             </div>
             <div class="step">
                 <img src="/icons/dollar.png" alt="" width="48" height="48" style="filter: brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(500%) hue-rotate(170deg) brightness(0.9); margin-bottom: 10px;">
                 <h3>Digital Marketers</h3>
-                <p>Spot campaign performance shifts the moment they happen. Percentage change highlighters and a sticky calculator let you compare conversion rates without leaving the report.</p>
+                <p>Spot campaign performance shifts the moment they happen. Percentage change highlighters, a sticky calculator, and hover-based metric definitions mean fewer questions and faster decisions.</p>
             </div>
             <div class="step">
                 <img src="/icons/seo.png" alt="" width="48" height="48" style="filter: brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(500%) hue-rotate(170deg) brightness(0.9); margin-bottom: 10px;">
@@ -192,7 +213,7 @@ schema: |
             <div class="step">
                 <img src="/icons/agency.png" alt="" width="48" height="48" style="filter: brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(500%) hue-rotate(170deg) brightness(0.9); margin-bottom: 10px;">
                 <h3>Agencies</h3>
-                <p>Set up new client properties in minutes instead of hours. Copy custom dimensions, metrics, and calculated metrics between properties with one click, no manual re-creation needed.</p>
+                <p>Set up new client properties in minutes instead of hours. Copy custom dimensions between properties with one click, sync your team's configuration via Team Sync, and keep everyone aligned with a shared Data Dictionary that travels with the extension.</p>
             </div>
         </div>
             <button class="carousel-arrow carousel-arrow-right" aria-label="Scroll right" data-carousel="workflow-carousel">&#8250;</button>
@@ -237,7 +258,7 @@ schema: |
                 <button data-tab="reporting-calc">Quick Calculated Metric</button>
                 <button data-tab="reporting-presets">Date Range Presets</button>
                 <button data-tab="reporting-exit">Exit Pages Report</button>
-                <button data-tab="reporting-rows">500 Rows per Page</button>
+                <button data-tab="reporting-dictionary">Data Dictionary</button>
             </nav>
             <div class="tab-showcase-content">
                 <div class="tab-showcase-panel active" id="reporting-filters">
@@ -283,11 +304,12 @@ schema: |
                     <p><a href="/blog/how-to-get-exit-rate-in-ga4-reports/">Full guide to exit rate in GA4</a></p>
                     <img src="/img/exit-rate-standard-reports.jpg" alt="Exit Pages Report showing Exits metric in GA4 Standard Reports" width="1668" height="1086" style="width: 100%; max-width: 720px; height: auto; border-radius: 8px; margin-top: 20px; border: 1px solid var(--border-color);">
                 </div>
-                <div class="tab-showcase-panel" id="reporting-rows">
-                    <h3>500 Rows per Page</h3>
-                    <p>See the full picture without paginating. GA4 caps you at 250 rows; this doubles it so you can scan all your pages, events, or campaigns at once. Ideal for large reports where you need everything visible.</p>
-                    <p><a href="/blog/500-rows-per-page-ga4-reports/">Read the full guide</a></p>
-                    <img src="/img/rows-per-page.jpg" alt="500 Rows per Page option in GA4 Standard Reports dropdown" width="597" height="401" style="width: 100%; max-width: 720px; height: auto; border-radius: 8px; margin-top: 20px; border: 1px solid var(--border-color);">
+                <div class="tab-showcase-panel" id="reporting-dictionary">
+                    <h3>Data Dictionary</h3>
+                    <p>Stop asking "what does this event mean?" Your tracking plan definitions appear as hover tooltips right inside GA4. Ships with 80+ standard GA4 definitions, supports CSV import and Google Sheets auto-sync so your whole team stays aligned.</p>
+                    <div class="feature-video-container" data-video-name="DataDictionaryBrief"><video autoplay loop muted playsinline aria-label="Demo of Data Dictionary showing tracking plan tooltips in GA4">
+                        <source src="/mp4/data-dictionary-brief.mp4" type="video/mp4">
+                    </video><div class="play-icon-overlay"></div></div>
                 </div>
             </div>
         </div>
@@ -375,13 +397,16 @@ schema: |
                 <button data-tab="wf-sampling">Highlight Sampling</button>
                 <button data-tab="wf-definitions">Custom Definitions Copy/Paste</button>
                 <button data-tab="wf-calculator">Sticky Calculator</button>
+                <button data-tab="wf-rows">500 Rows per Page</button>
+                <button data-tab="wf-teamsync">Team Sync & Sharing</button>
+                <button data-tab="wf-exactnumbers">Exact Numbers on Hover</button>
             </nav>
             <div class="tab-showcase-content">
                 <div class="tab-showcase-panel active" id="wf-links">
                     <h3>Fix Shared Links</h3>
                     <p>Google's multiaccount system complicates sharing report links. We put together a fix: when a colleague sends a GA4 link and you get a permissions error, a "Try Another Account" button appears automatically so you can switch accounts in one click. No more dead-end error pages.</p>
                     <p><a href="/blog/ga4-missing-permissions-error-share-report-links/">Learn how to share reports</a></p>
-                    <img src="/img/missing-permissions-solution-ga4-optimizer-2.jpg" alt="Fix Shared Links showing Try Another Account button in GA4" width="587" height="409" style="width: 100%; max-width: 720px; height: auto; border-radius: 8px; margin-top: 20px; border: 1px solid var(--border-color);">
+                    <img src="/img/missing-permissions-solution-ga4-optimizer-2.jpg" alt="Fix Shared Links showing Try Another Account button in GA4" width="587" height="409" style="width: 100%; max-width: 480px; height: auto; border-radius: 8px; margin-top: 20px; border: 1px solid var(--border-color);">
                 </div>
                 <div class="tab-showcase-panel" id="wf-copy">
                     <h3>Click to Copy</h3>
@@ -415,6 +440,29 @@ schema: |
                     <p>Compare conversion rates without switching tabs. A floating calculator is always available on any GA4 page. Calculate two CRs and instantly see the absolute difference and relative uplift.</p>
                     <div class="feature-video-container" data-video-name="StickyCalculator"><video autoplay loop muted playsinline aria-label="Demo of Sticky Calculator">
                         <source src="/mp4/sticky_calculator.mp4" type="video/mp4">
+                    </video><div class="play-icon-overlay"></div></div>
+                </div>
+                <div class="tab-showcase-panel" id="wf-rows">
+                    <h3>500 Rows per Page</h3>
+                    <p>See the full picture without paginating. GA4 caps you at 250 rows; this doubles it so you can scan all your pages, events, or campaigns at once. Ideal for large reports where you need everything visible.</p>
+                    <p><a href="/blog/500-rows-per-page-ga4-reports/">Read the full guide</a></p>
+                    <img src="/img/rows-per-page.jpg" alt="500 Rows per Page option in GA4 Standard Reports dropdown" width="597" height="401" style="width: 100%; max-width: 720px; height: auto; border-radius: 8px; margin-top: 20px; border: 1px solid var(--border-color);">
+                </div>
+                <div class="tab-showcase-panel" id="wf-teamsync">
+                    <h3>Team Sync & Sharing</h3>
+                    <p>Get your entire team on the same configuration without manual setup. Export your Calculated Metrics, Annotation Labels, and highlight ranges as a JSON file or shareable code. Teammates import in one click, or connect a hosted URL for automatic background syncing.</p>
+                    <ul>
+                        <li>Export/import via file, code, or hosted URL</li>
+                        <li>Per-metric sharing with a single copy button</li>
+                        <li>Auto-sync from a team URL on startup</li>
+                        <li>No backend, no accounts, 100% local</li>
+                    </ul>
+                </div>
+                <div class="tab-showcase-panel" id="wf-exactnumbers">
+                    <h3>Exact Numbers on Hover</h3>
+                    <p>GA4 abbreviates large numbers on the Home screen ("24K", "2.4M"). Hover any abbreviated metric to see the full exact value pulled from the API response. No extra requests, no exporting needed.</p>
+                    <div class="feature-video-container" data-video-name="ExactNumbers"><video autoplay loop muted playsinline aria-label="Demo of Exact Numbers on Hover revealing full values on GA4 Home screen">
+                        <source src="/mp4/home-detailed-numbers.mp4" type="video/mp4">
                     </video><div class="play-icon-overlay"></div></div>
                 </div>
             </div>
@@ -489,6 +537,24 @@ schema: |
                 <button class="accordion-button" aria-expanded="false" aria-controls="faq-11">How do Annotations in Explorations work?</button>
                 <div class="accordion-panel" id="faq-11">
                     <p>GA4 strips annotations from Explorations, but this feature brings them back. Colored dots appear on line chart x-axes at annotation dates, and a toolbar button opens a full scrollable list. Annotations are color-coded to match your GA4 Standard Reports colors, and you can assign custom labels to each color in Settings.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button" aria-expanded="false" aria-controls="faq-12">How does Team Sync & Sharing work?</button>
+                <div class="accordion-panel" id="faq-12">
+                    <p>Team Sync lets you export your GA4 Optimizer configuration (Calculated Metrics, Annotation Labels, PCH Ranges) as a JSON file or shareable code. Teammates import via paste, file upload, or a hosted URL that auto-syncs on startup. No backend or accounts needed. Everything stays local unless you explicitly export or connect a URL you control.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button" aria-expanded="false" aria-controls="faq-13">What is the Data Dictionary feature?</button>
+                <div class="accordion-panel" id="faq-13">
+                    <p>The Data Dictionary surfaces your tracking plan definitions as hover tooltips directly inside GA4. Info icons appear next to event names, dimensions, and metrics in reports, explorations, and dimension pickers. It ships with 80+ standard GA4 definitions, supports CSV import and Google Sheets auto-sync, and uses a scope cascade (Property > Account > Global) for team governance.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button" aria-expanded="false" aria-controls="faq-14">How does Exact Numbers on Hover work?</button>
+                <div class="accordion-panel" id="faq-14">
+                    <p>GA4 abbreviates large numbers on the Home screen (e.g., "24K", "2.4M"). This feature adds a purple dashed underline to hoverable numbers. On hover, the full exact value appears (e.g., "24,390"). It reads data GA4 already fetched from its API, so no extra network requests are made.</p>
                 </div>
             </div>
         </div>
@@ -670,6 +736,24 @@ schema: |
         "contentUrl": "https://www.gaoptimizer.com/mp4/ga4-reports-advanced-filters-crop.mp4",
         "thumbnailUrl": "https://www.gaoptimizer.com/icons/ga4-optimizer-logo.png",
         "uploadDate": "2025-04-01T08:00:00+00:00"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "Data Dictionary Demo – GA4 Optimizer",
+        "description": "Quick demo showing how the Data Dictionary surfaces tracking plan definitions as hover tooltips directly inside GA4 reports and explorations.",
+        "contentUrl": "https://www.gaoptimizer.com/mp4/data-dictionary-brief.mp4",
+        "thumbnailUrl": "https://www.gaoptimizer.com/icons/ga4-optimizer-logo.png",
+        "uploadDate": "2025-05-01T08:00:00+00:00"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "Exact Numbers on Hover Demo – GA4 Optimizer",
+        "description": "Quick demo showing how hovering abbreviated numbers on the GA4 Home screen reveals the full exact values from the API response.",
+        "contentUrl": "https://www.gaoptimizer.com/mp4/home-detailed-numbers.mp4",
+        "thumbnailUrl": "https://www.gaoptimizer.com/icons/ga4-optimizer-logo.png",
+        "uploadDate": "2025-05-01T08:00:00+00:00"
       }
     ]
     </script>

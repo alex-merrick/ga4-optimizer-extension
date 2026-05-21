@@ -1,7 +1,7 @@
 ---
 layout: "layouts/base.njk"
 title: "Documentation - Complete GA4 Feature Guide"
-description: "Complete GA4 Optimizer documentation with step-by-step guides, troubleshooting tips, and feature explanations. Learn click-to-copy, AB test analysis, calculated metrics, sticky headers, and 21 powerful Google Analytics 4 workflow improvements."
+description: "Complete GA4 Optimizer documentation with step-by-step guides, troubleshooting tips, and feature explanations. Learn click-to-copy, AB test analysis, calculated metrics, data dictionary, and 24 powerful Google Analytics 4 workflow improvements."
 permalink: "/documentation/"
 eleventyComputed:
   ogTitle: "{{ title }}"
@@ -89,6 +89,27 @@ schema: |
         "@type": "Answer",
         "text": "Date Range Override adds an 'Edit Date' button to the Variables panel of any read-only shared Exploration. Click it, choose your new start and end dates, and hit Apply & Reload. GA4 fetches fresh data for your chosen range. The date label turns purple to show an override is active, and a Clear button reverts to the original dates. The override is session-only — the original shared report is never modified. If the Exploration has a comparison date range, the modal shows a second set of fields so you can update both in one step."
       }
+    }, {
+      "@type": "Question",
+      "name": "How does Team Sync & Sharing work in GA4 Optimizer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Team Sync lets you export your GA4 Optimizer configuration (Calculated Metrics, Annotation Labels, PCH Ranges) as a JSON file or shareable code. Teammates import via paste, file upload, or a hosted URL that auto-syncs on startup. No backend or accounts needed — everything stays local unless you explicitly export."
+      }
+    }, {
+      "@type": "Question",
+      "name": "What is the Data Dictionary feature?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Data Dictionary surfaces your tracking plan definitions as tooltips directly inside GA4. Hover info icons next to event names, dimensions, and metrics to see definitions instantly. It ships with 80+ standard GA4 event definitions, supports CSV import, Google Sheets auto-sync, and works across Standard Reports, Explorations, and dimension/metric pickers."
+      }
+    }, {
+      "@type": "Question",
+      "name": "How does Exact Numbers on Hover work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GA4 abbreviates large numbers on the Home screen (e.g., '24K', '2.4M'). Hover over any abbreviated metric with a purple dashed underline to see the full exact number pulled directly from the API response. No extra network requests are made — it reads data GA4 already fetched but chose to abbreviate."
+      }
     }]
   }
 ---
@@ -140,6 +161,9 @@ schema: |
                                 <li><a href="#feature-date-range-override">19. Date Range Override</a></li>
                                 <li><a href="#feature-advanced-table-filter">20. Advanced Table Filter</a></li>
                                 <li><a href="#feature-annotations">21. Annotations in Explorations</a></li>
+                                <li><a href="#feature-team-sync">22. Team Sync & Sharing</a></li>
+                                <li><a href="#feature-data-dictionary">23. Data Dictionary</a></li>
+                                <li><a href="#feature-exact-numbers">24. Exact Numbers on Hover</a></li>
                             </ul>
                         </li>
                         <li><a href="#troubleshooting-toc">Troubleshooting</a></li>
@@ -623,6 +647,80 @@ schema: |
                     </div>
                 </section>
 
+                <section id="feature-team-sync">
+                    <h2>22. Team Sync & Sharing <span class="new-badge">NEW</span></h2>
+                    <p><strong>Applies to: Extension Settings Page (Global tab)</strong><br>Share your GA4 Optimizer configuration with teammates so everyone runs the same setup. No backend, no accounts needed.</p>
+                    <ul>
+                        <li><strong>Export:</strong> Choose which settings to include (Calculated Metrics, Annotation Labels, PCH Ranges), then download a .JSON file or copy a shareable code.</li>
+                        <li><strong>Import:</strong> Paste a code, upload a file, or connect a hosted URL. Imported metrics merge with your existing library (matching IDs update, new ones are appended).</li>
+                        <li><strong>Per-metric sharing:</strong> Each Calculated Metric has a share button that copies just that one metric as a code your teammate can paste in.</li>
+                        <li><strong>Auto-sync:</strong> Connect a team URL once and the extension silently checks for updates on startup.</li>
+                    </ul>
+                    <div class="note">
+                        <strong>Privacy:</strong> Everything stays local. No data leaves your browser unless you explicitly export or connect a URL you control.
+                    </div>
+                </section>
+
+                <section id="feature-data-dictionary">
+                    <h2>23. Data Dictionary <span class="new-badge">NEW</span></h2>
+                    <p><strong>Applies to: Standard Reports, Explorations, Overview Snapshot Cards, and Dimension/Metric Pickers</strong><br>The Data Dictionary surfaces your tracking plan definitions as tooltips directly inside GA4. Define your custom events, dimensions, and metrics once, and every team member sees those definitions right next to the data, without switching to a spreadsheet or wiki.</p>
+                    <div class="feature-video-container" data-video-name="DataDictionary"><video autoplay loop muted
+                            playsinline aria-label="Demo of Data Dictionary showing tracking plan definitions as tooltips inside GA4 reports">
+                            <source src="/mp4/data-dictionary.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon-overlay"></div>
+                    </div>
+                    <h3>How It Works</h3>
+                    <ul>
+                        <li><strong>Hover tooltips:</strong> A small info icon appears next to event names in table rows, dimension headers, metric headers, and overview snapshot cards. Hover to see the definition instantly.</li>
+                        <li><strong>Inline editing:</strong> Click the icon to add or update a definition without leaving the GA4 report. Changes save immediately.</li>
+                        <li><strong>Scope Cascade:</strong> Definitions resolve in priority order: Property, then Account, then Global. Agencies can set global defaults while individual properties override with specific context.</li>
+                        <li><strong>Pre-loaded defaults:</strong> Ships with 80+ standard GA4 event definitions and 40+ dimension definitions out of the box, so your team gets value on day one.</li>
+                        <li><strong>Works everywhere:</strong> Icons appear in Standard Report tables, Exploration tables, overview page snapshot cards, and the Exploration dimension/metric picker (under the "Custom" category).</li>
+                        <li><strong>Dimension picker tooltips:</strong> When selecting dimensions or metrics in Explorations, custom items under the "Custom" category show the info icon on hover. This helps you remember what each custom dimension means before adding it to your report.</li>
+                    </ul>
+                    <h3>Team Collaboration</h3>
+                    <ul>
+                        <li><strong>CSV Import:</strong> Bulk-import your tracking plan from a spreadsheet. Supports the 4-column format: Scope, Type (event/dimension/metric), Name, Description.</li>
+                        <li><strong>Google Sheets Auto-Sync:</strong> Paste a Google Sheets "Publish to Web" CSV link and the dictionary syncs automatically in the background. When your team updates the master sheet, every browser picks up the changes within an hour.</li>
+                        <li><strong>Governance:</strong> Definitions imported via Auto-Sync are locked (read-only in the GA4 UI). Manually added definitions remain fully editable.</li>
+                        <li><strong>Stale entry cleanup:</strong> If a row is removed from the source spreadsheet, the next background sync automatically removes it from the local dictionary.</li>
+                        <li><strong>CSV Export:</strong> Export your entire dictionary as a CSV for backup or sharing with teammates who have not installed the extension yet.</li>
+                        <li><strong>Team Sync JSON:</strong> The dictionary is also included in the Team Sync JSON export/import bundle as an option (Settings &gt; Team &amp; Sync tab).</li>
+                    </ul>
+                    <h3>Settings</h3>
+                    <ul>
+                        <li><strong>Where to configure:</strong> Open the extension Settings page and navigate to the "Data Libraries" tab, then scroll to the "Data Dictionary" card.</li>
+                        <li><strong>Filter tabs:</strong> Use the All / Events / Dimensions / Metrics tabs to quickly find what you are looking for.</li>
+                        <li><strong>Search:</strong> Type to filter definitions by name or description. The search field appears when you have more than 10 entries.</li>
+                        <li><strong>Bulk actions:</strong> Select multiple entries with checkboxes, then delete them in one click.</li>
+                        <li><strong>Restore Defaults:</strong> Click "Restore GA4 Defaults" to re-add the standard GA4 definitions without affecting your custom entries.</li>
+                    </ul>
+                    <div class="note">
+                        <strong>Privacy:</strong> All definitions are stored locally in your browser (chrome.storage.local). Nothing is sent to any server. The Auto-Sync URL feature only fetches from a URL you explicitly provide, and the data never leaves your machine.
+                    </div>
+                </section>
+
+                <section id="feature-exact-numbers">
+                    <h2>24. Exact Numbers on Hover <span class="beta-badge">BETA</span></h2>
+                    <p><strong>Applies to: GA4 Home Screen & Reports Hub Overview Cards</strong><br>GA4 abbreviates large numbers on the Home screen (e.g., "24K", "2.4M"). Hover over any abbreviated metric to see the full exact number pulled directly from the API response.</p>
+                    <div class="feature-video-container" data-video-name="ExactNumbers"><video autoplay loop muted
+                            playsinline aria-label="Demo of Exact Numbers on Hover revealing full metric values on the GA4 Home screen">
+                            <source src="/mp4/home-detailed-numbers.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon-overlay"></div>
+                    </div>
+                    <ul>
+                        <li>A purple dashed underline indicates which numbers are hoverable.</li>
+                        <li>On hover, the exact value appears in purple (e.g., "24K" becomes "24,390").</li>
+                        <li>Move your mouse away and the original abbreviated value returns.</li>
+                        <li>Data updates automatically when you change the date range.</li>
+                    </ul>
+                    <div class="note">
+                        <strong>How it works:</strong> The extension captures the exact metric totals from GA4's API response as it loads. No extra network requests are made — it simply reads the data GA4 already fetched but chose to abbreviate in the UI.
+                    </div>
+                </section>
+
                 <h2 id="troubleshooting-toc">Troubleshooting</h2>
                 <div class="accordion-container">
                     <div class="accordion-item">
@@ -771,6 +869,44 @@ schema: |
                                 <li><strong>Comparison fields not appearing in the modal:</strong> The second set of date fields only appears if the original shared Exploration already has a comparison date range active. If there's no comparison in the original, the modal will only show the primary date range fields.</li>
                                 <li><strong>Override disappears after closing the tab:</strong> This is expected behavior. The override is session-only and does not persist across tabs or browser sessions. Re-apply it when you reopen the link.</li>
                                 <li><strong>Export shows wrong comparison header:</strong> This is a known GA4 limitation. The data values are correct for your overridden range, but the column header in the export reflects the original read-only dates. GA4 Optimizer will warn you about this before the export proceeds.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-14"
+                            id="trouble-button-14">Team Sync & Sharing not working</button>
+                        <div class="accordion-panel" id="trouble-panel-14" role="region"
+                            aria-labelledby="trouble-button-14">
+                            <ul>
+                                <li><strong>Import not merging correctly:</strong> Imported metrics merge by ID. If a metric with the same ID exists, it will be updated. New metrics are appended. Check the import summary for details.</li>
+                                <li><strong>Auto-sync URL not updating:</strong> Ensure the URL is accessible (not behind authentication) and returns valid JSON. The extension checks on startup only, so restart your browser or reload the extension to trigger a sync.</li>
+                                <li><strong>Shareable code not working for teammate:</strong> Ensure your teammate is on the latest version of GA4 Optimizer. Older versions may not support the Team Sync format.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-15"
+                            id="trouble-button-15">Data Dictionary tooltips not appearing</button>
+                        <div class="accordion-panel" id="trouble-panel-15" role="region"
+                            aria-labelledby="trouble-button-15">
+                            <ul>
+                                <li><strong>Icons not showing:</strong> Ensure the Data Dictionary feature is enabled in the popup. The info icons only appear next to items that have a matching definition in your dictionary.</li>
+                                <li><strong>Custom dimensions not matched:</strong> Definitions match by exact name (case-sensitive). Verify the name in your dictionary matches exactly what GA4 displays in the report.</li>
+                                <li><strong>Google Sheets sync not updating:</strong> Auto-sync runs in the background approximately once per hour. To force a sync, go to Settings &gt; Data Libraries &gt; Data Dictionary and click the sync button manually.</li>
+                                <li><strong>Locked definitions can't be edited:</strong> Definitions imported via Auto-Sync are read-only by design. To edit them, either update the source spreadsheet (changes sync automatically) or disconnect Auto-Sync and manually add the definition.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-16"
+                            id="trouble-button-16">Exact Numbers on Hover not showing</button>
+                        <div class="accordion-panel" id="trouble-panel-16" role="region"
+                            aria-labelledby="trouble-button-16">
+                            <ul>
+                                <li><strong>No purple underline:</strong> This feature only works on the GA4 Home screen and Reports Hub overview cards. It does not apply to Standard Reports or Explorations.</li>
+                                <li><strong>Feature not enabled:</strong> Check that "Exact Numbers on Hover" is toggled on in the popup.</li>
+                                <li><strong>Numbers not appearing on hover:</strong> The extension captures data from GA4's API response as it loads. If you enabled the feature after the page loaded, refresh the page so the extension can intercept the API data.</li>
+                                <li><strong>Some cards missing exact values:</strong> If GA4 did not include exact totals in its API response for a particular card, the extension cannot display them. This is uncommon but can happen with certain widget types.</li>
                             </ul>
                         </div>
                     </div>
@@ -950,6 +1086,24 @@ schema: |
         "name": "Annotations in Explorations Demo – GA4 Optimizer",
         "description": "Quick demo showing how GA4 annotations appear as colored dots on Exploration line charts and in a scrollable toolbar list.",
         "contentUrl": "https://www.gaoptimizer.com/mp4/ga4-annotations-in-explorations.mp4",
+        "thumbnailUrl": "https://www.gaoptimizer.com/icons/ga4-optimizer-logo.png",
+        "uploadDate": "2025-05-01"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "Data Dictionary Demo – GA4 Optimizer",
+        "description": "Quick demo showing how the Data Dictionary surfaces tracking plan definitions as hover tooltips directly inside GA4 reports and explorations.",
+        "contentUrl": "https://www.gaoptimizer.com/mp4/data-dictionary.mp4",
+        "thumbnailUrl": "https://www.gaoptimizer.com/icons/ga4-optimizer-logo.png",
+        "uploadDate": "2025-05-01"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "Exact Numbers on Hover Demo – GA4 Optimizer",
+        "description": "Quick demo showing how hovering abbreviated numbers on the GA4 Home screen reveals the full exact values from the API response.",
+        "contentUrl": "https://www.gaoptimizer.com/mp4/home-detailed-numbers.mp4",
         "thumbnailUrl": "https://www.gaoptimizer.com/icons/ga4-optimizer-logo.png",
         "uploadDate": "2025-05-01"
       }

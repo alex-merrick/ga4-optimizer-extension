@@ -33,10 +33,8 @@ publishDate: 2026-05-01T09:00:00.000-05:00
 last_modified_at: 2026-05-01T09:00:00.000-05:00
 thumbnail: /img/thumbnails/thumb-gtm.jpg
 post_image: /img/thumbnails/banner-gtm.jpg
-eleventyComputed:
-  currentYear: "{{ '' | currentYear }}"
-  title: "The 12 Best Google Tag Manager (GTM) Browser Extensions of {{ currentYear }}"
-  description: "The 12 best Google Tag Manager browser extensions in {{ currentYear }}. Speed up your workflow, build complex variables, and debug the dataLayer with these essential tools."
+title: "The 12 Best Google Tag Manager (GTM) Browser Extensions of {{ currentYear }}"
+description: "The 12 best Google Tag Manager browser extensions in {{ currentYear }}. Speed up your workflow, build complex variables, and debug the dataLayer with these essential tools."
 tags:
   - post
   - gtm

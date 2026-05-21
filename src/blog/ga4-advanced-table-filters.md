@@ -38,10 +38,8 @@ date: 2026-05-10T00:00:00.000Z
 publishDate: 2026-05-10T00:00:00.000Z
 thumbnail: /img/thumbnails/thumb-adv-filter.jpg
 post_image: /img/thumbnails/banner-adv-filter.jpg
-eleventyComputed:
-  currentYear: "{{ '' | currentYear }}"
-  title: "How to Filter GA4 Standard Reports Beyond the Search Bar"
-  description: "Learn how to bring back Universal Analytics style advanced table filters to your GA4 standard reports in {{ currentYear }}. Filter metrics and dimensions easily."
+title: "How to Filter GA4 Standard Reports Beyond the Search Bar"
+description: "Learn how to bring back Universal Analytics style advanced table filters to your GA4 standard reports in {{ currentYear }}. Filter metrics and dimensions easily."
 ---
 
 Users moving from Universal Analytics to Google Analytics 4 frequently notice the lack of robust table filtering. In Universal Analytics, setting up complex inclusion and exclusion rules directly above your data table was simple. GA4 standard reports restrict you to a basic search bar. 

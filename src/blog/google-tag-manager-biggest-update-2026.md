@@ -55,10 +55,8 @@ last_modified_at: 2026-05-21T09:17:00.000-05:00
 thumbnail: /img/thumbnails/thumb-gtm-upgrade.jpg
 post_image: /img/thumbnails/banner-gtm-upgrade.jpg
 url: "https://www.gaoptimizer.com/blog/google-tag-manager-biggest-update-2026/"
-eleventyComputed:
-  currentYear: "{{ '' | currentYear }}"
-  title: "Google Tag Manager Update {{ currentYear }}: GTM Containers Become Google Tags"
-  description: "Google Tag Manager update {{ currentYear }}: Learn how GTM containers merge with Google Tags, boosting page speed and adding codeless visual tagging to your site."
+title: "Google Tag Manager Update {{ currentYear }}: GTM Containers Become Google Tags"
+description: "Google Tag Manager update {{ currentYear }}: Learn how GTM containers merge with Google Tags, boosting page speed and adding codeless visual tagging to your site."
 tags:
   - post
   - gtm

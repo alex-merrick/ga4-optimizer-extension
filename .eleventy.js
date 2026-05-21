@@ -70,6 +70,11 @@ module.exports = function(eleventyConfig) {
         return new Date().getFullYear();
     });
 
+    // --- Global Current Year Data ---
+    // Makes {{ currentYear }} available in all templates, layouts, and eleventyComputed fields
+    // without needing per-post eleventyComputed blocks.
+    eleventyConfig.addGlobalData("currentYear", () => new Date().getFullYear());
+
     // --- Date Format Filter ---
     // Usage: {{ someDate | date("MMMM d, yyyy") }}
     eleventyConfig.addFilter("date", function (value, format) {

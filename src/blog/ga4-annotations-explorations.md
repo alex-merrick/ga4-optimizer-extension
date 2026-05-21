@@ -38,10 +38,8 @@ date: 2026-05-12T00:00:00.000Z
 publishDate: 2026-05-12T00:00:00.000Z
 thumbnail: /img/thumbnails/thumb-annotations.jpg
 post_image: /img/thumbnails/banner-annotations.jpg
-eleventyComputed:
-  currentYear: "{{ '' | currentYear }}"
-  title: "How to View Annotations in GA4 Explorations"
-  description: "Learn how to view annotations in GA4 explorations in {{ currentYear }}. Stop guessing what caused data spikes by adding historical context to your Exploration reports."
+title: "How to View Annotations in GA4 Explorations"
+description: "Learn how to view annotations in GA4 explorations in {{ currentYear }}. Stop guessing what caused data spikes by adding historical context to your Exploration reports."
 ---
 
 Analyzing data anomalies in Google Analytics 4 can be a highly frustrating experience. While the platform displays annotations on Standard Report line charts (which are meant for high-level overviews), it completely excludes them from Explorations. If you are a power user diving deep into a Exploration report to figure out the "why" behind a massive traffic spike or revenue drop, you are left completely without context.

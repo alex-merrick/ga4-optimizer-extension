@@ -38,10 +38,8 @@ date: 2026-04-25T00:00:00.000Z
 publishDate: 2026-04-25T00:00:00.000Z
 thumbnail: /img/thumbnails/thumb-change-date.jpg
 post_image: /img/thumbnails/banner-change-date.jpg
-eleventyComputed:
-  currentYear: "{{ '' | currentYear }}"
-  title: "Change Read-Only GA4 Exploration Dates"
-  description: "Learn how to change date ranges on read-only shared GA4 explorations in {{ currentYear }}. Edit locked dates easily without requesting edit access from the owner."
+title: "Change Read-Only GA4 Exploration Dates"
+description: "Learn how to change date ranges on read-only shared GA4 explorations in {{ currentYear }}. Edit locked dates easily without requesting edit access from the owner."
 ---
 
 Sharing explorations in Google Analytics 4 helps distribute insights across your team. However, when someone shares a report with you, the date range is permanently locked in read-only mode. You can view the data, but you cannot adjust the timeframe. We built the **Date Range Override** feature in GA4 Optimizer to solve this exact problem.
