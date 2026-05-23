@@ -70,6 +70,8 @@ tags:
   - google-tag
 ---
 
+*Updated May 23, {{ currentYear }}: Google has officially published documentation confirming the transition and introducing new initialization triggers. This article has been updated to reflect the finalized features.*
+
 Google Tag Manager is receiving its most significant update in years. First revealed to partners ahead of the official Google Marketing Live keynote on May 20, {{ currentYear }}, GTM containers are effectively becoming Google Tags. This merges two product lines that have always been closely related under the hood.
 
 While Google did not dedicate main stage time to the GTM update during the keynote itself, they quietly published the <a href="https://support.google.com/tagmanager/answer/17079602" target="_blank" rel="noopener noreferrer">official announcement page</a>, confirming the earlier leaks. The update introduces centralized Google Tag settings, codeless visual tagging, and a dual-ID deployment model.
