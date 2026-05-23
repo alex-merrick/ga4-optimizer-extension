@@ -36,14 +36,21 @@ faq_schema: >
       "name": "What is the GTM visual tagging feature?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The visual tagging feature lets you walk through a conversion flow on your website and automatically generates tags, triggers, and variables based on your interactions with page elements, providing a codeless tagging experience."
+        "text": "The visual tagging feature lets you walk through a conversion flow on your website and automatically generates tags, triggers, and variables based on your interactions with page elements. It is currently available in beta for Google Ads purchase conversions."
       }
     }, {
       "@type": "Question",
       "name": "When is the Google Tag Manager update being released?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Google officially confirmed the update during Google Marketing Live on May 20, but has not provided a specific timeline beyond stating it will arrive later this year. The upgrade will be opt-in and rolled out to containers individually."
+        "text": "Google officially confirmed the update on May 20. The visual tagging feature is currently in beta for Google Ads, while the structural container optimization upgrades are rolling out incrementally throughout the year."
+      }
+    }, {
+      "@type": "Question",
+      "name": "What happened to the gtag config command in the new update?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "New deployment snippets will no longer include the gtag config command. Instead, you are recommended to configure initialization behavior using the new gtm init trigger, which can also be set to wait for a config command to preserve legacy setups."
       }
     }]
   }
@@ -51,7 +58,7 @@ layout: layouts/post.njk
 author: Alex Merrick
 date: 2026-05-07T09:00:00.000-05:00
 publishDate: 2026-05-07T09:00:00.000-05:00
-last_modified_at: 2026-05-21T09:17:00.000-05:00
+last_modified_at: 2026-05-23T10:30:00.000-05:00
 thumbnail: /img/thumbnails/thumb-gtm-upgrade.jpg
 post_image: /img/thumbnails/banner-gtm-upgrade.jpg
 url: "https://www.gaoptimizer.com/blog/google-tag-manager-biggest-update-2026/"
@@ -65,7 +72,7 @@ tags:
 
 Google Tag Manager is receiving its most significant update in years. First revealed to partners ahead of the official Google Marketing Live keynote on May 20, {{ currentYear }}, GTM containers are effectively becoming Google Tags. This merges two product lines that have always been closely related under the hood.
 
-While Google did not dedicate main stage time to the GTM update during the keynote itself, they quietly published the <a href="https://business.google.com/us/accelerate/announcements/google-tag-manager/" target="_blank" rel="noopener noreferrer">official announcement page</a>, confirming the earlier leaks. The update introduces centralized Google Tag settings, codeless visual tagging, and a dual-ID deployment model.
+While Google did not dedicate main stage time to the GTM update during the keynote itself, they quietly published the <a href="https://support.google.com/tagmanager/answer/17079602" target="_blank" rel="noopener noreferrer">official announcement page</a>, confirming the earlier leaks. The update introduces centralized Google Tag settings, codeless visual tagging, and a dual-ID deployment model.
 
 Here is a full breakdown of what is changing, what is not, and how it affects your day-to-day GTM workflow.
 
@@ -73,9 +80,9 @@ Here is a full breakdown of what is changing, what is not, and how it affects yo
 
 ## Official Confirmation from Google Marketing Live
 
-Although marketers expected a major reveal during the Google Marketing Live keynote, the announcement was instead made via a dedicated feature page. Google's communication confirms all the early details shared by tagging experts like <a href="https://www.simoahava.com/" target="_blank" rel="noopener noreferrer">Simo Ahava</a>. Importantly, there are no corrections to the initial feature list. Everything leaked previously is entirely accurate.
+Although marketers expected a major reveal during the Google Marketing Live keynote, the announcement was instead made via a dedicated feature page. Google's communication confirms the early details shared by tagging experts like <a href="https://www.simoahava.com/" target="_blank" rel="noopener noreferrer">Simo Ahava</a>, while also bringing a few unexpected technical changes into focus.
 
-Google has not provided a specific rollout timeline beyond stating it will happen "in {{ currentYear }}". Until then, here is a look at the official visual tagging demo they provided:
+While full optimization features will roll out incrementally throughout the year, some features like visual tagging are already live in beta. Until you receive the container update, here is a look at the official visual tagging demo they provided:
 
 <div class="feature-video-container" data-video-name="GTMUpdate">
   <video autoplay loop muted playsinline aria-label="Demo of new Google Tag Manager visual tagging and interface">
@@ -92,11 +99,17 @@ At its core, this update merges the Google Tag and GTM development tracks. Until
 
 The headline change: **GTM containers will become Google Tags.** This is an opt-in upgrade, not an automatic migration.
 
+### The New Deployment Snippet and gtm init Trigger
+
+As part of this unification, new deployment snippets will be standardized and will no longer contain the legacy `gtag config` command.
+
+Moving forward, Google recommends configuring initialization behavior using a new `gtm init` trigger. For sites that still require legacy configurations, you can instruct this `init` trigger to wait for the legacy `config` command before firing dependent tags.
+
 ---
 
 ## What the GTM Update Does NOT Change
 
-Before diving into the details, here are three critical clarifications directly from Simo Ahava's breakdown:
+Before diving into the details, here are three critical clarifications regarding the transition:
 
 1. **GTM will NOT start collecting data automatically.** Upgrading your container does not cause it to send hits to GA4, Google Ads, or Floodlight without your explicit configuration.
 2. **You do NOT have to use Google products with GTM.** Non-Google tags and custom implementations remain fully supported.
@@ -128,6 +141,10 @@ Destinations also introduce a centralized set of Google Tag Settings within the 
 
 You can still override individual settings per Destination in the product-specific tags themselves. But the centralized default eliminates the inconsistency that creeps in when you manage identical settings across five different Google Tags.
 
+### Simplified Team Access
+
+A major administrative benefit of Destinations is streamlined permissions. When you link your container to Google destination accounts during the optimization process, it automatically establishes account links and grants "Read" access by default. This makes the container directly visible within the interface of your other connected Google products without manual user management.
+
 ### Keeping the Legacy Flow
 
 If you prefer the current architecture with separate settings and individual library loads, you can continue using legacy Google Tags in GTM. The old flow is not being removed.
@@ -144,13 +161,13 @@ The Overview page in GTM, which most practitioners ignore entirely, is being red
 
 ### Simplified Side Menu
 
-Some menu items will move behind an "Advanced" section to reduce visual clutter. Power users may find this frustrating since it adds an extra click to reach frequently used features. Google is clearly optimizing for new users at the expense of muscle memory.
+The side menu is being condensed. Key elements (specifically Triggers, Variables, Templates, and Folders) will move behind an "Advanced" collapsible tab to reduce visual clutter. Power users may find this frustrating since it adds an extra click to reach frequently used features, but it aims to simplify the interface for newer users.
 
 ### Codeless Visual Tagging
 
-Google is introducing a codeless visual tagging tool that lets you walk through a conversion flow on your actual website and automatically generate tags, triggers, and variables based on your interactions with page elements. Think of it as the WYSIWYG editors that CRO tools like VWO and Optimizely have offered for years, but now built directly into GTM.
+Google is introducing a codeless visual tagging tool that lets you walk through a conversion flow on your actual website. You can select elements directly on the page, and the system automatically generates tags, triggers, and variables based on those interactions without manual coding.
 
-This could significantly lower the barrier to entry for marketers who need basic conversion tracking without developer support.
+**Note on availability:** Google's official documentation clarifies that visual tagging is currently available in beta specifically for **purchase conversions in Google Ads**, and will progressively roll out for additional use cases throughout the year. This significantly lowers the barrier to entry for marketers who need basic tracking without developer support.
 
 ---
 
@@ -226,7 +243,10 @@ Destinations replace the legacy Google Tags inside your container. Instead of ea
 Every new Google Tag will have both a GTM container ID (GTM-XXXXXX) and a product ID (G-XXXXXX or AW-XXXXXX). Deploying with the GTM ID gives full container functionality. Deploying with the product ID restricts the container to Google product tags only, which is useful for governance in organizations concerned about GTM misuse.
 
 ### What is the GTM visual tagging feature?
-The visual tagging feature lets you walk through a conversion flow on your website and automatically generates tags, triggers, and variables based on your interactions with page elements, providing a codeless tagging experience.
+The visual tagging feature lets you walk through a conversion flow on your website and automatically generates tags, triggers, and variables based on your interactions with page elements. It is currently available in beta for Google Ads purchase conversions.
 
 ### When is the Google Tag Manager update being released?
-Google officially confirmed the update during Google Marketing Live on May 20, but has not provided a specific timeline beyond stating it will arrive later this year. The upgrade will be opt-in and rolled out to containers individually.
+Google officially confirmed the update on May 20. The visual tagging feature is currently in beta for Google Ads, while the structural container optimization upgrades are rolling out incrementally throughout the year.
+
+### What happened to the gtag config command in the new update?
+New deployment snippets will no longer include the gtag config command. Instead, you are recommended to configure initialization behavior using the new gtm init trigger, which can also be set to wait for a config command to preserve legacy setups.
