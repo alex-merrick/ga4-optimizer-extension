@@ -97,7 +97,7 @@ Perhaps the most frustrating limitation for analysts is that GBP metrics are res
 
 ## Enhancing Your Local GA4 Reports
 
-Because Google Business Profile data is locked out of Explorations, you are forced to do all your analysis inside GA4's Standard Reports interface. Unfortunately, Standard Reports are notoriously rigid and lack the advanced calculation tools analysts rely on.
+For many of you who have touched Google Analyitcs 4 already, you might be rellectant to get back in. We have made it much easier! Because Google Business Profile data is locked out of Explorations, you are forced to do all your analysis inside GA4's Standard Reports interface. Unfortunately, Standard Reports are notoriously rigid and lack the advanced calculation tools analysts rely on.
 
 You can bypass these interface limitations by installing the free [GA4 Optimizer Chrome Extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_ga4_gbp_integration). It injects missing workflow features directly into the GA4 interface, making it much easier to analyze your newly imported local data.
 
@@ -111,7 +111,7 @@ If you are looking for more ways to fix the native GA4 interface, check out our 
 
 ### How do I link Google Business Profile to GA4?
 
-Navigate to your GA4 Admin settings, locate the Product links section, and select Google Business Profile links. Click the Link button and choose the profiles you want to connect. You need Administrator or Editor access in GA4 and Manager or Owner access for the Business Profile.
+Navigate to your GA4 Admin settings, locate the Product links section, and select Google Business Profile links. (Note that the rollout may be slow from Google and may see this feature later) Click the Link button and choose the profiles you want to connect. You need Administrator or Editor access in GA4 and Manager or Owner access for the Business Profile.
 
 ### Why can't I see Google Business Profile data in GA4 Explorations?
 
