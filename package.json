@@ -4,8 +4,8 @@
   "description": "Website for GA4 Optimizer Extension",
   "main": "index.js",
   "scripts": {
-    "start": "npx eleventy --serve",
-    "build": "npx eleventy"
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
   },
   "keywords": [],
   "author": "",
