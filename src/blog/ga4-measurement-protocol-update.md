@@ -67,7 +67,7 @@ The API will not break and Google has no plans to shut it down. They are simply 
 
 ## Introduction to the Data Manager API
 
-If the Measurement Protocol is no longer receiving updates, where is Google focusing its engineering efforts? The answer is the **Data Manager API**. 
+If the Measurement Protocol is no longer receiving updates, where is Google focusing its engineering efforts? The answer is the **<a href="https://developers.google.com/data-manager/api" target="_blank" rel="noopener noreferrer">Data Manager API</a>**. 
 
 Google is positioning the Data Manager API as the central hub for future data ingestion. As GA4 evolves to handle more complex integrations, offline data syncing, and privacy-centric modeling, the architecture required to support those features has shifted. The Data Manager API is built from the ground up to handle these advanced server-to-server pipelines.
 
