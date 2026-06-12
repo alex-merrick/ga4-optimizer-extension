@@ -86,7 +86,7 @@ GA4 displays all seven metrics regardless of your specific business category. Th
 
 Setting up the connection is a straightforward process within the Admin section of Google Analytics. Ensure you have the correct permissions before starting. You need the Editor or Administrator role on the GA4 property, and the Owner or Manager role on the specific Business Profile.
 
-A single GA4 property can be linked to multiple Google Business Profiles, making this suitable for multi-location businesses that want centralized reporting. For the full official reference, see Google's <a href="https://support.google.com/analytics/answer/16930347" target="_blank" rel="noopener noreferrer">Connect Google Business Profile to Google Analytics</a> support page.
+A single GA4 property can be linked to multiple Google Business Profiles, making this suitable for multi-location businesses that want centralized reporting.
 
 ### Step-by-Step Instructions
 
@@ -137,6 +137,8 @@ You can bypass these interface limitations by installing the free [GA4 Optimizer
 * **Keep Data Readable:** When reviewing long lists of landing pages associated with local traffic, use the extension's Sticky Headers feature to keep your metric titles visible as you scroll down the page.
 
 If you are looking for more ways to fix the native GA4 interface, check out our guide to the [best Google Analytics browser extensions](/blog/best-google-analytics-browser-extensions-ga4/) available this year.
+
+For the full official reference about GBP GA4 intergration, see Google's <a href="https://support.google.com/analytics/answer/16930347" target="_blank" rel="noopener noreferrer">Connect Google Business Profile to Google Analytics</a> support page.
 
 ## Frequently Asked Questions
 
