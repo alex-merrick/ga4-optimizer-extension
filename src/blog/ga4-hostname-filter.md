@@ -31,7 +31,7 @@ author: Alex Merrick
 title: "How to Block Spam with the New GA4 Hostname Filter"
 date: 2026-06-11T08:00:00.000-05:00
 publishDate: 2026-06-11T08:00:00.000-05:00
-last_modified_at: 2026-06-15T11:50:00.000-05:00
+last_modified_at: 2026-06-15T12:30:00.000-05:00
 thumbnail: /img/thumbnails/admin-panel-thumb.jpeg
 post_image: /img/thumbnails/admin-panel-banner.jpeg
 description: "Learn how to block ghost spam and exclude staging sites using the new GA4 Hostname filter. Keep your analytics data clean with this step-by-step guide."
@@ -60,9 +60,19 @@ The three most common sources of unwanted traffic in Google Analytics 4 include:
 
 With the new GA4 Hostname filter, you finally have native tools to block these sources, but keeping your data clean will require ongoing maintenance.
 
+## The Catch: GA4 Exclude-Only Filters Require Manual Updates
+
+The new Hostname filter lives in the Data Filters section of your GA4 Admin panel. It evaluates the domain from which the event originated and decides whether to process or drop the data.
+
+Here is the major catch. Unlike Universal Analytics, which allowed you to create an "Include" filter to easily whitelist your actual domains and proactively block all future spam, the GA4 Hostname Filter is **strictly an exclude filter**. 
+
+Why is this a problem? Because you cannot create a simple allowlist. Instead of saying *"only accept data from gaoptimizer.com"*, you are forced to specify every single rogue domain you want to block. 
+
+While this works perfectly for static, known domains like your staging server, it unfortunately means fighting ghost spam will be a never-ending game of whack-a-mole. You will have to manually monitor your reports and continually update your exclude filter to block new spam hostnames as they appear.
+
 ## How to Set Up a GA4 Hostname Filter
 
-To handle ghost spam and situations where you cannot control the tag firing rules, setting up the native filter is a necessary data governance step. Configuring your new filter is a straightforward process within the Admin section. Ensure you have the Editor or Administrator role on the GA4 property before starting.
+To handle ghost spam on a standard client-side setup and manage situations where you cannot control the tag firing rules, configuring the native filter is a necessary data governance step. Ensure you have the Editor or Administrator role on the GA4 property before starting.
 
 ### Step-by-Step Instructions
 
@@ -85,25 +95,25 @@ You can add this dimension as a comparison in your standard reports to see exact
 
 Additionally, because we are limited to an "Exclude" functionality natively, **make it a habit to audit your Hostname dimension monthly** to identify and block new spam domains.
 
-## The Catch: GA4 Exclude-Only Filters Require Manual Updates
+## Alternative Workarounds to Block GA4 Spam
 
-The new Hostname filter lives in the Data Filters section of your GA4 Admin panel. It evaluates the domain from which the event originated and decides whether to process or drop the data.
+Because we cannot create an "Include" filter natively in GA4, there are two alternative workarounds to help secure your data architecture.
 
-Here is the major catch. Unlike Universal Analytics, which allowed you to create an "Include" filter to easily whitelist your actual domains and proactively block all future spam, the GA4 Hostname Filter is **strictly an exclude filter**. 
+### Method 1: Client-Side Google Tag Manager
 
-Why is this a problem? Because you cannot create a simple allowlist. Instead of saying *"only accept data from gaoptimizer.com"*, you are forced to specify every single rogue domain you want to block. 
+The easiest proactive workaround is to create an allowlist client-side using [Google Tag Manager](/blog/best-google-tag-manager-extensions/). 
 
-While this works perfectly for static, known domains like your staging server, it unfortunately means fighting ghost spam will be a never-ending game of whack-a-mole. You will have to manually monitor your reports and continually update your exclude filter to block new spam hostnames as they appear.
-
-## The Alternative Workaround: Filtering via Google Tag Manager
-
-Because we cannot create an "Include" filter natively in GA4, the best proactive workaround is to create that allowlist client-side using Google Tag Manager. 
-
-Instead of firing your GA4 Configuration and Event tags on "All Pages," you can modify your GTM triggers so that they *only* fire when the `Page Hostname` equals your exact production domains. 
+Instead of firing your GA4 Configuration and Event tags on "All Pages," you can modify your GTM triggers so that they only fire when the `Page Hostname` equals your exact production domains. 
 
 This effectively replicates an Include filter. If a malicious scraper copies your source code and runs it on their unauthorized domain, GTM will see the incorrect hostname and refuse to fire your GA4 tags. 
 
 **However, there is one major caveat to this method:** It will not stop ghost spam. Because ghost spam is injected directly into your GA4 property via the Measurement Protocol, it completely bypasses your website and GTM altogether. To handle ghost spam, you will still need to manually add the offending domains to the native GA4 exclude filter.
+
+### Method 2: Server-Side Tagging (sGTM)
+
+If you want to stop ghost spam permanently, the best architectural solution is Server-Side Google Tag Manager. Instead of your website sending data directly to Google, it sends data to a secure cloud server that you control.
+
+Because your actual GA4 Measurement ID is hidden on your server, spammers cannot easily scrape it from your source code. Furthermore, you can configure your server to validate incoming requests and drop unapproved hostnames before they ever reach your analytics property. While this method requires more technical setup and monthly cloud hosting costs, it is the absolute best way to proactively block ghost spam without relying on manual filter updates.
 
 ## Enhancing Your Administrative Workflow
 
