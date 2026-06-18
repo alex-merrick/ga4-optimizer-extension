@@ -1,7 +1,7 @@
 ---
 layout: "layouts/base.njk"
-title: "GA4 Optimizer Features - 24 Tools to Fix GA4 Reporting"
-description: "Explore all features of GA4 Optimizer. Advanced table filters, date range presets, A/B test analysis, data dictionary, annotations in explorations, and more. Free Chrome, Edge, and Firefox extension."
+title: "GA4 Optimizer Features - 25 Tools to Fix GA4 Reporting"
+description: "Explore all features of GA4 Optimizer. Advanced table filters, date range presets, A/B test analysis, data dictionary, bulk annotations, and more. Free Chrome, Edge, and Firefox extension."
 permalink: "/features/"
 schema: |
   {
@@ -105,6 +105,13 @@ schema: |
         "@type": "Answer",
         "text": "GA4 abbreviates large numbers on the Home screen (e.g., '24K', '2.4M'). This feature adds a purple dashed underline to hoverable numbers. On hover, the full exact value appears (e.g., '24,390'). It reads data GA4 already fetched from its API, so no extra network requests are made."
       }
+    }, {
+      "@type": "Question",
+      "name": "How does Bulk Annotations work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bulk Annotations lets you create annotations across multiple GA4 properties at once. Enter a date, title, description, and color manually, or import a CSV from GA4's native annotation export. Select which properties should receive the annotation, save favorite property groups for reuse, and create them all in one operation. Available from the Admin Annotations page or GA4's native annotation panel."
+      }
     }]
   }
 ---
@@ -198,7 +205,7 @@ schema: |
             <div class="step">
                 <img src="/icons/report.png" alt="" width="48" height="48" style="filter: brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(500%) hue-rotate(170deg) brightness(0.9); margin-bottom: 10px;">
                 <h3>Data Analysts</h3>
-                <p>Spend less time wrestling with the interface and more time finding insights. Get automatic statistical significance on A/B tests, bypass sampling with one shortcut, and extract data without exporting to spreadsheets first. Document every custom event and dimension in the built-in Data Dictionary so reports are self-explanatory to stakeholders.</p>
+                <p>Spend less time wrestling with the interface and more time finding insights. Get automatic statistical significance on A/B tests, bypass sampling with one shortcut, and extract data without exporting to spreadsheets first. Document events in the built-in Data Dictionary and log data incidents across all properties at once with Bulk Annotations.</p>
             </div>
             <div class="step">
                 <img src="/icons/dollar.png" alt="" width="48" height="48" style="filter: brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(500%) hue-rotate(170deg) brightness(0.9); margin-bottom: 10px;">
@@ -213,7 +220,7 @@ schema: |
             <div class="step">
                 <img src="/icons/agency.png" alt="" width="48" height="48" style="filter: brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(500%) hue-rotate(170deg) brightness(0.9); margin-bottom: 10px;">
                 <h3>Agencies</h3>
-                <p>Set up new client properties in minutes instead of hours. Copy custom dimensions between properties with one click, sync your team's configuration via Team Sync, and keep everyone aligned with a shared Data Dictionary that travels with the extension.</p>
+                <p>Set up new client properties in minutes instead of hours. Copy custom dimensions between properties with one click, log campaign launches across every client with Bulk Annotations, and keep everyone aligned with a shared Data Dictionary and Team Sync.</p>
             </div>
         </div>
             <button class="carousel-arrow carousel-arrow-right" aria-label="Scroll right" data-carousel="workflow-carousel">&#8250;</button>
@@ -400,6 +407,7 @@ schema: |
                 <button data-tab="wf-rows">500 Rows per Page</button>
                 <button data-tab="wf-teamsync">Team Sync & Sharing</button>
                 <button data-tab="wf-exactnumbers">Exact Numbers on Hover</button>
+                <button data-tab="wf-bulkannotations">Bulk Annotations</button>
             </nav>
             <div class="tab-showcase-content">
                 <div class="tab-showcase-panel active" id="wf-links">
@@ -464,6 +472,17 @@ schema: |
                     <div class="feature-video-container" data-video-name="ExactNumbers"><video autoplay loop muted playsinline aria-label="Demo of Exact Numbers on Hover revealing full values on GA4 Home screen">
                         <source src="/mp4/home-detailed-numbers.mp4" type="video/mp4">
                     </video><div class="play-icon-overlay"></div></div>
+                </div>
+                <div class="tab-showcase-panel" id="wf-bulkannotations">
+                    <h3>Bulk Annotations</h3>
+                    <p>Save hours of manual data entry by creating annotations across dozens of properties at once. Log algorithm updates, site redesigns, or marketing campaigns across your entire organization in seconds instead of one property at a time.</p>
+                    <ul>
+                        <li><strong>Manual Entry:</strong> Set a date, title, description, and color, then select which properties should receive the annotation.</li>
+                        <li><strong>CSV Import:</strong> Export annotations from one GA4 property using GA4's native export, then import that CSV to replicate them across other properties.</li>
+                        <li><strong>Favorite Selections:</strong> Save frequently-used property groups so you can annotate the same set with one click.</li>
+                        <li><strong>Date Ranges:</strong> Supports both single-day annotations and date ranges (start to end).</li>
+                    </ul>
+                    <img src="/img/bulk-annotations.jpeg" alt="Bulk Annotations modal showing property selection and annotation creation across multiple GA4 properties" width="600" height="400" style="width: 100%; max-width: 720px; height: auto; border-radius: 8px; margin-top: 20px; border: 1px solid var(--border-color);">
                 </div>
             </div>
         </div>
@@ -555,6 +574,12 @@ schema: |
                 <button class="accordion-button" aria-expanded="false" aria-controls="faq-14">How does Exact Numbers on Hover work?</button>
                 <div class="accordion-panel" id="faq-14">
                     <p>GA4 abbreviates large numbers on the Home screen (e.g., "24K", "2.4M"). This feature adds a purple dashed underline to hoverable numbers. On hover, the full exact value appears (e.g., "24,390"). It reads data GA4 already fetched from its API, so no extra network requests are made.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button" aria-expanded="false" aria-controls="faq-15">How does Bulk Annotations work?</button>
+                <div class="accordion-panel" id="faq-15">
+                    <p>Bulk Annotations lets you create annotations across multiple GA4 properties at once from the Admin Annotations page or the native annotation panel. Enter a date, title, description, and color (or import a CSV from GA4's native export), select which properties should receive the annotation, and click Create. You can also save favorite property selections for repeated use. Requires access to the target properties.</p>
                 </div>
             </div>
         </div>

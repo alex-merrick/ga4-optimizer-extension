@@ -1,7 +1,7 @@
 ---
 layout: "layouts/base.njk"
 title: "Documentation - Complete GA4 Feature Guide"
-description: "Complete GA4 Optimizer documentation with step-by-step guides, troubleshooting tips, and feature explanations. Learn click-to-copy, AB test analysis, calculated metrics, data dictionary, and 24 powerful Google Analytics 4 workflow improvements."
+description: "Complete GA4 Optimizer documentation with step-by-step guides, troubleshooting tips, and feature explanations. Learn click-to-copy, AB test analysis, calculated metrics, data dictionary, bulk annotations, and 25 powerful Google Analytics 4 workflow improvements."
 permalink: "/documentation/"
 eleventyComputed:
   ogTitle: "{{ title }}"
@@ -110,6 +110,13 @@ schema: |
         "@type": "Answer",
         "text": "GA4 abbreviates large numbers on the Home screen (e.g., '24K', '2.4M'). Hover over any abbreviated metric with a purple dashed underline to see the full exact number pulled directly from the API response. No extra network requests are made — it reads data GA4 already fetched but chose to abbreviate."
       }
+    }, {
+      "@type": "Question",
+      "name": "How does Bulk Annotations work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bulk Annotations lets you create annotations across multiple GA4 properties at once from the Admin Annotations page or the native annotation panel. Enter a date, title, description, and color manually, or import a CSV from GA4's native annotation export. Select target properties, save favorite property groups for reuse, and create annotations in one operation. Supports both single-day annotations and date ranges."
+      }
     }]
   }
 ---
@@ -164,6 +171,7 @@ schema: |
                                 <li><a href="#feature-team-sync">22. Team Sync & Sharing</a></li>
                                 <li><a href="#feature-data-dictionary">23. Data Dictionary</a></li>
                                 <li><a href="#feature-exact-numbers">24. Exact Numbers on Hover</a></li>
+                                <li><a href="#feature-bulk-annotations">25. Bulk Annotations</a></li>
                             </ul>
                         </li>
                         <li><a href="#troubleshooting-toc">Troubleshooting</a></li>
@@ -721,6 +729,33 @@ schema: |
                     </div>
                 </section>
 
+                <section id="feature-bulk-annotations">
+                    <h2>25. Bulk Annotations <span class="new-badge">NEW</span></h2>
+                    <p><strong>Applies to: GA4 Admin &gt; Annotations Page &amp; Native Annotation Panel</strong><br>Save hours of manual data entry by creating annotations across dozens of properties at once. Supports both manual entry and CSV import of GA4's native annotation export. Perfect for logging algorithm updates, site redesigns, or marketing campaigns across your entire organization.</p>
+                    <img src="/img/bulk-annotations.jpeg" alt="Bulk Annotations modal showing property selection and annotation creation across multiple GA4 properties" width="600" height="400" style="width: 100%; max-width: 720px; height: auto; border-radius: 8px; margin-top: 20px; border: 1px solid var(--border-color);">
+                    <h3>Two Ways to Create</h3>
+                    <ul>
+                        <li><strong>Manual Entry:</strong> Set a start date (and optional end date for date ranges), title, description, and color. Then select which properties should receive the annotation.</li>
+                        <li><strong>CSV Import:</strong> Export annotations from one GA4 property using GA4's native export, then import that CSV file to replicate those annotations across other properties. The importer validates the file format and shows a preview before you commit.</li>
+                    </ul>
+                    <h3>How to Use</h3>
+                    <ul>
+                        <li><strong>Open the Tool:</strong> Click the purple "Bulk Create" button on the Admin Annotations page, or look for the "Bulk Create" button inside GA4's native annotation creation panel on any report page.</li>
+                        <li><strong>Toggle Mode:</strong> Switch between "Manual Entry" and "CSV Import" using the toggle at the top of the modal.</li>
+                        <li><strong>Select Properties:</strong> Check the boxes for the properties you want to apply annotations to. Sub-properties and rollups are indented under their parent accounts.</li>
+                        <li><strong>Save Favorites:</strong> Frequently annotate the same group of properties? Use "Save Selection" to create a named favorite list you can reload with one click.</li>
+                        <li><strong>Submit:</strong> Click "Create Annotations" and watch the progress bar as each annotation is applied sequentially.</li>
+                    </ul>
+                    <h3>Date Ranges</h3>
+                    <p>Annotations can span a date range (start date to end date) or mark a single day. In manual mode, leave "End Date" empty for a single-day annotation. CSV imports automatically detect whether each row is a single date or a range.</p>
+                    <div class="note">
+                        <strong>Tip:</strong> If you don't see a property in the list, open it once in the GA4 sidebar menu first. The extension loads properties as GA4 discovers them in your session.
+                    </div>
+                    <div class="note">
+                        <strong>Larger operations:</strong> For operations involving many annotations or properties, the tool processes requests slowly with built-in delays. You'll see an estimated completion time before proceeding.
+                    </div>
+                </section>
+
                 <h2 id="troubleshooting-toc">Troubleshooting</h2>
                 <div class="accordion-container">
                     <div class="accordion-item">
@@ -907,6 +942,20 @@ schema: |
                                 <li><strong>Feature not enabled:</strong> Check that "Exact Numbers on Hover" is toggled on in the popup.</li>
                                 <li><strong>Numbers not appearing on hover:</strong> The extension captures data from GA4's API response as it loads. If you enabled the feature after the page loaded, refresh the page so the extension can intercept the API data.</li>
                                 <li><strong>Some cards missing exact values:</strong> If GA4 did not include exact totals in its API response for a particular card, the extension cannot display them. This is uncommon but can happen with certain widget types.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-17"
+                            id="trouble-button-17">Bulk Annotations not working</button>
+                        <div class="accordion-panel" id="trouble-panel-17" role="region"
+                            aria-labelledby="trouble-button-17">
+                            <ul>
+                                <li><strong>Bulk Create button not appearing:</strong> Ensure you're on the Admin &gt; Annotations page or have the native annotation panel open on a report page. The feature must be enabled in the popup.</li>
+                                <li><strong>Properties not showing in the list:</strong> Open each property once in the GA4 sidebar menu first. The extension discovers properties as GA4 loads them in your session.</li>
+                                <li><strong>CSV import failing:</strong> Ensure you're using a CSV exported from GA4's native annotation export. The importer validates the file format — check that columns match the expected structure (date, title, description, color).</li>
+                                <li><strong>Creation taking a long time:</strong> For large operations (many properties or annotations), the tool deliberately spaces out requests to avoid rate limiting. An estimated completion time is shown before you start.</li>
+                                <li><strong>Some properties failed:</strong> Check the progress summary after completion. Failed properties may require higher access permissions (Editor or Administrator role) or may have hit GA4's annotation limits.</li>
                             </ul>
                         </div>
                     </div>
