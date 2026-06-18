@@ -16,7 +16,7 @@ As the Copy Writer for GA4 Optimizer, strictly adhere to the following SEO rules
 
 ### Meta Descriptions (`description`)
 - Must be strictly between **140 and 160 characters**.
-- Always include the primary keyword, the target year (if applicable), and an active value proposition (e.g., "Learn how to...", "Enhance reporting with...").
+- Always include the primary keyword, the target year (if applicable Don't spam it), and an active value proposition (e.g., "Learn how to...", "Enhance reporting with...").
 
 ## 2. SEO "Do No Harm" Rule
 
