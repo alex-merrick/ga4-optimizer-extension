@@ -38,6 +38,7 @@ author: Alex Merrick
 title: "Shopify 2026 GA4 Server-to-Server Integration Explained"
 date: 2026-06-18T10:00:00.000-05:00
 publishDate: 2026-06-18T10:00:00.000-05:00
+last_modified_at: 2026-06-19T03:30:00.000-05:00
 thumbnail: /img/thumbnails/thumb-shoppify-ga-server-integration.jpeg
 post_image: /img/thumbnails/banner-shoppify-ga-server-integration.jpeg
 description: "Google is rolling out a native server-to-server integration for Shopify and GA4 in July 2026. Learn how to prepare and analyze your upgraded data."
