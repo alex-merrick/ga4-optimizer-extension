@@ -8,7 +8,7 @@ faq_schema: >
       "name": "Can I import annotations into GA4 using a CSV file?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. While Google Analytics 4 does not natively support CSV imports for annotations, you can use the free GA4 Optimizer browser extension to upload a CSV file and distribute those annotations across multiple properties instantly."
+        "text": "Yes. While Google Analytics 4 does not natively support CSV imports for annotations, you can use the free GA4 Optimizer browser extension to upload a CSV file and distribute those annotations across multiple properties instantly. The tool accepts GA4's native export format, allowing you to easily migrate existing markers."
       }
     }, {
       "@type": "Question",
@@ -58,10 +58,9 @@ There is no native concept of a "global annotation" or an "account-level annotat
 
 To solve this, you need to use a specialized workflow tool. By installing the free <a href="https://chromewebstore.google.com/detail/ga4-optimizer-tools-for-g/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_bulk_annotations" target="_blank" rel="noopener noreferrer">GA4 Optimizer Chrome Extension</a>, you unlock a hidden "Bulk Create" capability directly inside your GA4 admin panel. 
 
-Once the extension is active, navigate to **Admin > Annotations** in GA4. You will see a new purple **Bulk Create** button. Clicking this opens a dedicated modal that provides two distinct ways to distribute your property markers. Alternatively you can also access "Bulk Create Annotations" button in the extension popup menu.
+Once the extension is active, navigate to **Admin > Annotations** in GA4. You will see a new purple **Bulk Create** button. Clicking this opens a dedicated modal that provides two distinct ways to distribute your property markers. Alternatively, you can also access the "Bulk Create Annotations" button in the extension popup menu.
 
 <img src="/img/bulk-annotations.jpeg" alt="Bulk Annotations modal showing property selection and annotation creation across multiple GA4 properties" width="600" height="400" style="width: 100%; max-width: 720px; height: auto; border-radius: 8px; margin-top: 20px; border: 1px solid var(--border-color);">
-                </div>
 
 ### Method 1: The Manual Bulk Entry Workflow
 
@@ -79,14 +78,14 @@ If you frequently annotate the exact same group of properties (for example, all 
 
 ### Method 2: CSV Import for GA4 Annotations
 
-If you are migrating historical records or prefer to manage your tracking plan in a spreadsheet, the CSV Import mode is the most efficient option. GA4 natively allows you to *export* annotations to a CSV file, but it lacks an import function. The extension fixes this.
+If you are migrating historical records or prefer to manage your tracking plan in a spreadsheet, the CSV Import mode is the most efficient option. GA4 natively allows you to *export* annotations to a CSV file, but it completely lacks an import function. The extension fixes this by accepting GA4's exact native export format.
 
-1. Export your existing annotations from a "master" GA4 property using the native export button.
+1. Export your existing annotations from a "master" GA4 property using the native GA4 export button.
 2. Open the **Bulk Create** modal and switch to the **CSV Import** tab.
-3. Upload your CSV file. The tool validates the format automatically.
+3. Upload the unmodified CSV file you just exported. The tool automatically reads the native formatting.
 4. Select the target properties from the checklist and execute the import.
 
-This method allows you to sync dozens of historical annotations to a brand new GA4 property in seconds, entirely eliminating the setup friction of onboarding a new client.
+This method allows you to sync dozens of historical annotations from an existing account to a brand new GA4 property in seconds. Because the tool accepts the exact file format GA4 generates, you never have to waste time reformatting columns in Excel before running an import.
 
 ## The Second Native Flaw: Missing Context in Explorations
 
@@ -102,7 +101,7 @@ Furthermore, if you find yourself managing tracking consistency across multiple 
 
 ### Can I import annotations into GA4 using a CSV file?
 
-Yes. While Google Analytics 4 does not natively support CSV imports for annotations, you can use the free GA4 Optimizer browser extension to upload a CSV file and distribute those annotations across multiple properties instantly.
+Yes. While Google Analytics 4 does not natively support CSV imports for annotations, you can use the free GA4 Optimizer browser extension to upload a CSV file and distribute those annotations across multiple properties instantly. The tool accepts GA4's native export format, allowing you to easily migrate existing markers.
 
 ### How do I add the same annotation to multiple GA4 properties?
 
