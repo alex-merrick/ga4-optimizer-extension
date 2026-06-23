@@ -9,3 +9,6 @@
 
 # Optional: Ignore environment variables file if you use one
 .env
+
+# Ignore temp folder
+/temp
