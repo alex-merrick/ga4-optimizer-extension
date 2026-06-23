@@ -31,7 +31,7 @@ author: Alex Merrick
 title: "GA4 Source Group Dimension: Fix Messy Traffic "
 date: 2026-06-11T09:00:00.000-05:00
 publishDate: 2026-06-11T09:00:00.000-05:00
-last_modified_at: 2026-06-23T11:17:00.000-05:00
+last_modified_at: 2026-06-23T11:31:00.000-05:00
 thumbnail: /img/thumbnails/thumb-source-group-dimension.jpeg
 post_image: /img/thumbnails/banner-source-group-dimension.jpeg
 description: "Learn how to use the new GA4 Source Group dimension. Consolidate messy social media traffic, track AI bots, and analyze your retroactive data effectively."
@@ -66,7 +66,9 @@ While Google updated both dimensions simultaneously, it is vital to understand t
 
 Source Group handles the broad consolidation of all traffic variants, merging both paid and organic clicks into one clean name. The Source Platform dimension, however, heavily prioritizes paid advertising networks. 
 
-If you attempt to analyze organic social traffic using the Source Platform dimension, it will often show up as "Unlabelled" or "Unassigned." To view your total consolidated traffic regardless of whether it was paid or organic, you must use the new Source Group field.
+On June 16, Google added a universal property annotation confirming this behavior. They stated that the Source Platform dimension was "consolidated to better reflect publishers" and that traffic will explicitly be marked as "(unlabeled)" if the data is organic. Furthermore, if you are importing data that is missing a "paid" medium, it will also fall into the unlabeled bucket. 
+
+To fix this for imported data, Google recommends updating your UTM parameters to explicitly include a paid medium. However, if you simply want to view your total consolidated traffic regardless of whether it was paid or organic, you must use the new Source Group field instead.
 
 ### Future-Proofing for AI Traffic
 
