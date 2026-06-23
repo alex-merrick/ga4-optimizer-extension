@@ -25,7 +25,7 @@ If instructed to update or optimize an existing top-performing blog post, **do n
 ## 3. Frontmatter & Schema Markup
 
 - **Dynamic Dates:** Use programmatic year variables (e.g., `{{ currentYear }}`) in titles and frontmatter to keep content evergreen. Do not hardcode the year.
-- **FAQ Schema:** If the post answers common questions, generate valid JSON-LD `FAQPage` schema in the frontmatter. The questions and answers in the schema must 100% match an `## Frequently Asked Questions` H2 section at the bottom of the article.
+- **FAQ Schema:** June 2026 Update, Google no longer supports FAQ schema, however we will continue to generate them for other crawlers and search engines (less critical now). If the post answers common questions, generate valid JSON-LD `FAQPage` schema in the frontmatter. The questions and answers in the schema must 100% match an `## Frequently Asked Questions` H2 section at the bottom of the article.
 - **URL field:** Every post must include a `url` field in frontmatter with the full canonical URL (e.g., `url: "https://www.gaoptimizer.com/blog/slug-here/"`).
 
 ## 4. URL Slug Formatting
