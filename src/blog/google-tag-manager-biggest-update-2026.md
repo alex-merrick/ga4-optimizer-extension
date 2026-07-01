@@ -58,19 +58,19 @@ layout: layouts/post.njk
 author: Alex Merrick
 date: 2026-05-07T09:00:00.000-05:00
 publishDate: 2026-05-07T09:00:00.000-05:00
-last_modified_at: 2026-06-29T10:30:00.000-05:00
+last_modified_at: 2026-07-01T10:30:00.000-05:00
 thumbnail: /img/thumbnails/thumb-gtm-upgrade.jpg
 post_image: /img/thumbnails/banner-gtm-upgrade.jpg
 url: "https://www.gaoptimizer.com/blog/google-tag-manager-biggest-update-2026/"
 title: "Google Tag Manager Update {{ currentYear }}: GTM Containers Become Google Tags"
-description: "Google Tag Manager update {{ currentYear }}: Learn how GTM containers merge with Google Tags, boosting page speed and adding codeless visual tagging to your site."
+description: "Google Tag Manager update {{ currentYear }}: Learn how GTM containers merge with Google Tags, boosting page speed and adding visual tagging to your site."
 tags:
   - post
   - gtm
   - google-tag
 ---
 
-*Updated June 29, {{ currentYear }}: Google has officially begun rolling out the new user interface changes to prepare for the Google Tag integration. This article has been updated to reflect the new collapsible navigation, redesigned overview dashboard, and the Visual Event Builder rollout.*
+*Updated July 1, {{ currentYear }}: Google has officially begun rolling out the new user interface changes to prepare for the Google Tag integration. This article has been updated to reflect the new collapsible navigation, redesigned overview dashboard, and a video walkthrough of the new Visual Event Builder.*
 
 Google Tag Manager is receiving its most significant update in years. First revealed to partners ahead of the official Google Marketing Live keynote on May 20, {{ currentYear }}, GTM containers are effectively becoming Google Tags. This merges two product lines that have always been closely related under the hood.
 
@@ -167,7 +167,7 @@ At the top, you can quickly scan modified, added, and deleted entities. It also 
 
 The left-hand side menu is now collapsible. By default, core features like Triggers and Variables are hidden behind a "Show more" toggle, leaving only "Overview" and "Tags" immediately visible. 
 
-This is clearly aimed at preventing new users from feeling overwhelmed. Fortunately, your selection persists—if you are a power user and click "Show more," the menu remains expanded for future sessions. 
+This is clearly aimed at preventing new users from feeling overwhelmed. Fortunately, your selection persists. If you are a power user and click "Show more," the menu remains expanded for future sessions. 
 
 ### Codeless Visual Tagging (Event Builder)
 
@@ -175,7 +175,13 @@ Google is also introducing a visual event builder that lets you walk through a c
 
 Currently, this is available in beta for **Google Ads purchase conversions**. 
 
-**A warning on Visual Tagging:** While the slick interface lowers the barrier to entry, relying on CSS selectors for revenue-critical conversions is dangerous. As Ahava notes in his review, dynamic receipt pages and changing CSS layouts will inevitably break these setups. For critical data like purchases, we strongly recommend working with developers to push data to the dataLayer rather than scraping the page visually.
+If you want to see exactly how this builder works in practice, Julius Fedorovicius from Analytics Mania recently published an excellent, step-by-step video walkthrough of the new interface:
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 30px;">
+  <iframe src="https://www.youtube.com/embed/exHhk8VihNg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="Google Tag Manager UI Updates Video Walkthrough"></iframe>
+</div>
+
+**A warning on Visual Tagging:** While the slick interface lowers the barrier to entry, relying on CSS selectors for revenue-critical conversions is dangerous. As both Ahava and Fedorovicius note in their reviews, dynamic receipt pages and changing CSS layouts will inevitably break these setups. For critical data like purchases, we strongly recommend working with developers to push data to the dataLayer rather than scraping the page visually.
 
 ---
 
