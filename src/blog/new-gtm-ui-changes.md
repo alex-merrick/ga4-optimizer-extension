@@ -42,7 +42,7 @@ tags:
   - google-tag
 ---
 
-On July 1, {{ currentYear }}, Google rolled out an update to the Google Tag Manager Overview page. The official release notes describe the update as a streamlined interface designed to help new and experienced users navigate their tagging setups more efficiently. 
+On July 1, {{ currentYear }}, Google rolled out an update to the Google Tag Manager Overview page. As part of the groundwork for the [massive Google Tag Manager structural updates](/blog/google-tag-manager-biggest-update-2026/) announced earlier this year, the official release notes describe the update as a streamlined interface designed to help new and experienced users navigate their tagging setups more efficiently.
 
 However, many tracking specialists logging into their accounts this week have found the update confusing rather than helpful. The most jarring change is the disappearance of the workspace switcher from the top-left menu. Additionally, Google is now surfacing raw destination IDs directly on the front page, leading to a cluttered user experience.
 
@@ -71,7 +71,7 @@ Another significant shift in the new interface is how Google handles product con
 
 While the intention might be to show users a unified view of their Google ecosystem, the execution falls short. The interface displays raw product IDs (like `G-XXXXXX` and `AW-XXXXXX`) rather than user-friendly descriptive labels. 
 
-For beginners, seeing a list of raw tracking IDs on the dashboard is highly confusing. It forces users to cross-reference IDs with their GA4 or Google Ads accounts just to understand which destinations are active. This change heavily favors Google products while pushing custom implementations and non-Google tags further into the background.
+For beginners, seeing a list of raw tracking IDs on the dashboard is highly confusing. It forces users to cross-reference IDs with their GA4 or Google Ads accounts just to understand which destinations are active. This UI change heavily favors Google products while pushing custom implementations into the background, a shift that aligns with GTM's broader transition into [Google Tag Destinations](/blog/google-tag-manager-biggest-update-2026/).
 
 ## The Visual Builder Beta Limitations
 
