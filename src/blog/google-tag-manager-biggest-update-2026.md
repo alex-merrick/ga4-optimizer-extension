@@ -58,7 +58,7 @@ layout: layouts/post.njk
 author: Alex Merrick
 date: 2026-05-07T09:00:00.000-05:00
 publishDate: 2026-05-07T09:00:00.000-05:00
-last_modified_at: 2026-07-01T10:30:00.000-05:00
+last_modified_at: 2026-07-09T10:30:00.000-05:00
 thumbnail: /img/thumbnails/thumb-gtm-upgrade.jpg
 post_image: /img/thumbnails/banner-gtm-upgrade.jpg
 url: "https://www.gaoptimizer.com/blog/google-tag-manager-biggest-update-2026/"
@@ -70,7 +70,7 @@ tags:
   - google-tag
 ---
 
-*Updated July 1, {{ currentYear }}: Google has officially begun rolling out the new user interface changes to prepare for the Google Tag integration. This article has been updated to reflect the new collapsible navigation, redesigned overview dashboard, and a video walkthrough of the new Visual Event Builder.*
+*Updated July 8, {{ currentYear }}: Google has officially begun rolling out the new user interface changes to prepare for the Google Tag integration. If you are struggling to find your workspaces after the latest update, check out our new guide on **[Where to Find the Missing Workspace Switcher in the New GTM UI](/blog/new-gtm-ui-changes/)**.*
 
 Google Tag Manager is receiving its most significant update in years. First revealed to partners ahead of the official Google Marketing Live keynote on May 20, {{ currentYear }}, GTM containers are effectively becoming Google Tags. This merges two product lines that have always been closely related under the hood.
 
@@ -162,6 +162,9 @@ To prepare for these features, Google is currently rolling out a refreshed GTM i
 Historically, the Overview page in GTM was a cluttered screen most practitioners ignored. The new UI condenses the workspace activity into a much cleaner, single table. 
 
 At the top, you can quickly scan modified, added, and deleted entities. It also features a new visualization card showing your current Google Tags and their destinations, giving you a clear map of your setup once the full GTM/Google Tag integration is live.
+
+### The Missing Workspace Switcher (July Update)
+As part of the Overview dashboard redesign, Google is currently running an A/B test that completely removes the workspace switcher from the top-left navigation for many users. If your workspace dropdown has disappeared, it has been relocated to a hidden menu under the "Pending Changes" section. For step-by-step instructions on how to navigate this, read our dedicated guide on [fixing the new GTM UI changes](/blog/new-gtm-ui-changes/).
 
 ### Collapsible Navigation
 
