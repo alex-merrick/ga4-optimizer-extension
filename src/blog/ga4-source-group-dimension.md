@@ -22,7 +22,7 @@ faq_schema: >
       "name": "Why can I not see the Source Group dimension in my GA4 account?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Google is rolling out this update incrementally across all accounts. If the rollout has reached your property but is hidden, click the Customize report pencil icon in your standard reports to add it manually. If it does not appear in the dimension list, you must wait for the deployment to finish."
+        "text": "Recent clarifications from Google indicate the Source Group dimension is currently restricted to the Advertising workspace, specifically within the beta Conversion performance report. It is not currently available in standard reporting like Traffic acquisition or Explorations, and some users report it occasionally disappearing due to an inconsistent rollout."
       }
     }]
   }
@@ -31,7 +31,7 @@ author: Alex Merrick
 title: "GA4 Source Group Dimension: Fix Messy Traffic "
 date: 2026-06-11T09:00:00.000-05:00
 publishDate: 2026-06-11T09:00:00.000-05:00
-last_modified_at: 2026-06-23T11:31:00.000-05:00
+last_modified_at: 2026-07-08T16:55:00.000-05:00
 thumbnail: /img/thumbnails/thumb-source-group-dimension.jpeg
 post_image: /img/thumbnails/banner-source-group-dimension.jpeg
 description: "Learn how to use the new GA4 Source Group dimension. Consolidate messy social media traffic, track AI bots, and analyze your retroactive data effectively."
@@ -42,15 +42,17 @@ tags:
   - updates
 ---
 
+**Update (July 8, 2026):** *Google has officially clarified that the Source Group dimension is currently restricted to the Advertising workspace (specifically the Conversion performance report) and is not available in standard reports like Traffic acquisition. Furthermore, organic traffic will actively show as `(unlabeled)` in the related Source Platform dimension. The article below has been fully updated to reflect these undocumented changes and rollout bugs.*
+
 Google Analytics just rolled out a major update designed to fix one of the most frustrating aspects of standard reporting. Announced on June 11, GA4 now includes a new **Source Group** dimension built to consolidate messy, fragmented traffic sources automatically.
 
-For years, analysts relied on complex regex and custom channel groupings to make sense of social media tracking. If you wanted to see your total Meta performance, you had to manually group a dozen different source variants. This update brings that capability directly into the default reporting interface, effectively replicating the cleaner social media grouping functionality that users missed from Universal Analytics.
+For years, analysts relied on complex regex and custom channel groupings to make sense of social media tracking. If you wanted to see your total Meta performance, you had to manually group a dozen different source variants. This update brings that capability natively to the platform, effectively replicating the cleaner social media grouping functionality that users missed from Universal Analytics.
 
-Here is a full breakdown of how the Source Group dimension works, how it differs from the Source Platform field, and how to surface it in your reports.
+However, the rollout has come with undocumented restrictions. Here is a full breakdown of how the Source Group dimension works, how it differs from the Source Platform field, and exactly where Google has hidden it in the interface.
 
 ## What is the Source Group Dimension in GA4?
 
-If you frequently analyze the Traffic Acquisition report, you know that third-party platforms pass incredibly messy referring data. A single social media platform can generate dozens of distinct source values depending on whether the user clicked from a mobile app, a mobile browser, or a desktop client.
+If you frequently analyze traffic acquisition, you know that third-party platforms pass incredibly messy referring data. A single social media platform can generate dozens of distinct source values depending on whether the user clicked from a mobile app, a mobile browser, or a desktop client.
 
 The new Source Group dimension acts as an automatic consolidation layer. It bundles these disparate source values into a single, standardized reporting dimension.
 
@@ -84,25 +86,26 @@ Analysts naturally assumed the Source Group rollout would suffer the exact same 
 
 As soon as this dimension appears in your account, you can apply it to your historical data. You can instantly run year-over-year or month-over-month comparisons on standardized social media traffic without needing to build a manual custom channel group to bridge the gap.
 
-## Why You Might Not See Source Group Yet
+## Where to Find the Source Group Dimension
 
-If you log into your Google Analytics account today and cannot find the Source Group dimension, do not panic. Google releases these feature updates incrementally. Based on chatter in the analytics community, many accounts are still waiting for the deployment to finish.
+If you log into your Google Analytics account today and cannot find the Source Group dimension in your standard reports or Explorations, you are not alone. 
 
-However, if the update has reached your account but remains hidden from your Standard Reports, you will need to add it manually. 
+Despite the release notes implying general availability, recent clarifications from the Google Analytics product team confirm that **Source Group is not available in standard reports (like Traffic acquisition) in the short term**. 
 
-### How to Add Source Group to Standard Reports
+Currently, Google has restricted this dimension exclusively to the Advertising workspace. 
 
-1. Open your **Traffic acquisition** report.
-2. Click the **Customize report** icon (the pencil) in the upper right corner of the interface.
-3. Click on **Dimensions** in the right-hand panel.
-4. Search for "Source Group" and add it to your primary dimension list.
-5. Click **Apply** and save the report.
+### Checking the Advertising Workspace
 
-If the field does not appear in the search bar during step four, your property simply does not have access yet and you must wait a few more weeks.
+To find the dimension:
+1. Navigate to the **Advertising** section in the left-hand GA4 menu.
+2. Under the Conversions (Beta) dropdown, click on the **Conversion performance** report.
+3. Click the primary dimension dropdown to select **Source Group**.
+
+**Note:** The rollout for this feature has been heavily delayed and notoriously inconsistent. While many analysts can successfully access the dimension here, others report that it periodically disappears from the dropdown. Additionally, enterprise users linking GA4 to Campaign Manager 360 (CM360) are currently experiencing classification bugs with the new dimension. If you navigate to this report and still do not see it, you simply have to wait for Google to patch and complete the deployment.
 
 ## Enhancing Your Reporting Workflow
 
-Once the Source Group dimension goes live in your account, you will likely want to test it against your existing custom channel groups to verify accuracy. Digging through standard reports to validate long lists of social traffic sources is tedious due to the rigid native interface.
+Once the Source Group dimension finally goes live universally in your account, you will likely want to test it against your existing custom channel groups to verify accuracy. Digging through standard reports to validate long lists of social traffic sources is tedious due to the rigid native interface.
 
 If you want a more efficient workspace, install the free <a href="https://chromewebstore.google.com/detail/ga4-optimizer-tools-for-g/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_ga4_source_group_dimension" target="_blank" rel="noopener noreferrer">GA4 Optimizer Chrome Extension</a>. It is designed to fix the daily reporting frustrations of the GA4 interface.
 
@@ -120,4 +123,4 @@ Yes. Google confirmed that the Source Group dimension populates retroactively. Y
 
 ### Why can I not see the Source Group dimension in my GA4 account?
 
-Google is rolling out this update incrementally across all accounts. If the rollout has reached your property but is hidden, click the Customize report pencil icon in your standard reports to add it manually. If it does not appear in the dimension list, you must wait for the deployment to finish.
+Recent clarifications from Google indicate the Source Group dimension is currently restricted to the Advertising workspace, specifically within the beta Conversion performance report. It is not currently available in standard reporting like Traffic acquisition or Explorations, and some users report it occasionally disappearing due to an inconsistent rollout.
