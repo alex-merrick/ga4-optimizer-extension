@@ -92,7 +92,7 @@ The new extended timeframes are accessible directly within the standard reportin
 3. In the secondary menu under Reports snapshot, click on **Realtime pages**.
 4. Locate the dropdown menu near the top right of the data cards (it will default to "Last 30 min").
 5. Click the dropdown and select **Last 1 hour**, **Last 2 hours**, or **Last 4 hours** to extend your view.
-![Extended time frame window in GA4 Real time Reports](/img/real-time-report-time-window-update.png)
+![GA4 Optimizer in Real time reports](/img/real-time-report-time-window-update.png)
 
 ## Server Monitoring vs. Marketing Analytics
 
