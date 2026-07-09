@@ -47,6 +47,7 @@ tags:
   - ga4
   - updates
   - developers
+  - ga4-updates
 ---
 
 A recent update to the Google Analytics developer documentation caused a brief wave of panic across the analytics community. A new banner appeared on the Measurement Protocol landing page stating the tool was entering "maintenance mode" with no future enhancements planned. 

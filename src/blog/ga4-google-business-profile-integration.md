@@ -46,6 +46,7 @@ tags:
   - post
   - ga4
   - updates
+  - ga4-updates
 ---
 
 Google has officially launched a native integration between Google Business Profile and Google Analytics 4. This closes a long-standing measurement gap that frustrated local SEO professionals and performance marketers who had no way to measure off-site actions inside their analytics platform.

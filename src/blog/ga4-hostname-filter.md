@@ -40,6 +40,7 @@ tags:
   - post
   - ga4
   - updates
+  - ga4-updates
 ---
 
 Google Analytics just rolled out a highly requested administrative feature that will help clean up your reporting data. Announced on June 11, GA4 now includes a native **Hostname Filter** to block unapproved domain traffic before it ever reaches your reports.

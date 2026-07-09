@@ -47,6 +47,7 @@ tags:
   - post
   - ga4
   - updates
+  - ga4-updates
 ---
 
 On May 13, 2026, Google quietly rolled out a highly anticipated update to Google Analytics 4. According to the official [Google Analytics release notes](https://support.google.com/analytics/answer/9164320?hl=en#05132026), you can now measure and analyze traffic originating from popular generative AI chatbots via a new **AI Assistant** default channel group. 

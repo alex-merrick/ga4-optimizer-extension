@@ -87,6 +87,12 @@ module.exports = function(eleventyConfig) {
             .replace("d", d.getUTCDate())
             .replace("yyyy", d.getUTCFullYear());
     });
+
+    // --- ISO Date Filter (for Atom/RSS feeds) ---
+    eleventyConfig.addFilter("isoDate", function (value) {
+        const d = new Date(value);
+        return isNaN(d) ? "" : d.toISOString();
+    });
     
     // --- Markdown-It Customization for External Links ---
     const markdownLib = markdownIt({

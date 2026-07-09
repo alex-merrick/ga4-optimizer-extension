@@ -67,6 +67,7 @@ tags:
   - post
   - ga4
   - updates
+  - ga4-updates
 ---
 
 Google has quietly begun rolling out a highly requested update to Google Analytics 4. The Realtime report, historically capped at a strict 30-minute window, is being extended up to 4 hours. 

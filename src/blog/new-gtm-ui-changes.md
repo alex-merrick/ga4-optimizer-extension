@@ -40,6 +40,7 @@ tags:
   - post
   - gtm
   - google-tag
+  - gtm-updates
 ---
 
 On July 1, {{ currentYear }}, Google rolled out an update to the Google Tag Manager Overview page. As part of the groundwork for the [massive Google Tag Manager structural updates](/blog/google-tag-manager-biggest-update-2026/) announced earlier this year, the official release notes describe the update as a streamlined interface designed to help new and experienced users navigate their tagging setups more efficiently.

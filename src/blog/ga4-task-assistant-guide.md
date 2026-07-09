@@ -32,6 +32,7 @@ tags:
   - post
   - ga4
   - updates
+  - ga4-updates
 author: Alex Merrick
 date: 2026-04-27T00:00:00.000Z
 publishDate: 2026-04-27T00:00:00.000Z

@@ -54,7 +54,17 @@ eleventyComputed:
             {# Text content is now in its own div for layout control #}
             <div class="post-header-text">
                 <h1>{{ title }}</h1>
-                <p class="post-meta" style="color: var(--text-light); font-style: italic;">Published on {{ page.date.toDateString() }}</p>
+                <p class="post-meta" style="color: var(--text-light); font-style: italic;">
+                    Published on {{ page.date.toDateString() }}
+                    {%- if tags -%}
+                        {%- if 'ga4-updates' in tags -%}
+                            <a href="/blog/ga4-updates/" class="post-hub-badge">GA4 Updates</a>
+                        {%- endif -%}
+                        {%- if 'gtm-updates' in tags -%}
+                            <a href="/blog/gtm-updates/" class="post-hub-badge">GTM Updates</a>
+                        {%- endif -%}
+                    {%- endif -%}
+                </p>
             </div>
             
             {# Image content is now in its own div for layout control #}

@@ -9,6 +9,13 @@
 
 # Optional: Ignore environment variables file if you use one
 .env
+.env.local
 
 # Ignore temp folder
 /temp
+
+CODEBASE_CONTEXT.md
+.kiro\
+temp\
+# Local Netlify folder
+.netlify

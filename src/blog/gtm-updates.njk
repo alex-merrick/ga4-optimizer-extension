@@ -1,0 +1,51 @@
+---
+layout: "layouts/base.njk"
+permalink: "/blog/gtm-updates/"
+title: "GTM Updates & Release Notes"
+description: "Track the latest GTM updates, container changes, and release notes for Google Tag Manager."
+---
+<main class="container">
+    <div class="main-content content-page">
+        <h1>Google Tag Manager Updates: Latest Changes & Release Notes</h1>
+        <p>Track the latest GTM updates, container changes, and release notes for Google Tag Manager.</p>
+
+        <nav class="category-pills" aria-label="Blog categories">
+            <a href="/blog/" class="category-pill">All Articles</a>
+            <a href="/blog/ga4-updates/" class="category-pill">GA4 Updates</a>
+            <a href="/blog/gtm-updates/" class="category-pill active" aria-current="page">GTM Updates</a>
+        </nav>
+
+        <hr style="border-color: var(--border-color); margin-bottom: 20px;">
+
+        <ul style="list-style: none; padding-left: 0;">
+            {%- set hubPosts = collections['gtm-updates'] -%}
+            {%- if hubPosts and hubPosts.length -%}
+                {%- for post in hubPosts | reverse -%}
+                    <li class="blog-post-item">
+                        <div class="blog-post-layout">
+                            
+                            {%- if post.data.thumbnail -%}
+                            <div class="blog-post-thumbnail-container">
+                                <a href="{{ post.url }}">
+                                    <img src="{{ post.data.thumbnail }}" alt="{{ post.data.title }}" class="blog-list-thumbnail" width="600" height="400">
+                                </a>
+                            </div>
+                            {%- endif -%}
+
+                            <div class="blog-post-text-container">
+                                <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+                                <p><em>Published on {{ (post.data.publishDate or post.date) | date("MMMM d, yyyy") }}</em></p>
+                                <p>{{ post.data.description }}</p>
+                                <p><a href="{{ post.url }}" style="font-weight: 600;">Read more <span class="sr-only">about {{ post.data.title }}</span>&rarr;</a></p>
+                            </div>
+
+                        </div>
+                    </li>
+                {%- endfor -%}
+            {%- else -%}
+                <li><p>No GTM update posts yet. Check back soon.</p></li>
+            {%- endif -%}
+        </ul>
+
+    </div>
+</main>

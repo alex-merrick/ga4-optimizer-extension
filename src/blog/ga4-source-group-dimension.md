@@ -40,6 +40,7 @@ tags:
   - post
   - ga4
   - updates
+  - ga4-updates
 ---
 
 **Update (July 8, 2026):** *Google has officially clarified that the Source Group dimension is currently restricted to the Advertising workspace (specifically the Conversion performance report) and is not available in standard reports like Traffic acquisition. Furthermore, organic traffic will actively show as `(unlabeled)` in the related Source Platform dimension. The article below has been fully updated to reflect these undocumented changes and rollout bugs.*
@@ -101,7 +102,7 @@ To find the dimension:
 2. Under the Conversions (Beta) dropdown, click on the **Conversion performance** report.
 3. Click the primary dimension dropdown to select **Source Group**.
 
-**Note:** The rollout for this feature has been heavily delayed and notoriously inconsistent. While many analysts can successfully access the dimension here, others report that it periodically disappears from the dropdown. Additionally, enterprise users linking GA4 to Campaign Manager 360 (CM360) are currently experiencing classification bugs with the new dimension. If you navigate to this report and still do not see it, you simply have to wait for Google to patch and complete the deployment.
+**Note:** The rollout for this feature has been heavily delayed and inconsistent. While many analysts can successfully access the dimension here, others report that it periodically disappears from the dropdown. Additionally, enterprise users linking GA4 to Campaign Manager 360 (CM360) are currently experiencing classification bugs with the new dimension. If you navigate to this report and still do not see it, you simply have to wait for Google to patch and complete the deployment.
 
 ## Enhancing Your Reporting Workflow
 

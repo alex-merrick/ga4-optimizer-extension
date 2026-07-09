@@ -30,6 +30,93 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Image Zoom Functionality --- (Removed for simplicity)
 
+    // --- Subscribe Form Logic ---
+    // Handles both instances of social-share (top & bottom of blog posts)
+    // AND the standalone form on the blog listing page
+    const subscribeButtons = document.querySelectorAll('.share-subscribe');
+    const subscribeForms = document.querySelectorAll('.subscribe-form');
+
+    // Toggle form visibility when subscribe button is clicked
+    subscribeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Find the adjacent form within the same social-share-buttons container
+            const container = btn.closest('.social-share-buttons');
+            const form = container ? container.querySelector('.subscribe-form') : null;
+            if (form) {
+                const isVisible = form.style.display !== 'none';
+                form.style.display = isVisible ? 'none' : 'block';
+                if (!isVisible) {
+                    form.querySelector('input[type="email"]').focus();
+                }
+            }
+        });
+    });
+
+    // Handle form submission for ALL subscribe forms on the page
+    subscribeForms.forEach(form => {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const emailInput = form.querySelector('input[type="email"]');
+            const honeypot = form.querySelector('input[name="website"]');
+            const submitBtn = form.querySelector('.subscribe-submit');
+            const email = emailInput.value.trim();
+
+            if (!email) return;
+
+            // Show loading state
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            try {
+                const res = await fetch('/.netlify/functions/subscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: email,
+                        website: honeypot ? honeypot.value : ''
+                    })
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    emailInput.value = '';
+                    // Only hide the form if it's inside a social-share container (toggle behavior)
+                    if (form.closest('.social-share-buttons')) {
+                        form.style.display = 'none';
+                    }
+                    showSubscribeToast('Subscribed! Check your inbox.', false);
+                } else {
+                    showSubscribeToast(data.error || 'Something went wrong. Try again.', true);
+                }
+            } catch (err) {
+                showSubscribeToast('Network error. Please try again.', true);
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    });
+
+    function showSubscribeToast(message, isError) {
+        // Use the first subscribe-toast on the page (they're fixed position so only one needed)
+        const toast = document.querySelector('.subscribe-toast');
+        if (!toast) return;
+        const msgEl = toast.querySelector('.subscribe-toast-message');
+        if (msgEl) msgEl.textContent = message;
+        toast.classList.toggle('error', isError);
+        // Support both class-based (social-share) and inline-styled (blog listing) toasts
+        toast.classList.add('show');
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateX(-50%) translateY(0)';
+        setTimeout(() => {
+            toast.classList.remove('show');
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateX(-50%) translateY(100px)';
+        }, 4000);
+    }
+
     // --- NEW: Video Modal Logic ---
 
     const videoContainers = document.querySelectorAll('.feature-video-container');

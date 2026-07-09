@@ -18,6 +18,7 @@
            target="_blank" 
            rel="noopener" 
            aria-label="Share by email"
+           title="Requires an email application (e.g. Outlook, Gmail app) to be set up on your device"
            class="share-button share-email">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
@@ -70,7 +71,36 @@
             </svg>
             <span class="copy-text">Copy Link</span>
         </button>
+
+        <!-- Subscribe Button -->
+        <button class="share-button share-subscribe" 
+                aria-label="Subscribe to blog updates"
+                title="Get an email when we publish new GA4 &amp; GTM articles"
+                type="button">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/>
+            </svg>
+            <span>Subscribe</span>
+        </button>
     </div>
+
+    <!-- Inline Subscribe Form (hidden by default) -->
+    <form class="subscribe-form" style="display:none;" aria-label="Subscribe to blog updates">
+        <div class="subscribe-form-inner">
+            <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
+            <!-- Honeypot field — hidden from real users -->
+            <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px">
+            <button type="submit" class="subscribe-submit">Get Updates</button>
+        </div>
+    </form>
+</div>
+
+<!-- Subscribe toast notification -->
+<div class="subscribe-toast" aria-live="polite">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
+        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+    </svg>
+    <span class="subscribe-toast-message">Subscribed successfully!</span>
 </div>
 
 <style>
@@ -101,6 +131,99 @@
 
 .copy-toast svg {
     fill: #48bb78;
+}
+
+/* Subscribe button hover */
+.share-subscribe:hover {
+    background-color: #f59e0b;
+    color: white;
+    border-color: #f59e0b;
+}
+
+/* Subscribe inline form */
+.subscribe-form {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+.subscribe-form-inner {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.subscribe-form input[type="email"] {
+    padding: 10px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.95em;
+    width: 260px;
+    max-width: 100%;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.subscribe-form input[type="email"]:focus {
+    border-color: var(--brand-purple);
+}
+
+.subscribe-submit {
+    padding: 10px 20px;
+    background-color: var(--brand-purple);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.subscribe-submit:hover {
+    background-color: var(--brand-purple-dark);
+}
+
+.subscribe-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Subscribe toast */
+.subscribe-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background-color: #2d3748;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.subscribe-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.subscribe-toast svg {
+    fill: #48bb78;
+}
+
+.subscribe-toast.error svg {
+    fill: #fc8181;
 }
 </style>
 

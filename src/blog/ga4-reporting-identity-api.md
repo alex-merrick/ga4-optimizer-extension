@@ -40,6 +40,7 @@ tags:
   - ga4
   - updates
   - technical
+  - ga4-updates
 ---
 
 Google has officially added programmatic access to GA4 reporting identity settings via the Admin API. This update introduces the `updateReportingIdentitySettings` endpoint. While it sounds highly technical, it solves one of the biggest headaches for data engineers and agencies managing automated reporting pipelines.

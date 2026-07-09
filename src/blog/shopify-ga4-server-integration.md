@@ -48,6 +48,7 @@ tags:
   - ga4
   - ecommerce
   - updates
+  - ga4-updates
 ---
 
 Google is officially rolling out a major enhancement for e-commerce measurement. According to an email sent to Google Analytics users, GA4 will introduce a native server-to-server integration for Shopify properties starting in July 2026.

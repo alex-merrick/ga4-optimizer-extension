@@ -58,7 +58,7 @@ layout: layouts/post.njk
 author: Alex Merrick
 date: 2026-05-07T09:00:00.000-05:00
 publishDate: 2026-05-07T09:00:00.000-05:00
-last_modified_at: 2026-07-09T10:30:00.000-05:00
+last_modified_at: 2026-07-09T10:37:00.000-05:00
 thumbnail: /img/thumbnails/thumb-gtm-upgrade.jpg
 post_image: /img/thumbnails/banner-gtm-upgrade.jpg
 url: "https://www.gaoptimizer.com/blog/google-tag-manager-biggest-update-2026/"
@@ -68,6 +68,7 @@ tags:
   - post
   - gtm
   - google-tag
+  - gtm-updates
 ---
 
 *Updated July 8, {{ currentYear }}: Google has officially begun rolling out the new user interface changes to prepare for the Google Tag integration. If you are struggling to find your workspaces after the latest update, check out our new guide on **[Where to Find the Missing Workspace Switcher in the New GTM UI](/blog/new-gtm-ui-changes/)**.*
@@ -220,6 +221,8 @@ How the container behaves depends on which ID is used in the snippet:
 
 - **Deployed with the GTM container ID:** Functions as a fully capable GTM container with access to all tag, trigger, and variable features.
 - **Deployed with the product ID:** Limited to deploying Google's tags only.
+
+*(Update July 9, {{ currentYear }}: Google released a minor patch strictly enforcing this rule. Previously, loading a container via unsupported custom paths like `/gtag/js` could accidentally force a `GTM-XXXX` container into a restricted state. Moving forward, the ID in the snippet strictly dictates functionality regardless of the installation path used.)*
 
 This distinction matters for governance. In organizations where there are concerns about GTM misuse, deploying with the product ID effectively locks the container down to Google-only functionality. For most practitioners who want full flexibility, deploying with the GTM container ID is the obvious choice.
 

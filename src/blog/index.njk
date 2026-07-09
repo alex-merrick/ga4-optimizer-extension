@@ -15,7 +15,38 @@ eleventyComputed:
         <h1>GA4 Optimizer Blog: Google Analytics 4 Tips & Guides</h1>
         <p>Actionable advice on solving common GA4 frustrations and getting more from your data.</p>
         
-        <hr style="border-color: var(--border-color); margin-bottom: 40px;">
+        <nav class="category-pills" aria-label="Blog categories">
+            <a href="/blog/" class="category-pill active" aria-current="page">All Articles</a>
+            <a href="/blog/ga4-updates/" class="category-pill">GA4 Updates</a>
+            <a href="/blog/gtm-updates/" class="category-pill">GTM Updates</a>
+        </nav>
+
+        <hr style="border-color: var(--border-color); margin-bottom: 20px;">
+
+        <!-- Subscribe CTA for blog listing -->
+        <div class="blog-subscribe-cta">
+            <div class="blog-subscribe-cta-inner">
+                <div class="blog-subscribe-cta-text">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;">
+                        <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/>
+                    </svg>
+                    <span><strong>Stay updated</strong> // get notified when we post new GA4 & GTM articles.</span>
+                </div>
+                <form class="blog-subscribe-cta-form subscribe-form" aria-label="Subscribe to blog updates">
+                    <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
+                    <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px">
+                    <button type="submit" class="subscribe-submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Subscribe toast notification -->
+        <div class="subscribe-toast" style="position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background-color:#2d3748;color:white;padding:12px 20px;border-radius:8px;display:flex;align-items:center;font-size:14px;font-weight:500;box-shadow:0 4px 12px rgba(0,0,0,0.15);opacity:0;transition:all 0.3s ease;z-index:1000;pointer-events:none;" aria-live="polite">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#48bb78" style="margin-right: 8px;">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+            <span class="subscribe-toast-message">Subscribed successfully!</span>
+        </div>
 
         <ul style="list-style: none; padding-left: 0;">
             {%- for post in paginatedPosts -%}
