@@ -40,6 +40,7 @@ tags:
   - post
   - ga4
   - universal-analytics
+  - ga4-fixes
 ---
 
 If you're an analyst or marketer who is used to using Universal Analytics, the switch to Google Analytics 4 was likely a jarring experience. While GA4's event-based model is powerful, the new interface stripped away dozens of simple, beloved features that made our daily workflows fast and efficient.

@@ -39,6 +39,7 @@ tags:
   - post
   - ga4
   - reporting
+  - ga4-fixes
 ---
 
 Web analysts constantly search for Google's default event definitions because the native documentation is scattered across multiple support pages. Keeping track of exactly what triggers an active engagement metric versus a standard page load is frustrating when you are deep in a custom exploration.

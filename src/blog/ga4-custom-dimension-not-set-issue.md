@@ -40,6 +40,7 @@ tags:
   - post
   - ga4
   - custom-dimensions
+  - ga4-fixes
 ---
 
 You configure a new tag in Google Tag Manager. You test it in preview mode, and the event fires perfectly. You check the GA4 DebugView and see your custom event parameters coming through exactly as planned. You formally register the custom dimension in your GA4 Admin panel and log off for the day feeling productive.

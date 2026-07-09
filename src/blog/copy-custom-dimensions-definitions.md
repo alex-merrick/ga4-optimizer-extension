@@ -39,6 +39,7 @@ url: "https://www.gaoptimizer.com/blog/copy-custom-dimensions-definitions/"
 tags:
   - post
   - ga4
+  - ga4-fixes
   - custom-dimensions
 ---
 

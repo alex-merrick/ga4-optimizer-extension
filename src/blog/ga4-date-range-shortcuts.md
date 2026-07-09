@@ -32,6 +32,7 @@ tags:
   - post
   - ga4
   - reporting
+  - ga4-fixes
 ---
 Google Analytics 4 silently recently rolled out an update with a few new date presets like "This month" and "Last month." But what they gave in convenience, they took away in accuracy. In the very same update, they quietly removed the ability to do a true, day-of-week aligned year-over-year comparison, a feature that was essential for anyone who needs their reports to be accurate.
 

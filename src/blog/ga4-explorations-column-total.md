@@ -40,6 +40,7 @@ tags:
   - post
   - ga4
   - explorations
+  - ga4-fixes
 ---
 
 You are analyzing a custom report in Google Analytics 4. You have your dimensions set, your metrics applied, and you are staring at a table full of raw numbers.

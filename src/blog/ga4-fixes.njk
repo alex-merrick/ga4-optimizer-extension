@@ -1,25 +1,25 @@
 ---
 layout: "layouts/base.njk"
-permalink: "/blog/ga4-updates/"
-title: "GA4 Updates & Release Notes"
-description: "Stay up-to-date with the latest GA4 updates, new features, and changes to Google Analytics 4."
+permalink: "/blog/ga4-fixes/"
+title: "GA4 Fixes & Workarounds"
+description: "Discover solutions for missing features, locked dates, and interface limitations in Google Analytics 4."
 ---
 <main class="container">
     <div class="main-content content-page">
-        <h1>Google Analytics 4 Updates: Latest Changes & Release Notes</h1>
-        <p>Stay up-to-date with the latest GA4 updates, new features, and changes to Google Analytics 4.</p>
+        <h1>GA4 Fixes, Workarounds & Solutions</h1>
+        <p>Discover solutions for missing features, locked dates, and interface limitations in Google Analytics 4.</p>
 
         <nav class="category-pills" aria-label="Blog categories">
             <a href="/blog/" class="category-pill">All Articles</a>
-            <a href="/blog/ga4-updates/" class="category-pill active" aria-current="page">GA4 Updates</a>
+            <a href="/blog/ga4-updates/" class="category-pill">GA4 Updates</a>
             <a href="/blog/gtm-updates/" class="category-pill">GTM Updates</a>
-            <a href="/blog/ga4-fixes/" class="category-pill">GA4 Fixes</a>
+            <a href="/blog/ga4-fixes/" class="category-pill active" aria-current="page">GA4 Fixes</a>
         </nav>
 
         <hr style="border-color: var(--border-color); margin-bottom: 20px;">
 
         <ul style="list-style: none; padding-left: 0;">
-            {%- set hubPosts = collections['ga4-updates'] -%}
+            {%- set hubPosts = collections['ga4-fixes'] -%}
             {%- if hubPosts and hubPosts.length -%}
                 {%- for post in hubPosts | reverse -%}
                     <li class="blog-post-item">
@@ -44,7 +44,7 @@ description: "Stay up-to-date with the latest GA4 updates, new features, and cha
                     </li>
                 {%- endfor -%}
             {%- else -%}
-                <li><p>No GA4 update posts yet. Check back soon.</p></li>
+                <li><p>No GA4 fixes posts yet. Check back soon.</p></li>
             {%- endif -%}
         </ul>
 

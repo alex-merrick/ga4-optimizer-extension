@@ -31,6 +31,7 @@ tags:
   - post
   - ga4
   - reporting
+  - ga4-fixes
 ---
 It's the first week of the month, and the reporting requests are coming in. "How did our traffic from last month compare to the month before?" "What were the biggest channel changes, year-over-year?" These are basic questions, but answering them in Google Analytics 4™ often feels like a chore.
 

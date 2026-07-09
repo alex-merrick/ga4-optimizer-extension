@@ -31,6 +31,7 @@ url: "https://www.gaoptimizer.com/blog/ga4-advanced-table-filters/"
 tags:
   - post
   - ga4
+  - ga4-fixes
   - standard-reports
   - browser-extensions
 author: Alex Merrick

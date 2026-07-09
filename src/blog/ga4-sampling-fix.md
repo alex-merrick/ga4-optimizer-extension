@@ -40,6 +40,7 @@ tags:
   - post
   - ga4
   - explorations
+  - ga4-fixes
 ---
 
 You just spent ten minutes building a custom Freeform Exploration. You applied the right segments, added your custom dimensions, and the conversion numbers look great. But before you screenshot this report and send it to your team, look at the top right corner of your screen. 

@@ -46,6 +46,7 @@ tags:
   - post
   - ga4
   - reporting
+  - ga4-fixes
 ---
 
 You've just built the perfect report in Google Analytics 4. You’ve applied the right segments, filtered the data, and uncovered a massive insight. Now, you just need to send it to your team or client. 

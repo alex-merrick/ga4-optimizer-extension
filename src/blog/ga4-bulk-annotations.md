@@ -38,7 +38,7 @@ url: "https://www.gaoptimizer.com/blog/ga4-bulk-annotations/"
 tags:
   - post
   - ga4
-  - updates
+  - ga4-fixes
   - workflow
 ---
 

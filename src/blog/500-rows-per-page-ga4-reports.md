@@ -40,6 +40,7 @@ tags:
   - post
   - ga4
   - reporting
+  - ga4-fixes
 ---
 
 When analyzing data in Google Analytics 4, having a complete view of your metrics is critical. If you are auditing landing page performance or reviewing campaign source traffic, you want to see as much data as possible on a single screen. However, Google restricts standard reports to a maximum of 250 rows per page.

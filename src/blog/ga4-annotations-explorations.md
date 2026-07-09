@@ -31,6 +31,7 @@ url: "https://www.gaoptimizer.com/blog/ga4-annotations-explorations/"
 tags:
   - post
   - ga4
+  - ga4-fixes
   - explorations
   - browser-extensions
 author: Alex Merrick

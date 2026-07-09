@@ -40,6 +40,7 @@ tags:
   - post
   - ga4
   - reporting
+  - ga4-fixes
 ---
 You're trying to build a "Pages and screens" report in Google Analytics 4. You add the `Views` metric easily enough. But when you try to add the `Exits` metric... it's nowhere to be found in Standard Reports. And even if you could find it, there's still no **Exit Rate** calculation available.
 
