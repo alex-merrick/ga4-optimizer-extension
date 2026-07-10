@@ -56,6 +56,8 @@ For a large portion of users, the workspace drop-down menu that historically sat
 According to Google's newly updated documentation, this is not a random bug or an A/B test. Google has intentionally hidden the workspace switcher by default for any container that currently only has one default workspace. The assumption is that novice users only need one workspace, so hiding the dropdown simplifies the interface. However, for professionals who frequently spin up new workspaces for testing, this sudden disappearance is highly frustrating.
 
 Fortunately, there are two ways to get it back.
+<img src="/img/gtm-current-workspace.png" alt="Google Tag manager current workspace switcher" width="293" height="230">
+
 
 ### Method 1: Permanently Restore the Workspace Switcher
 
