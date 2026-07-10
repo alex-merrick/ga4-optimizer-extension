@@ -58,7 +58,7 @@ layout: layouts/post.njk
 author: Alex Merrick
 date: 2026-05-07T09:00:00.000-05:00
 publishDate: 2026-05-07T09:00:00.000-05:00
-last_modified_at: 2026-07-09T10:37:00.000-05:00
+last_modified_at: 2026-07-10T09:54:00.000-05:00
 thumbnail: /img/thumbnails/thumb-gtm-upgrade.jpg
 post_image: /img/thumbnails/banner-gtm-upgrade.jpg
 url: "https://www.gaoptimizer.com/blog/google-tag-manager-biggest-update-2026/"
@@ -165,7 +165,7 @@ Historically, the Overview page in GTM was a cluttered screen most practitioners
 At the top, you can quickly scan modified, added, and deleted entities. It also features a new visualization card showing your current Google Tags and their destinations, giving you a clear map of your setup once the full GTM/Google Tag integration is live.
 
 ### The Missing Workspace Switcher (July Update)
-As part of the Overview dashboard redesign, Google is currently running an A/B test that completely removes the workspace switcher from the top-left navigation for many users. If your workspace dropdown has disappeared, it has been relocated to a hidden menu under the "Pending Changes" section. For step-by-step instructions on how to navigate this, read our dedicated guide on [fixing the new GTM UI changes](/blog/new-gtm-ui-changes/).
+As part of the Overview dashboard redesign, Google has intentionally hidden the workspace switcher from the top-left navigation for any container that only has one active workspace. If your workspace dropdown has disappeared, it can be permanently restored via User Settings or accessed through a hidden menu under the "Pending Changes" section. For step-by-step instructions on how to restore it, read our dedicated guide on [fixing the new GTM UI changes](/blog/new-gtm-ui-changes/).
 
 ### Collapsible Navigation
 

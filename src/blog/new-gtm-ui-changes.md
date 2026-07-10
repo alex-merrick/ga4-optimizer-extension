@@ -8,7 +8,7 @@ faq_schema: >
       "name": "Where is the workspace switcher in the new GTM UI?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "If the workspace switcher is missing from your left-hand navigation, look at the middle right of the Overview tab under Pending Changes. Click the three vertical dots and select Manage Workspaces to switch or create new workspaces."
+        "text": "You can permanently restore the workspace switcher by going to User Settings, selecting Application Preferences, and checking 'Always show Current Workspace'. Alternatively, click the three vertical dots under Pending Changes on the Overview tab to manage workspaces."
       }
     }, {
       "@type": "Question",
@@ -30,12 +30,12 @@ layout: layouts/post.njk
 author: Alex Merrick
 date: 2026-07-07T20:10:00.000-05:00
 publishDate: 2026-07-07T20:10:00.000-05:00
-last_modified_at: 2026-07-07T20:10:00.000-05:00
+last_modified_at: 2026-07-10T09:49:00.000-05:00
 thumbnail: /img/thumbnails/gtm-ui-update-july-2026-thumb.jpeg
 post_image: /img/thumbnails/gtm-ui-update-july-2026-banner.jpeg
 url: "https://www.gaoptimizer.com/blog/new-gtm-ui-changes/"
 title: "New GTM UI Changes: Where to Find the Workspace Switcher"
-description: "Master the new GTM UI changes in {{ currentYear }}. Learn exactly where to find the missing workspace switcher and navigate the cluttered overview dashboard."
+description: "Master the new GTM UI changes in {{ currentYear }}. Learn how to permanently restore the missing workspace switcher and navigate the cluttered overview dashboard."
 tags:
   - post
   - gtm
@@ -47,22 +47,37 @@ On July 1, {{ currentYear }}, Google rolled out an update to the Google Tag Mana
 
 However, many tracking specialists logging into their accounts this week have found the update confusing rather than helpful. The most jarring change is the disappearance of the workspace switcher from the top-left menu. Additionally, Google is now surfacing raw destination IDs directly on the front page, leading to a cluttered user experience.
 
-If you are struggling to navigate the new GTM UI, here is exactly what changed and where to find your missing tools.
+If you are struggling to navigate the new GTM UI, here is exactly what changed and how to restore your missing tools.
 
-## Where to Find the Missing GTM Workspace Switcher
+## How to Restore the Missing GTM Workspace Switcher
 
-For a large portion of users, the workspace drop-down menu that historically sat at the top left of the GTM interface is completely gone. Google appears to be running an A/B test, as some users still see the legacy placement while others are left wondering how to change workspaces.
+For a large portion of users, the workspace drop-down menu that historically sat at the top left of the GTM interface is completely gone. 
 
-If you no longer see the workspace switcher in its usual spot, Google has relocated it to the center of the screen.
+According to Google's newly updated documentation, this is not a random bug or an A/B test. Google has intentionally hidden the workspace switcher by default for any container that currently only has one default workspace. The assumption is that novice users only need one workspace, so hiding the dropdown simplifies the interface. However, for professionals who frequently spin up new workspaces for testing, this sudden disappearance is highly frustrating.
 
-### Step-by-Step Instructions
+Fortunately, there are two ways to get it back.
+
+### Method 1: Permanently Restore the Workspace Switcher
+
+Google recently added a hidden toggle to user settings that allows you to force the interface to display the workspace dropdown, even if you only have one active workspace. 
+
+1. Click the **three vertical dots** in the top right corner of the GTM interface (next to your profile picture).
+2. Select **User Settings** (or navigate directly to <a href="https://tagmanager.google.com/#/admin/user/settings" target="_blank" rel="noopener noreferrer">tagmanager.google.com/#/admin/user/settings</a>).
+3. Under the **Application Preferences** section, check the box for **"Always show Current Workspace"**.
+4. Save your preferences. 
+
+The tooltip for this setting explicitly confirms its purpose: *"Keep the Current Workspace control visible to you even when the container has one workspace."* Checking this box will immediately restore the left-hand switcher you are used to.
+
+### Method 2: Access Workspaces via the Hidden Overview Menu
+
+If you do not want to alter your global application preferences, or if you are working in a client's account where you prefer not to change global settings, Google has relocated the initial workspace creation tools to the center of the screen.
 
 1. Navigate to the **Overview** tab in your GTM container.
 2. Look for the **Pending Changes** section in the center of the page.
 3. On the far right side of this section, click the **three vertical dots**.
 4. Select **Manage Workspaces** from the dropdown menu to view, switch, or create new workspaces.
 
-This extra friction slows down users who frequently toggle between environments during testing. If you rely on moving quickly between workspaces, you will need to retrain your muscle memory to target this new nested menu.
+Once you create a second workspace using this menu, the interface recognizes that you are actively managing multiple environments, and the standard top-left workspace switcher will automatically reappear.
 
 <img src="/img/gtm-update.jpeg" alt="Google Tag manager overview view UI update" width="1382" height="950">
 
@@ -84,7 +99,7 @@ You cannot use it to track standard Google Analytics 4 interactions like button 
 
 ### Video Walkthrough of the New Interface
 
-For a deeper dive into the new interface changes, Julius Fedorovicius from Analytics Mania recently published an excellent video walkthrough. While he does not appear to have run into the missing workspace switcher A/B test in his container, the video provides a comprehensive look at how the visual builder and the rest of the new layout function:
+For a deeper dive into the new interface changes, Julius Fedorovicius from Analytics Mania recently published an excellent video walkthrough. While he did not highlight the missing workspace switcher issue in his video (likely because he already had multiple workspaces active), the video provides a comprehensive look at how the visual builder and the rest of the new layout function:
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 30px;">
   <iframe src="https://www.youtube.com/embed/exHhk8VihNg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="Google Tag Manager UI Updates Video Walkthrough"></iframe>
@@ -92,7 +107,7 @@ For a deeper dive into the new interface changes, Julius Fedorovicius from Analy
 
 ## Navigating GTM and GA4 More Efficiently
 
-Interface updates that hide necessary features can disrupt your entire reporting workflow. Just like the missing workspace switcher in GTM, Google Analytics 4 frequently buries valuable data behind multiple clicks and complex configuration screens.
+Interface updates that hide necessary features can disrupt your entire reporting workflow. Just like the hidden workspace switcher in GTM, Google Analytics 4 frequently buries valuable data behind multiple clicks and complex configuration screens.
 
 If you are spending too much time digging through GA4 menus to validate the tags you just built in GTM, install the **[GA4 Optimizer Chrome extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_new_gtm_ui_changes)**. 
 
@@ -102,7 +117,7 @@ The extension enhances the native GA4 reporting interface by adding tools that s
 
 <details class="faq-accordion">
   <summary>Where is the workspace switcher in the new GTM UI?</summary>
-  <p>If the workspace switcher is missing from your left-hand navigation, look at the middle right of the Overview tab under Pending Changes. Click the three vertical dots and select Manage Workspaces to switch or create new workspaces.</p>
+  <p>You can permanently restore the workspace switcher by going to User Settings, selecting Application Preferences, and checking 'Always show Current Workspace'. Alternatively, click the three vertical dots under Pending Changes on the Overview tab to manage workspaces.</p>
 </details>
 
 <details class="faq-accordion">
