@@ -19,9 +19,9 @@ description: "Stay up-to-date with the latest GA4 updates, new features, and cha
         <hr style="border-color: var(--border-color); margin-bottom: 20px;">
 
         <ul style="list-style: none; padding-left: 0;">
-            {%- set hubPosts = collections['ga4-updates'] -%}
+            {%- set hubPosts = collections['ga4-updates-published'] -%}
             {%- if hubPosts and hubPosts.length -%}
-                {%- for post in hubPosts | reverse -%}
+                {%- for post in hubPosts -%}
                     <li class="blog-post-item">
                         <div class="blog-post-layout">
                             

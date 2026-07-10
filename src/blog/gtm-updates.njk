@@ -19,9 +19,9 @@ description: "Track the latest GTM updates, container changes, and release notes
         <hr style="border-color: var(--border-color); margin-bottom: 20px;">
 
         <ul style="list-style: none; padding-left: 0;">
-            {%- set hubPosts = collections['gtm-updates'] -%}
+            {%- set hubPosts = collections['gtm-updates-published'] -%}
             {%- if hubPosts and hubPosts.length -%}
-                {%- for post in hubPosts | reverse -%}
+                {%- for post in hubPosts -%}
                     <li class="blog-post-item">
                         <div class="blog-post-layout">
                             

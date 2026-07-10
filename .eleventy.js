@@ -116,23 +116,40 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.setLibrary("md", markdownLib);
 
-    // --- Custom Collection for Blog Posts ---
+    // --- Custom Collections for Blog Posts ---
     // Posts with a `publishDate` in the future are excluded at build time.
     // Schedule a daily Netlify build so queued posts go live on their designated day.
-    eleventyConfig.addCollection("posts", function(collectionApi) {
+
+    // Helper: returns true if a post's publishDate is in the past (or today).
+    function isPublished(post) {
         const now = new Date();
+        const publishDate = post.data.publishDate
+            ? new Date(post.data.publishDate)
+            : post.date;
+        return publishDate <= now;
+    }
+
+    // Helper: sort newest first by publishDate.
+    function newestFirst(a, b) {
+        const dateA = a.data.publishDate ? new Date(a.data.publishDate) : a.date;
+        const dateB = b.data.publishDate ? new Date(b.data.publishDate) : b.date;
+        return dateB - dateA;
+    }
+
+    // All published blog posts (used by the main /blog/ paginated listing).
+    eleventyConfig.addCollection("posts", function(collectionApi) {
         return collectionApi.getFilteredByGlob("src/blog/*.md")
-            .filter(function(post) {
-                const publishDate = post.data.publishDate
-                    ? new Date(post.data.publishDate)
-                    : post.date;
-                return publishDate <= now;
-            })
-            .sort(function(a, b) {
-                const dateA = a.data.publishDate ? new Date(a.data.publishDate) : a.date;
-                const dateB = b.data.publishDate ? new Date(b.data.publishDate) : b.date;
-                return dateB - dateA; // newest first
-            });
+            .filter(isPublished)
+            .sort(newestFirst);
+    });
+
+    // Filtered category collections: same date gate applied per tag.
+    ["gtm-updates", "ga4-updates", "ga4-fixes"].forEach(function(tag) {
+        eleventyConfig.addCollection(tag + "-published", function(collectionApi) {
+            return collectionApi.getFilteredByTag(tag)
+                .filter(isPublished)
+                .sort(newestFirst);
+        });
     });
 
     // --- Base Configuration ---
