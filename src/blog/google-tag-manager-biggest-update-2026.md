@@ -250,23 +250,37 @@ If you manage GTM implementations, you are constantly jumping into GA4 to confir
 
 ## Frequently Asked Questions
 
-### Will Google Tag Manager start collecting data automatically after the update?
-No. The upgrade does not cause GTM to automatically send data to GA4, Google Ads, or Floodlight. You still have full control over which tags fire and when. The change is structural, not behavioral.
+<details class="faq-accordion">
+  <summary>Will Google Tag Manager start collecting data automatically after the update?</summary>
+  <p>No. The upgrade does not cause GTM to automatically send data to GA4, Google Ads, or Floodlight. You still have full control over which tags fire and when. The change is structural, not behavioral.</p>
+</details>
 
-### Do I have to upgrade my GTM container to a Google Tag?
-No. The upgrade is entirely opt-in. Your existing GTM containers will continue to work exactly as they do today. You can preview, test, and roll back the upgrade at any time.
+<details class="faq-accordion">
+  <summary>Do I have to upgrade my GTM container to a Google Tag?</summary>
+  <p>No. The upgrade is entirely opt-in. Your existing GTM containers will continue to work exactly as they do today. You can preview, test, and roll back the upgrade at any time.</p>
+</details>
 
-### What are Destinations in the new GTM update?
-Destinations replace the legacy Google Tags inside your container. Instead of each Google Tag loading its own separate gtag.js file, Destinations are handled through the single container JavaScript file. This reduces bandwidth usage and improves page performance.
+<details class="faq-accordion">
+  <summary>What are Destinations in the new GTM update?</summary>
+  <p>Destinations replace the legacy Google Tags inside your container. Instead of each Google Tag loading its own separate gtag.js file, Destinations are handled through the single container JavaScript file. This reduces bandwidth usage and improves page performance.</p>
+</details>
 
-### What is the difference between the GTM container ID and the product ID in the new update?
-Every new Google Tag will have both a GTM container ID (GTM-XXXXXX) and a product ID (G-XXXXXX or AW-XXXXXX). Deploying with the GTM ID gives full container functionality. Deploying with the product ID restricts the container to Google product tags only, which is useful for governance in organizations concerned about GTM misuse.
+<details class="faq-accordion">
+  <summary>What is the difference between the GTM container ID and the product ID in the new update?</summary>
+  <p>Every new Google Tag will have both a GTM container ID (GTM-XXXXXX) and a product ID (G-XXXXXX or AW-XXXXXX). Deploying with the GTM ID gives full container functionality. Deploying with the product ID restricts the container to Google product tags only, which is useful for governance in organizations concerned about GTM misuse.</p>
+</details>
 
-### What is the GTM visual event builder?
-The visual event builder lets you walk through a conversion flow on your website and automatically generates tags based on CSS selectors. It is currently available in beta for Google Ads purchase conversions, though relying on CSS for critical metrics is generally not recommended compared to using the dataLayer.
+<details class="faq-accordion">
+  <summary>What is the GTM visual event builder?</summary>
+  <p>The visual event builder lets you walk through a conversion flow on your website and automatically generates tags based on CSS selectors. It is currently available in beta for Google Ads purchase conversions, though relying on CSS for critical metrics is generally not recommended compared to using the dataLayer.</p>
+</details>
 
-### When is the Google Tag Manager update being released?
-Google officially confirmed the update on May 20. The visual event builder is currently in beta for Google Ads, while the structural container upgrades and user interface changes began rolling out incrementally in late June.
+<details class="faq-accordion">
+  <summary>When is the Google Tag Manager update being released?</summary>
+  <p>Google officially confirmed the update on May 20. The visual event builder is currently in beta for Google Ads, while the structural container upgrades and user interface changes began rolling out incrementally in late June.</p>
+</details>
 
-### What happened to the gtag config command in the new update?
-New deployment snippets will no longer include the gtag config command. Instead, you are recommended to configure initialization behavior using the new gtm init trigger, which can also be set to wait for a config command to preserve legacy setups.
+<details class="faq-accordion">
+  <summary>What happened to the gtag config command in the new update?</summary>
+  <p>New deployment snippets will no longer include the gtag config command. Instead, you are recommended to configure initialization behavior using the new gtm init trigger, which can also be set to wait for a config command to preserve legacy setups.</p>
+</details>

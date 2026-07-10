@@ -99,14 +99,17 @@ Furthermore, if you find yourself managing tracking consistency across multiple 
 
 ## Frequently Asked Questions
 
-### Can I import annotations into GA4 using a CSV file?
+<details class="faq-accordion">
+  <summary>Can I import annotations into GA4 using a CSV file?</summary>
+  <p>Yes. While Google Analytics 4 does not natively support CSV imports for annotations, you can use the free GA4 Optimizer browser extension to upload a CSV file and distribute those annotations across multiple properties instantly. The tool accepts GA4's native export format, allowing you to easily migrate existing markers.</p>
+</details>
 
-Yes. While Google Analytics 4 does not natively support CSV imports for annotations, you can use the free GA4 Optimizer browser extension to upload a CSV file and distribute those annotations across multiple properties instantly. The tool accepts GA4's native export format, allowing you to easily migrate existing markers.
+<details class="faq-accordion">
+  <summary>How do I add the same annotation to multiple GA4 properties?</summary>
+  <p>Using the GA4 Optimizer Bulk Create tool, you can write your annotation once, select multiple properties from a checklist, and submit. The extension will automatically duplicate the annotation across all selected properties.</p>
+</details>
 
-### How do I add the same annotation to multiple GA4 properties?
-
-Using the GA4 Optimizer Bulk Create tool, you can write your annotation once, select multiple properties from a checklist, and submit. The extension will automatically duplicate the annotation across all selected properties.
-
-### Is there a limit to how many GA4 properties I can bulk annotate?
-
-There is no hard limit within the extension, but large operations are intentionally paced. The tool processes requests sequentially with built-in delays to avoid hitting GA4's strict API rate limits. The interface will provide an estimated completion time before you start.
+<details class="faq-accordion">
+  <summary>Is there a limit to how many GA4 properties I can bulk annotate?</summary>
+  <p>There is no hard limit within the extension, but large operations are intentionally paced. The tool processes requests sequentially with built-in delays to avoid hitting GA4's strict API rate limits. The interface will provide an estimated completion time before you start.</p>
+</details>

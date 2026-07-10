@@ -126,14 +126,17 @@ With the extension active, you can easily use the **Custom Definitions Copy/Past
 
 ## Frequently Asked Questions
 
-### What is a hostname filter in GA4?
+<details class="faq-accordion">
+  <summary>What is a hostname filter in GA4?</summary>
+  <p>A hostname filter in Google Analytics 4 allows you to exclude traffic based on the specific domain name where the event originated. While it helps block known staging sites and current spam, its current exclude-only nature means you must manually update it for new spam sources.</p>
+</details>
 
-A hostname filter in Google Analytics 4 allows you to exclude traffic based on the specific domain name where the event originated. While it helps block known staging sites and current spam, its current exclude-only nature means you must manually update it for new spam sources.
+<details class="faq-accordion">
+  <summary>How do I block staging site traffic in GA4?</summary>
+  <p>Navigate to the Data filters section in your GA4 Admin panel, create a new Web hostname traffic filter, and set it to exclude your staging or development domain. Keep the filter in Testing mode first to verify it works properly before switching it to Active.</p>
+</details>
 
-### How do I block staging site traffic in GA4?
-
-Navigate to the Data filters section in your GA4 Admin panel, create a new Web hostname traffic filter, and set it to exclude your staging or development domain. Keep the filter in Testing mode first to verify it works properly before switching it to Active.
-
-### Can I test a GA4 filter before making it active?
-
-Yes. When you create a new data filter in GA4, it defaults to a Testing state. This allows you to apply a comparison in your standard reports to see exactly what data would be dropped by the filter before you permanently activate it.
+<details class="faq-accordion">
+  <summary>Can I test a GA4 filter before making it active?</summary>
+  <p>Yes. When you create a new data filter in GA4, it defaults to a Testing state. This allows you to apply a comparison in your standard reports to see exactly what data would be dropped by the filter before you permanently activate it.</p>
+</details>

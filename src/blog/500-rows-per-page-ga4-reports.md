@@ -100,14 +100,17 @@ If you need to narrow down those 500 rows to a specific subset, the [Advanced Ta
 
 ## Frequently Asked Questions
 
-### How do I show more than 250 rows in GA4 standard reports?
+<details class="faq-accordion">
+  <summary>How do I show more than 250 rows in GA4 standard reports?</summary>
+  <p>By default, Google Analytics 4 limits standard reports to 250 rows per page. To view up to 500 rows, you can use the free GA4 Optimizer browser extension, which adds a 500-row option directly to the native rows per page dropdown menu.</p>
+</details>
 
-By default, Google Analytics 4 limits standard reports to 250 rows per page. To view up to 500 rows, you can use the free GA4 Optimizer browser extension, which adds a 500-row option directly to the native rows per page dropdown menu.
+<details class="faq-accordion">
+  <summary>Why does my GA4 report freeze or slow down when showing 500 rows?</summary>
+  <p>Google does not officially support rendering 500 rows in a standard report. Forcing the browser to load and display this much data requires significant memory. If you use date comparisons while viewing 500 rows, the page will likely become unstable or crash.</p>
+</details>
 
-### Why does my GA4 report freeze or slow down when showing 500 rows?
-
-Google does not officially support rendering 500 rows in a standard report. Forcing the browser to load and display this much data requires significant memory. If you use date comparisons while viewing 500 rows, the page will likely become unstable or crash.
-
-### Does the 500 rows per page limit work in GA4 Explorations?
-
-No, the 500 rows per page dropdown addition is specifically designed for Standard Reports. For GA4 Explorations, you can use the Maximize View feature to instantly optimize the table density.
+<details class="faq-accordion">
+  <summary>Does the 500 rows per page limit work in GA4 Explorations?</summary>
+  <p>No, the 500 rows per page dropdown addition is specifically designed for Standard Reports. For GA4 Explorations, you can use the Maximize View feature to instantly optimize the table density.</p>
+</details>

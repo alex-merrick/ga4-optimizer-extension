@@ -230,11 +230,17 @@ And when you are ready to start analyzing the data you just set up in Google Ana
 
 ## Frequently Asked Questions
 
-**Q: What are the best Chrome extensions for the Google Tag Manager interface?**
-A: To improve the actual GTM user interface, extensions like GTMFixer add advanced sorting and error highlighting, while GTM Copy Paste allows you to move tags between containers. GTM Variable Builder is also highly recommended for instantly generating Custom Javascript variables from website elements.
+<details class="faq-accordion">
+  <summary>What are the best Chrome extensions for the Google Tag Manager interface?</summary>
+  <p>To improve the actual GTM user interface, extensions like GTMFixer add advanced sorting and error highlighting, while GTM Copy Paste allows you to move tags between containers. GTM Variable Builder is also highly recommended for instantly generating Custom Javascript variables from website elements.</p>
+</details>
 
-**Q: How do I check if my GTM dataLayer is working?**
-A: You can use visual Chrome extensions like Datalayer Checker to see your dataLayer pushes in a clean popup, or use Adswerve dataLayer Inspector+ to monitor events and payloads directly within your browser's developer console.
+<details class="faq-accordion">
+  <summary>How do I check if my GTM dataLayer is working?</summary>
+  <p>You can use visual Chrome extensions like Datalayer Checker to see your dataLayer pushes in a clean popup, or use Adswerve dataLayer Inspector+ to monitor events and payloads directly within your browser's developer console.</p>
+</details>
 
-**Q: What is the best extension for Server-Side GTM?**
-A: The Stape GTM Helper is currently the best extension for Server-Side Google Tag Manager. It automatically formats and highlights complex JSON data in preview mode, making it much easier to spot missing commas or formatting errors in your server container.
+<details class="faq-accordion">
+  <summary>What is the best extension for Server-Side GTM?</summary>
+  <p>The Stape GTM Helper is currently the best extension for Server-Side Google Tag Manager. It automatically formats and highlights complex JSON data in preview mode, making it much easier to spot missing commas or formatting errors in your server container.</p>
+</details>

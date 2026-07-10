@@ -104,14 +104,17 @@ Once your new property is configured, you can put those custom dimensions to wor
 
 ## Frequently Asked Questions
 
-### Is there a built-in way to copy custom dimensions in GA4?
+<details class="faq-accordion">
+  <summary>Is there a built-in way to copy custom dimensions in GA4?</summary>
+  <p>No, Google Analytics 4 does not have a native feature to copy, clone, or export custom dimensions, metrics, or calculated metrics from one property to another. The process must be done manually, one definition at a time.</p>
+</details>
 
-No, Google Analytics 4 does not have a native feature to copy, clone, or export custom dimensions, metrics, or calculated metrics from one property to another. The process must be done manually, one definition at a time.
+<details class="faq-accordion">
+  <summary>How do you copy custom definitions between GA4 properties?</summary>
+  <p>The fastest method is to use the GA4 Optimizer browser extension. It adds 'Copy' and 'Paste' buttons directly to the Admin > Custom definitions page, allowing you to migrate dozens of definitions in just a few clicks while automatically preventing duplicates.</p>
+</details>
 
-### How do you copy custom definitions between GA4 properties?
-
-The fastest method is to use the GA4 Optimizer browser extension. It adds 'Copy' and 'Paste' buttons directly to the Admin > Custom definitions page, allowing you to migrate dozens of definitions in just a few clicks while automatically preventing duplicates.
-
-### What permissions do I need to copy custom dimensions in GA4?
-
-To create or edit custom definitions, you must have an Editor or Administrator role on the Google Analytics 4 property. This is required for both the manual method and when using automated tools like the GA4 Optimizer extension.
+<details class="faq-accordion">
+  <summary>What permissions do I need to copy custom dimensions in GA4?</summary>
+  <p>To create or edit custom definitions, you must have an Editor or Administrator role on the Google Analytics 4 property. This is required for both the manual method and when using automated tools like the GA4 Optimizer extension.</p>
+</details>

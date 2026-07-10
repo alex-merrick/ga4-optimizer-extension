@@ -96,11 +96,17 @@ For more technical details on the Tasks rollout, you can review the official [Go
 
 ## Frequently Asked Questions
 
-**What is the Task Assistant in Google Analytics 4?**  
-The Task Assistant is a built-in dashboard in GA4 that helps users track their property setup progress. It guides you through collecting data, connecting Google Ads, importing first-party data, and fixing technical tracking issues.
+<details class="faq-accordion">
+  <summary>What is the Task Assistant in Google Analytics 4?</summary>
+  <p>The Task Assistant is a built-in dashboard in GA4 that helps users track their property setup progress. It guides you through collecting data, connecting Google Ads, importing first-party data, and fixing technical tracking issues.</p>
+</details>
 
-**Who can access Tasks in Google Analytics?**  
-You must have the Administrator, Editor, or Marketer role to use the Task Assistant. Users with only the Analyst or Viewer roles cannot view or access the Tasks dashboard.
+<details class="faq-accordion">
+  <summary>Who can access Tasks in Google Analytics?</summary>
+  <p>You must have the Administrator, Editor, or Marketer role to use the Task Assistant. Users with only the Analyst or Viewer roles cannot view or access the Tasks dashboard.</p>
+</details>
 
-**Where do I find the Task Assistant in GA4?**  
-Sign in to Google Analytics, select your desired account and property, and look at the bottom of the left-hand navigation menu. Click the Tasks icon located just above the Admin gear icon.
+<details class="faq-accordion">
+  <summary>Where do I find the Task Assistant in GA4?</summary>
+  <p>Sign in to Google Analytics, select your desired account and property, and look at the bottom of the left-hand navigation menu. Click the Tasks icon located just above the Admin gear icon.</p>
+</details>

@@ -91,14 +91,17 @@ Install the free [GA4 Optimizer extension](https://chromewebstore.google.com/det
 
 ## Frequently Asked Questions
 
-### Why are so many features from Universal Analytics missing in GA4?
+<details class="faq-accordion">
+  <summary>Why are so many features from Universal Analytics missing in GA4?</summary>
+  <p>The transition from a session-based data model (Universal Analytics) to an event-based model (GA4) required a complete platform rebuild. In this process, Google prioritized the new data collection architecture, and many quality-of-life interface features and standard metrics from the old platform were not carried over.</p>
+</details>
 
-The transition from a session-based data model (Universal Analytics) to an event-based model (GA4) required a complete platform rebuild. In this process, Google prioritized the new data collection architecture, and many quality-of-life interface features and standard metrics from the old platform were not carried over.
+<details class="faq-accordion">
+  <summary>How can I calculate Exit Rate in GA4?</summary>
+  <p>Natively, you must build a custom Exploration report with 'Exits' and 'Views' as metrics, export the data to a spreadsheet, and manually calculate the rate (Exits / Views). A faster method is to use the GA4 Optimizer extension, which has a one-click 'Create Exit Pages Report' feature that builds the report and calculates the rate for you.</p>
+</details>
 
-### How can I calculate Exit Rate in GA4?
-
-Natively, you must build a custom Exploration report with 'Exits' and 'Views' as metrics, export the data to a spreadsheet, and manually calculate the rate (Exits / Views). A faster method is to use the GA4 Optimizer extension, which has a one-click 'Create Exit Pages Report' feature that builds the report and calculates the rate for you.
-
-### How can I make the GA4 interface easier to use?
-
-The most effective way is to use a browser extension designed to fix its workflow gaps. The GA4 Optimizer extension adds back missing features like Exit Rate, sticky table headers, and column percentages, and it streamlines tedious tasks like date comparisons to make the interface more efficient and user-friendly.
+<details class="faq-accordion">
+  <summary>How can I make the GA4 interface easier to use?</summary>
+  <p>The most effective way is to use a browser extension designed to fix its workflow gaps. The GA4 Optimizer extension adds back missing features like Exit Rate, sticky table headers, and column percentages, and it streamlines tedious tasks like date comparisons to make the interface more efficient and user-friendly.</p>
+</details>

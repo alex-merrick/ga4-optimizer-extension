@@ -111,14 +111,17 @@ Accurate data is especially important when running calculations on top of your E
 
 ## Frequently Asked Questions
 
-### What does the yellow warning icon mean in GA4 Explorations?
+<details class="faq-accordion">
+  <summary>What does the yellow warning icon mean in GA4 Explorations?</summary>
+  <p>The yellow warning icon in the top right corner of a GA4 Exploration means your report is based on sampled data. Google Analytics is using a small portion of your data to estimate the total results, which means the numbers you are looking at are not 100% accurate.</p>
+</details>
 
-The yellow warning icon in the top right corner of a GA4 Exploration means your report is based on sampled data. Google Analytics is using a small portion of your data to estimate the total results, which means the numbers you are looking at are not 100% accurate.
+<details class="faq-accordion">
+  <summary>How do you fix sampled data in GA4?</summary>
+  <p>To fix sampled data natively, click the data quality icon in the top right of your Exploration, select 'More detailed results', and click apply. For a faster workflow, you can use the GA4 Optimizer browser extension and press Ctrl+Shift+Q to instantly reload the report with detailed results.</p>
+</details>
 
-### How do you fix sampled data in GA4?
-
-To fix sampled data natively, click the data quality icon in the top right of your Exploration, select 'More detailed results', and click apply. For a faster workflow, you can use the GA4 Optimizer browser extension and press Ctrl+Shift+Q to instantly reload the report with detailed results.
-
-### Why does GA4 sample data?
-
-GA4 samples data to reduce processing time and server load. When you request a complex Exploration over a long date range, or apply multiple high-cardinality dimensions, GA4 defaults to 'Faster results' to load the table quickly at the cost of total accuracy.
+<details class="faq-accordion">
+  <summary>Why does GA4 sample data?</summary>
+  <p>GA4 samples data to reduce processing time and server load. When you request a complex Exploration over a long date range, or apply multiple high-cardinality dimensions, GA4 defaults to 'Faster results' to load the table quickly at the cost of total accuracy.</p>
+</details>

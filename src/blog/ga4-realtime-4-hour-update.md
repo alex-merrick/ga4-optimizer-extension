@@ -126,30 +126,37 @@ To track this ratio automatically without doing manual math, you can install the
 
 ## Frequently Asked Questions
 
-### How do I access the 4-hour Realtime report in GA4?
+<details class="faq-accordion">
+  <summary>How do I access the 4-hour Realtime report in GA4?</summary>
+  <p>Click the Reports icon in the left-side navigation panel, then click on Realtime pages. Click the dropdown menu at the top of the report cards (which defaults to Last 30 min) and select Last 1 hour, Last 2 hours, or Last 4 hours.</p>
+</details>
 
-Click the Reports icon in the left-side navigation panel, then click on Realtime pages. Click the dropdown menu at the top of the report cards (which defaults to Last 30 min) and select Last 1 hour, Last 2 hours, or Last 4 hours.
+<details class="faq-accordion">
+  <summary>What metrics are available in the GA4 Realtime pages report?</summary>
+  <p>The GA4 Realtime pages report primarily focuses on Active Users (unique engaged individuals or first-time visitors) and Views (total web pages or app screens consumed) during your selected 30-minute to 4-hour window.</p>
+</details>
 
-### What metrics are available in the GA4 Realtime pages report?
+<details class="faq-accordion">
+  <summary>Why did GA4 extend Realtime reports to 4 hours?</summary>
+  <p>Google Analytics 4 extended the Realtime window to bridge the gap between immediate live traffic and the standard 24 to 48-hour data processing delay, giving marketers a longer timeframe to analyze recent website activity.</p>
+</details>
 
-The GA4 Realtime pages report primarily focuses on Active Users (unique engaged individuals or first-time visitors) and Views (total web pages or app screens consumed) during your selected 30-minute to 4-hour window.
+<details class="faq-accordion">
+  <summary>Why doesn't the GA4 Realtime report show sessions?</summary>
+  <p>Calculating session timeouts on the fly for live traffic is technically prohibitive and leads to highly inaccurate data. Because a session typically expires after 30 minutes of inactivity, GA4 relies on the Active Users metric instead.</p>
+</details>
 
-### Why did GA4 extend Realtime reports to 4 hours?
+<details class="faq-accordion">
+  <summary>What is an Active User in GA4?</summary>
+  <p>An active user is any unique individual who either has an engaged session (lasts longer than 10 seconds, completes a conversion, or views multiple pages) OR visits your site for the very first time.</p>
+</details>
 
-Google Analytics 4 extended the Realtime window to bridge the gap between immediate live traffic and the standard 24 to 48-hour data processing delay, giving marketers a longer timeframe to analyze recent website activity.
+<details class="faq-accordion">
+  <summary>How do I calculate Views per Active User in GA4 Realtime?</summary>
+  <p>You can calculate this metric by dividing total Views by Active Users. To do this automatically, install the GA4 Optimizer browser extension and use the Quick Calculated Metric feature to add a custom ratio column directly into your Realtime tables.</p>
+</details>
 
-### Why doesn't the GA4 Realtime report show sessions?
-
-Calculating session timeouts on the fly for live traffic is technically prohibitive and leads to highly inaccurate data. Because a session typically expires after 30 minutes of inactivity, GA4 relies on the Active Users metric instead.
-
-### What is an Active User in GA4?
-
-An active user is any unique individual who either has an engaged session (lasts longer than 10 seconds, completes a conversion, or views multiple pages) OR visits your site for the very first time.
-
-### How do I calculate Views per Active User in GA4 Realtime?
-
-You can calculate this metric by dividing total Views by Active Users. To do this automatically, install the GA4 Optimizer browser extension and use the Quick Calculated Metric feature to add a custom ratio column directly into your Realtime tables.
-
-### Can I use GA4 Realtime for server performance monitoring?
-
-No. While GA4 Realtime is excellent for tracking traffic spikes and potentially monitoring marketing engagement during a launch, it should not replace dedicated server monitoring tools like Cloudflare or Dynatrace for measuring infrastructure uptime.
+<details class="faq-accordion">
+  <summary>Can I use GA4 Realtime for server performance monitoring?</summary>
+  <p>No. While GA4 Realtime is excellent for tracking traffic spikes and potentially monitoring marketing engagement during a launch, it should not replace dedicated server monitoring tools like Cloudflare or Dynatrace for measuring infrastructure uptime.</p>
+</details>

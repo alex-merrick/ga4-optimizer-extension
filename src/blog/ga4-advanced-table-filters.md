@@ -90,14 +90,17 @@ For even more control over large datasets, you can also [increase the row limit 
 
 ## Frequently Asked Questions
 
-### Can I use regex to filter GA4 standard reports?
+<details class="faq-accordion">
+  <summary>Can I use regex to filter GA4 standard reports?</summary>
+  <p>Yes. The advanced table filter feature supports regular expressions. You can select the regex condition when filtering any dimension to match complex patterns in your report data.</p>
+</details>
 
-Yes. The advanced table filter feature supports regular expressions. You can select the regex condition when filtering any dimension to match complex patterns in your report data.
+<details class="faq-accordion">
+  <summary>Why do some derived metric filters fail in GA4?</summary>
+  <p>Some derived metrics like averages or per-user ratios do not natively support direct API filtering on certain standard reports. If a specific filter fails, the extension will display an error message and suggest alternative metrics you can use.</p>
+</details>
 
-### Why do some derived metric filters fail in GA4?
-
-Some derived metrics like averages or per-user ratios do not natively support direct API filtering on certain standard reports. If a specific filter fails, the extension will display an error message and suggest alternative metrics you can use.
-
-### Does the advanced table filter work on GA4 explorations?
-
-No. This specific feature applies only to GA4 standard reports. Explorations already include native advanced filtering capabilities built into the variables and tab settings panels.
+<details class="faq-accordion">
+  <summary>Does the advanced table filter work on GA4 explorations?</summary>
+  <p>No. This specific feature applies only to GA4 standard reports. Explorations already include native advanced filtering capabilities built into the variables and tab settings panels.</p>
+</details>

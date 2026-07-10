@@ -133,14 +133,17 @@ Using the exact naming conventions listed above ensures that Google Analytics au
 
 ## Frequently Asked Questions
 
-### What are automatically collected events in GA4?
+<details class="faq-accordion">
+  <summary>What are automatically collected events in GA4?</summary>
+  <p>Automatically collected events are baseline interactions that Google Analytics 4 tracks by default without any custom code. These include basic website behaviors like page_view, session_start, first_visit, and user_engagement.</p>
+</details>
 
-Automatically collected events are baseline interactions that Google Analytics 4 tracks by default without any custom code. These include basic website behaviors like page_view, session_start, first_visit, and user_engagement.
+<details class="faq-accordion">
+  <summary>What is the user_engagement event in GA4?</summary>
+  <p>The user_engagement event fires periodically while a visitor is actively engaging with your website or app. Google uses this event to calculate engaged sessions and overall engagement rate, replacing the legacy bounce rate metric.</p>
+</details>
 
-### What is the user_engagement event in GA4?
-
-The user_engagement event fires periodically while a visitor is actively engaging with your website or app. Google uses this event to calculate engaged sessions and overall engagement rate, replacing the legacy bounce rate metric.
-
-### How do I see my custom event definitions in GA4?
-
-By default, GA4 does not display custom event definitions in the reporting interface. You can view them by installing the GA4 Optimizer browser extension, which adds a hoverable Data Dictionary tooltip next to every event name in your reports.
+<details class="faq-accordion">
+  <summary>How do I see my custom event definitions in GA4?</summary>
+  <p>By default, GA4 does not display custom event definitions in the reporting interface. You can view them by installing the GA4 Optimizer browser extension, which adds a hoverable Data Dictionary tooltip next to every event name in your reports.</p>
+</details>

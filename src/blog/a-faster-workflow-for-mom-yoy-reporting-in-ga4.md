@@ -93,10 +93,12 @@ If you run A/B tests alongside your regular reporting, the extension also includ
 ---
 ## Frequently Asked Questions
 
-### How do I do a Month-over-Month (MoM) comparison in GA4?
+<details class="faq-accordion">
+  <summary>How do I do a Month-over-Month (MoM) comparison in GA4?</summary>
+  <p>To do a MoM comparison in GA4, you typically navigate to a report, open the date range selector, choose your month, and then manually select the 'compare' option to select the previous period. For a faster workflow, the GA4 Optimizer extension adds one-click presets like 'LMMoM' (Last Month over Month) to complete this in two clicks instead of seven.</p>
+</details>
 
-To do a MoM comparison in GA4, you typically navigate to a report, open the date range selector, choose your month, and then manually select the 'compare' option to select the previous period. For a faster workflow, the GA4 Optimizer extension adds one-click presets like 'LMMoM' (Last Month over Month) to complete this in two clicks instead of seven.
-
-### Can you create custom calculated metrics directly in GA4 reports?
-
-Standard GA4 reports do not allow you to create custom calculated metrics on the fly; this typically requires creating a custom exploration or using a separate tool. However, the GA4 Optimizer extension adds a 'Quick Calculated Metric' feature that lets you create temporary calculations, like Exit Rate from Views and Exits, directly within the standard reporting interface for quick analysis.
+<details class="faq-accordion">
+  <summary>Can you create custom calculated metrics directly in GA4 reports?</summary>
+  <p>Standard GA4 reports do not allow you to create custom calculated metrics on the fly; this typically requires creating a custom exploration or using a separate tool. However, the GA4 Optimizer extension adds a 'Quick Calculated Metric' feature that lets you create temporary calculations, like Exit Rate from Views and Exits, directly within the standard reporting interface for quick analysis.</p>
+</details>

@@ -100,14 +100,17 @@ The extension enhances the native GA4 reporting interface by adding tools that s
 
 ## Frequently Asked Questions
 
-### Where is the workspace switcher in the new GTM UI?
+<details class="faq-accordion">
+  <summary>Where is the workspace switcher in the new GTM UI?</summary>
+  <p>If the workspace switcher is missing from your left-hand navigation, look at the middle right of the Overview tab under Pending Changes. Click the three vertical dots and select Manage Workspaces to switch or create new workspaces.</p>
+</details>
 
-If the workspace switcher is missing from your left-hand navigation, look at the middle right of the Overview tab under Pending Changes. Click the three vertical dots and select Manage Workspaces to switch or create new workspaces.
+<details class="faq-accordion">
+  <summary>Why does my GTM overview page show raw IDs?</summary>
+  <p>Google recently updated the GTM Overview page to surface connected Google products. This often displays raw IDs (like G-XXXXXX or AW-XXXXXX) instead of clear labels, which is a structural change aimed at showing tag destinations.</p>
+</details>
 
-### Why does my GTM overview page show raw IDs?
-
-Google recently updated the GTM Overview page to surface connected Google products. This often displays raw IDs (like G-XXXXXX or AW-XXXXXX) instead of clear labels, which is a structural change aimed at showing tag destinations.
-
-### What events does the new GTM Visual Builder support?
-
-Currently, the GTM visual event builder beta is strictly limited to generating tags for the Google Ads purchase event. You cannot yet use it for general GA4 events or other platforms.
+<details class="faq-accordion">
+  <summary>What events does the new GTM Visual Builder support?</summary>
+  <p>Currently, the GTM visual event builder beta is strictly limited to generating tags for the Google Ads purchase event. You cannot yet use it for general GA4 events or other platforms.</p>
+</details>

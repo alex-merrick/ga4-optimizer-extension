@@ -117,18 +117,22 @@ To make sense of your new baseline data, install the free [GA4 Optimizer Chrome 
 
 ## Frequently Asked Questions
 
-### What is the GA4 and Shopify server-to-server integration?
+<details class="faq-accordion">
+  <summary>What is the GA4 and Shopify server-to-server integration?</summary>
+  <p>Starting in July 2026, Google Analytics is enabling a direct server-to-server connection for Shopify stores using the Google & YouTube app. This allows Shopify's backend servers to send the final purchase event directly to the GA4 API, bypassing the user's browser.</p>
+</details>
 
-Starting in July 2026, Google Analytics is enabling a direct server-to-server connection for Shopify stores using the Google & YouTube app. This allows Shopify's backend servers to send the final purchase event directly to the GA4 API, bypassing the user's browser.
+<details class="faq-accordion">
+  <summary>Why is server-to-server tracking better for Shopify and GA4?</summary>
+  <p>Server-side tracking recovers lost conversion signals. Standard browser-based tracking often misses 10 to 20 percent of purchases due to ad blockers, strict privacy browsers, or users closing the tab before the confirmation page fully loads. Server-to-server tracking ensures the transaction is recorded securely.</p>
+</details>
 
-### Why is server-to-server tracking better for Shopify and GA4?
+<details class="faq-accordion">
+  <summary>Does the Shopify server integration track all e-commerce events?</summary>
+  <p>No. Google has confirmed that currently, only the "Checkout complete" event is supported via the server integration, which passes to GA4 as the 'purchase' event. Upper-funnel events like view_item and add_to_cart still rely on browser-based tracking, though Google plans to add these at a later date.</p>
+</details>
 
-Server-side tracking recovers lost conversion signals. Standard browser-based tracking often misses 10 to 20 percent of purchases due to ad blockers, strict privacy browsers, or users closing the tab before the confirmation page fully loads. Server-to-server tracking ensures the transaction is recorded securely.
-
-### Does the Shopify server integration track all e-commerce events?
-
-No. Google has confirmed that currently, only the "Checkout complete" event is supported via the server integration, which passes to GA4 as the 'purchase' event. Upper-funnel events like view_item and add_to_cart still rely on browser-based tracking, though Google plans to add these at a later date.
-
-### Will the Shopify server-side update cause duplicate purchases in GA4?
-
-No, Google automatically handles deduplication. The system matches the transaction IDs sent from both the browser and the Shopify server, ensuring an order is only counted once. However, if you have a legacy, hardcoded GTM tag firing outside of the Shopify app, you may still experience duplicates.
+<details class="faq-accordion">
+  <summary>Will the Shopify server-side update cause duplicate purchases in GA4?</summary>
+  <p>No, Google automatically handles deduplication. The system matches the transaction IDs sent from both the browser and the Shopify server, ensuring an order is only counted once. However, if you have a legacy, hardcoded GTM tag firing outside of the Shopify app, you may still experience duplicates.</p>
+</details>

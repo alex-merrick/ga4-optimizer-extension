@@ -223,18 +223,22 @@ Just as the GA4 related extensions above fix workflow gaps in Google Analytics, 
 
 ## Frequently Asked Questions
 
-### What happened to DaVinci Tools for Google Analytics?
+<details class="faq-accordion">
+  <summary>What happened to DaVinci Tools for Google Analytics?</summary>
+  <p>If you've been working in analytics for a few years, you likely remember DaVinci Tools by Stéphane Hamel. It was the absolute best UI enhancer for Universal Analytics, offering sticky headers, heatmaps, and quick date selections. Unfortunately, DaVinci Tools is not compatible with GA4 and is no longer maintained. If you're looking for the modern equivalent to DaVinci Tools for the GA4 era, GA4 Optimizer is the best altenative, bringing back sticky headers, custom calculations, and UI improvements to the new platform.</p>
+</details>
 
-If you've been working in analytics for a few years, you likely remember DaVinci Tools by Stéphane Hamel. It was the absolute best UI enhancer for Universal Analytics, offering sticky headers, heatmaps, and quick date selections. Unfortunately, DaVinci Tools is not compatible with GA4 and is no longer maintained. If you're looking for the modern equivalent to DaVinci Tools for the GA4 era, GA4 Optimizer is the best altenative, bringing back sticky headers, custom calculations, and UI improvements to the new platform.
+<details class="faq-accordion">
+  <summary>What is the best Chrome extension for GA4?</summary>
+  <p>We are confident GA4 Optimizer is the most comprehensive UI enhancement tool for Google Analytics 4. There is simply no other extension that have this breadth of time-saving and headache reducing GA4 features. It offers custom definitions copy/paste, 1-click exit pages reports, sticky headers, A/B test statistical significance calculations, and date range presets.</p>
+</details>
 
-### What is the best Chrome extension for GA4?
+<details class="faq-accordion">
+  <summary>Are there free browser extensions for debugging GA4?</summary>
+  <p>Yes, all the extensions on our list are free.</p>
+</details>
 
-We are confident GA4 Optimizer is the most comprehensive UI enhancement tool for Google Analytics 4. There is simply no other extension that have this breadth of time-saving and headache reducing GA4 features. It offers custom definitions copy/paste, 1-click exit pages reports, sticky headers, A/B test statistical significance calculations, and date range presets.
-
-### Are there free browser extensions for debugging GA4?
-
-Yes, all the extensions on our list are free.
-
-### Do Universal Analytics extensions work with GA4?
-
-No, most Universal Analytics extensions like DaVinci Tools and Google's Page Analytics are completely incompatible with GA4. You need extensions specifically built for the GA4 platform to work properly in {{ "" | currentYear }}.
+<details class="faq-accordion">
+  <summary>Do Universal Analytics extensions work with GA4?</summary>
+  <p>No, most Universal Analytics extensions like DaVinci Tools and Google's Page Analytics are completely incompatible with GA4. You need extensions specifically built for the GA4 platform to work properly in {{ "" | currentYear }}.</p>
+</details>

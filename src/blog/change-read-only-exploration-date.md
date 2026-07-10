@@ -100,14 +100,17 @@ For example, if you have ever sent a colleague a GA4 report link only to have th
 
 ## Frequently Asked Questions
 
-### Why can't I change the date range on a shared GA4 exploration?
+<details class="faq-accordion">
+  <summary>Why can't I change the date range on a shared GA4 exploration?</summary>
+  <p>When a user shares a Google Analytics 4 exploration in read-only mode, the platform natively locks the date range to the original settings. You must either duplicate the report or use a browser extension to override the locked dates.</p>
+</details>
 
-When a user shares a Google Analytics 4 exploration in read-only mode, the platform natively locks the date range to the original settings. You must either duplicate the report or use a browser extension to override the locked dates.
+<details class="faq-accordion">
+  <summary>How do I edit dates on a read-only GA4 report?</summary>
+  <p>You can install the GA4 Optimizer browser extension to unlock the date selector. It adds a direct Edit Date button below the locked variables, allowing you to fetch fresh data for any timeframe.</p>
+</details>
 
-### How do I edit dates on a read-only GA4 report?
-
-You can install the GA4 Optimizer browser extension to unlock the date selector. It adds a direct Edit Date button below the locked variables, allowing you to fetch fresh data for any timeframe.
-
-### Does changing the date range modify the original shared GA4 exploration?
-
-No. Using a date range override only fetches new data for your current browser session. It does not alter the original report for the owner or other viewers.
+<details class="faq-accordion">
+  <summary>Does changing the date range modify the original shared GA4 exploration?</summary>
+  <p>No. Using a date range override only fetches new data for your current browser session. It does not alter the original report for the owner or other viewers.</p>
+</details>

@@ -122,18 +122,22 @@ With the extension active, you can utilize **sticky headers** to keep your metri
 
 ## Frequently Asked Questions
 
-### Why is AI Assistant traffic not showing in my GA4 reports?
+<details class="faq-accordion">
+  <summary>Why is AI Assistant traffic not showing in my GA4 reports?</summary>
+  <p>Google rolled out the AI Assistant default channel group slowly. Additionally, GA4 relies on specific referrer data to classify this traffic. If users access your site through a native AI mobile app that strips the referrer data, the visit will still be categorized as Direct.</p>
+</details>
 
-Google rolled out the AI Assistant default channel group slowly. Additionally, GA4 relies on specific referrer data to classify this traffic. If users access your site through a native AI mobile app that strips the referrer data, the visit will still be categorized as Direct.
+<details class="faq-accordion">
+  <summary>How does GA4 identify AI Assistant traffic?</summary>
+  <p>Google Analytics 4 automatically overwrites the traffic source dimensions when an incoming click matches a known list of AI referrers. It assigns 'ai-assistant' as the Medium, '(ai-assistant)' as the Campaign, and 'AI Assistant' as the Default Channel Group.</p>
+</details>
 
-### How does GA4 identify AI Assistant traffic?
+<details class="faq-accordion">
+  <summary>Should I delete my custom AI channel group in GA4?</summary>
+  <p>No. Until Google's default list catches every possible AI source and builds enough historical data, your custom regex rules are necessary. The best approach is to update your custom channel group condition to include 'OR Default channel group exactly matches AI Assistant' so you capture both definitions.</p>
+</details>
 
-Google Analytics 4 automatically overwrites the traffic source dimensions when an incoming click matches a known list of AI referrers. It assigns 'ai-assistant' as the Medium, '(ai-assistant)' as the Campaign, and 'AI Assistant' as the Default Channel Group.
-
-### Should I delete my custom AI channel group in GA4?
-
-No. Until Google's default list catches every possible AI source and builds enough historical data, your custom regex rules are necessary. The best approach is to update your custom channel group condition to include 'OR Default channel group exactly matches AI Assistant' so you capture both definitions.
-
-### Can I view historical AI Assistant traffic in GA4?
-
-No. The AI Assistant channel group is not retroactive. Older historical AI traffic remains categorized under its original channels, such as Referral or Direct. Because of this, native historical Month-over-Month and Year-over-Year reporting for AI traffic is currently impossible using the default grouping.
+<details class="faq-accordion">
+  <summary>Can I view historical AI Assistant traffic in GA4?</summary>
+  <p>No. The AI Assistant channel group is not retroactive. Older historical AI traffic remains categorized under its original channels, such as Referral or Direct. Because of this, native historical Month-over-Month and Year-over-Year reporting for AI traffic is currently impossible using the default grouping.</p>
+</details>

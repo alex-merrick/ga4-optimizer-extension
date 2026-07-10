@@ -102,18 +102,22 @@ You can streamline this workflow by installing the <a href="https://chromewebsto
 
 ## Frequently Asked Questions
 
-### Is the GA4 Measurement Protocol being deprecated?
+<details class="faq-accordion">
+  <summary>Is the GA4 Measurement Protocol being deprecated?</summary>
+  <p>No. Google has explicitly stated that the Measurement Protocol will remain operational with no plans for deprecation. It is simply considered a mature and finalized product, meaning it will not receive new features.</p>
+</details>
 
-No. Google has explicitly stated that the Measurement Protocol will remain operational with no plans for deprecation. It is simply considered a mature and finalized product, meaning it will not receive new features.
+<details class="faq-accordion">
+  <summary>What is the GA4 Data Manager API?</summary>
+  <p>The Data Manager API is Google's recommended infrastructure for future server-to-server integrations. It serves as the central hub for data ingestion innovations moving forward.</p>
+</details>
 
-### What is the GA4 Data Manager API?
+<details class="faq-accordion">
+  <summary>Do I still need a client-side pixel with the Data Manager API?</summary>
+  <p>Yes. Similar to the Measurement Protocol, you still need the GA4 client-side tag to generate required fields like the client_id or app_instance_id before sending server-side hits.</p>
+</details>
 
-The Data Manager API is Google's recommended infrastructure for future server-to-server integrations. It serves as the central hub for data ingestion innovations moving forward.
-
-### Do I still need a client-side pixel with the Data Manager API?
-
-Yes. Similar to the Measurement Protocol, you still need the GA4 client-side tag to generate required fields like the client_id or app_instance_id before sending server-side hits.
-
-### Should I rewrite my existing Measurement Protocol integrations?
-
-There is no immediate need to rewrite existing code. Your current Measurement Protocol setups will continue to function normally. However, you should consider using the Data Manager API for new implementations to future-proof your tracking.
+<details class="faq-accordion">
+  <summary>Should I rewrite my existing Measurement Protocol integrations?</summary>
+  <p>There is no immediate need to rewrite existing code. Your current Measurement Protocol setups will continue to function normally. However, you should consider using the Data Manager API for new implementations to future-proof your tracking.</p>
+</details>

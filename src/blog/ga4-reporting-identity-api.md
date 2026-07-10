@@ -81,14 +81,17 @@ For the full technical reference and to test the new endpoint directly in your b
 
 ## Frequently Asked Questions
 
-### What is the GA4 updateReportingIdentitySettings API endpoint?
+<details class="faq-accordion">
+  <summary>What is the GA4 updateReportingIdentitySettings API endpoint?</summary>
+  <p>The updateReportingIdentitySettings endpoint is a new feature in the GA4 Admin API. It allows developers to programmatically change a property's reporting identity between Blended, Observed, and Device-based without using the manual Google Analytics admin interface.</p>
+</details>
 
-The updateReportingIdentitySettings endpoint is a new feature in the GA4 Admin API. It allows developers to programmatically change a property's reporting identity between Blended, Observed, and Device-based without using the manual Google Analytics admin interface.
+<details class="faq-accordion">
+  <summary>Why did Google add programmatic access to the GA4 Reporting Identity?</summary>
+  <p>Google added this endpoint based on high demand from agencies and data engineers. Automated reporting pipelines often pull thresholded data when properties are set to Blended identity. This API allows scripts to automatically toggle the identity to Device-based, extract raw data, and toggle it back.</p>
+</details>
 
-### Why did Google add programmatic access to the GA4 Reporting Identity?
-
-Google added this endpoint based on high demand from agencies and data engineers. Automated reporting pipelines often pull thresholded data when properties are set to Blended identity. This API allows scripts to automatically toggle the identity to Device-based, extract raw data, and toggle it back.
-
-### Can standard analysts use the GA4 API to change reporting identity?
-
-No. The updateReportingIdentitySettings endpoint requires the analytics.edit authorization scope. Only users or service accounts with Editor or Administrator access can successfully execute this API request. Lower-level roles remain restricted.
+<details class="faq-accordion">
+  <summary>Can standard analysts use the GA4 API to change reporting identity?</summary>
+  <p>No. The updateReportingIdentitySettings endpoint requires the analytics.edit authorization scope. Only users or service accounts with Editor or Administrator access can successfully execute this API request. Lower-level roles remain restricted.</p>
+</details>

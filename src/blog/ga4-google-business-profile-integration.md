@@ -143,18 +143,22 @@ For the full official reference about GBP GA4 intergration, see Google's <a href
 
 ## Frequently Asked Questions
 
-### How do I link Google Business Profile to GA4?
+<details class="faq-accordion">
+  <summary>How do I link Google Business Profile to GA4?</summary>
+  <p>Navigate to your GA4 Admin settings, locate the Product links section, and select Google Business Profile links. Click the Link button and follow the on-screen prompts to select the profiles you want to connect. You need Editor or Administrator access in GA4 and Owner or Manager access for the Business Profile. A single GA4 property can be linked to multiple Business Profiles.</p>
+</details>
 
-Navigate to your GA4 Admin settings, locate the Product links section, and select Google Business Profile links. Click the Link button and follow the on-screen prompts to select the profiles you want to connect. You need Editor or Administrator access in GA4 and Owner or Manager access for the Business Profile. A single GA4 property can be linked to multiple Business Profiles.
+<details class="faq-accordion">
+  <summary>Why can't I see Google Business Profile data in GA4 Explorations?</summary>
+  <p>Google restricts GBP metrics to a dedicated Standard Reports collection. These metrics cannot be used in custom Explorations, comparisons, or have filters applied. There are also no granular controls to select which specific data points are shared.</p>
+</details>
 
-### Why can't I see Google Business Profile data in GA4 Explorations?
+<details class="faq-accordion">
+  <summary>How long does GA4 keep Google Business Profile data?</summary>
+  <p>The native integration retains Google Business Profile data on a rolling six-month window. If you select a date range older than six months, GA4 will only display data within that window, even if your selected date range is longer.</p>
+</details>
 
-Google restricts GBP metrics to a dedicated Standard Reports collection. These metrics cannot be used in custom Explorations, comparisons, or have filters applied. There are also no granular controls to select which specific data points are shared.
-
-### How long does GA4 keep Google Business Profile data?
-
-The native integration retains Google Business Profile data on a rolling six-month window. If you select a date range older than six months, GA4 will only display data within that window, even if your selected date range is longer.
-
-### Does the GA4 and Google Business Profile integration work with subproperties?
-
-No. Google has confirmed that the GBP integration is not supported for subproperties. You must link your Business Profile directly to a standard GA4 property.
+<details class="faq-accordion">
+  <summary>Does the GA4 and Google Business Profile integration work with subproperties?</summary>
+  <p>No. Google has confirmed that the GBP integration is not supported for subproperties. You must link your Business Profile directly to a standard GA4 property.</p>
+</details>

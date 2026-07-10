@@ -149,14 +149,17 @@ And while we wait for this feature to evolve, you do not have to. The **GA4 Opti
 
 ## Frequently Asked Questions
 
-### What is Google Analytics Ask Advisor and how does it work?
+<details class="faq-accordion">
+  <summary>What is Google Analytics Ask Advisor and how does it work?</summary>
+  <p>Google Analytics Ask Advisor is a chatbot feature in GA4 accounts. It can answer basic analytics questions, generate charts, and provide quick data summaries. However, it struggles with complex segmentation, misunderstands metrics like exit rate versus exits, and cannot perform deep analytical reasoning about the reasons behind data patterns.</p>
+</details>
 
-Google Analytics Ask Advisor is a chatbot feature in GA4 accounts. It can answer basic analytics questions, generate charts, and provide quick data summaries. However, it struggles with complex segmentation, misunderstands metrics like exit rate versus exits, and cannot perform deep analytical reasoning about the reasons behind data patterns.
+<details class="faq-accordion">
+  <summary>Can Google's Ask Advisor AI replace a human analyst?</summary>
+  <p>No, Ask Advisor cannot replace a skilled analyst. While it excels at quick data retrieval and basic summaries, it fails at complex segmentation, critical metric interpretation, and answering strategic questions. It is best used as a quick-access assistant for high-level overviews and basic data validation, not for comprehensive analysis.</p>
+</details>
 
-### Can Google's Ask Advisor AI replace a human analyst?
-
-No, Ask Advisor cannot replace a skilled analyst. While it excels at quick data retrieval and basic summaries, it fails at complex segmentation, critical metric interpretation, and answering strategic questions. It is best used as a quick-access assistant for high-level overviews and basic data validation, not for comprehensive analysis.
-
-### Is Google Analytics Ask Advisor safe for enterprise use?
-
-Currently, no. Google's disclaimer states that chat activity may be used to improve the product, meaning your private analytics data could be used to train their AI model. This raises serious security and privacy concerns for enterprises. Until Google offers a secure, private instance option, it is not suitable for sensitive business analysis.
+<details class="faq-accordion">
+  <summary>Is Google Analytics Ask Advisor safe for enterprise use?</summary>
+  <p>Currently, no. Google's disclaimer states that chat activity may be used to improve the product, meaning your private analytics data could be used to train their AI model. This raises serious security and privacy concerns for enterprises. Until Google offers a secure, private instance option, it is not suitable for sensitive business analysis.</p>
+</details>

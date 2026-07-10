@@ -87,14 +87,17 @@ For analysts dealing with large datasets, combining this feature with the abilit
 
 ## Frequently Asked Questions
 
-### Why are my annotations missing in GA4 explorations?
+<details class="faq-accordion">
+  <summary>Why are my annotations missing in GA4 explorations?</summary>
+  <p>Google Analytics 4 natively displays annotations on standard report line charts, but the platform never included them in the Explorations workspace. You need a third-party browser extension to add them to your Exploration reports.</p>
+</details>
 
-Google Analytics 4 natively displays annotations on standard report line charts, but the platform never included them in the Explorations workspace. You need a third-party browser extension to add them to your Exploration reports.
+<details class="faq-accordion">
+  <summary>How do I see annotations on a GA4 exploration chart?</summary>
+  <p>By installing the GA4 Optimizer extension, colored dots will appear along the x-axis of your exploration line charts. Hovering over these dots reveals the specific annotation title and description.</p>
+</details>
 
-### How do I see annotations on a GA4 exploration chart?
-
-By installing the GA4 Optimizer extension, colored dots will appear along the x-axis of your exploration line charts. Hovering over these dots reveals the specific annotation title and description.
-
-### Can I view a full list of my GA4 property annotations?
-
-Yes. The extension adds an Annotations icon to the GA4 toolbar. Clicking this button opens a scrollable, color-coded list of all historical annotations for your property.
+<details class="faq-accordion">
+  <summary>Can I view a full list of my GA4 property annotations?</summary>
+  <p>Yes. The extension adds an Annotations icon to the GA4 toolbar. Clicking this button opens a scrollable, color-coded list of all historical annotations for your property.</p>
+</details>

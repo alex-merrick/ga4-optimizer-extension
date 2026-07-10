@@ -114,14 +114,17 @@ With the extension active, you can utilize **sticky headers** to keep your metri
 
 ## Frequently Asked Questions
 
-### What is the GA4 Source Group dimension?
+<details class="faq-accordion">
+  <summary>What is the GA4 Source Group dimension?</summary>
+  <p>The Source Group dimension in Google Analytics 4 automatically consolidates fragmented traffic sources into clean, high-level categories. It bundles variations like 'facebook', 'fb', and 'Meta-facebook' into a single standardized 'Facebook' reporting value.</p>
+</details>
 
-The Source Group dimension in Google Analytics 4 automatically consolidates fragmented traffic sources into clean, high-level categories. It bundles variations like 'facebook', 'fb', and 'Meta-facebook' into a single standardized 'Facebook' reporting value.
+<details class="faq-accordion">
+  <summary>Is the GA4 Source Group update retroactive?</summary>
+  <p>Yes. Google confirmed that the Source Group dimension populates retroactively. You can apply it to your historical data immediately once the feature rolls out to your property, allowing for accurate year-over-year comparisons.</p>
+</details>
 
-### Is the GA4 Source Group update retroactive?
-
-Yes. Google confirmed that the Source Group dimension populates retroactively. You can apply it to your historical data immediately once the feature rolls out to your property, allowing for accurate year-over-year comparisons.
-
-### Why can I not see the Source Group dimension in my GA4 account?
-
-Recent clarifications from Google indicate the Source Group dimension is currently restricted to the Advertising workspace, specifically within the beta Conversion performance report. It is not currently available in standard reporting like Traffic acquisition or Explorations, and some users report it occasionally disappearing due to an inconsistent rollout.
+<details class="faq-accordion">
+  <summary>Why can I not see the Source Group dimension in my GA4 account?</summary>
+  <p>Recent clarifications from Google indicate the Source Group dimension is currently restricted to the Advertising workspace, specifically within the beta Conversion performance report. It is not currently available in standard reporting like Traffic acquisition or Explorations, and some users report it occasionally disappearing due to an inconsistent rollout.</p>
+</details>

@@ -90,14 +90,17 @@ Before you trust your results, keep these common pitfalls in mind:
 
 ## Frequently Asked Questions
 
-### What is statistical significance?
+<details class="faq-accordion">
+  <summary>What is statistical significance?</summary>
+  <p>In simple terms, it's the probability that the measured difference between your control and variation is not due to random chance. A 95% significance level means there is a 95% chance that the result is real and repeatable.</p>
+</details>
 
-In simple terms, it's the probability that the measured difference between your control and variation is not due to random chance. A 95% significance level means there is a 95% chance that the result is real and repeatable.
+<details class="faq-accordion">
+  <summary>Why is a Sample Ratio Mismatch (SRM) bad?</summary>
+  <p>SRM indicates a problem with how users were assigned to your test groups. It can be caused by redirects, tracking bugs, or other technical issues. If the user split isn't what you expected (e.g., 50/50), the entire test result is unreliable, even if it looks significant.</p>
+</details>
 
-### Why is a Sample Ratio Mismatch (SRM) bad?
-
-SRM indicates a problem with how users were assigned to your test groups. It can be caused by redirects, tracking bugs, or other technical issues. If the user split isn't what you expected (e.g., 50/50), the entire test result is unreliable, even if it looks significant.
-
-### Where can I learn more about this feature?
-
-You can install GA4 Optimizer in Chrome Web Store it's free and it comes with detailed documentation! [GA4 Optimizer Chrome Link](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_ab_test_guide).
+<details class="faq-accordion">
+  <summary>Where can I learn more about this feature?</summary>
+  <p>You can install GA4 Optimizer in Chrome Web Store it's free and it comes with detailed documentation! <a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_ab_test_guide">GA4 Optimizer Chrome Link</a>.</p>
+</details>

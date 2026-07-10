@@ -1656,3 +1656,59 @@ Social Share Buttons Styles */
     color: var(--text-dark);
     margin-right: 6px;
 }
+
+/* --- Blog FAQ Accordion (Native <details> element) --- */
+
+details.faq-accordion {
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 10px;
+}
+
+details.faq-accordion summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.05em;
+    padding: 15px 0;
+    color: var(--text-dark);
+    list-style: none; /* Hides default triangle in Firefox */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.2s ease;
+}
+
+details.faq-accordion summary:hover {
+    color: var(--brand-purple);
+}
+
+details.faq-accordion summary:focus-visible {
+    outline: 2px solid var(--brand-purple);
+    outline-offset: 2px;
+}
+
+/* Custom Plus/Minus Icon */
+details.faq-accordion summary::after {
+    content: '+';
+    color: var(--brand-purple);
+    font-size: 1.5em;
+    font-weight: 400;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+details.faq-accordion[open] summary::after {
+    content: '\2212'; /* Minus symbol */
+}
+
+/* Hides default triangle in Chrome/Safari */
+details.faq-accordion summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Styles the content inside the accordion */
+details.faq-accordion > p {
+    padding-bottom: 15px;
+    color: var(--text-light);
+    margin-top: 0;
+    line-height: 1.6;
+}

@@ -107,14 +107,17 @@ To ensure you never make a data-entry typo during setup again, install the [GA4 
 
 ## Frequently Asked Questions
 
-### Why is my GA4 custom dimension showing as (not set)?
+<details class="faq-accordion">
+  <summary>Why is my GA4 custom dimension showing as (not set)?</summary>
+  <p>A custom dimension shows as (not set) when GA4 cannot find matching data for that specific row. This usually happens due to a case-sensitivity mismatch between GTM and GA4, looking at historical data before the dimension was registered, or including events in your report that do not carry that specific parameter.</p>
+</details>
 
-A custom dimension shows as (not set) when GA4 cannot find matching data for that specific row. This usually happens due to a case-sensitivity mismatch between GTM and GA4, looking at historical data before the dimension was registered, or including events in your report that do not carry that specific parameter.
+<details class="faq-accordion">
+  <summary>Is Google Analytics 4 case sensitive for event parameters?</summary>
+  <p>Yes, GA4 is strictly case-sensitive. If you send an event parameter from Google Tag Manager as 'Author_Name' but register it in the GA4 Admin panel as 'author_name', GA4 will not match them. The data will be ignored, and your custom dimension will show as (not set).</p>
+</details>
 
-### Is Google Analytics 4 case sensitive for event parameters?
-
-Yes, GA4 is strictly case-sensitive. If you send an event parameter from Google Tag Manager as 'Author_Name' but register it in the GA4 Admin panel as 'author_name', GA4 will not match them. The data will be ignored, and your custom dimension will show as (not set).
-
-### Are GA4 custom dimensions retroactive?
-
-No, GA4 custom dimensions are not retroactive. They only begin collecting and processing data from the exact moment you register them in the Admin interface. Any data collected prior to registration will appear as (not set) in your reports.
+<details class="faq-accordion">
+  <summary>Are GA4 custom dimensions retroactive?</summary>
+  <p>No, GA4 custom dimensions are not retroactive. They only begin collecting and processing data from the exact moment you register them in the Admin interface. Any data collected prior to registration will appear as (not set) in your reports.</p>
+</details>

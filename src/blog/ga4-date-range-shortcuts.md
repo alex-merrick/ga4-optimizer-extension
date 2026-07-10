@@ -81,10 +81,12 @@ If you're working with shared Explorations rather than Standard Reports, note th
 ---
 ## Frequently Asked Questions
 
-### What new date presets did Google add to GA4?
+<details class="faq-accordion">
+  <summary>What new date presets did Google add to GA4?</summary>
+  <p>Google Analytics 4 recently added several new date range presets including 'This Month', 'Last Month', and 'Quarter to Date'. These presets help users avoid manually selecting dates in the calendar picker, though they still require multiple clicks to apply and remove comparisons.</p>
+</details>
 
-Google Analytics 4 recently added several new date range presets including 'This Month', 'Last Month', and 'Quarter to Date'. These presets help users avoid manually selecting dates in the calendar picker, though they still require multiple clicks to apply and remove comparisons.
-
-### Why is day-of-week alignment important for year-over-year comparisons?
-
-Day-of-week alignment ensures you're comparing like days to like days. Without it, you might compare weekend traffic to weekday traffic, which can skew metrics and lead to incorrect conclusions. For accurate year-over-year analysis, Monday should be compared to Monday, not just the 15th to the 15th.
+<details class="faq-accordion">
+  <summary>Why is day-of-week alignment important for year-over-year comparisons?</summary>
+  <p>Day-of-week alignment ensures you're comparing like days to like days. Without it, you might compare weekend traffic to weekday traffic, which can skew metrics and lead to incorrect conclusions. For accurate year-over-year analysis, Monday should be compared to Monday, not just the 15th to the 15th.</p>
+</details>
