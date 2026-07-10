@@ -70,7 +70,7 @@ The tooltip for this setting explicitly confirms its purpose: *"Keep the Current
 
 ### Method 2: Access Workspaces via the Hidden Overview Menu
 
-If you do not want to alter your global application preferences, or if you are working in a client's account where you prefer not to change global settings, Google has relocated the initial workspace creation tools to the center of the screen.
+If you do not want to alter your global application preferences Google has relocated the initial workspace creation tools to the center of the screen.
 
 1. Navigate to the **Overview** tab in your GTM container.
 2. Look for the **Pending Changes** section in the center of the page.
