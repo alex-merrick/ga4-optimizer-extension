@@ -11,11 +11,13 @@
 .env
 .env.local
 
-# Ignore temp folder
-/temp
-
-CODEBASE_CONTEXT.md
+# Editor and IDE config
+.vscode/
 .kiro/
+
+# Temp / scratch files
 temp/
+CODEBASE_CONTEXT.md
+
 # Local Netlify folder
 .netlify
