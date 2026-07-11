@@ -15,7 +15,7 @@
 /temp
 
 CODEBASE_CONTEXT.md
-.kiro\
-temp\
+.kiro/
+temp/
 # Local Netlify folder
 .netlify
