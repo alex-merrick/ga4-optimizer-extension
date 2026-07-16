@@ -24,13 +24,20 @@ faq_schema: >
         "@type": "Answer",
         "text": "Currently, the GTM visual event builder beta is strictly limited to generating tags for the Google Ads purchase event. You cannot yet use it for general GA4 events or other platforms."
       }
+    }, {
+      "@type": "Question",
+      "name": "How do I filter tags in Google Tag Manager?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Google recently added native tag filtering to the GTM interface. In your Tags workspace, click the filter icon next to the search bar. You can now filter your tags by Tag Type, such as GA4 Events, Custom HTML, or Consent Management tags."
+      }
     }]
   }
 layout: layouts/post.njk
 author: Alex Merrick
 date: 2026-07-07T20:10:00.000-05:00
 publishDate: 2026-07-07T20:10:00.000-05:00
-last_modified_at: 2026-07-10T09:49:00.000-05:00
+last_modified_at: 2026-07-16T17:00:00.000-05:00
 thumbnail: /img/thumbnails/gtm-ui-update-july-2026-thumb.jpeg
 post_image: /img/thumbnails/gtm-ui-update-july-2026-banner.jpeg
 url: "https://www.gaoptimizer.com/blog/new-gtm-ui-changes/"
@@ -56,8 +63,8 @@ For a large portion of users, the workspace drop-down menu that historically sat
 According to Google's newly updated documentation, this is not a random bug or an A/B test. Google has intentionally hidden the workspace switcher by default for any container that currently only has one default workspace. The assumption is that novice users only need one workspace, so hiding the dropdown simplifies the interface. However, for professionals who frequently spin up new workspaces for testing, this sudden disappearance is highly frustrating.
 
 Fortunately, there are two ways to get it back.
-<img src="/img/gtm-current-workspace.png" alt="Google Tag manager current workspace switcher" width="293" height="230">
 
+<img src="/img/gtm-current-workspace.png" alt="Google Tag manager current workspace switcher" width="293" height="230">
 
 ### Method 1: Permanently Restore the Workspace Switcher
 
@@ -72,7 +79,7 @@ The tooltip for this setting explicitly confirms its purpose: *"Keep the Current
 
 ### Method 2: Access Workspaces via the Hidden Overview Menu
 
-If you do not want to alter your global application preferences Google has relocated the initial workspace creation tools to the center of the screen.
+If you do not want to alter your global application preferences, Google has relocated the initial workspace creation tools to the center of the screen.
 
 1. Navigate to the **Overview** tab in your GTM container.
 2. Look for the **Pending Changes** section in the center of the page.
@@ -82,6 +89,20 @@ If you do not want to alter your global application preferences Google has reloc
 Once you create a second workspace using this menu, the interface recognizes that you are actively managing multiple environments, and the standard top-left workspace switcher will automatically reappear.
 
 <img src="/img/gtm-update.jpeg" alt="Google Tag manager overview view UI update" width="1382" height="950">
+
+## Native Tag Filtering Replaces Third-Party Hacks
+
+Not all the changes in the July rollout were frustrating. Google quietly pushed a massive quality-of-life improvement to the workspace interface: **Native tag filtering.**
+
+Historically, the only way to search for tags in a messy container was by relying on string matching in the search bar, or by installing third-party browser extensions like GTMFixer. Now, Google has added a dedicated filter icon right next to the search bar in the Tags menu. 
+
+<img src="/img/gtm-tag-filter-search.jpeg" alt="New native filter button next to the search bar in Google Tag Manager" width="400" height="500">
+
+Clicking "Add filter +" opens a modal where you can select specific Tag types. This allows you to instantly isolate all of your GA4 Events, Custom HTML snippets, or third-party vendor tags (like your CookieYes CMP or Hotjar scripts) without having to rely on perfect naming conventions.
+
+<img src="/img/gtm-tag-filter-list.jpeg" alt="Selecting tag types in the new Google Tag Manager native filtering menu" width="700" height="400">
+
+While [Google Tag Manager extensions](/blog/best-google-tag-manager-extensions/) like GTMFixer paved the way for this functionality, the native feature actually handles bulk actions much better. Previously, if you used a browser extension to filter tags and clicked the "Select All" checkbox, GTM could glitch and select hidden tags. Because this new filtering is built natively into the DOM, checking the "Select All" box now correctly selects *only* the filtered tags, making bulk pausing or deleting a bit easier.
 
 ## Cluttered Google Product Connections
 
@@ -130,4 +151,9 @@ The extension enhances the native GA4 reporting interface by adding tools that s
 <details class="faq-accordion">
   <summary>What events does the new GTM Visual Builder support?</summary>
   <p>Currently, the GTM visual event builder beta is strictly limited to generating tags for the Google Ads purchase event. You cannot yet use it for general GA4 events or other platforms.</p>
+</details>
+
+<details class="faq-accordion">
+  <summary>How do I filter tags in Google Tag Manager?</summary>
+  <p>Google recently added native tag filtering to the GTM interface. In your Tags workspace, click the filter icon next to the search bar. You can now filter your tags by Tag Type, such as GA4 Events, Custom HTML, or Consent Management tags.</p>
 </details>
