@@ -1,21 +1,21 @@
 ---
 layout: "layouts/base.njk"
-title: "Privacy Policy | GA4 Optimizer"
-description: "Privacy Policy for the GA4 Optimizer browser extension. We respect your privacy and do not collect any personal or analytics data."
+title: "Privacy Policy | GA4 Optimizer & GA4 Live Debugger"
+description: "Privacy Policy for GA4 Optimizer and GA4 Live Debugger browser extensions. We respect your privacy and do not collect any personal or analytics data."
 permalink: "/privacy/"
 ---
 <main class="container">
     <div class="main-content content-page">
-        <h1>Privacy Policy for GA4 Optimizer</h1>
-        <p><strong>Effective Date:</strong> July 9, 2026</p>
+        <h1>Privacy Policy for GA4 Optimizer & GA4 Live Debugger</h1>
+        <p><strong>Effective Date:</strong> July 20, 2026</p>
 
-        <p>Thank you for using GA4 Optimizer (the "Extension"), a free tool created by an individual developer to help Google Analytics users speed up their insight gathering. Your privacy is very important to us. This policy outlines how the Extension handles information.</p>
+        <p>Thank you for using GA4 Optimizer and GA4 Live Debugger (collectively, the "Extensions"). Your privacy is our top priority. This policy outlines how both Extensions handle your information.</p>
 
-        <h2>1. About This Extension & Your Privacy</h2>
-        <p>GA4 Optimizer is a free browser extension created by an individual developer to help you work more efficiently with Google Analytics 4. Your privacy is the top priority. This Extension does not collect, transmit, or share any of your personal data or your Google Analytics data. All operations and data storage are performed strictly locally within your browser.</p>
+        <h2>1. About These Extensions & Your Privacy</h2>
+        <p>GA4 Optimizer and GA4 Live Debugger are free browser extensions created by an individual developer. GA4 Optimizer helps you work more efficiently with Google Analytics 4 reporting. GA4 Live Debugger helps you monitor and validate your GA4 tracking implementation. Your privacy is the top priority. These Extensions do not collect, transmit, or share any of your personal data or your Google Analytics data. All operations and data storage are performed strictly locally within your browser.</p>
 
         <h2>2. Information We Don't Collect or Transmit</h2>
-        <p>To be clear, the Extension does not collect, transmit, or share data with our servers or any third parties. Specifically, we do not transmit:</p>
+        <p>To be clear, the Extensions do not collect, transmit, or share data with our servers or any third parties. Specifically, we do not transmit:</p>
         <ul>
             <li>Your personal information (name, email, IP address, etc.).</li>
             <li>Your Google Analytics account data or property structures.</li>
@@ -23,24 +23,24 @@ permalink: "/privacy/"
             <li>Analytics about your use of the Extension itself.</li>
         </ul>
 
-        <h2>3. How the Extension Uses Information Locally</h2>
-        <p>The Extension must temporarily access and store certain information <strong>strictly locally on your device</strong> to function. This information never leaves your computer via the Extension:</p>
+        <h2>3. How the Extensions Use Information Locally</h2>
+        <p>The Extensions must temporarily access and store certain information <strong>strictly locally on your device</strong> to function. This information never leaves your browser:</p>
         <ul>
-            <li><strong>Email Addresses (Account Switcher):</strong> To help you navigate "Missing Permissions" errors, the Extension temporarily reads the email addresses of the Google Accounts you are currently logged into and stores them in your browser's local/session storage to display the Account Switcher UI.</li>
-            <li><strong>Settings & Configuration Storage:</strong> The Extension uses standard Browser Storage APIs (<code>storage.sync</code>, <code>storage.local</code>, and <code>localStorage</code>) to save your preferences, custom calculated metrics, and layout states.</li>
-            <li><strong>External Fetches (Team Sync):</strong> If you use the "Team Sync" or "Data Dictionary" features, the Extension will make localized network requests (fetches) to the specific URLs you provide (e.g., Google Sheets or GitHub) to import your team's configuration.</li>
-            <li><strong>Clipboard Access:</strong> The "Click to Copy" and "Share Link" features require permission to write to your clipboard to copy text and URLs.</li>
-            <li><strong>Real-time Page Interaction:</strong> To make its features work, the Extension interacts with the DOM content of the GA4 pages you are currently viewing entirely within your browser.</li>
+            <li><strong>Analytics Network Payloads (GA4 Live Debugger):</strong> To provide real-time debugging, the Debugger intercepts Google Analytics network requests and dataLayer events on the websites you visit. This tracking data is held temporarily in your browser's local/session memory so you can view it in the interface. It is never transmitted to us or any third party.</li>
+            <li><strong>Email Addresses (GA4 Optimizer):</strong> To help you navigate "Missing Permissions" errors in the GA4 interface, the Optimizer temporarily reads the email addresses of the Google Accounts you are currently logged into to display an Account Switcher UI.</li>
+            <li><strong>Settings & Configuration Storage:</strong> Both Extensions use standard Browser Storage APIs to save your preferences, calculated metrics, and layout states.</li>
+            <li><strong>External Fetches (Team Sync):</strong> If you use the Data Dictionary Team Sync feature, the Extensions will make localized network requests to the specific URLs you provide (e.g., Google Sheets) to import your team's configuration.</li>
+            <li><strong>Clipboard Access:</strong> The "Click to Copy" features require permission to write to your clipboard.</li>
         </ul>
 
         <h2>4. Permissions We Request</h2>
-        <p>The Extension requests the following permissions to operate:</p>
+        <p>To operate, the Extensions request the following permissions based on their functionality:</p>
         <ul>
-            <li><strong>storage:</strong> To save your feature preferences locally.</li>
-            <li><strong>tabs:</strong> To interact with your active Google Analytics tab.</li>
+            <li><strong>&lt;all_urls&gt; (GA4 Live Debugger):</strong> Essential for the debugger to monitor Google Analytics network traffic and dataLayer pushes across arbitrary websites you are actively testing. We do not track or record your general browsing history.</li>
+            <li><strong>https://analytics.google.com/* (GA4 Optimizer):</strong> Essential for the Optimizer to modify the Google Analytics 4 user interface.</li>
+            <li><strong>webRequest & declarativeNetRequest:</strong> Used by the Debugger to intercept, decode, and optionally block analytics hits (e.g., preventing QA testing data from polluting your live GA4 properties).</li>
+            <li><strong>storage / sidePanel / tabs:</strong> Used to save your feature preferences locally, render the side panel UI, and interact with your active tabs.</li>
             <li><strong>clipboardWrite:</strong> To enable click-to-copy functionalities.</li>
-            <li><strong>Host Permissions (<code>https://analytics.google.com/*</code>):</strong> Essential for the Extension to operate on and modify Google Analytics 4 pages.</li>
-            <li><strong>Optional Host Permissions:</strong> If you use the Team Sync or Data Dictionary features, the extension will request optional permissions to access the specific external domains you provide (e.g., docs.google.com) to download your configurations.</li>
         </ul>
 
         <h2>5. Data Sharing</h2>
