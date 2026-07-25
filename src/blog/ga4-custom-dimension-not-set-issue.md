@@ -45,6 +45,8 @@ tags:
 
 You configure a new tag in Google Tag Manager. You test it in preview mode, and the event fires perfectly. You check the GA4 DebugView and see your custom event parameters coming through exactly as planned. You formally register the custom dimension in your GA4 Admin panel and log off for the day feeling productive.
 
+**Pro tip:** Before you even check DebugView, you can use [GA4 Live Debugger](/ga4-debugger/) to inspect the raw network payload leaving your browser. It shows you the exact parameter names and casing being sent to Google's servers, so you can catch a mismatch the moment the tag fires rather than discovering it in reports the next day.
+
 But when you check your GA4 Explorations the next morning, your new custom dimension column is entirely filled with a frustrating value: "(not set)".
 
 This is one of the most common issues analysts face. The column exists because you created it, but the data is completely missing. Even if your implementation is flawless on the website side, GA4 will fail to display your parameters if a few specific conditions are not met.

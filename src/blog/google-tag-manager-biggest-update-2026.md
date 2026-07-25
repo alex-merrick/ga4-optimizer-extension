@@ -244,6 +244,8 @@ If your containers rely heavily on multiple Google Tags with unique per-tag sett
 
 Getting your GTM setup right is only half the workflow. Once your tags are firing cleanly through the new Destinations model, that data lands in Google Analytics 4 where you need to actually verify what is being collected.
 
+After upgrading a container, use [GA4 Live Debugger](/ga4-debugger/) to confirm that the new Destinations are producing the same network payloads as your legacy Google Tags. The extension shows you every hit leaving the browser in a structured feed, so you can spot missing parameters or unexpected duplicates immediately after publishing a new container version.
+
 If you manage GTM implementations, you are constantly jumping into GA4 to confirm events are flowing and validate conversion values. The free <a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_gtm_update" target="_blank" rel="noopener noreferrer">GA4 Optimizer extension</a> adds features built for exactly that workflow, including an integrated Data Dictionary, advanced table filtering by metric thresholds, annotations in Explorations so you can correlate data shifts with container publishes, and bulk copy/paste of custom definitions across properties.
 
 ---

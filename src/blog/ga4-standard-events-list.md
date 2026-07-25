@@ -129,7 +129,9 @@ If you are tracking an iOS or Android application via Firebase, these events for
 *   **level_start:** Fired when a user starts a new level in a game or tracking module.
 *   **level_up:** Fired when a user completes a level and advances to a new one.
 
-Using the exact naming conventions listed above ensures that Google Analytics automatically routes your data into the correct standard reporting dimensions. If you need to distribute this taxonomy to your team, use the [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_standard_events_list) to sync it directly into their interface.
+Using the exact naming conventions listed above ensures that Google Analytics automatically routes your data into the correct standard reporting dimensions. Once you have implemented these events via GTM or gtag.js, verify they are sending the correct parameters by running [GA4 Live Debugger](/ga4-debugger/) on your site. It shows every outgoing hit in a structured feed so you can confirm event names and parameter payloads match the expected schema before checking your reports.
+
+If you need to distribute this taxonomy to your team, use the [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_standard_events_list) to sync it directly into their interface.
 
 ## Frequently Asked Questions
 

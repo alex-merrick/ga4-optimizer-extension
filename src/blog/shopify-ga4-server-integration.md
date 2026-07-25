@@ -84,6 +84,8 @@ This feature is tied directly to the **Google & YouTube app** on Shopify. Based 
 
 *   **Only Purchases are Sent:** Currently, only the "Checkout complete" event is supported via the server integration. Upper-funnel events like `view_item` or `add_to_cart` will continue to rely on traditional browser tagging. However, Google has noted that adding these upper-funnel events is "planned for a later date."
 *   **Automatic Deduplication:** You do not need to worry about the browser and the server sending the exact same purchase twice. GA4's integration ensures automatic deduplication of events arriving from both sources.
+
+To confirm your client-side `purchase` tag is sending the correct `transaction_id` that Shopify's server will match against, run [GA4 Live Debugger](/ga4-debugger/) during a test checkout. The extension shows you the exact payload parameters leaving the browser, so you can verify the deduplication key before going live.
 *   **No Action Required:** If you already have the Google & YouTube app installed and tracking enabled, this integration will activate automatically in July 2026.
 
 ### What This Integration Lacks
