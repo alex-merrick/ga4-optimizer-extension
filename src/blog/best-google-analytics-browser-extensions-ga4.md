@@ -130,7 +130,7 @@ Clean data starts with clean tracking links. The Google Analytics UTM Builder is
 
 These extensions help developers and analysts verify tracking implementations, debug tags, and ensure data quality.
 
-### 6. [GA4 Live Debugger & DataLayer Inspector](https://chromewebstore.google.com/detail/akkagamamkhledgmhlljcdiodkgeeiob/?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_extensions_list)
+### 6. [GA4 Live Debugger & DataLayer Inspector](/ga4-debugger/)
 
 **Best for:** Full-Stack GA4 Debugging, DataLayer Validation, and QA on Production
 

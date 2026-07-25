@@ -111,7 +111,7 @@ Server-side tagging is no longer optional in 2026, but debugging server containe
 
 Once your tags are built, you need to verify they are collecting the right information. These tools help you inspect the data flowing from your website to GTM.
 
-### 5. [GA4 Live Debugger & DataLayer Inspector](https://chromewebstore.google.com/detail/akkagamamkhledgmhlljcdiodkgeeiob/?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_gtm_extensions)
+### 5. [GA4 Live Debugger & DataLayer Inspector](/ga4-debugger/)
 
 **Best for:** Real-Time DataLayer Validation, Ecommerce QA, and SGTM Detection
 
