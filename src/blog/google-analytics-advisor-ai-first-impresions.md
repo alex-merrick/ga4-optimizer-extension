@@ -40,7 +40,7 @@ tags:
   - post
   - ga4
   - ai
-  - ga4 updates
+  - ga4-updates
 ---
 *Update July 2026: Google recently overhauled the backend of Ask Advisor using their advanced Gemini 3 AI models. We have completely rewritten our original review to test these new capabilities. As you will see below, the AI is no longer a simple text-to-SQL gimmick.*
 
