@@ -155,6 +155,8 @@ However, its lack of an administrative kill switch makes it a massive compliance
 
 While Ask Advisor is powerful, its clunky interface and depleting context window mean it will not replace your standard reporting workflows anytime soon. You still need reliable, fast interface tools. By combining Ask Advisor for deep historical queries with the [GA4 Optimizer extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_ask_advisor) for daily UI enhancements like Advanced Table Filters and 1-click Date Presets, you can finally make the Google Analytics interface work for you.
 
+![Ask Advisor marketing chat view showing campaign analysis in GA4](/img/ask-advisor-marketing-chat-view.webp)
+
 ## Frequently Asked Questions
 
 <details class="faq-accordion">
