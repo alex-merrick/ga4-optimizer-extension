@@ -29,8 +29,8 @@ faq_schema: >
 layout: layouts/post.njk
 author: Alex Merrick
 title: "Google Analytics Ask Advisor Tested: GA4 Gemini 3 Review ({{ currentYear }})"
-date: 2025-10-09T18:14:00.000-05:00
-publishDate: 2025-10-09T18:14:00.000-05:00
+date: 2026-07-31T09:00:00.000-05:00
+publishDate: 2026-07-31T09:00:00.000-05:00
 last_modified_at: 2026-07-31T15:00:00.000-05:00
 thumbnail: /img/thumbnails/banner-analytics-advisor.jpg
 post_image: /img/thumbnails/thumb-analytics-advisor.jpg
