@@ -69,18 +69,6 @@ Many small teams run scrappy. They do not have dedicated data analysts on staff,
 
 Ask Advisor acts as a highly capable junior analyst. A media buyer can simply type, *"Why is revenue from paid search higher this month?"* and receive a generated dashboard highlighting the specific ad groups and geographic regions driving the increase. Overworked marketers can now point to this tool to get fast answers without waiting days for an agency report.
 
-## The Enterprise Nightmare: No Admin Kill Switch
-
-While small teams celebrate the speed of Ask Advisor, enterprise organizations are facing a severe security liability.
-
-Google's disclaimer explicitly states that chat activity may be used to improve the product. This means any data typed into the prompt window could be used to train Google's machine learning models. 
-
-Recently, HubSpot faced a massive customer backlash after trying to opt all users into an AI data enrichment plan by default. The outcry forced HubSpot to reverse course immediately. Google appears completely immune to this kind of pressure. 
-
-Despite nine months of heavy feedback and complaints from enterprise users, Google has refused to provide a simple "off" switch for GA4 property administrators. Admins have absolutely zero control over this feature. They cannot prevent their employees or external agency partners from typing proprietary revenue figures, internal campaign names, or sensitive drop-off rates directly into the Google-owned AI. There is also no audit log to track which users are feeding data into the chatbot. 
-
-The lack of a kill switch is almost certainly by design. By forcing the feature to remain active, Google ensures continuous user adoption and data collection, regardless of strict internal corporate AI policies. 
-
 ## Putting the Gemini 3 Update to the Test
 
 Setting the enterprise risks aside, we wanted to test the actual analytical capability of the new model. We ran five highly specific prompts designed to break early AI systems. 
@@ -146,6 +134,18 @@ Despite the impressive backend logic, the chat interface itself contains a glari
 Currently, Ask Advisor lacks a "New Chat" or "Clear History" button. If you want to change topics, you have to completely reload the GA4 web page to reset the chat. 
 
 This is a major problem for deep analysis. AI models have a limited "context window". If you throw five or six complex questions at the assistant in a single session, the context window fills up with previous data tables and parameters. The AI will eventually start confusing your new questions with your old prompts. Until Google adds a simple reset button, you must manually refresh your browser between major diagnostic sessions.
+
+## The Enterprise Nightmare: No Admin Kill Switch
+
+While small teams celebrate the speed of Ask Advisor, enterprise organizations are facing a severe security liability.
+
+Google's disclaimer explicitly states that chat activity may be used to improve the product. This means any data typed into the prompt window could be used to train Google's machine learning models. 
+
+Recently, HubSpot faced a massive customer backlash after trying to opt all users into an AI data enrichment plan by default. The outcry forced HubSpot to reverse course immediately. Google appears completely immune to this kind of pressure. 
+
+Despite nine months of heavy feedback and complaints from enterprise users, Google has refused to provide a simple "off" switch for GA4 property administrators. Admins have absolutely zero control over this feature. They cannot prevent their employees or external agency partners from typing proprietary revenue figures, internal campaign names, or sensitive drop-off rates directly into the Google-owned AI. There is also no audit log to track which users are feeding data into the chatbot. 
+
+Whether this lack of administrative control is a functional oversight or a structural choice to drive user adoption, the result is the same: the burden of compliance falls entirely on the individual user. The terms and conditions are presented upfront, meaning it is ultimately up to the employee or agency partner to decide what data is safe to share, bypassing corporate IT guardrails completely.
 
 ## Final Verdict on Ask Advisor
 
