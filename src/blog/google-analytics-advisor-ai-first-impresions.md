@@ -91,7 +91,7 @@ Google Analytics 4 famously removed "Exit Rate" from standard reporting, offerin
 
 **Our Prompt:** *"What are the top 10 pages with the highest Exit Rate over the last 30 days?"*
 
-**The Result:** The AI nailed it. It explicitly stated that it calculated the Exit Rate by dividing the number of exits by the number of views for each page. It generated a clean table showing that the page `/?gtm_latency=1` had a 99.69% exit rate. 
+**The Result:** The AI nailed it. It explicitly stated that it calculated the Exit Rate by dividing the number of exits by the number of views for each page. It generated a clean table showing that the page `/test-tracker/` had a 99.69% exit rate. 
 
 Furthermore, the AI provided unprompted analysis, suggesting that the latency URL was likely a technical tracking page rather than standard content. 
 
