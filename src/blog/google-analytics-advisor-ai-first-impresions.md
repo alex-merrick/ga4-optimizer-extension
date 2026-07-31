@@ -44,7 +44,7 @@ tags:
 ---
 *Update July 2026: Google recently overhauled the backend of Ask Advisor using their advanced Gemini 3 AI models. We have completely rewritten our original review to test these new capabilities. As you will see below, the AI is no longer a simple text-to-SQL gimmick.*
 
-If you spend your days analyzing data in Google Analytics 4, you have likely noticed the **Ask Advisor** button sitting in the top right corner of your property. 
+If you spend your days in Google Analytics 4, you have likely noticed the **Ask Advisor** button <img src="/img/aks-advisor-icon.jpg" alt="Ask Advisor icon" style="display:inline-block;vertical-align:text-bottom;height:1.2em;width:auto;margin:0 2px;"> in the top right corner of your property. 
 
 When Google first introduced this AI chatbot nine months ago, it was widely dismissed by analysts. Early versions acted as a basic query tool that could fetch top-level metrics but completely failed at deep segmentation or diagnostic logic. 
 
