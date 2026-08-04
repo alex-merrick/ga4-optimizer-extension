@@ -102,7 +102,9 @@ While Server-Side GTM requires technical expertise to deploy and incurs monthly 
 
 Whether you choose the quick win of the latest Tag Gateway update or the total control of Server-Side GTM, you must rigorously verify that your data is flowing cleanly into Google Analytics 4. A successful GTM publish means nothing if the data lands broken or duplicated in your reports.
 
-Instead of fighting the native GA4 interface to validate your setup, install the free <a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_gtm_google_tag_gateway" target="_blank" rel="noopener noreferrer">GA4 Optimizer Chrome extension</a>.
+For implementation-level debugging, the free <a href="/ga4-debugger/?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_gtm_google_tag_gateway" target="_blank" rel="noopener noreferrer">GA4 Live Debugger</a> extension automatically detects whether your hits are routed through a first-party Server-Side GTM endpoint, a Google Tag Gateway CDN, or standard client-side collection. Each hit is tagged with a **1P badge** and a **Proxy indicator** so you can instantly confirm your gateway is active and routing correctly—without digging through Network tab requests manually.
+
+Once your routing is confirmed at the network level, use the free <a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_gtm_google_tag_gateway" target="_blank" rel="noopener noreferrer">GA4 Optimizer Chrome extension</a> to verify the data inside your reports.
 
 The extension brings Universal Analytics-style [Advanced Table Filters](/blog/ga4-advanced-table-filters/) back to GA4, allowing you to instantly isolate specific conversion events and verify your new data volume. It also bypasses UI limitations, letting you expand your reports to 500 rows so you can QA your traffic sources without endless pagination.
 
