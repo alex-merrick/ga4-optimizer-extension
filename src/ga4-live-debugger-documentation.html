@@ -105,7 +105,7 @@ schema: |
                                 <td>Sent directly to Google-owned endpoints (default behavior)</td>
                             </tr>
                             <tr>
-                                <td><strong>Gateway</strong></td>
+                                <td><strong>Gateway (GTG)</strong></td>
                                 <td>Proxied through Google Tag Gateway</td>
                             </tr>
                             <tr>
@@ -125,6 +125,20 @@ schema: |
                     
                     <h3>Batch Unpacking</h3>
                     <p>GA4 often batches multiple events into a single network request. The debugger unpacks these automatically. Each event displays as its own card with a numeric indicator showing its position in the original batch. No manual payload inspection needed.</p>
+                    
+                    <h3>Campaign Parameters</h3>
+                    <p>The extension extracts and displays campaign-related parameters from each hit in a dedicated section:</p>
+                    <ul>
+                        <li><code>gclid</code> (Google Click Identifier)</li>
+                        <li><code>gbraid</code> (Google Broad Anonymous Identifier)</li>
+                        <li><code>gclsrc</code> (Google Click Source)</li>
+                        <li><code>gad_source</code> (Google Ads Source)</li>
+                        <li><code>gad_campaignid</code> (Google Ads Campaign ID)</li>
+                    </ul>
+                    <p>These values are pulled directly from the network request so you can confirm click attribution is passing through correctly without parsing raw query strings.</p>
+                    
+                    <h3>Tracking Setup Discovery</h3>
+                    <p>The extension automatically detects and lists every Measurement ID and GTM container active on the page. Each entry shows a hit count so you can confirm all expected properties are receiving data and spot unexpected containers.</p>
                 </section>
 
                 <section id="datalayer-monitoring">
@@ -274,6 +288,9 @@ schema: |
                         <li><strong>JSON</strong>: Full structured data, ideal for scripts or automated checks</li>
                     </ul>
                     <p>You can scope exports to visible hits only, all captured hits, or a specific combination of GA4 requests and DataLayer pushes.</p>
+                    
+                    <h3>Copy as JS Snippet</h3>
+                    <p>On any DataLayer card, click <strong>Copy as JS Snippet</strong> to output a ready-to-paste <code>window.dataLayer.push({...})</code> call. Useful for reproducing events in the console, writing test fixtures, or sharing exact payloads with developers.</p>
                     
                     <h3>Console Logging</h3>
                     <p>Mirrors every captured event directly to Chrome DevTools console as structured, formatted objects. This is useful when you need hit inspection available without the side panel open, for example while you're actively working in the Elements or Network panels.</p>
