@@ -6,46 +6,70 @@ permalink: "/ga4-live-debugger-documentation/"
 ogTitle: "GA4 Live Debugger Documentation"
 ogDescription: "Complete guide for the GA4 Live Debugger extension. Configure hit inspection, DataLayer monitoring, Block Mode, diagnostics, and the Data Dictionary."
 schema: |
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [{
-      "@type": "Question",
-      "name": "How does Block Mode work in GA4 Live Debugger?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Block Mode uses Chrome's Declarative Net Request API to intercept GA4 network requests before they leave your browser. Hits still appear in the debugger feed for inspection, but no data reaches Google Analytics. Use this for QA testing on production without polluting your real metrics."
-      }
-    }, {
-      "@type": "Question",
-      "name": "What is an orphaned hit in GA4 Live Debugger?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The correlation engine links DataLayer pushes to GA4 network hits. An orphaned DataLayer push means a push occurred but no corresponding GA4 hit fired. Check your tag triggers or consent setup. An orphaned GA4 hit means a request fired without a preceding DataLayer push, which usually indicates a hardcoded gtag event."
-      }
-    }, {
-      "@type": "Question",
-      "name": "How do I monitor a custom DataLayer name?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Open the extension settings and enter your custom array name in the Custom DataLayer Name field. The extension will monitor that array instead of the default window.dataLayer."
-      }
-    }, {
-      "@type": "Question",
-      "name": "Does GA4 Live Debugger work with Server-Side GTM?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. The extension detects first-party sGTM endpoints and labels those hits with routing badges: sGTM 1P for first-party environments, sGTM Provider for known hosting services, and sGTM Self for self-hosted endpoints."
-      }
-    }, {
-      "@type": "Question",
-      "name": "How do I export captured hits from GA4 Live Debugger?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Click the Export button in the overflow menu. Choose CSV, TSV, or JSON format. You can export visible hits only, all captured hits, or specific combinations of GA4 requests and DataLayer pushes."
-      }
-    }]
-  }
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "GA4 Live Debugger Documentation - Setup, Features & Troubleshooting",
+      "description": "Complete guide for the GA4 Live Debugger extension. Configure hit inspection, DataLayer monitoring, Block Mode, diagnostics, and the Data Dictionary.",
+      "url": "https://www.gaoptimizer.com/ga4-live-debugger-documentation/",
+      "author": {
+        "@type": "Organization",
+        "@id": "https://www.gaoptimizer.com/#organization"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://www.gaoptimizer.com/#organization"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "GA4 Live Debugger & DataLayer Inspector",
+        "url": "https://www.gaoptimizer.com/ga4-debugger/"
+      },
+      "proficiencyLevel": "Beginner",
+      "articleSection": ["Getting Started", "Hit Inspection & Routing", "DataLayer Monitoring", "Diagnostics & Warnings", "Control Modes", "Data Dictionary", "Export & Console Logging", "Troubleshooting"]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How does Block Mode work in GA4 Live Debugger?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Block Mode intercepts all GA4 network requests at the browser level, including first-party sGTM endpoints and Google Tag Gateway domains. Hits still appear in the debugger feed for inspection, but no data reaches Google Analytics. Use this for QA testing on production without polluting your real metrics."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What is an orphaned hit in GA4 Live Debugger?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The correlation engine links DataLayer pushes to GA4 network hits. An orphaned DataLayer push means a push occurred but no corresponding GA4 hit fired. Check your tag triggers or consent setup. An orphaned GA4 hit means a request fired without a preceding DataLayer push, which usually indicates a hardcoded gtag event."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How do I monitor a custom DataLayer name?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Open the extension settings and enter your custom array name in the Custom DataLayer Name field. The extension will monitor that array instead of the default window.dataLayer."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Does GA4 Live Debugger work with Server-Side GTM?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The extension detects first-party sGTM endpoints and labels those hits with routing badges: sGTM 1P for first-party environments, sGTM Provider for known hosting services, and sGTM Self for self-hosted endpoints."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How do I export captured hits from GA4 Live Debugger?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Click the Export button in the overflow menu. Choose CSV, TSV, or JSON format. You can export visible hits only, all captured hits, or specific combinations of GA4 requests and DataLayer pushes."
+        }
+      }]
+    }
+  ]
 ---
 
 <style>
@@ -73,6 +97,7 @@ schema: |
                 <p class="sidebar-title">Navigation</p>
                 <div class="sidebar-content">
                     <ul>
+                        <li><a href="#getting-started">Getting Started</a></li>
                         <li><a href="#hit-inspection">Hit Inspection & Routing</a></li>
                         <li><a href="#datalayer-monitoring">DataLayer Monitoring</a></li>
                         <li><a href="#diagnostics">Diagnostics & Warnings</a></li>
@@ -85,6 +110,18 @@ schema: |
             </aside>
             
             <div class="docs-content">
+                <section id="getting-started">
+                    <h2>Getting Started</h2>
+                    <p>After installing the extension, you can access the debugger in two places:</p>
+                    <ul>
+                        <li><strong>Side Panel:</strong> Click the extension icon in Chrome's toolbar, or press <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>. The panel opens alongside your page so you can browse and debug simultaneously.</li>
+                        <li><strong>DevTools Panel:</strong> Open Chrome DevTools (F12) and look for the <strong>GA4 Live Debugger</strong> tab. This gives you a wider view while you work in Elements, Network, or Console.</li>
+                    </ul>
+                    <p>Both views show the same data in real time. Use whichever fits your workflow.</p>
+                    <div class="note">
+                        <strong>Tip:</strong> You can customize the keyboard shortcut. Navigate to <code>chrome://extensions/shortcuts</code> and find GA4 Live Debugger to set your preferred key combination.
+                    </div>
+                </section>
                 <section id="hit-inspection">
                     <h2>Hit Inspection & Routing</h2>
                     <p>The feed captures every GA4 network request in real time. Hits automatically group by page navigation so you can trace exactly what fired and when.</p>
@@ -235,11 +272,11 @@ schema: |
                     <h3>Debug Mode</h3>
                     <p>Appends the <code>debug_mode=1</code> parameter to all outgoing GA4 requests. These hits appear in your GA4 property's <strong>DebugView</strong> in real time.</p>
                     <div class="requirement-note">
-                        <strong>Heads up:</strong> Toggling Debug Mode on or off requires a page reload to take effect. The extension will prompt you.
+                        <strong>Heads up:</strong> A page reload is recommended after toggling Debug Mode. New requests pick up the parameter immediately, but a reload ensures the initial page_view event also carries it.
                     </div>
                     
                     <h3>Block Mode</h3>
-                    <p>Intercepts GA4 requests at the network level and prevents them from leaving the browser. Hits still appear in the debugger feed so you can inspect every parameter, but nothing reaches Google's servers.</p>
+                    <p>Intercepts all GA4 requests at the network level and prevents them from leaving the browser, regardless of destination. This covers standard Google-owned endpoints, first-party sGTM domains, Google Tag Gateway, and self-hosted server-side endpoints. Hits still appear in the debugger feed so you can inspect every parameter, but nothing reaches Google's servers.</p>
                     <p><strong>When to use it:</strong></p>
                     <ul>
                         <li>QA testing on production without inflating real metrics</li>
@@ -287,7 +324,7 @@ schema: |
                         <li><strong>TSV</strong>: Tab-separated, useful for pasting into documents</li>
                         <li><strong>JSON</strong>: Full structured data, ideal for scripts or automated checks</li>
                     </ul>
-                    <p>You can scope exports to visible hits only, all captured hits, or a specific combination of GA4 requests and DataLayer pushes.</p>
+                    <p>You can scope exports to visible hits only or all captured hits, and choose whether to include GA4 requests, DataLayer pushes, or both. Each format can be downloaded as a file or copied directly to your clipboard.</p>
                     
                     <h3>Copy as JS Snippet</h3>
                     <p>On any DataLayer card, click <strong>Copy as JS Snippet</strong> to output a ready-to-paste <code>window.dataLayer.push({...})</code> call. Useful for reproducing events in the console, writing test fixtures, or sharing exact payloads with developers.</p>
@@ -297,6 +334,15 @@ schema: |
                     <div class="note">
                         <strong>Tip:</strong> Console logs persist across debugger panel open/close cycles. If you're debugging intermittent events, enable console logging and work in DevTools. You'll still capture everything.
                     </div>
+
+                    <h3>Preferences</h3>
+                    <p>Open extension settings to customize the debugger behavior:</p>
+                    <ul>
+                        <li><strong>Click to copy parameter values:</strong> Click any parameter value in the feed to copy it to your clipboard.</li>
+                        <li><strong>Compact DataLayer cards:</strong> Hides action buttons on DataLayer cards until expanded, saving vertical space in the feed.</li>
+                        <li><strong>Hide URL path:</strong> Removes the page path from hit card headers for a narrower Side Panel layout.</li>
+                        <li><strong>Dark mode:</strong> Toggle manually via the overflow menu, or let it follow your system preference.</li>
+                    </ul>
                 </section>
 
                 <section id="troubleshooting">
@@ -329,8 +375,8 @@ schema: |
                         <div class="accordion-item">
                             <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-4">Block Mode isn't stopping hits</button>
                             <div class="accordion-panel" id="trouble-panel-4">
-                                <p><strong>Check for sGTM routing.</strong> If your site sends hits to a first-party server-side endpoint, Block Mode may not recognize the custom domain. Verify the routing badge on the hits that are getting through.</p>
-                                <p><strong>Reload after toggling.</strong> Some hits may have already been queued before Block Mode activated. A page reload ensures all new requests go through the blocking rules.</p>
+                                <p><strong>Reload after toggling.</strong> Block Mode intercepts all GA4 requests regardless of domain, including first-party sGTM endpoints. However, requests already queued by the browser before Block Mode activated may slip through. A page reload ensures all new requests pass through the blocking rules.</p>
+                                <p><strong>Check for ad blockers.</strong> Another extension may have already blocked or redirected the request before Block Mode could intercept it. Verify the routing badge on any hits that appear to be getting through.</p>
                             </div>
                         </div>
                         <div class="accordion-item">

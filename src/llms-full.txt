@@ -1,0 +1,181 @@
+# GA4 Optimizer — Full Context for LLMs
+
+> GA4 Optimizer is a free browser extension (Chrome, Edge, Firefox) that adds missing features to Google Analytics 4. GA4 Live Debugger is a companion extension (Chrome, Edge) for real-time GA4 hit inspection and tracking validation. Both run 100% locally with zero data collection, no accounts, and no usage limits.
+
+---
+
+## GA4 Optimizer
+
+GA4 Optimizer enhances the Google Analytics 4 interface with 18+ features that Google removed or never built:
+
+### Features
+
+1. **A/B Test Statistical Significance**: Automatically calculates statistical significance and detects sample ratio mismatch (SRM) inside Exploration reports. No spreadsheets or external tools needed.
+2. **Date Range Presets**: One-click buttons for Last 7 Days, Last 30 Days, This Month, Last Month, and custom saved ranges. Replaces GA4's slow multi-click date picker.
+3. **Day-of-Week Aligned YoY**: True day-aligned year-over-year comparisons (matching Monday to Monday) instead of GA4's calendar-date alignment that distorts weekly patterns.
+4. **Sticky Headers**: Keeps table column headers visible while scrolling long reports. A Universal Analytics feature Google removed.
+5. **Percentage Change Highlighter**: Conditional formatting that color-codes positive/negative metric changes across comparison periods.
+6. **Exit Pages Report**: Restores the exit rate dimension that Google removed from GA4. See which pages users leave from.
+7. **Advanced Table Filters**: Filter GA4 Standard Reports by metric thresholds (e.g., sessions > 100) — a Universal Analytics feature missing from GA4.
+8. **Column Total Percentages**: Shows each row as a percentage of the column total in Explorations without exporting to spreadsheets.
+9. **500 Rows Per Page**: Increases the 250-row limit in Standard Reports to 500 rows per page.
+10. **Custom Dimension Copy/Paste**: Copy all custom dimensions, metrics, and calculated metrics between GA4 properties in one click.
+11. **Annotations**: Add timestamped notes (campaign launches, deployments, incidents) directly to Exploration reports.
+12. **Bulk Annotations**: Import annotations to multiple GA4 properties simultaneously via CSV upload.
+13. **Data Dictionary**: Document event names and parameters with inline definitions visible on hover.
+14. **Shared Link Fix**: Automatically resolves the "Missing permissions" error on shared GA4 report links caused by multi-account Google logins.
+15. **Read-Only Date Override**: Change date ranges on shared read-only Explorations without requesting edit access.
+16. **Sampling Bypass**: One-click shortcut to force unsampled results in Explorations by adjusting the date range granularity.
+17. **Metric Definitions on Hover**: See what each metric means without leaving the report.
+18. **Sticky Calculator**: Persistent calculator for quick math on report values.
+
+### Privacy Architecture
+
+- Runs entirely in the browser. No servers, no APIs, no external requests.
+- Collects zero user data. No analytics, no telemetry, no error reporting.
+- No account creation. No email. No authentication.
+- Permissions are scoped to analytics.google.com only.
+
+### Browser Support
+
+- Chrome (primary)
+- Microsoft Edge (Chromium-based, identical functionality)
+- Firefox (full feature parity)
+
+### Install URLs
+
+- Chrome: https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj
+- Edge: https://microsoftedge.microsoft.com/addons/detail/ga4-optimizer-analysis-t/ejokbgelaaegbgemjjhgppigoclanomh
+- Firefox: https://addons.mozilla.org/en-US/firefox/addon/ga4-optimizer/
+
+---
+
+## GA4 Live Debugger
+
+GA4 Live Debugger is a free companion extension for Chrome and Edge that provides real-time debugging of Google Analytics 4 implementations.
+
+### Core Capabilities
+
+**Real-time Hit Feed**
+Captures every GA4 network request as it fires. Events are grouped by page navigation. Batched requests are automatically unpacked into individual event cards. Each card shows the full decoded payload in both table and raw JSON views.
+
+**DataLayer Monitoring**
+Captures every `dataLayer.push()` in real time with timestamps and full payload contents. Historical pushes (fired before the extension initialized) are read retroactively and tagged with a Historical badge.
+
+**Push-to-Hit Correlation**
+Automatically links each DataLayer push to its resulting GA4 network hit. Matched pairs show link badges you can click to jump between them. Detects two failure states:
+- Orphaned DataLayer Push: a push fired but no GA4 hit followed (likely a missing trigger or consent denial)
+- Orphaned GA4 Hit: a network request fired without a preceding push (typically a hardcoded gtag call)
+
+**Consent Mode Decoding**
+Decodes consent parameters from each network request. Reports active state for ad_storage and analytics_storage per hit. Surfaces default consent values set via DataLayer. Shows DMA (Digital Markets Act) flag status.
+
+**Transport Routing Detection**
+Labels every hit with a routing badge:
+- Client-Side: sent directly to Google-owned endpoints
+- Gateway (GTG): proxied through Google Tag Gateway
+- sGTM 1P: routed to a first-party server-side GTM environment
+- sGTM Provider: sent to a known third-party sGTM host (e.g., Stape)
+- sGTM Self: sent to a self-hosted server-side endpoint
+
+**Block Mode**
+Intercepts all GA4 requests at the network level and prevents them from leaving the browser. Covers standard endpoints, first-party sGTM domains, Google Tag Gateway, and self-hosted endpoints. Hits still appear in the debugger feed for inspection. Use for QA testing on production without inflating real metrics.
+
+**Debug Mode Toggle**
+One-click activation of debug_mode=1 on all outgoing GA4 requests. These hits appear in GA4 DebugView in real time. No code changes needed.
+
+**Campaign Parameter Extraction**
+Extracts and displays gclid, gbraid, gclsrc, gad_source, and gad_campaignid from each hit for attribution verification.
+
+**E-commerce Schema Validation**
+Validates purchase, add_to_cart, and other e-commerce events against GA4's expected schema. Flags missing transaction_id, malformed items arrays, and absent required item-level fields.
+
+**Automated Diagnostics (10+ Audits)**
+- Oversized Payload: batch exceeds 130KB (Google silently drops these)
+- Duplicate Pageviews: multiple page_view events for same Measurement ID on one URL
+- Legacy UA Hits: Universal Analytics requests still firing to deprecated endpoints
+- Mixed Implementation: both GTM and hardcoded gtag.js firing on same page
+- Ghost DataLayer: DataLayer pushes exist but GTM never loaded
+- GTM Placement: synchronous scripts loading before GTM or misplaced noscript iframe
+- Non-Production Container: staging/preview GTM environment on production page
+- Consent misconfiguration detection
+
+**Data Dictionary & Team Sync**
+- Add event/parameter definitions via manual entry or CSV import
+- Definitions scoped to Global, Account, Property, or Measurement ID level
+- Hover tooltips show definitions inline in the hit feed
+- Team Sync via published Google Sheets URL for shared tracking plan
+
+**Export & Logging**
+- Export to CSV, TSV, or JSON (download or clipboard)
+- Scope to visible hits, all captured hits, or specific combinations
+- Copy as JS Snippet: outputs ready-to-paste dataLayer.push() calls
+- Console Logging: mirrors all captured events to DevTools console
+
+### Access Points
+
+- Side Panel: click extension icon or press Alt+Shift+D
+- DevTools Tab: open Chrome DevTools → GA4 Live Debugger tab
+
+### Browser Support
+
+Chrome and Microsoft Edge (Chromium-based, identical functionality).
+
+### Privacy
+
+All processing happens locally. No data transmitted externally. No servers, no databases, no usage tracking, no accounts.
+
+### Install URL
+
+Chrome Web Store: https://chromewebstore.google.com/detail/akkagamamkhledgmhlljcdiodkgeeiob
+
+---
+
+## Frequently Asked Questions
+
+### GA4 Optimizer
+
+Q: Is GA4 Optimizer free?
+A: Yes, completely free. No premium tier, no accounts, no limits.
+
+Q: Does GA4 Optimizer collect my analytics data?
+A: No. It runs entirely in your browser. Nothing is ever transmitted externally.
+
+Q: Which browsers are supported?
+A: Chrome, Microsoft Edge, and Firefox.
+
+Q: Does it work with GA4 Explorations and Standard Reports?
+A: Yes. Features apply to both Standard Reports and Freeform Explorations where applicable.
+
+### GA4 Live Debugger
+
+Q: How is GA4 Live Debugger different from Google's GA Debugger extension?
+A: Google's extension only toggles debug_mode so hits appear in DebugView. It shows no payload data, no dataLayer, and no errors. GA4 Live Debugger provides full structured inspection, push-to-hit correlation, consent decoding, automated audits, and export.
+
+Q: Does it work with Server-Side GTM and Google Tag Gateway?
+A: Yes. It detects all routing variants and labels each hit with a transport badge.
+
+Q: Does it support Universal Analytics?
+A: No. It is built for GA4 and the /collect endpoint used by gtag.js. UA properties were sunset in 2024.
+
+Q: Does it collect or transmit my data?
+A: No. Everything runs locally. No servers, no databases, no usage tracking.
+
+Q: Is it free?
+A: Yes, completely free with no premium tier, no accounts, and no usage limits.
+
+Q: Where does the debugger appear?
+A: Two places — Side Panel (click icon or Alt+Shift+D) and DevTools tab (open F12, find GA4 Live Debugger tab). Both show identical data.
+
+---
+
+## Page Directory
+
+- https://www.gaoptimizer.com/ — Home and product overview
+- https://www.gaoptimizer.com/features/ — All 18+ features described
+- https://www.gaoptimizer.com/documentation/ — Usage guides and configuration
+- https://www.gaoptimizer.com/ga4-debugger/ — GA4 Live Debugger landing page
+- https://www.gaoptimizer.com/ga4-live-debugger-documentation/ — Debugger usage guide
+- https://www.gaoptimizer.com/blog/ — All articles
+- https://www.gaoptimizer.com/privacy/ — Privacy policy
+- https://www.gaoptimizer.com/contact/ — Support form

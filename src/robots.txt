@@ -2,6 +2,64 @@
 User-agent: *
 Allow: /
 Disallow: /chrome-uninstall-survey/
+Disallow: /edge-uninstall-survey/
+Disallow: /firefox-unistall-survey/
 
-# SEO Enhancement: Specify the location of the sitemap
+# OpenAI crawlers
+User-agent: GPTBot
+Allow: /
+Disallow: /chrome-uninstall-survey/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /chrome-uninstall-survey/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /chrome-uninstall-survey/
+
+# Anthropic crawlers
+User-agent: ClaudeBot
+Allow: /
+Disallow: /chrome-uninstall-survey/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /chrome-uninstall-survey/
+
+# Google AI
+User-agent: Google-Extended
+Allow: /
+Disallow: /chrome-uninstall-survey/
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+Disallow: /chrome-uninstall-survey/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /chrome-uninstall-survey/
+
+# Meta
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /chrome-uninstall-survey/
+
+# ByteDance
+User-agent: Bytespider
+Allow: /
+Disallow: /chrome-uninstall-survey/
+
+# Common Crawl (used by many LLM trainers)
+User-agent: CCBot
+Allow: /
+Disallow: /chrome-uninstall-survey/
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+Disallow: /chrome-uninstall-survey/
+
+# Sitemap
 Sitemap: https://www.gaoptimizer.com/sitemap.xml
