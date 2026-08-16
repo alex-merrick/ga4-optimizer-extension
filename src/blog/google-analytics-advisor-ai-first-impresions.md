@@ -30,8 +30,8 @@ layout: layouts/post.njk
 author: Alex Merrick
 title: "Google Analytics Ask Advisor Tested: GA4 Gemini 3 Review ({{ currentYear }})"
 date: 2026-07-31T09:00:00.000-05:00
-publishDate: 2026-07-31T09:00:00.000-05:00
-last_modified_at: 2026-07-31T15:00:00.000-05:00
+publishDate: 2026-08-10T09:00:00.000-05:00
+last_modified_at: 2026-08-16T15:00:00.000-05:00
 thumbnail: /img/thumbnails/banner-analytics-advisor.jpg
 post_image: /img/thumbnails/thumb-analytics-advisor.jpg
 description: "We tested the new Gemini 3 upgrade for Google Analytics Ask Advisor. See how it handles complex segmentation, the lack of an admin kill switch, and enterprise risks."
@@ -51,6 +51,15 @@ When Google first introduced this AI chatbot nine months ago, it was widely dism
 Google recently upgraded the backend of Ask Advisor with their advanced **Gemini 3** models, labeling the feature an "agentic data analyst". We wanted to see if the AI is finally capable of doing actual analytical heavy lifting. Because AI requires massive amounts of data to provide accurate insights, we ran an exhaustive stress test using the high-volume Google Merchandise Store demo property.
 
 Here is our definitive review of the updated Ask Advisor, including what it gets right, the new features, and the massive security risk Google is ignoring.
+
+Watch the quick oerview of the new Ask Advisor capabilities in action:
+
+<div class="feature-video-container" data-video-name="AskAdvisorOverview" style="max-width: 700px; margin: 25px 0;">
+    <video autoplay loop muted playsinline aria-label="Overview of Google Analytics 4 Ask Advisor AI showing Gemini 3 powered segmentation and dashboard generation">
+        <source src="/mp4/ai-google-analytics-4-overview.mp4" type="video/mp4">
+    </video>
+    <div class="play-icon-overlay"></div>
+</div>
 
 ## What is New in the Gemini 3 Update?
 
