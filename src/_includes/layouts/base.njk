@@ -143,33 +143,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KNVNWPQ6"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-    <header class="site-header">
-    <div class="nav-container">
-        <a href="/" class="brand-logo">
-            <img src="/icons/ga4-optimizer-logo.png" alt="GA4 Optimizer Logo" width="36" height="36">
-            <span class="brand-name">GA4 Optimizer</span>
-        </a>
-
-        <button type="button" class="nav-toggle" aria-label="Toggle Navigation">
-            <span></span>
-        </button>
-
-        <nav class="main-nav">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/features/">Features</a></li>
-                <li><a href="/documentation/">Documentation</a></li>
-                <li><a href="/blog/">Blog</a></li>
-                <li><a href="/contact/">Contact</a></li>
-                <li>
-                    <a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=nav_cta" class="cta-button" target="_blank" rel="noopener">
-                        Add to Chrome
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    {% include "partials/site-nav.njk" %}
+    {% include "partials/product-context-bar.njk" %}
+    {% include "partials/breadcrumbs.njk" %}
 
     {{ content | safe }}
 
@@ -195,16 +171,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="/contact/">Contact Support</a>
         </p>
         <p class="footer-resources">
+            <span class="footer-resources-label">Extensions:</span>
+            {% for product in products.navList %}
+            {% if not loop.first %}<span>•</span>{% endif %}
+            <a href="{{ product.landingUrl }}">{{ product.name }}</a>
+            {% endfor %}
+        </p>
+        <p class="footer-resources">
+            <span class="footer-resources-label">Documentation:</span>
+            {% for product in products.navList %}
+            {% if not loop.first %}<span>•</span>{% endif %}
+            <a href="{{ product.docsUrl }}">{{ product.docsNavLabel }}</a>
+            {% endfor %}
+        </p>
+        <p class="footer-resources">
             <span class="footer-resources-label">Resources:</span>
             <a href="/blog/ga4-updates/">GA4 Updates</a>
             <span>•</span>
             <a href="/blog/gtm-updates/">GTM Updates</a>
             <span>•</span>
             <a href="/blog/ga4-fixes/">GA4 Fixes</a>
-            <span>•</span>
-            <a href="/ga4-debugger/">GA4 Debugger</a>
-            <span>•</span>
-            <a href="/ga4-live-debugger-documentation/">Debugger Docs</a>
         </p>
     </footer>
 

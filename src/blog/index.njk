@@ -68,7 +68,7 @@ eleventyComputed:
                             <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
                             <p><em>Published on {{ (post.data.publishDate or post.date) | date("MMMM d, yyyy") }}</em></p>
                             <p>{{ post.data.description }}</p>
-                            <p><a href="{{ post.url }}" style="font-weight: 600;">Read more <span class="sr-only">about {{ post.data.title }}</span>&rarr;</a></p>
+                            <p><a href="{{ post.url }}" style="font-weight: 600;">Read more <span class="sr-only">about {{ post.data.title }}</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-left: 4px;"><polyline points="9 18 15 12 9 6"></polyline></svg></a></p>
                         </div>
 
                     </div>
@@ -80,17 +80,17 @@ eleventyComputed:
         {%- if pagination.pages.length > 1 -%}
         <nav class="blog-pagination" aria-label="Blog pagination">
             {%- if pagination.href.previous -%}
-                <a href="{{ pagination.href.previous }}" class="pagination-link pagination-prev" rel="prev">&larr; Newer Posts</a>
+                <a href="{{ pagination.href.previous }}" class="pagination-link pagination-prev" rel="prev"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;"><polyline points="15 18 9 12 15 6"></polyline></svg>Newer Posts</a>
             {%- else -%}
-                <span class="pagination-link pagination-prev pagination-disabled" aria-disabled="true">&larr; Newer Posts</span>
+                <span class="pagination-link pagination-prev pagination-disabled" aria-disabled="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;"><polyline points="15 18 9 12 15 6"></polyline></svg>Newer Posts</span>
             {%- endif -%}
 
             <span class="pagination-info">Page {{ pagination.pageNumber + 1 }} of {{ pagination.pages.length }}</span>
 
             {%- if pagination.href.next -%}
-                <a href="{{ pagination.href.next }}" class="pagination-link pagination-next" rel="next">More Posts &rarr;</a>
+                <a href="{{ pagination.href.next }}" class="pagination-link pagination-next" rel="next">More Posts<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-left: 4px;"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
             {%- else -%}
-                <span class="pagination-link pagination-next pagination-disabled" aria-disabled="true">More Posts &rarr;</span>
+                <span class="pagination-link pagination-next pagination-disabled" aria-disabled="true">More Posts<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-left: 4px;"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
             {%- endif -%}
         </nav>
         {%- endif -%}

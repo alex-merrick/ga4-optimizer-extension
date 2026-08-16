@@ -1,0 +1,62 @@
+{#
+    Site header and primary navigation.
+
+    Rendered from src/_data/products.js so adding an extension does not require
+    editing this file. Pages set `product: <id>` in frontmatter to make the
+    header CTA point at that extension's store listing.
+
+    Dropdown parents are buttons rather than links: there is no /extensions/ hub
+    page yet, and a parent link that goes nowhere is worse than no parent link.
+#}
+{% set activeProduct = products.byId[product] if product else products.byId[products.defaultId] %}
+<header class="site-header">
+    <div class="nav-container">
+        <a href="/" class="brand-logo">
+            <img src="/icons/ga4-optimizer-logo.png" alt="GA4 Optimizer Logo" width="36" height="36">
+            <span class="brand-name">GA4 Optimizer</span>
+        </a>
+
+        <button type="button" class="nav-toggle" aria-label="Toggle Navigation">
+            <span></span>
+        </button>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+
+                <li class="nav-item-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-controls="nav-extensions">Extensions</button>
+                    <ul class="sub-nav" id="nav-extensions">
+                        {% for item in products.navList %}
+                        <li>
+                            <a href="{{ item.landingUrl }}"{% if item.id == product %} aria-current="true"{% endif %}>
+                                {{ item.navLabel }}
+                                <span class="sub-nav-desc">{{ item.navDescription }}</span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+
+                <li class="nav-item-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-controls="nav-documentation">Documentation</button>
+                    <ul class="sub-nav" id="nav-documentation">
+                        {% for item in products.navList %}
+                        <li>
+                            <a href="{{ item.docsUrl }}">{{ item.docsNavLabel }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li>
+                    <a href="{{ activeProduct.navCtaUrl }}" class="cta-button" target="_blank" rel="noopener" data-product="{{ activeProduct.id }}">
+                        {{ activeProduct.navCtaLabel }}
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

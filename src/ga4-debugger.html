@@ -3,6 +3,8 @@ layout: "layouts/base.njk"
 title: "GA4 Debugger Chrome Extension - Free Google Analytics 4 Debugger"
 description: "Free GA4 debugger extension for Chrome and Edge. See every hit, dataLayer push, and consent state in one panel. No account needed, 100% local."
 permalink: "/ga4-debugger/"
+product: "ga4-live-debugger"
+breadcrumbCurrent: "GA4 Live Debugger"
 ogTitle: "GA4 Debugger Chrome Extension - Free Google Analytics Debugger"
 ogDescription: "The GA4 debugger that shows hits, dataLayer, consent mode, and routing in one place. Free Chrome and Edge extension, no account needed."
 schema: |
@@ -98,7 +100,8 @@ schema: |
 /* --- GA4 Debugger Landing Page --- */
 .dbg-hero {
     text-align: center;
-    padding: 50px 20px 30px;
+    /* Reduced top padding: the product context bar and breadcrumbs now sit above. */
+    padding: 24px 20px 30px;
 }
 .dbg-hero h1 {
     font-size: 2.5rem;
@@ -529,10 +532,5 @@ schema: |
         });
     });
 
-    var navCta = document.querySelector('.main-nav .cta-button');
-    if (navCta) {
-        navCta.href = 'https://chromewebstore.google.com/detail/akkagamamkhledgmhlljcdiodkgeeiob/?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=debugger_landing_page';
-        navCta.textContent = 'Install Free';
-    }
 })();
 </script>

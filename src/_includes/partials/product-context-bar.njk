@@ -1,0 +1,29 @@
+{#
+    Product context bar.
+
+    Renders only for pages that set `product: <id>` where that product has
+    showContextBar enabled. Sits in normal document flow directly under the fixed
+    header, so the global body padding-top offset stays correct.
+
+    Purpose: a visitor landing cold from search can reach the docs and the install
+    link without using the main nav, and can tell which product they are looking at.
+#}
+{% if product and products.byId[product] and products.byId[product].showContextBar %}
+{% set contextProduct = products.byId[product] %}
+<div class="product-context-bar">
+    <div class="product-context-inner">
+        <span class="product-context-identity">
+            <img src="{{ contextProduct.icon }}" alt="" width="24" height="24">
+            <span class="product-context-name">{{ contextProduct.name }}</span>
+        </span>
+
+        <nav class="product-context-links" aria-label="{{ contextProduct.name }} sections">
+            <a href="{{ contextProduct.landingUrl }}"{% if page.url == contextProduct.landingUrl %} aria-current="page"{% endif %}>Overview</a>
+            <a href="{{ contextProduct.docsUrl }}"{% if page.url == contextProduct.docsUrl %} aria-current="page"{% endif %}>Documentation</a>
+            <a class="product-context-install" href="{{ contextProduct.contextBarInstallUrl }}" target="_blank" rel="noopener" data-product="{{ contextProduct.id }}">Install free</a>
+        </nav>
+
+        <a class="product-context-suite" href="/">Part of GA4 Optimizer</a>
+    </div>
+</div>
+{% endif %}

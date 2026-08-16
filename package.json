@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy"
+    "build": "npx @11ty/eleventy",
+    "clean": "node scripts/clean.mjs",
+    "verify": "node scripts/check-nav.mjs",
+    "check": "npm run clean && npm run build && npm run verify"
   },
   "keywords": [],
   "author": "",

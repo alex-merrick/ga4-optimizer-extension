@@ -10,21 +10,62 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Global Dropdown Submenu Logic for Mobile ---
+    // --- Global Dropdown Submenu Logic (desktop + mobile) ---
+    // Desktop also reveals on :hover and :focus-within via CSS. This adds click and
+    // keyboard control, and keeps aria-expanded honest for screen readers.
     const dropdownItems = document.querySelectorAll('.main-nav .nav-item-dropdown');
 
     if (dropdownItems.length > 0) {
+        const setOpen = (item, isOpen) => {
+            const toggle = item.querySelector(':scope > button, :scope > a');
+            item.classList.toggle('is-open', isOpen);
+            if (toggle) toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        };
+
+        const closeAll = (except) => {
+            dropdownItems.forEach(item => {
+                if (item !== except) setOpen(item, false);
+            });
+        };
+
         dropdownItems.forEach(item => {
-            const clickableElement = item.querySelector(':scope > button, :scope > a'); 
-            
-            if (clickableElement) {
-                clickableElement.addEventListener('click', (e) => {
-                    if (window.innerWidth <= 900) {
-                        e.preventDefault();
-                        item.classList.toggle('is-open');
+            const toggle = item.querySelector(':scope > button, :scope > a');
+            if (!toggle) return;
+
+            // Click toggles .is-open (for keyboard and touch users).
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                const willOpen = !item.classList.contains('is-open');
+                closeAll(item);
+                setOpen(item, willOpen);
+            });
+
+            // When the cursor leaves the dropdown area, clear .is-open and
+            // blur the button. CSS :hover already hides the panel once the
+            // cursor is gone, but we also need to release focus so it doesn't
+            // hold the panel open via :focus-within or similar side effects.
+            item.addEventListener('mouseleave', () => {
+                if (window.innerWidth > 900) {
+                    setOpen(item, false);
+                    if (item.contains(document.activeElement)) {
+                        document.activeElement.blur();
                     }
-                });
-            }
+                }
+            });
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key !== 'Escape') return;
+            dropdownItems.forEach(item => {
+                if (!item.classList.contains('is-open')) return;
+                const toggle = item.querySelector(':scope > button, :scope > a');
+                setOpen(item, false);
+                if (toggle && item.contains(document.activeElement)) toggle.focus();
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.main-nav .nav-item-dropdown')) closeAll(null);
         });
     }
 

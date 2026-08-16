@@ -1,0 +1,55 @@
+{#
+    Breadcrumbs plus BreadcrumbList schema for product pages.
+
+    Renders only for pages that set `product: <id>`. Leaf label comes from
+    `breadcrumbCurrent` in frontmatter, falling back to the page title.
+
+    Trail: Home > Product > Current. There is no /extensions/ hub page yet, so the
+    product landing page is the second level.
+#}
+{% if product and products.byId[product] %}
+{% set crumbProduct = products.byId[product] %}
+{% set isProductLanding = page.url == crumbProduct.landingUrl %}
+{% set crumbLeaf = breadcrumbCurrent or title %}
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ol class="breadcrumbs-list">
+        <li><a href="/">Home</a></li>
+        <li>
+            {% if isProductLanding %}
+            <span aria-current="page">{{ crumbProduct.name }}</span>
+            {% else %}
+            <a href="{{ crumbProduct.landingUrl }}">{{ crumbProduct.name }}</a>
+            {% endif %}
+        </li>
+        {% if not isProductLanding %}
+        <li><span aria-current="page">{{ crumbLeaf }}</span></li>
+        {% endif %}
+    </ol>
+</nav>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.gaoptimizer.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ crumbProduct.name }}",
+      "item": "https://www.gaoptimizer.com{{ crumbProduct.landingUrl }}"
+    }{% if not isProductLanding %},
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ crumbLeaf }}",
+      "item": "https://www.gaoptimizer.com{{ page.url }}"
+    }{% endif %}
+  ]
+}
+</script>
+{% endif %}
