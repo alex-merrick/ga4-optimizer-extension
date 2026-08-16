@@ -36,7 +36,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta property="twitter:image" content="{{ ogImage or ('https://www.gaoptimizer.com' + (post_image or thumbnail or '/icons/ga4-optimizer-logo.png')) }}">
     
     <link rel="stylesheet" href="/style.css">
-    <link rel="icon" href="/icons/ga4-optimizer-logo.png" type="image/png">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" href="/icons/ga4-optimizer-logo.png" type="image/png" sizes="any">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#6a0dad">
     <link rel="canonical" href="https://www.gaoptimizer.com{{ page.url }}" />
     <link rel="alternate" type="application/atom+xml" title="GA4 Optimizer Blog Feed" href="/feed.xml" />
     <link rel="help" type="text/markdown" href="/llms.txt" title="LLM site context" />
@@ -70,6 +74,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "@type": "WebSite",
   "@id": "https://www.gaoptimizer.com/#website",
   "name": "GA4 Optimizer",
+  "alternateName": ["GA Optimizer", "gaoptimizer"],
   "url": "https://www.gaoptimizer.com/",
   "publisher": {
     "@id": "https://www.gaoptimizer.com/#organization"

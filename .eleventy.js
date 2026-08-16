@@ -21,6 +21,9 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/llms.txt");
     eleventyConfig.addPassthroughCopy("src/.nojekyll");
     eleventyConfig.addPassthroughCopy("src/admin");
+    eleventyConfig.addPassthroughCopy("src/favicon.ico");
+    eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png");
+    eleventyConfig.addPassthroughCopy("src/site.webmanifest");
 
     // --- Watch Targets ---
     eleventyConfig.addWatchTarget("./src/style.css");
