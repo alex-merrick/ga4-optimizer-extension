@@ -43,13 +43,13 @@ tags:
   - ga4-updates
 ---
 
-Google Analytics just announced a massive structural update to its user interface. According to their official release notes, GA4 is rolling out a lightweight custom dashboard builder natively within the platform. 
+Google Analytics just announced a massive structural update to its user interface. According to their <a href="https://support.google.com/analytics/answer/17217303" target="_blank" rel="noopener noreferrer">official release notes</a> and recent <a href="https://lnkd.in/p/gpeV384r" target="_blank" rel="noopener noreferrer">LinkedIn announcement</a>, GA4 is rolling out a lightweight custom dashboard builder natively within the platform. 
 
 Since the sunset of Universal Analytics, the analytics community has begged Google for a middle ground. GA4 has historically forced users into two extremes. You either use rigid Standard Reports that lack customization, or you use the Explorations workspace which is far too complex to share with a non-technical executive. 
 
 This new native dashboard feature finally bridges that gap. It acts as a simplified version of Looker Studio directly inside your analytics property. Whether you are an in-house analyst building reports for leadership or a tech-savvy marketer looking for quick answers, this changes your reporting workflow. 
 
-Here is a breakdown of why this matters, what to expect, and the current UI headaches you still need to bypass. Note: Google is deploying this progressively. If it is not active in your account today, it will appear be a gradiual rollout, similar to the recent [4-hour Realtime report update](/blog/ga4-realtime-4-hour-update/).
+Here is a breakdown of why this matters, what to expect, and the current UI headaches you still need to bypass. Note: Google is deploying this progressively. If it is not active in your account today, it will be a gradual rollout, similar to the recent [4-hour Realtime report update](/blog/ga4-realtime-4-hour-update/).
 
 <video width="560" style="max-width:100%; display:block; margin:1.5rem auto;" controls playsinline>
   <source src="/mp4/ga4-new-dashboard-in-work.mp4" type="video/mp4">
