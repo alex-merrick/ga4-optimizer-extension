@@ -74,6 +74,8 @@ This is highly beneficial for lean marketing teams. You no longer need to naviga
 
 However, you must set expectations with your leadership team early. This is a lightweight tool. It will not feature the deep data blending, custom calculated fields, or cross-platform integrations that Looker Studio provides. It is strictly a visualization layer for the data already living inside your GA4 property.
 
+Google also teased that future updates will allow you to build these dashboards automatically using AI text prompts, a feature that will likely tie directly into their recent [Ask Advisor Gemini 3 upgrade](/blog/google-analytics-advisor-ai-first-impresions/).
+
 ### Where to Find the Dashboard Builder
 
 To start building your own custom views, you need to check if the feature is active in your property. Google has made this highly accessible:
