@@ -51,10 +51,17 @@ This new native dashboard feature finally bridges that gap. It acts as a simplif
 
 Here is a breakdown of why this matters, what to expect, and the current UI headaches you still need to bypass. Note: Google is deploying this progressively, but it is currently live in most active properties. You can immediately spot if it is active by looking for a new "+ Create" button at the top of your report list.
 
-<video width="560" style="max-width:100%; display:block; margin:1.5rem auto;" controls playsinline>
-  <source src="/mp4/ga4-new-dashboard-in-work.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<div style="display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap; margin-top: 20px;">
+  <div style="flex: 1; min-width: 280px;">
+    <img src="/img/custom-dashboards.png" alt="Create Dashboard in Google Analytics UI" width="600" height="400" style="width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-color);">
+  </div>
+  <div style="flex: 1; min-width: 280px;">
+    <video width="560" style="width: 100%; border-radius: 8px;" controls playsinline>
+      <source src="/mp4/ga4-new-dashboard-in-work.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
 
 ## Escaping the GA4 Data API Quotas
 
@@ -75,8 +82,7 @@ However, you must set expectations with your leadership team early. This is a ve
 *   **Zero Styling Options:** You cannot apply custom branding, change colors, or adjust specific layout stylings.
 *   **The PDF Export Bug:** While you can schedule PDF exports via email, the export currently cuts off the bottom of the page if your dashboard canvas is too long.
 *   **No Cross-Platform Data:** It will not feature the deep data blending or cross-platform integrations that Data Studio provides. It is strictly a visualization layer for the data already living inside GA4.
-* **The 15-Card Limit and Missing Segments** Google has imposed strict limits on these new dashboards. Standard GA4 properties are hard-capped at a maximum of 15 cards per dashboard (GA4 360 premium properties get up to 30). 
-* **Segments and card-level comparisons are not supported**. You cannot build a dashboard widget that only shows traffic from a specific audience segment, which cann limits deep analytical reporting.
+* **The 15-Card Limit and Missing Segments** Standard GA4 properties are hard-capped at a maximum of 15 cards per dashboard (GA4 360 premium properties get up to 30).
 
 Google also teased that future updates will allow you to build these dashboards automatically using AI text prompts, a feature that will likely tie directly into their recent [Ask Advisor Gemini 3 upgrade](/blog/google-analytics-advisor-ai-first-impresions/).
 
@@ -104,7 +110,7 @@ A shiny new dashboard is only as useful as the data feeding it. While the presen
 ### The Metric Gap and Missing Segments
 You are strictly limited to native GA4 metrics. If you want to drop in a custom Click-Through Rate or a unique conversion ratio, the builder does not support on-the-fly calculations. For example, Google still completely hides the Exit Rate metric from the standard reporting UI. A dashboard widget showing raw "Exits" is useless without the context of total views. 
 
-Furthermore, the official documentation confirms that **segments and card-level comparisons are not supported**. You cannot build a dashboard widget that only shows traffic from a specific audience segment, which severely limits deep analytical reporting.
+Furthermore, the official documentation confirms that **segments and card-level comparisons are not supported**. You cannot build a dashboard widget that only shows traffic from a specific audience segment, which can limit deep analytical reporting.
 
 ### Clunky Date Comparisons
 Executive dashboards rely heavily on Month-over-Month and Year-over-Year comparisons. While date comparisons do work on the new Scorecards (showing percentage differences), GA4's native date picker still requires multiple clicks to set up. Furthermore, the native Year-over-Year comparison does not align days of the week. You often end up comparing a high-traffic Monday to a low-traffic Sunday from the previous year.
