@@ -125,7 +125,7 @@ A shiny new dashboard is only as useful as the data feeding it, and several gaps
 *   **No text or description blocks.** You cannot add free-text panels or analyst notes. The only workaround is the dashboard title's dotted underline, which shows a tooltip with the dashboard description on hover.
 *   **No styling control.** You cannot apply custom branding, change colors, or adjust layout styling.
 *   **No segments or card-level comparisons.** Confirmed in the official documentation. You cannot build a widget showing only traffic from a specific audience segment.
-*   **No on-the-fly calculated metrics.** You are limited to native GA4 metrics. Custom Click-Through Rates or unique conversion ratios are not supported.
+*   **No on-the-fly calculated metrics.** You are limited to native GA4 metrics. Custom Click-Through Rates or unique conversion ratios are not supported and limited to what you can build using limited GA4 native metric creation functionality.
 *   **No cross-platform data.** There is no data blending. This is strictly a visualization layer over data already inside GA4.
 *   **Annotations are hidden.** They do not render inline on line charts. A "View Annotations" button in the top-right corner reveals a list for the active date range, but it is not as visible as annotations in standard report line charts.
 *   **Clunky date comparisons.** Date comparisons work on Scorecards and show percentage differences, but the native date picker still takes multiple clicks to set up.
