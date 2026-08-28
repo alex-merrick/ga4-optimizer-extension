@@ -1882,3 +1882,74 @@ details.faq-accordion > p {
     margin-top: 0;
     line-height: 1.6;
 }
+
+/* --- Blog Content: Key Findings Summary Box --- */
+/* A scannable summary placed near the top of long-form posts so readers
+   can grasp the conclusions without reading the full article. */
+.key-findings {
+    background-color: var(--bg-light);
+    border-left: 4px solid var(--brand-purple);
+    border-radius: 8px;
+    padding: 20px 25px;
+    margin: 30px 0;
+}
+
+.key-findings h2,
+.key-findings h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.15em;
+}
+
+.key-findings ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.key-findings li {
+    margin-bottom: 8px;
+    line-height: 1.55;
+}
+
+.key-findings li:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Blog Content: Data Tables --- */
+/* Used for feature comparisons and status summaries inside post bodies. */
+.post-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.95em;
+}
+
+.post-body th,
+.post-body td {
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: top;
+}
+
+.post-body th {
+    background-color: var(--bg-light);
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.post-body tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Horizontal scroll wrapper so wide tables stay usable on mobile */
+.table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 25px 0;
+}
+
+.table-scroll table {
+    margin: 0;
+    min-width: 480px;
+}
