@@ -113,7 +113,7 @@ You are strictly limited to native GA4 metrics. If you want to drop in a custom 
 Furthermore, the official documentation confirms that **segments and card-level comparisons are not supported**. You cannot build a dashboard widget that only shows traffic from a specific audience segment, which can limit deep analytical reporting.
 
 ### Clunky Date Comparisons
-Executive dashboards rely heavily on Month-over-Month and Year-over-Year comparisons. While date comparisons do work on the new Scorecards (showing percentage differences), GA4's native date picker still requires multiple clicks to set up. Furthermore, the native Year-over-Year comparison does not align days of the week. You often end up comparing a high-traffic Monday to a low-traffic Sunday from the previous year.
+Executive dashboards rely heavily on Month-over-Month and Year-over-Year comparisons. While date comparisons do work on the new Scorecards (showing percentage differences), GA4's native date picker still requires multiple clicks to set up.
 
 ## How to Fix the Remaining UI Limits
 
