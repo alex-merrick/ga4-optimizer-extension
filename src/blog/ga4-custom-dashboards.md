@@ -126,7 +126,7 @@ A shiny new dashboard is only as useful as the data feeding it, and several gaps
 *   **No styling control.** You cannot apply custom branding, change colors, or adjust layout styling.
 *   **No segments or card-level comparisons.** Confirmed in the official documentation. You cannot build a widget showing only traffic from a specific audience segment.
 *   **No on-the-fly calculated metrics.** You are limited to native GA4 metrics. Custom Click-Through Rates or unique conversion ratios are not supported and limited to what you can build using limited GA4 native metric creation functionality.
-*   **No cross-platform data.** There is no data blending. This is strictly a visualization layer over data already inside GA4.
+*   **No cross-platform data.** Other than Google Ads, there is no data blending. This is strictly a visualization layer over data already inside GA4.
 *   **Funnel chart metric bug.** The editor lets you change the funnel metric away from Active Users, but this appears to be unintentional. The chart itself ignores the selection and still renders Active Users regardless of what you pick. Additionally, unlike Explorations funnels, you cannot apply segments to dashboard funnel charts.
 *   **Clunky date comparisons.** Date comparisons work on Scorecards and show percentage differences, but the native date picker still takes multiple clicks to set up.
 
