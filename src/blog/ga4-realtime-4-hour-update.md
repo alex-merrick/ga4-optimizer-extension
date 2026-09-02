@@ -84,7 +84,7 @@ The previous 30-minute Realtime window was too short to draw meaningful conclusi
 
 ## How to Find the 4-Hour Realtime Report
 
-The new extended timeframes are accessible directly within the standard reporting interface, but you have to know where to look to change the default settings. Note that early rollouts of this feature have been spotted specifically on the "Realtime pages" report, and it remains to be seen if the timeframe toggle will apply to every widget on the broader "Realtime overview" dashboard.
+The new extended timeframes are accessible directly within the standard reporting interface, but you have to know where to look to change the default settings. Note that early rollouts of this feature have been spotted specifically on the "Realtime pages" report, and it remains to be seen if the timeframe toggle will apply to every widget on the broader "Realtime overview" dashboard. (Please note that there has been a delay to the deploayment of this feature and most analytics community has not reported seeing this feature live yet since one of the product managers has teased it.)
 
 ### Step-by-Step Instructions
 
