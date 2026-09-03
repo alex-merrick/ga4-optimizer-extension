@@ -126,6 +126,7 @@ A shiny new dashboard is only as useful as the data feeding it, and several gaps
 *   **No styling control.** You cannot apply custom branding, change colors, or adjust layout styling.
 *   **No segments or card-level comparisons.** Confirmed in the official documentation. You cannot build a widget showing only traffic from a specific audience segment.
 *   **No on-the-fly calculated metrics.** You are limited to native GA4 metrics. Custom Click-Through Rates or unique conversion ratios are not supported and limited to what you can build using limited GA4 native metric creation functionality.
+*   **Lack of regex filter.** Currently, when adding a filter to individual cards, regex is not an available option, significantly limiting dashboarding filtering.
 *   **No cross-platform data.** Other than Google Ads, there is no data blending. This is strictly a visualization layer over data already inside GA4.
 *   **Funnel chart metric bug.** The editor lets you change the funnel metric away from Active Users, but this appears to be unintentional. The chart itself ignores the selection and still renders Active Users regardless of what you pick. Additionally, unlike Explorations funnels, you cannot apply segments to dashboard funnel charts.
 *   **Clunky date comparisons.** Date comparisons work on Scorecards and show percentage differences, but the native date picker still takes multiple clicks to set up.
@@ -194,7 +195,7 @@ This is exactly why we built the free [GA4 Optimizer Chrome extension](https://c
 
 ## The Verdict: Should You Abandon Data Studio?
 
-It depends on your business maturity.
+It depends on your business maturity but likely no, at its current functionality it is far too limited.
 
 If you run a small business or manage basic lead generation campaigns, these dashboards are a welcome addition. Keeping everything in one platform without managing API quotas is a real operational win, and the surprise access to the Exits metric and Page Referrer makes it more capable than the feature list suggests.
 
@@ -202,7 +203,7 @@ For enterprise analysts and complex tracking architectures, Data Studio and BigQ
 
 Read it as a big win for customizing standard reports, because that is where this tool lives and where it earns its place. It gives analysts a flexible presentation layer over standard report data without external tools or quota concerns. The export and sharing side needs work before it can replace a polished Data Studio setup for stakeholder distribution.
 
-Google has also teased that future updates will let you build dashboards from AI text prompts, which will likely tie into their recent [Ask Advisor Gemini 3 upgrade](/blog/google-analytics-advisor-ai-first-impresions/).
+Google has also teased that future updates will let you build dashboards from AI text prompts, which will likely tie into their recent [Ask Advisor Gemini 3 upgrade](/blog/google-analytics-advisor-ai-first-impresions/).  We hope that the current state is in beta an further customizations are added.
 
 ## Frequently Asked Questions
 
