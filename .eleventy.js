@@ -140,17 +140,23 @@ module.exports = function(eleventyConfig) {
     }
 
     // All published blog posts (used by the main /blog/ paginated listing).
+    // Posts flagged `noindex: true` are excluded so they stay reachable by
+    // direct URL only, matching how they're kept out of the sitemap.
     eleventyConfig.addCollection("posts", function(collectionApi) {
         return collectionApi.getFilteredByGlob("src/blog/*.md")
             .filter(isPublished)
+            .filter(post => !post.data.noindex)
             .sort(newestFirst);
     });
 
     // Filtered category collections: same date gate applied per tag.
+    // `noindex` posts are excluded here too, so a hidden post stays out of
+    // every category hub the same way it's out of /blog/ and the sitemap.
     ["gtm-updates", "ga4-updates", "ga4-fixes"].forEach(function(tag) {
         eleventyConfig.addCollection(tag + "-published", function(collectionApi) {
             return collectionApi.getFilteredByTag(tag)
                 .filter(isPublished)
+                .filter(post => !post.data.noindex)
                 .sort(newestFirst);
         });
     });
