@@ -73,9 +73,9 @@ Client-side GTM containers are simply JavaScript files hosted on Google's public
 
 GA4Spy is an incredibly powerful tool with several genuine, highly practical use cases for analytics professionals:
 
-* **Painless Agency Audits:** Agencies can audit a prospect's tracking setup before securing backend access. They can spot missing ecommerce variables or bloated tag setups and pitch solutions immediately.
-* **Rapid Debugging:** If you are away from your primary computer and cannot log into your Google account, you can quickly check if a specific tag was published by scanning your own public ID.
-* **Educational Research:** Junior analysts can scan industry-leading websites to learn how top brands structure their dataLayer schemas and complex trigger conditions.
+* **Automated Change Alerts:** In large companies, dozens of people touch the tracking setup. GA4Spy acts as a "silent watchdog," sending automated Slack, Teams, or email alerts the moment a tag is modified, catching silent breakages before reporting gets ruined.
+* **Historical Audit Trails & Diffs:** It provides semantic version-to-version comparisons. Instead of asking "Since when has this been broken?", agencies can look at side-by-side diffs to prove exactly when a client or developer altered the container.
+* **Painless Prospect Audits:** Agencies can audit a prospect's tracking setup before securing backend access. They can spot missing ecommerce variables or bloated tag setups and pitch solutions immediately.
 
 The tool itself is a net positive for the analytics community. However, it forces organizations to confront the uncomfortable truth about what data they are broadcasting to the public.
 
