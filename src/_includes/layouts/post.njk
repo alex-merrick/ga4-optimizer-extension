@@ -106,18 +106,27 @@ eleventyComputed:
 
         <hr style="margin-top: 40px; border-color: var(--border-color);">
 
-        <div class="cta-box" style="background-color: var(--bg-light); padding: 25px; border-radius: 8px; text-align: center; margin-top: 30px;">
-            <h3 style="margin-top: 0;">Ready to Supercharge Your Workflow?</h3>
-            <p>Get all these features and more with our free browser extension.</p>
-            <a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_post_cta" class="cta-button" target="_blank" rel="noopener">
-                Add GA4 Optimizer to Chrome, It's Free
-            </a>
-            <div class="other-browsers-link" style="margin-top: 15px; font-size: 0.9em;">
-                Also available for 
-                <a href="https://microsoftedge.microsoft.com/addons/detail/ga4-optimizer-analysis-t/ejokbgelaaegbgemjjhgppigoclanomh?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_post_cta" target="_blank" rel="noopener">Edge</a> & 
-                <a href="https://addons.mozilla.org/en-US/firefox/addon/ga4-optimizer/?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_post_cta" target="_blank" rel="noopener">Firefox</a>
+        <section class="toolkit-cta" aria-label="Our free GA4 and GTM toolkit">
+            <h3 class="toolkit-cta__heading">Our Free GA4 &amp; GTM Toolkit</h3>
+            <div class="toolkit-cta__grid">
+                <div class="toolkit-card">
+                    <img src="/icons/ga4-optimizer-logo.png" alt="GA4 Optimizer icon" class="toolkit-card__icon" width="48" height="48">
+                    <h4 class="toolkit-card__title">GA4 Optimizer</h4>
+                    <p class="toolkit-card__desc">Enhance GA4 reports with 1-click date presets, advanced filters, and custom metrics.</p>
+                    <a href="https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&amp;utm_medium=website&amp;utm_campaign=blog_post_toolkit" class="cta-button toolkit-card__button" target="_blank" rel="noopener">
+                        Add to Chrome
+                    </a>
+                </div>
+                <div class="toolkit-card">
+                    <img src="/icons/ga4-live-debugger/icon128.png" alt="GA4 Live Debugger icon" class="toolkit-card__icon" width="48" height="48">
+                    <h4 class="toolkit-card__title">GA4 Live Debugger</h4>
+                    <p class="toolkit-card__desc">Monitor dataLayer pushes, validate ecommerce schemas, and block test hits locally.</p>
+                    <a href="https://chromewebstore.google.com/detail/akkagamamkhledgmhlljcdiodkgeeiob/?utm_source=gaoptimizer.com&amp;utm_medium=website&amp;utm_campaign=blog_post_toolkit" class="cta-button toolkit-card__button" target="_blank" rel="noopener">
+                        Get the Debugger
+                    </a>
+                </div>
             </div>
-        </div>
+        </section>
 
         <!-- Recommended Articles -->
         {% include "recommended-articles.njk" %}

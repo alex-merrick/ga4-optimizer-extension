@@ -117,12 +117,14 @@ The **GA4 Live Debugger** is a 100% local Chrome extension that monitors your da
 
 Best of all, it never sends your tracking data to external servers or AI models. Everything stays safely in your browser. 
 
-<div class="cta-box" style="background-color: #aa53c418; padding: 30px; border-radius: 8px; text-align: center; margin-top: 40px; margin-bottom: 40px; border: 1px solid var(--border-color);">
-    <h3 style="margin-top: 0;">Debug GA4 & GTM Locally</h3>
-    <p>Monitor your dataLayer, validate ecommerce schemas, and block test hits on production. Free, secure, and fully local.</p>
-    <a href="https://chromewebstore.google.com/detail/akkagamamkhledgmhlljcdiodkgeeiob/?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_gtm_ai_version_summaries" class="cta-button" target="_blank" rel="noopener noreferrer">
-        Add GA4 Live Debugger to Chrome
-    </a>
+<div class="author-toolkit">
+    <img src="/icons/ga4-live-debugger/icon128.png" alt="GA4 Live Debugger icon" class="author-toolkit__icon" width="64" height="64">
+    <div class="author-toolkit__body">
+        <p class="author-toolkit__text">🛠️ <strong>Author's Toolkit:</strong> To validate tags and server-side routing securely, we use the free GA4 Live Debugger. It runs 100% locally in your browser so your payloads are never exposed.</p>
+        <a href="https://chromewebstore.google.com/detail/akkagamamkhledgmhlljcdiodkgeeiob/?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_gtm_ai_version_summaries" class="cta-button author-toolkit__button" target="_blank" rel="noopener noreferrer">
+            Get the GA4 Live Debugger
+        </a>
+    </div>
 </div>
 
 ## Frequently Asked Questions

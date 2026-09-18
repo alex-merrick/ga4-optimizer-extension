@@ -1953,3 +1953,180 @@ details.faq-accordion > p {
     margin: 0;
     min-width: 480px;
 }
+
+/* ==========================================================================
+   Two-tool ecosystem UI: nav "Get Free Tools" dropdown, post footer toolkit
+   grid, and inline "Author's Toolkit" callout.
+   Reuses existing tokens: --brand-purple, --bg-light, --border-color,
+   --text-dark, --bg-white.
+   ========================================================================== */
+
+/* --- Task 1: "Get Free Tools" nav CTA dropdown ---------------------------
+   Built on the existing .nav-item-dropdown pattern, so the shared global.js
+   handles click, keyboard (Escape), aria-expanded, and click-outside. The
+   toggle is a <button> styled to match a.cta-button. */
+.main-nav .nav-cta-dropdown {
+    /* Reset the negative margins the text dropdowns use so the button sits
+       inline with the other nav items. */
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.main-nav button.cta-button.nav-dropdown-toggle {
+    background-color: var(--brand-purple);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: inherit;
+    font-family: inherit;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1.2;
+}
+
+.main-nav button.cta-button.nav-dropdown-toggle::after {
+    content: '▾';
+    font-size: 0.75em;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+/* Keep the arrow in sync with the panel: the panel shows on hover/focus-within
+   (desktop CSS) or when JS adds .is-open (click/keyboard). Point it up in all
+   those cases so the arrow never contradicts what's on screen. */
+.main-nav .nav-cta-dropdown.is-open > button.cta-button::after,
+.main-nav .nav-cta-dropdown:hover > button.cta-button::after {
+    transform: rotate(180deg);
+}
+
+.main-nav button.cta-button.nav-dropdown-toggle:hover,
+.main-nav .nav-cta-dropdown:hover > button.cta-button,
+.main-nav .nav-cta-dropdown.is-open > button.cta-button {
+    background-color: var(--brand-purple-dark);
+    color: #ffffff;
+}
+
+/* Right-align this panel: it is the last nav item, so a left-aligned panel
+   would overflow the viewport edge. */
+.main-nav .sub-nav-cta {
+    left: auto;
+    right: 0;
+    min-width: 280px;
+}
+
+/* Icon + two-line label rows inside the CTA menu. */
+.main-nav .sub-nav-cta a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.main-nav .sub-nav-cta .sub-nav-icon {
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+/* --- Task 2: post footer "Our Free GA4 & GTM Toolkit" grid --------------- */
+.toolkit-cta {
+    margin-top: 30px;
+}
+
+.toolkit-cta__heading {
+    margin: 0 0 20px;
+    color: var(--text-dark);
+}
+
+.toolkit-cta__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.toolkit-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.toolkit-card__icon {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.toolkit-card__title {
+    margin: 0 0 8px;
+    color: var(--text-dark);
+}
+
+.toolkit-card__desc {
+    margin: 0 0 20px;
+    color: var(--text-light);
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+/* Push the button to the card bottom so both cards align regardless of copy
+   length. */
+.toolkit-card__button {
+    margin-top: auto;
+}
+
+/* --- Task 3: inline "Author's Toolkit" callout --------------------------- */
+.author-toolkit {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background-color: rgba(138, 34, 155, 0.05);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--brand-purple);
+    border-radius: 8px;
+    padding: 24px;
+    margin: 40px 0;
+}
+
+.author-toolkit__icon {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.author-toolkit__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.author-toolkit__text {
+    margin: 0 0 16px;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.author-toolkit__button {
+    align-self: flex-start;
+}
+
+/* --- Task 4: mobile stacking --------------------------------------------- */
+@media (max-width: 768px) {
+    .toolkit-cta__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .author-toolkit {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}

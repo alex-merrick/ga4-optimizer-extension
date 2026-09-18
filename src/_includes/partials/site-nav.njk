@@ -51,10 +51,23 @@
 
                 <li><a href="/blog/">Blog</a></li>
                 <li><a href="/contact/">Contact</a></li>
-                <li>
-                    <a href="{{ activeProduct.navCtaUrl }}" class="cta-button" target="_blank" rel="noopener" data-product="{{ activeProduct.id }}">
-                        {{ activeProduct.navCtaLabel }}
-                    </a>
+                <li class="nav-item-dropdown nav-cta-dropdown">
+                    <button type="button" class="cta-button nav-dropdown-toggle" aria-expanded="false" aria-controls="nav-get-tools">
+                        Add to Chrome
+                    </button>
+                    <ul class="sub-nav sub-nav-cta" id="nav-get-tools">
+                        {% for item in products.navList %}
+                        <li>
+                            <a href="{{ item.navCtaUrl }}" target="_blank" rel="noopener" data-product="{{ item.id }}">
+                                <img src="{{ item.icon }}" alt="" width="24" height="24" class="sub-nav-icon" aria-hidden="true">
+                                <span>
+                                    {{ item.navLabel }}
+                                    <span class="sub-nav-desc">{{ item.navDescription }}</span>
+                                </span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
                 </li>
             </ul>
         </nav>
