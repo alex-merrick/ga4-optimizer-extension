@@ -48,6 +48,7 @@ tags:
   - post
   - gtm
   - security
+  - gtm-updates
 ---
 
 There is a massive misconception in the digital analytics industry. Because you need a Google login to edit your Google Tag Manager workspace, many marketers assume their container configuration is private. 
