@@ -117,13 +117,11 @@ The **GA4 Live Debugger** is a 100% local Chrome extension that monitors your da
 
 Best of all, it never sends your tracking data to external servers or AI models. Everything stays safely in your browser. 
 
-<div class="author-toolkit">
-    <img src="/icons/ga4-live-debugger/icon128.png" alt="GA4 Live Debugger icon" class="author-toolkit__icon" width="64" height="64">
-    <div class="author-toolkit__body">
-        <p class="author-toolkit__text">🛠️ <strong>Author's Toolkit:</strong> To validate tags and server-side routing securely, we use the free GA4 Live Debugger. It runs 100% locally in your browser so your payloads are never exposed.</p>
-        <a href="https://chromewebstore.google.com/detail/akkagamamkhledgmhlljcdiodkgeeiob/?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_gtm_ai_version_summaries" class="cta-button author-toolkit__button" target="_blank" rel="noopener noreferrer">
-            Get the GA4 Live Debugger
-        </a>
+<div class="cta-box" style="background-color: #faf5fc; padding: 24px; border-radius: 8px; border-left: 4px solid var(--brand-purple); display: flex; align-items: center; gap: 20px; margin: 40px 0;">
+    <img src="/icons/ga4-live-debugger/icon128.png" alt="GA4 Live Debugger Icon" width="48" height="48" style="flex-shrink: 0;">
+    <div style="flex-grow: 1;">
+        <p style="margin: 0 0 10px 0; font-size: 0.95rem; color: var(--text-dark);"><strong>Author's Toolkit:</strong> To validate tags and server-side routing securely, we use the free GA4 Live Debugger. It runs 100% locally in your browser so your payloads are never exposed.</p>
+        <a href="https://chromewebstore.google.com/detail/akkagamamkhledgmhlljcdiodkgeeiob/?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_ga4spy_gtm_security" style="display: inline-block; background-color: var(--brand-purple); color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 0.9rem;">Get the GA4 Live Debugger</a>
     </div>
 </div>
 
