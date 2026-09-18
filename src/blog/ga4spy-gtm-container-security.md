@@ -112,6 +112,15 @@ To secure your setup, you must migrate your third-party pixels, API keys, and co
 
 Your Web Container should only contain routing tags (like the Google Tag). Its only job is to collect dataLayer events and route them directly to your server endpoint. When an auditing tool scans a properly secured Web Container, it will hit a brick wall. The scanner will see a generic routing tag, while your actual measurement IDs and vendor pixels remain safely hidden in the cloud.
 
+### Getting Started with Server-Side Hosting
+
+While a step-by-step migration guide is beyond the scope of this article, launching a Server Container is much easier today than it was a few years ago. To get started, you must choose how to host your server environment:
+
+* **Self-Hosted:** You can provision your own server using Google Cloud Platform (GCP) or AWS. This gives you total control over the infrastructure but requires ongoing technical maintenance and cloud expertise.
+* **Managed Hosting:** Companies like Stape, TAGGRS, and Addingwell specialize in managed SGTM hosting. These platforms offer one-click container deployments, predictable pricing, and handle the server maintenance for you.
+
+Once your server is live, you map a custom tracking subdomain to it (like `metrics.yourwebsite.com`). You then update your client-side routing tags to send their payloads to this new URL. Finally, you configure your hidden Server Container to receive that inbound data and distribute it to your marketing platforms behind closed doors.
+
 Even when you migrate your website tracking to a strict Server-Side architecture, your browser still has to generate the dataLayer events and send the initial payload to your cloud server. While backend API events bypass the browser entirely, your front-end tracking is only as accurate as the data the client sends it. You still need to validate that outbound browser data, but you should not expose your internal testing process to external tools.
 
 <div class="cta-box" style="background-color: #faf5fc; padding: 24px; border-radius: 8px; border-left: 4px solid var(--brand-purple); display: flex; align-items: center; gap: 20px; margin: 40px 0;">
