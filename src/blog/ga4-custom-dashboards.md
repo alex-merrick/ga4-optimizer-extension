@@ -182,7 +182,7 @@ If you plan to move stakeholder reporting onto these native dashboards, you need
 
 This is exactly why we built the free [GA4 Optimizer Chrome extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_ga4_custom_dashboards). It sits on top of your GA4 property and fixes workflow gaps across the interface. Here is what is live now and what is coming for the new dashboard builder:
 
-**Coming soon for native dashboards:**
+**Newly released fixes from us for the Dasboards:**
 
 *   **% of Total in Dashboard Tables:** The new table cards do not show what percentage of the total each row represents, which makes it hard to judge contribution at a glance. If the table includes a total, our update will inject a "% of Total" column.
 *   **Date Presets Inside the Dashboard:** Our 1-click date presets will appear right next to the native date picker in the dashboard tool. Switch between Last 7 Days, Last 30 Days, MTD, or QTD without the multi-step modal.

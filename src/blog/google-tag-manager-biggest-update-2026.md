@@ -71,7 +71,7 @@ tags:
   - gtm-updates
 ---
 
-*Updated July 8, {{ currentYear }}: Google has officially begun rolling out the new user interface changes to prepare for the Google Tag integration. If you are struggling to find your workspaces after the latest update, check out our new guide on **[Where to Find the Missing Workspace Switcher in the New GTM UI](/blog/new-gtm-ui-changes/)**.*
+*Updated September 16, {{ currentYear }}: Google is now auto-generating [AI version summaries](/blog/gtm-ai-version-summaries/) when you publish a container, an auto opt-in with no admin kill switch.*
 
 Google Tag Manager is receiving its most significant update in years. First revealed to partners ahead of the official Google Marketing Live keynote on May 20, {{ currentYear }}, GTM containers are effectively becoming Google Tags. This merges two product lines that have always been closely related under the hood.
 
@@ -186,6 +186,10 @@ If you want to see exactly how this builder works in practice, Julius Fedorovici
 </div>
 
 **A warning on Visual Tagging:** While the slick interface lowers the barrier to entry, relying on CSS selectors for revenue-critical conversions is dangerous. As both Ahava and Fedorovicius note in their reviews, dynamic receipt pages and changing CSS layouts will inevitably break these setups. For critical data like purchases, we strongly recommend working with developers to push data to the dataLayer rather than scraping the page visually.
+
+### AI-Generated Version Summaries
+
+The visual builder is one piece of a broader AI push into GTM. Google has since added AI-generated version summaries to the publish flow: submit workspace changes and an AI model writes the version name and description for you. Useful for teams that leave version logs blank, but it ships as an auto opt-in with no account-level kill switch, which matters for enterprises feeding container logic into Google's models. We cover the tradeoffs in [GTM's AI version summaries and the enterprise privacy risk](/blog/gtm-ai-version-summaries/).
 
 ---
 

@@ -120,6 +120,8 @@ While codeless tagging sounds great in theory, the current implementation is hea
 
 You cannot use it to track standard Google Analytics 4 interactions like button clicks, form submissions, or custom lead events. This limitation makes the feature irrelevant for the vast majority of day-to-day GTM configurations. For now, continuing to use standard triggers and the dataLayer remains the most reliable way to build your tracking setup.
 
+The visual builder is not the only AI landing in Tag Manager either. Google has since started auto-generating [version summaries](/blog/gtm-ai-version-summaries/) at publish time, which is useful for solo marketers but a privacy concern for enterprise teams given it is an auto opt-in.
+
 ### Video Walkthrough of the New Interface
 
 For a deeper dive into the new interface changes, Julius Fedorovicius from Analytics Mania recently published an excellent video walkthrough. While he did not highlight the missing workspace switcher issue in his video (likely because he already had multiple workspaces active), the video provides a comprehensive look at how the visual builder and the rest of the new layout function:
