@@ -70,7 +70,7 @@ A web browser cannot execute code it cannot read. Because Google delivers this f
 
 Client-side GTM containers are simply JavaScript files hosted on Google's public content delivery network. Anyone who knows how to locate the `gtm.js` file in their browser's network tab can download and read the code. GA4Spy simply automates this process. It takes the public `GTM-XXXXXX` ID, fetches the file, and visualizes the configuration in a clean user interface. 
 
-While it might seem alarming to site owners, tools like GA4Spy serve legitimate purposes in the analytics community. Agencies use it to audit prospect setups before gaining backend access. Analysts use it for educational research, scanning established brands to learn how industry leaders structure their dataLayer schemas and custom trigger logic.
+While it might seem alarming to site owners, tools like GA4Spy serve legitimate purposes in the analytics community. Agencies can use it to audit prospect setups before gaining backend access as well as to confirm that their client implements the tags they needed to assist them. Analysts can use it for educational research, scanning established brands to learn how industry leaders structure their dataLayer schemas and custom trigger logic. 
 
 The tool itself is a net positive for the industry. However, it forces organizations to confront the uncomfortable truth about what data they are broadcasting to the public.
 
