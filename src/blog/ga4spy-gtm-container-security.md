@@ -49,9 +49,7 @@ tags:
   - security
 ---
 
-Many marketers assume their Google Tag Manager configuration is private because it requires a Google login. They are wrong.
-
-If your container loads in a user's browser, your entire tagging architecture is a public file sitting on the internet. 
+Many marketers assume their Google Tag Manager configuration is private because it requires a Google login. It is not private. If your container loads in a user's browser, your entire tagging architecture is a public file sitting on the internet. 
 
 A recent update to <a href="https://ga4spy.com/gtm" target="_blank" rel="noopener noreferrer">GA4Spy</a> makes this reality impossible to ignore. The auditing tool allows anyone to enter a website URL and instantly view its triggers, tags, and variables. It was built by Brais and his team, who are already known in the community for creating the <a href="https://data.ga4spy.com/" target="_blank" rel="noopener noreferrer">GA4 Dimensions & Metrics Cheatsheet</a>. That foundational groundwork extracted Google's API names and equipped dozens of GTM and GA4 tools that agencies rely on today. While the GA4Spy platform already exposes public configurations for GA4 and Firebase properties, their new GTM scanner brings that exact same transparency to your tag management architecture.
 
