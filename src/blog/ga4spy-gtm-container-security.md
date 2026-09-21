@@ -36,10 +36,10 @@ faq_schema: >
 layout: layouts/post.njk
 author: Alex Merrick
 title: "Is GA4Spy Legal? Why Google Makes Your GTM Container Public"
-date: 2026-09-17T09:00:00.000-05:00
-publishDate: 2026-09-17T09:00:00.000-05:00
-last_modified_at: 2026-09-17T09:00:00.000-05:00
-noindex: true
+date: 2026-09-20T09:00:00.000-05:00
+publishDate: 2026-09-20T09:00:00.000-05:00
+last_modified_at: 2026-09-20T09:00:00.000-05:00
+noindex: false
 thumbnail: /img/ga4spy-logo.png
 post_image: /img/ga4spy-logo.png
 url: "https://www.gaoptimizer.com/blog/ga4spy-gtm-container-security/"
