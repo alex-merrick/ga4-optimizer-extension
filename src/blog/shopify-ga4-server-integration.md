@@ -31,6 +31,13 @@ faq_schema: >
         "@type": "Answer",
         "text": "No, Google automatically handles deduplication. The system matches the transaction IDs sent from both the browser and the Shopify server, ensuring an order is only counted once. However, if you have a legacy, hardcoded GTM tag firing outside of the Shopify app, you may still experience duplicates."
       }
+    }, {
+      "@type": "Question",
+      "name": "Why do my Shopify GA4 reports show iframe or sandbox URLs instead of real pages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shopify runs GA4 and GTM inside its Web Pixel sandbox, an isolated iframe. Hits that fire from the sandbox can report the iframe's internal URL as the page address instead of your real storefront URL, which fills your Pages and funnel reports with sandbox URLs and breaks attribution. The sandbox can also blank out page_referrer. Neither issue appears in GA4 DebugView. A debugging extension that detects the sandbox can flag both problems so you can pass the true page URL and referrer from your Custom Pixel code."
+      }
     }]
   }
 layout: layouts/post.njk
@@ -104,7 +111,16 @@ While automated updates are convenient, analytics professionals must verify that
 ### Validating Your Frontend Theme
 Never trust a native integration blindly. While Shopify controls the backend server events, the new August events (`view_cart`, `add_shipping_info`) rely on your frontend code. If your store uses a heavily customized theme, headless architecture, or third-party checkout apps, these automated browser events will likely break.
 
-Do not wait for your reports to populate to find out your theme broke the new events. Install the free **[GA4 Live Debugger](/ga4-debugger/)** Chrome extension. Run through a test checkout on your live site. The extension automatically monitors the dataLayer and network requests leaving your browser, ensuring your custom theme is actually passing the right e-commerce schema to GA4.
+Do not wait for your reports to populate to find out your theme broke the new events. Install the free **[GA4 Live Debugger](/ga4-debugger/)** Chrome extension. Run through a test checkout on your live site. It monitors the dataLayer and every network hit leaving your browser, then validates each ecommerce event against Google's schema. It flags the mistakes that quietly tank Shopify revenue reports: a `purchase` with no `transaction_id`, an event with a value but no currency, and product events sent with no `items` array. If your theme is dropping or malforming the new August events, you see it on the first test order instead of a week later in your reports.
+
+### The Shopify Web Pixel Trap Most Audits Miss
+There is one Shopify-specific issue that breaks GA4 setups more than any theme bug, and it is invisible in standard reports. Shopify runs GTM and GA4 inside its Web Pixel sandbox, an isolated iframe. Hits that fire from that sandbox often report the iframe's internal URL as the page address instead of your real storefront URL. The data still reaches GA4, so nothing looks broken, but your Pages, Landing Page, and funnel reports fill up with sandbox URLs and your attribution falls apart.
+
+The same sandbox tends to swallow the referrer, leaving `page_referrer` blank or pointing back at the sandbox itself. That quietly reclassifies real referral and campaign traffic as direct.
+
+Neither problem shows up in GA4 DebugView, which is why so many Shopify audits sign off on a setup that is actually broken. GA4 Live Debugger detects the sandbox directly: it flags the "Sandboxed iFrame URL" finding, catches the referrer drop (while leaving genuine direct loads alone), and reads Shopify's native Customer Events (`analytics.subscribe`) stream that never touches the dataLayer. If you run a Shopify store, this is the first thing worth checking after the summer updates land, since the server connection cannot fix a page URL that was wrong before it ever reached Google.
+
+If your checkout pages pass customer details into events, the extension also scans live hits for email addresses and phone numbers in URLs, parameters, and product data, so you can catch PII before it lands in GA4.
 
 ### Anomalies in Year-Over-Year Reporting
 Because server-to-server tracking recovers previously lost purchases, you will see an artificial increase in your GA4 conversion volume starting from July 2026 onward. When you run a year-over-year report comparing late 2026 to 2025, your growth metrics will look inflated because your baseline has changed. You must communicate this to stakeholders so they do not mistake a technical measurement improvement for a massive spike in sales velocity.
@@ -145,5 +161,12 @@ The select_item event, which measures when a user clicks a product from a list, 
   <summary>Will the Shopify server-side update cause duplicate purchases in GA4?</summary>
 
 No, Google automatically handles deduplication. The system matches the transaction IDs sent from both the browser and the Shopify server, ensuring an order is only counted once. However, if you have a legacy, hardcoded GTM tag firing outside of the Shopify app, you may still experience duplicates.
+
+</details>
+
+<details class="faq-accordion">
+  <summary>Why do my Shopify GA4 reports show iframe or sandbox URLs instead of real pages?</summary>
+
+Shopify runs GA4 and GTM inside its Web Pixel sandbox, an isolated iframe. Hits that fire from the sandbox can report the iframe's internal URL as the page address instead of your real storefront URL, which fills your Pages and funnel reports with sandbox URLs and breaks attribution. The sandbox can also blank out page_referrer. Neither issue appears in GA4 DebugView. A tool like the free [GA4 Live Debugger](/ga4-debugger/) detects the sandbox and flags both problems so you can pass the true page URL and referrer from your Custom Pixel code.
 
 </details>
