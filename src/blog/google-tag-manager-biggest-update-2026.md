@@ -194,3 +194,7 @@ More importantly, it includes an automated **Consent Race Condition check**. The
   <summary>What happened to the gtag config command in the new update?</summary>
   <p>New deployment snippets no longer include the gtag config command. Instead, you are recommended to configure initialization behavior using the new gtm init trigger, which can also be set to wait for a config command to preserve legacy setups.</p>
 </details>
+
+## Resources
+
+* [Optimize your Google Tag Manager container](https://support.google.com/tagmanager/answer/16659369) - Google's official documentation on the container optimization flow and the new Destinations model.
