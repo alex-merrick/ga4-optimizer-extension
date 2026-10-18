@@ -58,6 +58,8 @@ While standardization sounds helpful, the technical execution carries a massive 
 
 If your website uses a hybrid tracking setup where you mix a Google Tag Manager container with hardcoded `gtag()` snippets in your source code, this update will cause severe tracking issues. Here is exactly what changed, how it inflates your data, and how to fix your triggers today.
 
+This change did not land on its own. It arrives alongside Google finally shipping the [Optimized Containers upgrade](/blog/google-tag-manager-biggest-update-2026/), the structural rollout that turns GTM containers into Google Tags and strips the legacy `gtag config` command out of new snippets. If you came here looking for the bigger container overhaul, that guide covers it in full.
+
 ## What Just Changed with gtag('config')?
 
 Historically, when you placed a hardcoded `gtag('config')` snippet on your website to route data to Google Analytics or Google Ads, the command operated quietly. It configured the routing properties in the background without flooding your dataLayer array with extra event pushes.

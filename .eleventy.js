@@ -96,6 +96,14 @@ module.exports = function(eleventyConfig) {
         const d = new Date(value);
         return isNaN(d) ? "" : d.toISOString();
     });
+
+    // --- ISO Date (date-only) Filter (for sitemap <lastmod>) ---
+    // Returns YYYY-MM-DD. Accepts both Date objects (page.date) and
+    // frontmatter date strings (last_modified_at).
+    eleventyConfig.addFilter("isoDateOnly", function (value) {
+        const d = new Date(value);
+        return isNaN(d) ? "" : d.toISOString().slice(0, 10);
+    });
     
     // --- Markdown-It Customization for External Links ---
     const markdownLib = markdownIt({
