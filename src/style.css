@@ -1568,6 +1568,7 @@ a.step h3, a.step p {
 .google-form-wrapper {
     border: 1px solid var(--border-color);
     border-radius: 8px;
+    height:770px;
     overflow: hidden; /* This is the key to cropping */
     margin-top: 15px;
 }
