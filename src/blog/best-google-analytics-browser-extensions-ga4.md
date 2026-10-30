@@ -207,20 +207,7 @@ If you find the browser console intimidating, Datalayer Checker is the perfect a
 
 - - -
 
-### 11. [Google Analytics Debugger](https://chromewebstore.google.com/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna?hl=en-US&utm_source=gaoptimizer.com)
-
-**Best for:** Simple GA4 Event Monitoring
-
-Google Analytics Debugger is a straightforward, official extension from Google that enables the debug mode for Google Analytics. It prints detailed information about GA4 events directly to your browser console, allow you to verify that events are firing correctly. It's not as visual and not as feature-rich as others on our list, but it gets the job done.
-
-**Key Features:**
-
-* Enables GA4 debug mode with a single click.
-* Shows all GA4 events in the console with full parameter details.
-
-- - -
-
-### 12. [Google Tag Assistant](https://chromewebstore.google.com/detail/tag-assistant/kejbdjndbnbjgmefkgdddjlbokphdefk?hl=en-US&utm_source=gaoptimizer.com)
+### 11. [Google Tag Assistant](https://chromewebstore.google.com/detail/tag-assistant/kejbdjndbnbjgmefkgdddjlbokphdefk?hl=en-US&utm_source=gaoptimizer.com)
 
 **Best for:** Non-technical GA4 & GTM Debugging
 

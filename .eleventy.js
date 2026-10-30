@@ -169,6 +169,15 @@ module.exports = function(eleventyConfig) {
         });
     });
 
+    // Pages for the sitemap. Drops any page whose publishDate is still in the
+    // future so scheduled posts stay out of sitemap.xml until they go live.
+    eleventyConfig.addCollection("sitemapPages", function(collectionApi) {
+        const now = new Date();
+        return collectionApi.getAll().filter(page =>
+            !page.data.publishDate || new Date(page.data.publishDate) <= now
+        );
+    });
+
     // --- Base Configuration ---
     return {
         dir: {

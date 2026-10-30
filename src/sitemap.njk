@@ -4,7 +4,7 @@ eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  {%- for page in collections.all %}
+  {%- for page in collections.sitemapPages %}
   {%- if page.url and page.url !== false and not page.data.noindex and page.url !== "/admin/" %}
   <url>
     <loc>https://www.gaoptimizer.com{{ page.url }}</loc>
