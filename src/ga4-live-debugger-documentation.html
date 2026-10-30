@@ -1,19 +1,19 @@
 ---
 layout: "layouts/base.njk"
 title: "GA4 Live Debugger Documentation - Setup, Features & Troubleshooting"
-description: "Complete guide for the GA4 Live Debugger extension. Configure hit inspection, DataLayer monitoring, Block Mode, diagnostics, and the Data Dictionary."
+description: "Complete guide for the GA4 Live Debugger extension. Configure hit inspection, PII detection, Shopify sandbox monitoring, Block Mode, and diagnostics."
 permalink: "/ga4-live-debugger-documentation/"
 product: "ga4-live-debugger"
 breadcrumbCurrent: "Documentation"
 ogTitle: "GA4 Live Debugger Documentation"
-ogDescription: "Complete guide for the GA4 Live Debugger extension. Configure hit inspection, DataLayer monitoring, Block Mode, diagnostics, and the Data Dictionary."
+ogDescription: "Complete guide for the GA4 Live Debugger extension. Configure hit inspection, PII detection, Shopify sandbox monitoring, Block Mode, and diagnostics."
 schema: |
   [
     {
       "@context": "https://schema.org",
       "@type": "TechArticle",
       "headline": "GA4 Live Debugger Documentation - Setup, Features & Troubleshooting",
-      "description": "Complete guide for the GA4 Live Debugger extension. Configure hit inspection, DataLayer monitoring, Block Mode, diagnostics, and the Data Dictionary.",
+      "description": "Complete guide for the GA4 Live Debugger extension. Configure hit inspection, PII detection, Shopify sandbox monitoring, Block Mode, and diagnostics.",
       "url": "https://www.gaoptimizer.com/ga4-live-debugger-documentation/",
       "author": {
         "@type": "Organization",
@@ -29,7 +29,7 @@ schema: |
         "url": "https://www.gaoptimizer.com/ga4-debugger/"
       },
       "proficiencyLevel": "Beginner",
-      "articleSection": ["Getting Started", "Hit Inspection & Routing", "DataLayer Monitoring", "Diagnostics & Warnings", "Control Modes", "Data Dictionary", "Export & Console Logging", "Troubleshooting"]
+      "articleSection": ["Getting Started", "Hit Inspection & Routing", "DataLayer & Platform Monitoring", "Diagnostics & Warnings", "Control Modes", "Data Dictionary", "Settings & Preferences", "Troubleshooting"]
     },
     {
       "@context": "https://schema.org",
@@ -60,7 +60,7 @@ schema: |
         "name": "Does GA4 Live Debugger work with Server-Side GTM?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. The extension detects first-party sGTM endpoints and labels those hits with routing badges: sGTM 1P for first-party environments, sGTM Provider for known hosting services, and sGTM Self for self-hosted endpoints."
+          "text": "Yes. The extension detects first-party sGTM endpoints and labels those hits with routing badges: sGTM 1P for first-party environments, sGTM Provider for known hosting services, and sGTM Server-Side for self-hosted endpoints."
         }
       }, {
         "@type": "Question",
@@ -101,11 +101,11 @@ schema: |
                     <ul>
                         <li><a href="#getting-started">Getting Started</a></li>
                         <li><a href="#hit-inspection">Hit Inspection & Routing</a></li>
-                        <li><a href="#datalayer-monitoring">DataLayer Monitoring</a></li>
-                        <li><a href="#diagnostics">Diagnostics & Warnings</a></li>
+                        <li><a href="#datalayer-monitoring">DataLayer & Platforms</a></li>
+                        <li><a href="#diagnostics">Diagnostics & Audits</a></li>
                         <li><a href="#control-modes">Control Modes</a></li>
                         <li><a href="#data-dictionary">Data Dictionary</a></li>
-                        <li><a href="#export-logging">Export & Console Logging</a></li>
+                        <li><a href="#settings-preferences">Settings & Preferences</a></li>
                         <li><a href="#troubleshooting">Troubleshooting</a></li>
                     </ul>
                 </div>
@@ -124,9 +124,13 @@ schema: |
                         <strong>Tip:</strong> You can customize the keyboard shortcut. Navigate to <code>chrome://extensions/shortcuts</code> and find GA4 Live Debugger to set your preferred key combination.
                     </div>
                 </section>
+                
                 <section id="hit-inspection">
                     <h2>Hit Inspection & Routing</h2>
                     <p>The feed captures every GA4 network request in real time. Hits automatically group by page navigation so you can trace exactly what fired and when.</p>
+                    
+                    <h3>Search & Filtering</h3>
+                    <p>Use the search bar at the top of the panel to quickly find specific event names, parameter values, or URLs. You can also use the quick-filter chips to instantly isolate <strong>Issues</strong> (hits with warnings/errors), or filter the feed by event type: <strong>Page</strong>, <strong>Auto</strong>, <strong>Ecom</strong>, <strong>Recom</strong>, and <strong>Custom</strong>.</p>
                     
                     <h3>Transport Badges</h3>
                     <p>Each hit shows a badge indicating where the request is being sent. This tells you at a glance whether data is going client-side, through a proxy, or to a server-side GTM container.</p>
@@ -156,7 +160,7 @@ schema: |
                                 <td>Sent to a known third-party sGTM hosting provider (e.g., Stape)</td>
                             </tr>
                             <tr>
-                                <td><strong>sGTM Self</strong></td>
+                                <td><strong>sGTM Server-Side</strong></td>
                                 <td>Sent to a self-hosted server-side endpoint</td>
                             </tr>
                         </tbody>
@@ -181,12 +185,16 @@ schema: |
                 </section>
 
                 <section id="datalayer-monitoring">
-                    <h2>DataLayer Monitoring & Correlation</h2>
-                    <p>The DataLayer tab captures every <code>dataLayer.push()</code> in real time. You can toggle between a formatted table view and raw JSON for each push.</p>
+                    <h2>DataLayer & Platform Monitoring</h2>
+                    <p>The DataLayer tab captures every <code>dataLayer.push()</code> in real time. You can toggle between a formatted table view and raw JSON for each push. Beyond standard GTM arrays, the debugger natively supports complex platform architectures.</p>
                     
-                    <h3>Historical Pushes</h3>
-                    <p>Events that fired before the extension initialized are tagged with a <strong>Historical</strong> badge. The extension reads these retroactively from the array so you don't miss anything, even if you open the panel late.</p>
-                    
+                    <h3>Shopify & Tealium Support</h3>
+                    <p>The extension natively monitors platforms that bypass the standard dataLayer:</p>
+                    <ul>
+                        <li><strong>Shopify Customer Events:</strong> Captures native events from Shopify's <code>analytics.subscribe</code> API, even when firing inside an isolated Custom Pixel sandbox.</li>
+                        <li><strong>Tealium iQ:</strong> Intercepts <code>utag.view</code> and <code>utag.link</code> events directly on the page, surfacing the client-side Tealium payload without touching the network layer.</li>
+                    </ul>
+
                     <h3>E-commerce Validation</h3>
                     <p>E-commerce events are automatically checked against GA4's expected schema. You'll see inline error badges for:</p>
                     <ul>
@@ -208,13 +216,38 @@ schema: |
                 </section>
 
                 <section id="diagnostics">
-                    <h2>Diagnostics & Warnings</h2>
-                    <p>The Diagnostics panel runs automated checks against your tracking implementation and surfaces issues you'd otherwise have to hunt for manually.</p>
+                    <h2>Diagnostics & Audits</h2>
+                    <p>The Diagnostics panel runs over 15 automated checks against your tracking implementation, surfacing issues you'd otherwise have to hunt for manually.</p>
                     
-                    <h3>Consent Mode</h3>
-                    <p>The extension decodes consent parameters from each network request and reports the active state for <code>ad_storage</code> and <code>analytics_storage</code>. It also surfaces default consent values set via the DataLayer, so you can confirm your CMP is firing correctly before any user interaction.</p>
-                    
-                    <h3>Payload & Event Warnings</h3>
+                    <h3>Advanced Diagnostics & Privacy</h3>
+                    <table class="badge-table">
+                        <thead>
+                            <tr>
+                                <th>Audit</th>
+                                <th>What It Checks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Live PII Detection</strong></td>
+                                <td>Automatically scans outgoing hits for emails and phone numbers leaking into URLs, event parameters, or product data. The exact location is flagged with the value masked for your privacy.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Shopify Sandbox Monitor</strong></td>
+                                <td>Detects hits trapped inside Shopify's Web Pixel iframe. Warns you if the sandbox is swallowing the referring URL or passing the internal iframe URL instead of your storefront address.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SPA Race Conditions</strong></td>
+                                <td>For React, Vue, and Next.js sites: Identifies when an event fires before the route has fully updated, resulting in stale URLs or dropped referrers.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cross-Domain & Session Guard</strong></td>
+                                <td>Flags broken <code>_gl</code> linkers and identifies unexpected mid-session Client ID or Session ID resets that would break user attribution.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Implementation & Setup Warnings</h3>
                     <table class="badge-table">
                         <thead>
                             <tr>
@@ -232,39 +265,18 @@ schema: |
                                 <td>Multiple <code>page_view</code> events for the same Measurement ID on one URL. Inflates your session and pageview counts.</td>
                             </tr>
                             <tr>
-                                <td><strong>Legacy UA Hits</strong></td>
-                                <td>Universal Analytics requests still firing. These endpoints are deprecated and the data goes nowhere useful.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <h3>Implementation Audits</h3>
-                    <table class="badge-table">
-                        <thead>
-                            <tr>
-                                <th>Audit</th>
-                                <th>What It Checks</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
                                 <td><strong>Mixed Implementation</strong></td>
                                 <td>Both GTM and hardcoded <code>gtag.js</code> are firing on the same page. Pick one to avoid duplicate events.</td>
                             </tr>
                             <tr>
                                 <td><strong>Ghost DataLayer</strong></td>
-                                <td>DataLayer pushes exist but GTM never loaded. Usually caused by ad blockers or privacy extensions blocking the GTM script.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>GTM Placement</strong></td>
-                                <td>Synchronous scripts load before GTM in the <code>&lt;head&gt;</code>, or the noscript iframe is misplaced. Both can delay or break tag execution.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Non-Production Container</strong></td>
-                                <td>A staging or preview GTM environment is deployed on what appears to be a production page.</td>
+                                <td>DataLayer pushes exist but GTM never loaded. Usually caused by ad blockers preventing the GTM script while pushes still fire into a dead array.</td>
                             </tr>
                         </tbody>
                     </table>
+                    
+                    <h3>Consent Mode</h3>
+                    <p>The extension decodes consent parameters from each network request and reports the active state for <code>ad_storage</code> and <code>analytics_storage</code>. It also surfaces default consent values set via the DataLayer, so you can confirm your CMP is firing correctly before any user interaction.</p>
                 </section>
 
                 <section id="control-modes">
@@ -315,36 +327,27 @@ schema: |
                     </div>
                 </section>
 
-                <section id="export-logging">
-                    <h2>Export & Console Logging</h2>
-                    <p>Two ways to get data out of the debugger and into your workflow.</p>
+                <section id="settings-preferences">
+                    <h2>Settings & Preferences</h2>
+                    <p>Open the extension settings or use the panel overflow menu (⋮) to customize the debugger's behavior.</p>
                     
-                    <h3>Exporting Data</h3>
-                    <p>Click the <strong>Export</strong> button in the overflow menu (⋮). Available formats:</p>
                     <ul>
-                        <li><strong>CSV</strong>: Opens directly in Excel or Sheets</li>
-                        <li><strong>TSV</strong>: Tab-separated, useful for pasting into documents</li>
-                        <li><strong>JSON</strong>: Full structured data, ideal for scripts or automated checks</li>
-                    </ul>
-                    <p>You can scope exports to visible hits only or all captured hits, and choose whether to include GA4 requests, DataLayer pushes, or both. Each format can be downloaded as a file or copied directly to your clipboard.</p>
-                    
-                    <h3>Copy as JS Snippet</h3>
-                    <p>On any DataLayer card, click <strong>Copy as JS Snippet</strong> to output a ready-to-paste <code>window.dataLayer.push({...})</code> call. Useful for reproducing events in the console, writing test fixtures, or sharing exact payloads with developers.</p>
-                    
-                    <h3>Console Logging</h3>
-                    <p>Mirrors every captured event directly to Chrome DevTools console as structured, formatted objects. This is useful when you need hit inspection available without the side panel open, for example while you're actively working in the Elements or Network panels.</p>
-                    <div class="note">
-                        <strong>Tip:</strong> Console logs persist across debugger panel open/close cycles. If you're debugging intermittent events, enable console logging and work in DevTools. You'll still capture everything.
-                    </div>
-
-                    <h3>Preferences</h3>
-                    <p>Open extension settings to customize the debugger behavior:</p>
-                    <ul>
-                        <li><strong>Click to copy parameter values:</strong> Click any parameter value in the feed to copy it to your clipboard.</li>
+                        <li><strong>Red Toolbar Alerts (Strict Auditing):</strong> Turns the extension icon red in your browser toolbar when critical errors (e.g., PII leaks, non-prod GTM containers) are detected on the page.</li>
+                        <li><strong>Raw Data Mode (Show/Hide Warnings):</strong> Hides all inline error badges and warning cards for a clean, presentation-ready view (ideal for client demos). The informational grid (Tracking Setup, Routing, Consent) stays visible.</li>
+                        <li><strong>Audit using GA4 360 Limits:</strong> Adjusts the debugger's alert thresholds. Suppresses false-positive warnings for events exceeding standard GA4 limits (allows up to 100 parameters and 500 characters per value) for Enterprise properties.</li>
+                        <li><strong>Show Raw Parameter Keys:</strong> Displays the original GA4 protocol keys (e.g., <code>lps</code>, <code>gcd</code>, <code>ep.custom_param</code>) instead of friendly labels in the feed.</li>
+                        <li><strong>DataLayer Correlation:</strong> Toggle the push-to-hit correlation engine on or off to optimize performance or clear the interface.</li>
+                        <li><strong>Click to copy parameter values:</strong> Click any parameter value in the feed to instantly copy it to your clipboard.</li>
                         <li><strong>Compact DataLayer cards:</strong> Hides action buttons on DataLayer cards until expanded, saving vertical space in the feed.</li>
                         <li><strong>Hide URL path:</strong> Removes the page path from hit card headers for a narrower Side Panel layout.</li>
-                        <li><strong>Dark mode:</strong> Toggle manually via the overflow menu, or let it follow your system preference.</li>
+                        <li><strong>Custom DataLayer Name:</strong> Specify a custom array name if your site uses one (e.g., <code>appDataLayer</code>) instead of the default <code>dataLayer</code>.</li>
                     </ul>
+
+                    <h3>Exporting Data</h3>
+                    <p>Click the <strong>Export</strong> button in the overflow menu (⋮) to download your capture session. Available formats include CSV, TSV, and JSON. You can scope exports to visible hits only or all captured hits.</p>
+                    
+                    <h3>Console Logging</h3>
+                    <p>Enable Console Logging in settings to mirror every captured event directly to the Chrome DevTools console as structured objects. Useful when you need hit inspection available without the side panel open, for example while you're actively working in the Elements or Network panels.</p>
                 </section>
 
                 <section id="troubleshooting">
@@ -367,23 +370,29 @@ schema: |
                             </div>
                         </div>
                         <div class="accordion-item">
-                            <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-3">Team Sync is not pulling updates</button>
+                            <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-3">Shopify hits show strange URLs instead of my pages</button>
                             <div class="accordion-panel" id="trouble-panel-3">
+                                <p>Shopify runs your tracking scripts inside an isolated Web Pixel sandbox (an iframe). When hits fire from inside this sandbox, they often report the iframe's internal URL instead of your real storefront URL, breaking your GA4 page reports. The extension flags this with a <strong>Sandboxed iFrame URL</strong> warning so you can adjust your Custom Pixel code to map the true <code>page_location</code>.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-4">Team Sync is not pulling updates</button>
+                            <div class="accordion-panel" id="trouble-panel-4">
                                 <p><strong>Verify the sheet is published.</strong> Open the URL you pasted in a private/incognito window. If you see CSV data, it's working. If you get a login prompt, the sheet isn't publicly published.</p>
                                 <p><strong>Check the format.</strong> Make sure you published as CSV, not HTML or TSV. The URL should end in <code>/pub?output=csv</code>.</p>
                                 <p><strong>Force refresh.</strong> Click <strong>Force Sync Now</strong> in settings to trigger an immediate pull instead of waiting for the background interval.</p>
                             </div>
                         </div>
                         <div class="accordion-item">
-                            <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-4">Block Mode isn't stopping hits</button>
-                            <div class="accordion-panel" id="trouble-panel-4">
+                            <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-5">Block Mode isn't stopping hits</button>
+                            <div class="accordion-panel" id="trouble-panel-5">
                                 <p><strong>Reload after toggling.</strong> Block Mode intercepts all GA4 requests regardless of domain, including first-party sGTM endpoints. However, requests already queued by the browser before Block Mode activated may slip through. A page reload ensures all new requests pass through the blocking rules.</p>
                                 <p><strong>Check for ad blockers.</strong> Another extension may have already blocked or redirected the request before Block Mode could intercept it. Verify the routing badge on any hits that appear to be getting through.</p>
                             </div>
                         </div>
                         <div class="accordion-item">
-                            <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-5">Correlation shows too many orphaned events</button>
-                            <div class="accordion-panel" id="trouble-panel-5">
+                            <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-6">Correlation shows too many orphaned events</button>
+                            <div class="accordion-panel" id="trouble-panel-6">
                                 <p><strong>Orphaned GA4 Hits (no DataLayer push):</strong> These are typically hardcoded <code>gtag()</code> calls that fire directly without going through the DataLayer. They're expected if you use gtag.js alongside GTM, or if Google auto-collects events like <code>scroll</code> or <code>click</code>.</p>
                                 <p><strong>Orphaned DataLayer Pushes (no hit):</strong> Check if consent is blocking the tag from firing. Also verify the event name matches a trigger condition in GTM. A push that doesn't match any trigger will never produce a hit.</p>
                             </div>
