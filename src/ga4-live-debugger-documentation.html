@@ -130,7 +130,7 @@ schema: |
                     <p>The feed captures every GA4 network request in real time. Hits automatically group by page navigation so you can trace exactly what fired and when.</p>
                     
                     <h3>Search & Filtering</h3>
-                    <p>Use the search bar at the top of the panel to quickly find specific event names, parameter values, or URLs. You can also use the quick-filter chips to instantly isolate <strong>Issues</strong> (hits with warnings/errors), or filter the feed by event type: <strong>Page</strong>, <strong>Auto</strong>, <strong>Ecom</strong>, <strong>Recom</strong>, and <strong>Custom</strong>.</p>
+                    <p>Use the search bar at the top of the panel to quickly find specific event names, parameter values, or URLs. You can also use the quick-filter chips to instantly isolate <strong>Issues</strong> (hits with warnings or errors), or filter the feed by event type: <strong>Page</strong>, <strong>Auto</strong>, <strong>Ecom</strong>, <strong>Recom</strong>, and <strong>Custom</strong>.</p>
                     
                     <h3>Transport Badges</h3>
                     <p>Each hit shows a badge indicating where the request is being sent. This tells you at a glance whether data is going client-side, through a proxy, or to a server-side GTM container.</p>
@@ -145,23 +145,31 @@ schema: |
                         <tbody>
                             <tr>
                                 <td><strong>Client-Side</strong></td>
-                                <td>Sent directly to Google-owned endpoints (default behavior)</td>
+                                <td>Sent directly to Google-owned endpoints (default behavior).</td>
                             </tr>
                             <tr>
-                                <td><strong>Gateway (GTG)</strong></td>
-                                <td>Proxied through Google Tag Gateway</td>
+                                <td><strong>Gateway</strong></td>
+                                <td>Proxied through Google Tag Gateway.</td>
                             </tr>
                             <tr>
                                 <td><strong>sGTM 1P</strong></td>
-                                <td>Routed to a first-party server-side GTM environment</td>
+                                <td>Routed to a first-party server-side GTM environment.</td>
                             </tr>
                             <tr>
                                 <td><strong>sGTM Provider</strong></td>
-                                <td>Sent to a known third-party sGTM hosting provider (e.g., Stape)</td>
+                                <td>Sent to a known third-party sGTM hosting provider (e.g., Stape).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>sGTM Cross-Domain</strong></td>
+                                <td>Sent to a server-side GTM on a different root domain (server-side processing confirmed).</td>
                             </tr>
                             <tr>
                                 <td><strong>sGTM Server-Side</strong></td>
-                                <td>Sent to a self-hosted server-side endpoint</td>
+                                <td>Sent to a self-hosted server-side endpoint.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Proxy (Unconfirmed)</strong></td>
+                                <td>Sent off-domain, but server-side processing is not confirmed by the payload.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -170,56 +178,37 @@ schema: |
                     <p>GA4 often batches multiple events into a single network request. The debugger unpacks these automatically. Each event displays as its own card with a numeric indicator showing its position in the original batch. No manual payload inspection needed.</p>
                     
                     <h3>Campaign Parameters</h3>
-                    <p>The extension extracts and displays campaign-related parameters from each hit in a dedicated section:</p>
-                    <ul>
-                        <li><code>gclid</code> (Google Click Identifier)</li>
-                        <li><code>gbraid</code> (Google Broad Anonymous Identifier)</li>
-                        <li><code>gclsrc</code> (Google Click Source)</li>
-                        <li><code>gad_source</code> (Google Ads Source)</li>
-                        <li><code>gad_campaignid</code> (Google Ads Campaign ID)</li>
-                    </ul>
-                    <p>These values are pulled directly from the network request so you can confirm click attribution is passing through correctly without parsing raw query strings.</p>
+                    <p>The extension automatically extracts industry-standard campaign tracking variables and ad click identifiers from each hit. These are displayed in a dedicated section so you can instantly verify that your UTM parameters and attribution tags are passing through correctly, without having to manually parse complex query strings.</p>
                     
                     <h3>Tracking Setup Discovery</h3>
-                    <p>The extension automatically detects and lists every Measurement ID and GTM container active on the page. Each entry shows a hit count so you can confirm all expected properties are receiving data and spot unexpected containers.</p>
+                    <p>The extension automatically detects and lists every Measurement ID and GTM container active on the page, including Google's Optimized GTM containers. Each entry shows a hit count so you can confirm all expected properties are receiving data and spot unexpected containers.</p>
                 </section>
 
                 <section id="datalayer-monitoring">
                     <h2>DataLayer & Platform Monitoring</h2>
-                    <p>The DataLayer tab captures every <code>dataLayer.push()</code> in real time. You can toggle between a formatted table view and raw JSON for each push. Beyond standard GTM arrays, the debugger natively supports complex platform architectures.</p>
+                    <p>The DataLayer tab captures every <code>dataLayer.push()</code> in real time. You can toggle between a formatted table view and raw JSON for each push. Beyond standard GTM arrays, the debugger monitors platforms that bypass the standard DataLayer architecture.</p>
                     
                     <h3>Shopify & Tealium Support</h3>
-                    <p>The extension natively monitors platforms that bypass the standard dataLayer:</p>
+                    <p>The extension captures tracking events from popular ecommerce and tag management systems:</p>
                     <ul>
-                        <li><strong>Shopify Customer Events:</strong> Captures native events from Shopify's <code>analytics.subscribe</code> API, even when firing inside an isolated Custom Pixel sandbox.</li>
+                        <li><strong>Shopify Customer Events:</strong> Captures events from Shopify's <code>analytics.subscribe</code> API, even when firing inside an isolated Custom Pixel sandbox.</li>
                         <li><strong>Tealium iQ:</strong> Intercepts <code>utag.view</code> and <code>utag.link</code> events directly on the page, surfacing the client-side Tealium payload without touching the network layer.</li>
                     </ul>
 
-                    <h3>E-commerce Validation</h3>
-                    <p>E-commerce events are automatically checked against GA4's expected schema. You'll see inline error badges for:</p>
-                    <ul>
-                        <li>Missing <code>transaction_id</code> on purchase events</li>
-                        <li>Malformed or missing <code>items</code> arrays</li>
-                        <li>Required item-level fields that are absent</li>
-                    </ul>
-                    <div class="note">
-                        <strong>Tip:</strong> E-commerce validation runs on the DataLayer push itself, not the resulting network hit. If validation passes but the hit looks wrong, check your GTM tag mapping.
-                    </div>
-                    
                     <h3>Event Correlation</h3>
                     <p>The debugger links each DataLayer push to its resulting GA4 network hit. Matched pairs show a link badge. Click it to jump directly to the corresponding card.</p>
                     <p>When correlation breaks, you'll see one of two states:</p>
                     <ul>
-                        <li><strong>Orphaned DataLayer Push:</strong> A push fired but no GA4 hit followed. Likely causes: tag trigger not configured, consent denied, or the event name doesn't match any tag.</li>
+                        <li><strong>Orphaned DataLayer Push:</strong> A push fired but no GA4 hit followed. Likely causes: tag trigger not configured, consent denied, or the event name does not match any tag.</li>
                         <li><strong>Orphaned GA4 Hit:</strong> A network request fired without a preceding push. This typically means a hardcoded <code>gtag('event', ...)</code> call that bypasses GTM entirely.</li>
                     </ul>
                 </section>
 
                 <section id="diagnostics">
                     <h2>Diagnostics & Audits</h2>
-                    <p>The Diagnostics panel runs over 15 automated checks against your tracking implementation, surfacing issues you'd otherwise have to hunt for manually.</p>
+                    <p>The Diagnostics panel runs over 30 automated checks against your tracking implementation. It surfaces issues you would otherwise have to hunt for manually, inspecting everything from page-level GTM configuration down to individual event parameters.</p>
                     
-                    <h3>Advanced Diagnostics & Privacy</h3>
+                    <h3>Privacy & Data Governance</h3>
                     <table class="badge-table">
                         <thead>
                             <tr>
@@ -230,53 +219,130 @@ schema: |
                         <tbody>
                             <tr>
                                 <td><strong>Live PII Detection</strong></td>
-                                <td>Automatically scans outgoing hits for emails and phone numbers leaking into URLs, event parameters, or product data. The exact location is flagged with the value masked for your privacy.</td>
+                                <td>Scans outgoing hits for emails and phone numbers leaking into URLs, event parameters, or product data. The exact location is flagged with the value masked for your privacy.</td>
                             </tr>
                             <tr>
-                                <td><strong>Shopify Sandbox Monitor</strong></td>
-                                <td>Detects hits trapped inside Shopify's Web Pixel iframe. Warns you if the sandbox is swallowing the referring URL or passing the internal iframe URL instead of your storefront address.</td>
+                                <td><strong>Email Redaction Check</strong></td>
+                                <td>Reads server-delivered property settings to verify if GA4's built-in email redaction feature is enabled.</td>
                             </tr>
                             <tr>
-                                <td><strong>SPA Race Conditions</strong></td>
-                                <td>For React, Vue, and Next.js sites: Identifies when an event fires before the route has fully updated, resulting in stale URLs or dropped referrers.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Cross-Domain & Session Guard</strong></td>
-                                <td>Flags broken <code>_gl</code> linkers and identifies unexpected mid-session Client ID or Session ID resets that would break user attribution.</td>
+                                <td><strong>Consent State Sync</strong></td>
+                                <td>Decodes consent parameters from network requests (gcs, gcd) and compares them against DataLayer consent defaults to identify race conditions or unapplied CMP states.</td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <h3>Implementation & Setup Warnings</h3>
+                    <h3>Ecommerce Validation</h3>
                     <table class="badge-table">
                         <thead>
                             <tr>
-                                <th>Warning</th>
-                                <th>Why It Matters</th>
+                                <th>Audit</th>
+                                <th>What It Checks</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>Oversized Payload</strong></td>
-                                <td>Batch exceeds 130KB. Google silently drops requests over this limit.</td>
+                                <td><strong>Missing Transaction IDs</strong></td>
+                                <td>Flags purchase or refund events that are missing a <code>transaction_id</code> parameter.</td>
                             </tr>
                             <tr>
-                                <td><strong>Duplicate Pageviews</strong></td>
-                                <td>Multiple <code>page_view</code> events for the same Measurement ID on one URL. Inflates your session and pageview counts.</td>
+                                <td><strong>Value & Currency Formats</strong></td>
+                                <td>Detects dirty text in value fields (e.g. "2 USD" instead of a pure number) and warns when a value is sent without a currency code.</td>
                             </tr>
                             <tr>
-                                <td><strong>Mixed Implementation</strong></td>
-                                <td>Both GTM and hardcoded <code>gtag.js</code> are firing on the same page. Pick one to avoid duplicate events.</td>
+                                <td><strong>Malformed Item Arrays</strong></td>
+                                <td>Identifies missing item arrays on required conversion events, and flags individual item rows missing both an ID and a name.</td>
                             </tr>
                             <tr>
-                                <td><strong>Ghost DataLayer</strong></td>
-                                <td>DataLayer pushes exist but GTM never loaded. Usually caused by ad blockers preventing the GTM script while pushes still fire into a dead array.</td>
+                                <td><strong>DataLayer Schema</strong></td>
+                                <td>Validates e-commerce structure at the DataLayer push level before the network hit is generated.</td>
                             </tr>
                         </tbody>
                     </table>
-                    
-                    <h3>Consent Mode</h3>
-                    <p>The extension decodes consent parameters from each network request and reports the active state for <code>ad_storage</code> and <code>analytics_storage</code>. It also surfaces default consent values set via the DataLayer, so you can confirm your CMP is firing correctly before any user interaction.</p>
+
+                    <h3>SPA & Session Integrity</h3>
+                    <table class="badge-table">
+                        <thead>
+                            <tr>
+                                <th>Audit</th>
+                                <th>What It Checks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Stale URLs & Routing</strong></td>
+                                <td>For React, Vue, and Next.js sites: Identifies events that fire before the route fully updates, resulting in stale URLs or dropped referrers.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cross-Domain Links</strong></td>
+                                <td>Flags navigations from configured cross-domain sites that arrive without the <code>_gl</code> linker parameter.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Identity & Session Loss</strong></td>
+                                <td>Identifies unexpected mid-session Client ID or Session ID resets that break user attribution, accurately accounting for expected resets during a consent grant.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Duplicate Pageviews</strong></td>
+                                <td>Detects multiple <code>page_view</code> hits for the same ID on one URL, often caused by Enhanced Measurement conflicts or SPA history triggers.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>GTM X-Ray & Implementation</h3>
+                    <table class="badge-table">
+                        <thead>
+                            <tr>
+                                <th>Audit</th>
+                                <th>What It Checks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Shopify Sandbox Monitor</strong></td>
+                                <td>Detects hits inside the Shopify Web Pixel iframe. Warns if the sandbox swallowed the referring URL or passed the internal iframe URL instead of your storefront address.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>DataLayer Typos</strong></td>
+                                <td>Identifies DataLayer push event names that are near-miss misspellings of your actual configured GTM triggers.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Container Health</strong></td>
+                                <td>Flags heavy containers (>800KB), high Custom HTML usage, high CPU risk (excessive Custom JS variables), and deprecated Universal Analytics tags.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nested & Non-Prod GTM</strong></td>
+                                <td>Warns when containers inject other GTM containers, or when a staging/preview snippet is running on a live site.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mixed Implementation</strong></td>
+                                <td>Detects when both GTM and hardcoded <code>gtag.js</code> are firing on the same page.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>GA4 Limits & Quotas</h3>
+                    <table class="badge-table">
+                        <thead>
+                            <tr>
+                                <th>Audit</th>
+                                <th>What It Checks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Oversized Payloads</strong></td>
+                                <td>Flags batch requests exceeding 130KB. Google silently drops requests over this limit.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Character Limits</strong></td>
+                                <td>Warns when event names exceed 40 characters, or when parameter values exceed 100 characters (or 500 characters on GA4 360).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Parameter Limits</strong></td>
+                                <td>Warns when hits contain more than the allowed 25 event parameters or 25 user properties (scales to 100 for GA4 360).</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </section>
 
                 <section id="control-modes">
@@ -293,9 +359,9 @@ schema: |
                     <p>Intercepts all GA4 requests at the network level and prevents them from leaving the browser, regardless of destination. This covers standard Google-owned endpoints, first-party sGTM domains, Google Tag Gateway, and self-hosted server-side endpoints. Hits still appear in the debugger feed so you can inspect every parameter, but nothing reaches Google's servers.</p>
                     <p><strong>When to use it:</strong></p>
                     <ul>
-                        <li>QA testing on production without inflating real metrics</li>
-                        <li>Validating event parameters before going live</li>
-                        <li>Debugging consent implementations without sending denied-consent pings</li>
+                        <li>QA testing on production without inflating real metrics.</li>
+                        <li>Validating event parameters before going live.</li>
+                        <li>Debugging consent implementations without sending denied-consent pings.</li>
                     </ul>
                     <div class="note">
                         <strong>Tip:</strong> Block Mode and Debug Mode can be used together. Block prevents data from reaching GA4, while Debug tags the hits so you can see what <em>would</em> appear in DebugView.
@@ -329,25 +395,23 @@ schema: |
 
                 <section id="settings-preferences">
                     <h2>Settings & Preferences</h2>
-                    <p>Open the extension settings or use the panel overflow menu (⋮) to customize the debugger's behavior.</p>
+                    <p>Open the extension settings or use the panel overflow menu to customize the debugger's behavior.</p>
                     
                     <ul>
-                        <li><strong>Red Toolbar Alerts (Strict Auditing):</strong> Turns the extension icon red in your browser toolbar when critical errors (e.g., PII leaks, non-prod GTM containers) are detected on the page.</li>
-                        <li><strong>Raw Data Mode (Show/Hide Warnings):</strong> Hides all inline error badges and warning cards for a clean, presentation-ready view (ideal for client demos). The informational grid (Tracking Setup, Routing, Consent) stays visible.</li>
-                        <li><strong>Audit using GA4 360 Limits:</strong> Adjusts the debugger's alert thresholds. Suppresses false-positive warnings for events exceeding standard GA4 limits (allows up to 100 parameters and 500 characters per value) for Enterprise properties.</li>
-                        <li><strong>Show Raw Parameter Keys:</strong> Displays the original GA4 protocol keys (e.g., <code>lps</code>, <code>gcd</code>, <code>ep.custom_param</code>) instead of friendly labels in the feed.</li>
-                        <li><strong>DataLayer Correlation:</strong> Toggle the push-to-hit correlation engine on or off to optimize performance or clear the interface.</li>
+                        <li><strong>Red Toolbar Alerts (Auditor Mode):</strong> Turns the extension icon red in your browser toolbar when critical errors (e.g. PII leaks, non-prod GTM containers) are detected on the page.</li>
+                        <li><strong>Raw Data Mode (Show/Hide Warnings):</strong> Hides all inline error badges and warning cards for a clean, presentation-ready view. The informational grid stays visible.</li>
+                        <li><strong>Audit using GA4 360 Limits:</strong> Adjusts the debugger's alert thresholds. Suppresses standard warnings for high parameter counts (allows up to 100 parameters) and long values (up to 500 characters) for Enterprise properties.</li>
+                        <li><strong>Show Raw Parameter Keys:</strong> Displays original GA4 protocol keys (e.g. <code>lps</code>, <code>gcd</code>) instead of friendly labels in the feed.</li>
+                        <li><strong>Console Logging:</strong> Mirrors every captured event directly to the Chrome DevTools console. Useful when you need hit inspection available while actively working in the Elements or Network panels.</li>
+                        <li><strong>DataLayer Correlation:</strong> Toggle the push-to-hit correlation engine on or off to optimize performance.</li>
                         <li><strong>Click to copy parameter values:</strong> Click any parameter value in the feed to instantly copy it to your clipboard.</li>
                         <li><strong>Compact DataLayer cards:</strong> Hides action buttons on DataLayer cards until expanded, saving vertical space in the feed.</li>
                         <li><strong>Hide URL path:</strong> Removes the page path from hit card headers for a narrower Side Panel layout.</li>
-                        <li><strong>Custom DataLayer Name:</strong> Specify a custom array name if your site uses one (e.g., <code>appDataLayer</code>) instead of the default <code>dataLayer</code>.</li>
+                        <li><strong>Custom DataLayer Name:</strong> Specify a custom array name if your site uses one instead of the default <code>dataLayer</code>.</li>
                     </ul>
 
                     <h3>Exporting Data</h3>
-                    <p>Click the <strong>Export</strong> button in the overflow menu (⋮) to download your capture session. Available formats include CSV, TSV, and JSON. You can scope exports to visible hits only or all captured hits.</p>
-                    
-                    <h3>Console Logging</h3>
-                    <p>Enable Console Logging in settings to mirror every captured event directly to the Chrome DevTools console as structured objects. Useful when you need hit inspection available without the side panel open, for example while you're actively working in the Elements or Network panels.</p>
+                    <p>Click the <strong>Export</strong> button in the overflow menu to download your capture session. Available formats include CSV, TSV, and JSON. You can scope exports to visible hits only or all captured hits.</p>
                 </section>
 
                 <section id="troubleshooting">
@@ -356,9 +420,9 @@ schema: |
                         <div class="accordion-item">
                             <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-1">Hits are not appearing in the feed</button>
                             <div class="accordion-panel" id="trouble-panel-1">
-                                <p><strong>Check your filters.</strong> If you've filtered to specific event types, other hits won't show. Reset filters to confirm hits are actually missing.</p>
+                                <p><strong>Check your filters.</strong> If you have filtered to specific event types, other hits will not show. Reset filters to confirm hits are actually missing.</p>
                                 <p><strong>Check for ad blockers.</strong> Extensions like uBlock Origin can intercept GA4 requests before this extension reads them. Try disabling other extensions temporarily.</p>
-                                <p><strong>Verify the page has GA4.</strong> Open DevTools Network tab and filter for <code>collect</code>. If nothing appears there either, the page isn't sending GA4 hits at all.</p>
+                                <p><strong>Verify the page has GA4.</strong> Open the DevTools Network tab and filter for <code>collect</code>. If nothing appears there either, the page is not sending GA4 hits.</p>
                             </div>
                         </div>
                         <div class="accordion-item">
@@ -366,7 +430,7 @@ schema: |
                             <div class="accordion-panel" id="trouble-panel-2">
                                 <p><strong>Confirm DataLayer monitoring is on.</strong> Toggle it via the DataLayer switch in the panel toolbar.</p>
                                 <p><strong>Check your array name.</strong> If the site uses a custom DataLayer name (anything other than <code>window.dataLayer</code>), update the <strong>Custom DataLayer Name</strong> field in extension settings.</p>
-                                <p><strong>Timing issue.</strong> If the DataLayer was populated before you opened the panel, historical pushes should still appear with the Historical badge. If they don't, try a full page reload with the panel already open.</p>
+                                <p><strong>Timing issue.</strong> If the DataLayer was populated before you opened the panel, historical pushes should still appear with the Historical badge. If they do not, try a full page reload with the panel already open.</p>
                             </div>
                         </div>
                         <div class="accordion-item">
@@ -378,7 +442,7 @@ schema: |
                         <div class="accordion-item">
                             <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-4">Team Sync is not pulling updates</button>
                             <div class="accordion-panel" id="trouble-panel-4">
-                                <p><strong>Verify the sheet is published.</strong> Open the URL you pasted in a private/incognito window. If you see CSV data, it's working. If you get a login prompt, the sheet isn't publicly published.</p>
+                                <p><strong>Verify the sheet is published.</strong> Open the URL you pasted in a private/incognito window. If you see CSV data, it is working. If you get a login prompt, the sheet is not publicly published.</p>
                                 <p><strong>Check the format.</strong> Make sure you published as CSV, not HTML or TSV. The URL should end in <code>/pub?output=csv</code>.</p>
                                 <p><strong>Force refresh.</strong> Click <strong>Force Sync Now</strong> in settings to trigger an immediate pull instead of waiting for the background interval.</p>
                             </div>
@@ -393,8 +457,8 @@ schema: |
                         <div class="accordion-item">
                             <button class="accordion-button" aria-expanded="false" aria-controls="trouble-panel-6">Correlation shows too many orphaned events</button>
                             <div class="accordion-panel" id="trouble-panel-6">
-                                <p><strong>Orphaned GA4 Hits (no DataLayer push):</strong> These are typically hardcoded <code>gtag()</code> calls that fire directly without going through the DataLayer. They're expected if you use gtag.js alongside GTM, or if Google auto-collects events like <code>scroll</code> or <code>click</code>.</p>
-                                <p><strong>Orphaned DataLayer Pushes (no hit):</strong> Check if consent is blocking the tag from firing. Also verify the event name matches a trigger condition in GTM. A push that doesn't match any trigger will never produce a hit.</p>
+                                <p><strong>Orphaned GA4 Hits (no DataLayer push):</strong> These are typically hardcoded <code>gtag()</code> calls that fire directly without going through the DataLayer. They are expected if you use gtag.js alongside GTM, or if Google auto-collects events like <code>scroll</code> or <code>click</code>.</p>
+                                <p><strong>Orphaned DataLayer Pushes (no hit):</strong> Check if consent is blocking the tag from firing. Also verify the event name matches a trigger condition in GTM. A push that does not match any trigger will never produce a hit.</p>
                             </div>
                         </div>
                     </div>
