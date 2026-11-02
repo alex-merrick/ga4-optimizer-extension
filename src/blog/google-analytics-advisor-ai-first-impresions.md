@@ -28,13 +28,13 @@ faq_schema: >
   }
 layout: layouts/post.njk
 author: Alex Merrick
-title: "Google Analytics Ask Advisor Tested: GA4 Gemini 3 Review ({{ currentYear }})"
+title: "Google Analytics Ask Advisor Tested: The New GA4 Gemini Feature"
 date: 2026-07-31T09:00:00.000-05:00
 publishDate: 2026-08-10T09:00:00.000-05:00
 last_modified_at: 2026-08-16T15:00:00.000-05:00
 thumbnail: /img/thumbnails/banner-analytics-advisor.jpg
 post_image: /img/thumbnails/thumb-analytics-advisor.jpg
-description: "We tested the new Gemini 3 upgrade for Google Analytics Ask Advisor. See how it handles complex segmentation, the lack of an admin kill switch, and enterprise risks."
+description: "We tested the new Google Analytics Ask Advisor feature. Learn how to use this Gemini-powered AI tool to analyze your GA4 reporting data."
 url: "https://www.gaoptimizer.com/blog/google-analytics-advisor-ai-first-impresions/"
 tags:
   - post

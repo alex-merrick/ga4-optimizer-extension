@@ -67,11 +67,12 @@ If you miss the workflow hacks that older extensions used to provide, GA4 Optimi
 
 **Key Features:**
 
-* **Custom Definitions Copy/Paste:** Effortlessly migrate custom dimensions and metrics between different GA4 properties in one click (a massive time-saver for agency analysts).
-* **1-Click Exit Pages Report:** GA4 notoriously hides the "Exits" metric. This extension adds a button to instantly generate a pre-configured Exit Pages report.
-* **On-the-fly Custom Calculated Metrics:** Create and save custom rates like 'Exit Rate' or 'Conversion Rate' directly within your Standard Reports and Explorations.
-* **A/B Test Segment Comparison:** Automatically calculates Statistical Significance for your A/B test segments right inside Freeform Explorations. [See how to analyze A/B test results in GA4 →](https://www.gaoptimizer.com/blog/the-ultimate-guide-to-ab-test-analysis-in-ga4/)
-* **Date Range Presets & Comparisons:** Adds 1-click preset buttons (e.g., Last 7 Days, YoY matching Day of Week) directly to the UI.
+* **Advanced Table Filters:** Brings Universal Analytics style filtering back to GA4. Filter standard reports using "greater than" or "contains" conditions directly in the UI.
+* **Data Dictionary:** Sync your company tracking plan via Google Sheets. Event and parameter definitions appear as hover tooltips directly inside GA4 reports.
+* **Bulk Annotations:** Log marketing campaigns or site changes across dozens of GA4 properties at once, or import them via CSV.
+* **Custom Definitions Copy/Paste:** Migrate custom dimensions and metrics between GA4 properties in one click. A time-saver for agency analysts.
+* **On-the-fly Calculated Metrics:** Create and save custom rates like 'Exit Rate' or 'Conversion Rate' directly within your Standard Reports.
+* **A/B Test Segment Comparison:** Calculates Statistical Significance and checks for sample ratio mismatch (SRM) right inside Freeform Explorations.
 - - -
 
 ### 2. [GA4 Page Opener](https://chromewebstore.google.com/detail/ga4-page-opener/kgaacoanfacaccjggmigijlkdldjffgo?hl=en-US&utm_source=gaoptimizer.com)
@@ -132,20 +133,17 @@ These extensions help developers and analysts verify tracking implementations, d
 
 ### 6. [GA4 Live Debugger & DataLayer Inspector](/ga4-debugger/)
 
-**Best for:** Full-Stack GA4 Debugging, DataLayer Validation, and QA on Production
+**Best for:** Full-Stack GA4 Debugging & DataLayer Validation
 
-From the same team behind GA4 Optimizer, GA4 Live Debugger is a purpose-built debugging workspace for GA4. Unlike other debuggers that force you into the browser console, this extension gives you a structured, readable interface in either a Side Panel (for quick checks) or a dedicated DevTools tab (for deep inspection). It monitors network hits AND the dataLayer simultaneously, auto-validates ecommerce schemas, and even blocks test hits from reaching Google's servers so you can QA on production without polluting your data.
+Built by the GA4 Optimizer team, this debugging workspace replaces raw console logs with a clean, structured Side Panel. It monitors network hits and the dataLayer simultaneously, automatically validating your ecommerce tracking in real time.
 
 **Key Features:**
 
-* **Real-Time Hit Feed:** Every GA4 event displayed with full parameters, grouped by page navigation. No more decoding raw `collect?v=2` URLs.
-* **DataLayer Monitoring + Schema Validation:** Watches `dataLayer.push()` events in real time and automatically flags missing ecommerce objects or transaction_ids.
-* **Block Test Hits:** A single toggle prevents GA4 requests from reaching Google's servers while still showing you exactly what would have fired. Perfect for production QA.
-* **Automated Payload Warnings:** Flags oversized payloads (130KB+), mixed GTM/gtag implementations, legacy UA hits still lingering, and staging containers deployed to production.
-* **Campaign & UTM Extraction:** Automatically pulls UTM parameters, gclid, gbraid, fbclid, and ttclid into a dedicated panel so you can verify campaign tracking survives redirects.
-* **Force Debug Mode & CSV Export:** One-click debug_mode toggle plus export captured hits to CSV/TSV for client documentation or Jira tickets.
-* **Ghost DataLayer Detection:** Flags when an ad blocker is silently preventing tracking scripts from loading while events still push to a dead dataLayer.
-* **Team Sync via Google Sheets:** Define your custom events and parameters in a shared Sheet and surface them as hover tooltips inside the debugger feed.
+* **Structured Hit Feed:** Replaces raw `collect?v=2` console logs with a clean, readable UI for all GA4 events and parameters.
+* **DataLayer & Ecommerce Validation:** Monitors `dataLayer.push()` events and automatically flags missing `transaction_id`s or malformed e-commerce schemas.
+* **Live PII Detection:** Actively scans outgoing hits and warns you if emails or phone numbers are leaking into GA4.
+* **Shopify Sandbox Diagnostics:** Natively decodes the Shopify Web Pixel to flag iframe URL mismatches or dropped referrers that ruin attribution.
+* **Block Test Hits:** Toggle Block Mode to QA on your live production site without polluting your real GA4 metrics.
 
 [Learn more about GA4 Live Debugger →](/ga4-debugger/)
 

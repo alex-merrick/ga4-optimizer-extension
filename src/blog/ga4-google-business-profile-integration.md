@@ -35,7 +35,7 @@ faq_schema: >
   }
 layout: layouts/post.njk
 author: Alex Merrick
-title: "GA4 Google Business Profile Integration: Setup & Limits ({{ currentYear }})"
+title: "How to Connect Google Business Profile to GA4 (Setup & Limits)"
 date: 2026-06-11T10:00:00.000-05:00
 publishDate: 2026-06-08T10:00:00.000-05:00
 thumbnail: /img/thumbnails/gbp-thumb.jpg
@@ -49,7 +49,7 @@ tags:
   - ga4-updates
 ---
 
-Google has officially launched a native integration between Google Business Profile and Google Analytics 4. This closes a long-standing measurement gap that frustrated local SEO professionals and performance marketers who had no way to measure off-site actions inside their analytics platform.
+Connecting your Google Business Profile (GBP) natively to Google Analytics 4 closes a long-standing measurement gap for local SEO professionals and performance marketers.
 
 Before this integration, measuring Google Business Profile (GBP) performance in Google Analytics relied entirely on UTM parameters. UTM tags only capture users who physically click through to your website. Every off-site action like a phone call, direction request, or direct booking remained invisible to your analytics stack.
 
@@ -129,11 +129,11 @@ Address changes made in your Google Business Profiles will be reflected in Googl
 
 ## Enhancing Your Local GA4 Reports
 
-Because Google Business Profile data is locked out of Explorations, you are forced to do all your analysis inside GA4's Standard Reports interface. Standard Reports are notoriously rigid and lack the advanced calculation tools analysts rely on.
+Because Google Business Profile data is locked out of Explorations, you are forced to do all your analysis inside GA4's Standard Reports interface. This creates a massive reporting bottleneck because Standard Reports only show raw totals, preventing you from calculating local conversion rates natively.
 
-You can bypass these interface limitations by installing the free [GA4 Optimizer Chrome Extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_ga4_gbp_integration). It injects missing workflow features directly into the GA4 interface, making it much easier to analyze your newly imported local data.
+To bypass this limitation, install the free [GA4 Optimizer Chrome Extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_ga4_gbp_integration) to upgrade your reporting interface. 
 
-* **Calculate Local Conversion Rates:** Standard reports only show raw totals. Using the extension's [Quick Calculated Metric](/blog/how-to-get-exit-rate-in-ga4-reports/) feature, you can instantly create custom columns on the fly. Divide "Bookings" by "GBP interactions" to see your true local conversion rate without leaving the page.
+* **Calculate Local Conversion Rates:** Instead of exporting data to a spreadsheet to calculate performance, use the extension's [Quick Calculated Metric](/features/#feature-quick-calculated-metric) feature. You can instantly create a custom column that divides "Bookings" by "GBP interactions" to see your true local conversion rate directly inside GA4.
 * **Fix Clunky Date Comparisons:** Since native comparisons are restricted for these metrics, use our Date Range Presets tool to apply fast, accurate period-over-period date selections with a single click.
 * **Keep Data Readable:** When reviewing long lists of landing pages associated with local traffic, use the extension's Sticky Headers feature to keep your metric titles visible as you scroll down the page.
 

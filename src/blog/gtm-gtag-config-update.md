@@ -42,7 +42,7 @@ last_modified_at: 2026-10-08T09:00:00.000-05:00
 thumbnail: /img/thumbnails/gtm-wild-card.jpg
 post_image: /img/thumbnails/gtm-wild-card.jpg
 url: "https://www.gaoptimizer.com/blog/gtm-gtag-config-update/"
-description: "Google's October {{ currentYear }} update forces hardcoded gtag('config') commands into the dataLayer. Find out if this event causes misfires or (not set) errors."
+description: "Google's October 2026 update forces hardcoded gtag('config') commands into the dataLayer. Find out if this event causes misfires or (not set) errors."
 tags:
   - post
   - gtm
@@ -52,7 +52,7 @@ tags:
 
 Google just pushed a technical update to Google Tag Manager that will actively break specific, non-standard tracking setups. 
 
-On October 8, {{ currentYear }}, Google standardized how tagging snippets behave across all websites. The update forces `gtm.js` containers to initialize on page load regardless of any existing configuration commands. 
+On October 8, 2026, Google standardized how tagging snippets behave across all websites. The update forces `gtm.js` containers to initialize on page load regardless of any existing configuration commands. 
 
 While standardization sounds helpful, the technical execution carries a massive side effect. Commands that used to run silently in the background are now surfacing as highly visible `gtag.config` events in your dataLayer. 
 

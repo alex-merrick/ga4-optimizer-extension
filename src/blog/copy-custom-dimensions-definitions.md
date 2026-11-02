@@ -49,6 +49,8 @@ This process is slow, repetitive, and dangerously prone to typos that can corrup
 
 But what if you could migrate your entire configuration in about 60 seconds? Here is how to do it.
 
+> **Troubleshooting Note:** If you already set up your custom dimensions but your reports are returning blank rows or errors, you are likely experiencing a race condition. Read our guide on [how to fix the GA4 (not set) custom dimension error](/blog/ga4-custom-dimension-not-set-issue/) instead.
+
 ## Why GA4 Has No Native "Clone" Feature
 
 In a perfect world, the GA4 Admin panel would have a button to "Clone property configuration" or "Export custom definitions". It does not. The only native method for copying your setup to a new property is painfully manual:

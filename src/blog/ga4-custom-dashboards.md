@@ -178,9 +178,9 @@ If your team has GA4 property access, skip the attachments and share the live da
 
 ## How to Fix the Remaining UI Limits
 
-If you plan to move stakeholder reporting onto these native dashboards, you need tools to cover the gaps Google left open.
+Native dashboards are great for quick executive summaries, but they do not fix your day-to-day reporting. If you are frustrated by the 250-row limit, missing exit rates, or clunky date pickers in standard reports, you need to upgrade the interface itself.
 
-This is exactly why we built the free [GA4 Optimizer Chrome extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_ga4_custom_dashboards). It sits on top of your GA4 property and fixes workflow gaps across the interface. Here is what is live now and what is coming for the new dashboard builder:
+Install the free [GA4 Optimizer Chrome extension](https://chromewebstore.google.com/detail/ga4-optimizer/hlldjkhoepkephgaeifgbelgchncfnjj?utm_source=gaoptimizer.com&utm_medium=website&utm_campaign=blog_ga4_custom_dashboards) to fix these UI gaps. It sits directly on top of your GA4 property. Here is what it fixes right now, and what is coming for the new dashboard builder:
 
 **Newly released fixes from us for the Dasboards:**
 

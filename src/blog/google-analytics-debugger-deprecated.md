@@ -28,7 +28,7 @@ faq_schema: >
   }
 layout: layouts/post.njk
 author: Alex Merrick
-title: "Google Analytics Debugger Deprecated: The Best GA4 Alternative ({{ currentYear }})"
+title: "Google Analytics Debugger Deprecated: The Best GA4 Alternative"
 date: 2026-10-30T09:00:00.000-05:00
 publishDate: 2026-10-30T09:00:00.000-05:00
 last_modified_at: 2026-10-30T09:00:00.000-05:00

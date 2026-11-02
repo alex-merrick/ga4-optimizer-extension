@@ -53,6 +53,8 @@ This is one of the most common issues analysts face. The column exists because y
 
 Here are the three reasons why your registered GA4 custom dimensions are showing as "(not set)" and how to fix your configuration.
 
+> **Management Tip:** If your parameters are working correctly but you need to duplicate them to another property, do not waste time rebuilding them manually. Learn how to [copy and paste custom dimensions across GA4 properties](/blog/copy-custom-dimensions-definitions/) in one click.
+
 ## Reason 1: A Case-Sensitivity Mismatch or Typo
 
 Google Analytics 4 is strictly case-sensitive. The event parameter name you type into Google Tag Manager must match the event parameter name you register in the GA4 Admin interface character for character.
