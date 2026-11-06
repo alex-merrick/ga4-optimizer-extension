@@ -66,6 +66,8 @@ When you open the new interface, the first thing you see is the **Data connectio
 
 Below the map, Google categorizes data connections into three primary pillars.
 
+<img src="/img/data-manager.jpg" alt="GA4 Optimizer Edit date button" width="631" height="474">
+
 ### 1. Centralized Google Product Links
 Previously, connecting Google Ads, Search Console, BigQuery, and Merchant Center required hunting through separate sub-menus in the Admin panel. The Data Manager brings every available Google product link into one grid. You can view the status of your connections, manage active links, and initiate new product integrations without leaving the page.
 
