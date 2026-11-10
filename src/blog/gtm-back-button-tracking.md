@@ -35,7 +35,7 @@ last_modified_at: 2026-11-10T09:00:00.000Z
 thumbnail: /img/thumbnails/gtm-bfcache-update-banner.jpg
 post_image: /img/thumbnails/gtm-bfcache-update-banner.jpg
 description: "Google Tag Manager just fixed a major tracking gap. Learn how the November 2026 update recovers missing pageviews when users click the browser back button."
-url: "https://www.gaoptimizer.com/blog/gtm-bfcache-update/"
+url: "https://www.gaoptimizer.com/blog/gtm-back-button-tracking/"
 tags:
   - post
   - gtm
