@@ -19,10 +19,10 @@ faq_schema: >
       }
     }, {
       "@type": "Question",
-      "name": "What is User-Provided Data (UPD) in GA4?",
+      "name": "What are Online active user views in GA4?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "User-Provided Data is a feature that allows website owners to securely send hashed first-party customer information, like email addresses and phone numbers, to Google. This helps offset cookie loss and improves cross-device conversion modeling."
+        "text": "This is a new metric rolling out alongside the Data Manager. The 'Online' prefix indicates that the data was collected exclusively via a web Google tag or app SDK, isolating website behavior from offline CRM or server-side data imports."
       }
     }, {
       "@type": "Question",
@@ -38,7 +38,7 @@ author: Alex Merrick
 title: "GA4 Data Manager BETA: Native Meta and CRM Integrations"
 date: 2026-11-05T14:28:00.000Z
 publishDate: 2026-11-05T14:28:00.000Z
-last_modified_at: 2026-11-07T14:28:00.000Z
+last_modified_at: 2026-11-12T09:00:00.000Z
 thumbnail: /img/thumbnails/ga4-data-manager.jpg
 post_image: /img/thumbnails/ga4-data-manager.jpg
 description: "Google is rolling out the Data Manager BETA in GA4. Learn how this new hub brings native Meta, TikTok, and Salesforce integrations directly into your analytics property."
@@ -54,7 +54,7 @@ If you log into your GA4 property this week and open the Admin panel, you might 
 
 For years, getting external data into GA4 was a fragmented and frustrating process. You had to navigate to Product Links for Google tools, use the Data Import menu for manual CSV uploads, and rely on developer-heavy Measurement Protocol documentation for server-side events. 
 
-The new Data Manager consolidates all of these ingestion methods into a single visual UI. More importantly, it introduces native integrations for Google's biggest competitors. Here is a complete breakdown of what the new Data Manager does, what data Google is asking for, and the strategic tradeoff of centralizing your data.
+The new Data Manager consolidates all of these ingestion methods into a single visual UI. More importantly, it introduces native integrations for Google's biggest competitors. Here is a complete breakdown of what the new Data Manager does, what data Google is asking for, the quiet changes happening to standard metrics, and the strategic tradeoff of centralizing your data.
 
 ## What is the GA4 Data Manager?
 
@@ -64,7 +64,7 @@ When you open the new interface, the first thing you see is the **Data connectio
 
 Below the map, Google categorizes data connections and monitoring into four primary pillars.
 
-<img src="/img/data-manager.jpg" alt="Google Analytics Data Manager Beta interface UI" width="631" height="474">
+<img src="/img/data-manager.jpg" alt="Google Analytics Data Manager Beta interface UI" width="631" height="474" style="width: 100%; height: auto; border: 1px solid var(--border-color); margin: 20px 0; border-radius: 6px;">
 
 ### 1. Centralized Google Product Links
 Previously, connecting Google Ads, Search Console, BigQuery, and Merchant Center required hunting through separate sub-menus in the Admin panel. The Data Manager brings every available Google product link into one grid. You can view the status of your connections, manage active links, and initiate new product integrations without leaving the page.
@@ -86,6 +86,20 @@ As browser privacy restrictions and cookie deprecation continue to erode standar
 
 ### 4. Proactive Data Strength Guide
 Buried within the new manager is a feature Google calls proactive data strength. The platform will now actively scan your existing setup to identify measurement gaps and push tailored recommendations based on specific account signals. While this is helpful for beginners ensuring their tracking is active, it acts as another lever for Google to nudge administrators into passing more first-party data into the ecosystem.
+
+## Quiet Reporting Changes: The Shift to "Online" Metrics
+
+The rollout of the Data Manager is already triggering structural changes to GA4's reporting schema. Over the past few days, analytics communities have spotted new, undocumented metrics appearing in standard reports for select properties. 
+
+Specifically, Google is rolling out metrics with an "Online" prefix, such as **Online active user views** and **Average online active user engagement time**. 
+
+If you read the tooltip definitions for these new metrics in the UI, they contain a very specific caveat: *"This data comes from a Google tag or SDK."* 
+
+<img src="/img/ga4-online-active-user-views.jpg" alt="GA4 new metrics showing online active user views and average online active user engagement time" width="700" height="230" style="width: 100%; max-width: 600px; height: auto; border: 1px solid var(--border-color); margin: 20px 0; border-radius: 6px;">
+
+This addition of "online" terminology is the smoking gun for why the Data Manager exists. If you are importing thousands of offline Salesforce lifecycle events, manual CSV uploads, or server-to-server CRM conversions, your standard web engagement metrics would instantly become skewed. 
+
+To prevent offline data from ruining your website behavioral reporting, Google is preemptively splitting the data model. "Online" metrics will isolate behavior collected directly from a browser or app SDK, while standard metrics will encompass the blended total of your web and newly imported Data Manager sources. 
 
 ## The Strategic Dilemma: Data Governance vs. Convenience
 
