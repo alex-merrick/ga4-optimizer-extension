@@ -43,7 +43,7 @@ tags:
   - ga4-updates
 ---
 
-*Update (November 2026): Are you trying to block bot traffic from specific cities, browsers, or devices? The Hostname filter won't work for that. Instead, check out our new guide on **[How to Use GA4's New Custom Condition Filters to Block Bot Traffic](/blog/ga4-custom-condition-filters/)**.*
+*Update (November 2026): In addition to Hostname filters, GA4 now allows you to block traffic using multi-dimension rules (like City + Browser). If you need to filter complex bot attacks, check out our new guide on **[How to Use GA4's New Custom Condition Filters](/blog/ga4-custom-condition-filters/)**.*
 
 *Update (September 2026): Google significantly upgraded the GA4 Hostname filter by adding "Include" logic, allowing analysts to finally create proactive domain allowlists.*
 
