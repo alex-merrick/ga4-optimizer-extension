@@ -1,8 +1,8 @@
 // Same-origin proxy for the Stape sGTM custom loader.
-// Maps https://www.gaoptimizer.com/gakpi/<path>?<query> to https://tcqjwhhs.gaoptimizer.com/<path>?<query>.
+// Maps https://www.gaoptimizer.com/gak5pi/<path>?<query> to https://tcqjwhhs.gaoptimizer.com/<path>?<query>.
 // Headers follow the Stape guide: https://stape.io/helpdesk/documentation/how-to-use-same-origin-through-netlify
 
-const PATH_PREFIX = "/gakpi";
+const PATH_PREFIX = "/gak5pi";
 const TARGET_ORIGIN = "https://tcqjwhhs.gaoptimizer.com";
 
 const HOP_BY_HOP_HEADERS = new Set([
@@ -60,4 +60,4 @@ export default async (request, context) => {
   });
 };
 
-export const config = { path: "/gakpi/*" };
+export const config = { path: "/gak5pi/*" };
